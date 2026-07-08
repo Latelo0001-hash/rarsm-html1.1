@@ -1,0 +1,95 @@
+.pricing-plan {
+  text-align: center;
+  padding: 75px 60px;
+  border-radius: 3px;
+
+  @media (max-width: 1199px) {
+    padding: 50px 30px;
+  }
+
+  .price-wrap {
+    font-family: 'Montserrat', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    font-size: 20px;
+    line-height: 0.7;
+    margin-top: 50px;
+    font-weight: bold;
+    color: $darkgreyColor;
+    .plan-sign{
+      margin-right: 5px;
+    }
+    .plan-price {
+      font-size: 50px;
+    }
+  }
+  .plan-name {
+    h3 {
+      font-size: 14px;
+      letter-spacing: normal;
+      font-family: "Heebo", sans-serif;
+      font-weight: 400;
+      line-height: 1;
+      position: relative;
+      padding-bottom: 30px;
+      &::after{
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        display: inline-block;
+        width: 50px;
+        height: 1px;
+        background-color: $colorMain2;
+      }
+    }
+  }
+
+  .plan-description{
+    margin-top: 40px;
+  }
+
+  .plan-features {
+    margin-top: 25px;
+  }
+
+  .list-unstyled{
+    font-size: 18px;
+    font-weight: 300;
+    color: $darkgreyColor;
+
+    .enabled{
+      &::before{
+        content: '\f00c';
+        font-family: "FontAwesome", sans-serif;
+        display: inline-block;
+        font-size: 12px;
+        margin-right: 3px;
+      }
+    }
+    .disabled{
+      &::before{
+        content: '\f00d';
+        font-family: "FontAwesome", sans-serif;
+        display: inline-block;
+        font-size: 12px;
+        margin-right: 3px;
+      }
+    }
+  }
+
+  .plan-button {
+    margin-top: 40px;
+    position: static;
+  }
+
+  //featured border
+  &.plan-featured {
+    @media (min-width: 1200px){
+      transform: translateY(-40px);
+      margin-bottom: -40px;
+    }
+  }
+}

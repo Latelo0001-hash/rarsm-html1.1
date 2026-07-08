@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js">
+<!--<![endif]-->
+
+<head>
+	<title>RARSM Reccueil Des Actes Reglementaires Du secteur Minier</title>
+	<meta charset="utf-8">
+	<!--[if IE]>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<![endif]-->
+	<meta name="description" content="">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta name="format-detection" content="telephone=no">
+	<!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+	<link rel="icon" href="favicon.png?v=20260702-favicon" type="image/png">
+	<link rel="shortcut icon" href="favicon.png?v=20260702-favicon" type="image/png">
+	<link rel="apple-touch-icon" href="favicon.png?v=20260702-favicon">
+	<link rel="stylesheet" href="css/site.css">
+<script src="js/vendor/modernizr-2.6.2.min.js"></script>
+
+	<!--[if lt IE 9]>
+		<script src="js/vendor/html5shiv.min.js"></script>
+		<script src="js/vendor/respond.min.js"></script>
+		<script src="js/vendor/jquery-1.12.4.min.js"></script>
+	<![endif]-->
+
+</head>
+
+<body>
+	<!--[if lt IE 9]>
+		<div class="bg-danger text-center">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/" class="color-main">upgrade your browser</a> to improve your experience.</div>
+	<![endif]-->
+
+	<div class="preloader">
+		<div class="preloader_image pulse"></div>
+	</div>
+
+	<!-- search modal -->
+	<div class="modal" tabindex="-1" role="dialog" aria-labelledby="search_modal" id="search_modal">
+		<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+			<span aria-hidden="true">&times;</span>
+		</button>
+		<div class="widget widget_search">
+			<form method="get" class="searchform search-form" action="/">
+				<div class="form-group">
+					<input type="text" value="" name="search" class="form-control" placeholder="Search keyword" id="modal-search-input">
+				</div>
+				<button type="submit" class="btn">Search</button>
+			</form>
+		</div>
+	</div>
+
+	<!-- Unyson messages modal -->
+	<div class="modal fade" tabindex="-1" role="dialog" id="messages_modal">
+		<div class="fw-messages-wrap ls p-normal">
+			<!-- Uncomment this UL with LI to show messages in modal popup to your user: -->
+			<!--
+		<ul class="list-unstyled">
+			<li>Message To User</li>
+		</ul>
+		-->
+
+		</div>
+	</div><!-- eof .modal -->
+
+	<div class="modal fade popupLogin" id="popupLogin" tabindex="-1" role="dialog" aria-hidden="true">
+		<div class="modal-dialog modal-dialog-centered" role="document">
+			<div class="modal-content ls border-r-def overflow-visible s-overlay s-mobile-overlay">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+				<div class="modal-body">
+					<div class="container">
+						<div class="row">
+							<div class="col-12">
+								<h4 class="mb-4">Log in</h4>
+								<form class="form-registration c-mb-40 c-gutter-20" action="/">
+									<div class="row mb-4">
+										<div class="col-sm-12">
+											<div class="form-group">
+												<input type="text" name="name" class="form-control" required placeholder="login" aria-required="true">
+											</div>
+										</div>
+										<div class="col-sm-12">
+											<div class="form-group">
+												<input type="password" name="password" class="form-control" placeholder="password" aria-required="true" required>
+											</div>
+										</div>
+									</div>
+									<a class="registerRedirect " data-dismiss="modal" data-target="#popupRegistr" data-toggle="modal" href="#">Not a member? Register!</a>
+									<button type="submit" class="btn btn-maincolor mt-30 d-block">Sign In</button>
+								</form>
+
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="modal fade popupRegistr" id="popupRegistr" tabindex="-1" role="dialog" aria-hidden="true">
+		<div class="modal-dialog modal-dialog-centered" role="document">
+			<div class="modal-content ls border-r-def overflow-visible s-overlay s-mobile-overlay">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+				<div class="modal-body">
+					<div class="container">
+						<div class="row">
+							<div class="col-12">
+								<h4 class="mb-4">Registration</h4>
+								<form class="form-registration c-mb-40 c-gutter-40" method="post" action="/">
+									<div class="row">
+										<div class="col-12">
+											<div class="form-group">
+												<input type="text" name="name" class="form-control" required placeholder="login" aria-required="true">
+											</div>
+										</div>
+										<div class="col-12">
+											<div class="form-group">
+												<input type="password" name="password" class="form-control" placeholder="password" aria-required="true" required>
+											</div>
+										</div>
+										<div class="col-12">
+											<div class="form-group">
+												<input type="email" name="email" class="form-control" placeholder="email" required aria-required="true">
+											</div>
+										</div>
+										<div class="col-12">
+											<div class="form-group">
+												<input type="password" name="confirmPassword" class="form-control" placeholder="password" required aria-required="true">
+											</div>
+										</div>
+										<div class="col-12">
+											<div class="form-group checkbox-group">
+												<input type="checkbox" id="agreed" name="agreed" value="agreed" required aria-required="true"><label for="agreed">I agree to the rules</label>
+											</div>
+										</div>
+									</div>
+									<button type="submit" class="btn btn-maincolor mt-30 d-block">Registration</button>
+								</form>
+
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- page wrapper -->
+	<div id="canvas">
+		<div id="box_wrapper">
+
+			<!-- page sections -->
+
+
+			<!-- header with three Bootstrap columns - left for logo, center for navigation and right for includes-->
+			<header class="page_header ls s-overlay s-py-10">
+				<div class="container-fluid">
+					<div class="row align-items-center">
+						<div class="col-xl-2 col-lg-3 col-11">
+							<a href="./" class="logo">
+								<img src="logo/rarsm-logo-wordmark-color.png" alt="RARSM">
+							</a>
+						</div>
+						<div class="col-xl-8 col-lg-5 col-1">
+							<!-- main nav start -->
+							<nav class="top-nav">
+								<ul class="nav sf-menu">
+									<li class="active">
+										<a href="index.html">Home</a>
+										<ul>
+											<li>
+												<a href="index.html">MultiPage</a>
+											</li>
+											<li>
+												<a href="index_singlepage.html">Single Page</a>
+											</li>
+										</ul>
+									</li>
+									<li>
+										<a href="author.html">Pages</a>
+										<ul>
+											<li>
+												<a href="gallery-excerpt.html">Gallery</a>
+											</li>
+											<li>
+												<a href="services.html">Our Services</a>
+												<ul>
+													<li>
+														<a href="services.html">Services 1</a>
+													</li>
+													<li>
+														<a href="service-single2.html">Single Service 2</a>
+													</li>
+												</ul>
+											</li>
+											<li>
+												<a href="pricing.html">Pricing</a>
+											</li>
+											<li>
+												<a href="events-full.html">Events</a>
+												<ul>
+													<li>
+														<a href="events-full.html">Full Width</a>
+													</li>
+													<li>
+														<a href="event-single-full.html">Single Event</a>
+													</li>
+												</ul>
+											</li>
+											<li>
+												<a href="team.html">Team</a>
+												<ul>
+													<li>
+														<a href="team.html">Team List</a>
+													</li>
+													<li>
+														<a href="team-single.html">Team Member</a>
+													</li>
+												</ul>
+											</li>
+											<li>
+												<a href="comingsoon.html">Comingsoon</a>
+											</li>
+											<li>
+												<a href="faq.html">FAQ</a>
+											</li>
+											<li>
+												<a href="404.html">404</a>
+											</li>
+										</ul>
+									</li>
+									<li>
+										<a href="author.html">Author</a>
+									</li>
+									<li>
+										<a href="chapter.html">Chapter</a>
+									</li>
+									<li>
+										<a href="blog-single-left.html">Blog</a>
+										<ul>
+											<li>
+												<a href="blog-single-left.html">Post Left Sidebar</a>
+											</li>
+											<li>
+												<a href="blog-single-video-left.html">Video Post Left Sidebar</a>
+											</li>
+										</ul>
+									</li>
+									<li>
+										<a href="header3.html">Features</a>
+										<div class="mega-menu">
+											<ul class="mega-menu-row">
+												<li class="mega-menu-col">
+													<a href="header3.html">Headers</a>
+													<ul>
+														<li>
+															<a href="header3.html">Header Type 3</a>
+														</li>
+													</ul>
+												</li>
+												<li class="mega-menu-col">
+													<a href="header-side.html">Side Menus</a>
+													<ul>
+														<li>
+															<a href="header-side.html">Push Left</a>
+														</li>
+													</ul>
+												</li>
+												<li class="mega-menu-col">
+													<a href="title1.html">Title Sections</a>
+													<ul>
+														<li>
+															<a href="title1.html">Title section 1</a>
+														</li>
+													</ul>
+												</li>
+												<li class="mega-menu-col">
+													<a href="footer6.html#footer">Footers</a>
+													<ul>
+														<li>
+															<a href="footer6.html#footer">Footer Type 6</a>
+														</li>
+													</ul>
+												</li>
+												<li class="mega-menu-col">
+													<a href="copyright1.html#copyright">Copyright</a>
+													<ul>
+														<li>
+															<a href="copyright1.html#copyright">Copyright 1</a>
+														</li>
+													</ul>
+												</li>
+											</ul>
+										</div>
+									</li>
+									<li>
+										<a href="contact.html">Contact</a>
+										<ul>
+											<li>
+												<a href="contact.html">Contact 1</a>
+											</li>
+											<li>
+												<a href="contact4.html">Contact 4</a>
+											</li>
+										</ul>
+									</li>
+								</ul>
+							</nav>
+							<!-- eof main nav -->
+						</div>
+						<div class="col-xl-2 col-lg-3 text-right d-none d-lg-block">
+							
+						</div>
+					</div>
+				</div>
+				<!-- header toggler -->
+				<span class="toggle_menu"><span></span></span>
+			</header>
+
+			<section class="page_title ds s-parallax s-py-110">
+				<div class="container">
+					<div class="row">
+
+						<div class="col-md-12 text-center">
+							<h1 class="small-title">Contact</h1>
+							<ol class="breadcrumb">
+								<li class="breadcrumb-item">
+									<a href="./">Home</a>
+								</li>
+								<li class="breadcrumb-item">
+									<a href="#">Pages</a>
+								</li>
+								<li class="breadcrumb-item active">
+									Contact
+								</li>
+							</ol>
+						</div>
+
+					</div>
+				</div>
+			</section>
+
+			<section class="ls ms page_map" data-draggable="false" data-scrollwheel="false">
+
+				<div class="marker">
+					<div class="marker-address">Avenue Roi Beaudouin, N0.47, Building 3Z, Apartment 4a, Gombe, Kinshasa, DRC</div>
+					<div class="marker-title">RARSM</div>
+					<div class="marker-description">
+
+						<ul class="list-unstyled">
+							<li>
+								<span class="icon-inline">
+									<span class="icon-styled color-main">
+										<i class="fa fa-map-marker"></i>
+									</span>
+
+									<span>
+										Avenue Roi Beaudouin, N0.47, Building 3Z, Apartment 4a, Gombe, Kinshasa, DRC
+									</span>
+								</span>
+							</li>
+
+							<li>
+								<span class="icon-inline">
+									<span class="icon-styled color-main">
+										<i class="fa fa-briefcase"></i>
+									</span>
+
+									<span>
+										Gouvernance, suivi des activites, exportation et certification
+									</span>
+								</span>
+							</li>
+							<li>
+								<span class="icon-inline">
+									<span class="icon-styled color-main">
+										<i class="fa fa-envelope"></i>
+									</span>
+
+									<span>
+										Presentation, information et partenariats autour du recueil
+									</span>
+								</span>
+							</li>
+						</ul>
+					</div>
+
+					<img class="marker-icon" src="images/map_marker_icon.png" alt="img">
+				</div>
+				<!-- .marker -->
+
+			</section>
+
+			<section class="ls ms s-py-90 s-py-xl-160">
+				<div class="container">
+					<div class="row">
+						<div class="col-lg-4 animate" data-animation="scaleAppear">
+							<div class="divider-lg-60"></div>
+							<h2 class="special-heading">
+								<span>Demander une presentation</span>
+							</h2>
+							<div class="divider-35"></div>
+							<p>
+								Utilisez ce formulaire pour toute demande d'information, d'acquisition, de presentation ou de partenariat autour du recueil RARSM.
+							</p>
+							<div class="divider-35"></div>
+							<ul class="pl-0">
+								<li class="icon-inline">
+									<div class="icon-styled color-main fs-16">
+										<i class="fa fa-users"></i>
+									</div>
+									<p>Operateurs miniers, juristes, investisseurs et institutions publiques</p>
+								</li>
+								<li class="icon-inline links-grey">
+									<div class="icon-styled color-main fs-16">
+										<i class="fa fa-briefcase"></i>
+									</div>
+									<p>Presentation de l'ouvrage, demande d'information ou partenariat</p>
+								</li>
+								<li class="icon-inline">
+									<div class="icon-styled color-main fs-16">
+										<i class="fa fa-map-marker"></i>
+									</div>
+									<p>Avenue Roi Beaudouin, N0.47, Building 3Z, Apartment 4a, Gombe, Kinshasa, DRC</p>
+								</li>
+							</ul>
+						</div>
+						<div class="col-lg-8 animate" data-animation="scaleAppear">
+							<div class="divider-lg-0 divider-60"></div>
+							<div class="inner-wrap ls p-30 p-xl-70 border-r-def">
+								<form class="contact-form c-mb-50 c-gutter-50" method="post" action="/">
+									<div class="row">
+										<div class="col-sm-6">
+											<div class="form-group has-placeholder">
+												<label for="name">Nom complet <span class="required">*</span></label>
+												<input type="text" aria-required="true" size="30" value="" name="name" id="name" class="form-control" placeholder="Votre nom">
+											</div>
+										</div>
+										<div class="col-sm-6">
+											<div class="form-group has-placeholder">
+												<label for="email">Adresse email<span class="required">*</span></label>
+												<input type="email" aria-required="true" size="30" value="" name="email" id="email" class="form-control" placeholder="Votre email">
+											</div>
+										</div>
+									</div>
+
+									<div class="row">
+										<div class="col-sm-12">
+											<div class="form-group has-placeholder">
+												<label for="subject">Objet<span class="required">*</span></label>
+												<input type="text" aria-required="true" size="30" value="" name="subject" id="subject" class="form-control" placeholder="Objet de votre demande">
+											</div>
+										</div>
+									</div>
+									<div class="row">
+										<div class="col-sm-12">
+											<div class="form-group has-placeholder">
+												<label for="message">Message</label>
+												<textarea aria-required="true" rows="3" cols="45" name="message" id="message" class="form-control" placeholder="Votre message"></textarea>
+											</div>
+										</div>
+									</div>
+									<div class="wrap-forms">
+										<div class="row">
+											<div class="col-12">
+												<button type="submit" name="contact_submit" class="btn btn-maincolor">Envoyer la demande</button>
+								

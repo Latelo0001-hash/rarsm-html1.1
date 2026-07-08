@@ -1,0 +1,42 @@
+/*
+** 404
+*/
+
+.page_404 {
+  background-image: url("../images/404.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  min-height: calc(100vh - 244px);
+}
+
+.error-404 {
+  .page-header {
+    h3 {
+      font-size: 160px;
+      line-height: .8;
+      color: $lightColor;
+      font-weight: bold;
+      margin-bottom: 20px;
+    }
+    p {
+      @include meta-time();
+    }
+  }
+
+  .widget_mailchimp{
+    button:not(.btn):before{
+      background-color: $lightColor;
+    }
+  }
+
+  .page-content{
+    margin-top: 60px;
+  }
+
+  @media (max-width: 575px) {
+    .page-header h3{
+      font-size: 120px;
+    }
+  }
+}

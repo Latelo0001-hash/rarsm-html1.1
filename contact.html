@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js">
+<!--<![endif]-->
+
+<head>
+	<title>RARSM Reccueil Des Actes Reglementaires Du secteur Minier</title>
+	<meta charset="utf-8">
+	<!--[if IE]>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<![endif]-->
+	<meta name="description" content="">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta name="format-detection" content="telephone=no">
+	<!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+	<link rel="icon" href="favicon.png?v=20260702-favicon" type="image/png">
+	<link rel="shortcut icon" href="favicon.png?v=20260702-favicon" type="image/png">
+	<link rel="apple-touch-icon" href="favicon.png?v=20260702-favicon">
+	<link rel="stylesheet" href="css/site.css">
+<script src="js/vendor/modernizr-2.6.2.min.js"></script>
+
+	<!--[if lt IE 9]>
+		<script src="js/vendor/html5shiv.min.js"></script>
+		<script src="js/vendor/respond.min.js"></script>
+		<script src="js/vendor/jquery-1.12.4.min.js"></script>
+	<![endif]-->
+
+</head>
+
+<body>
+	<!--[if lt IE 9]>
+		<div class="bg-danger text-center">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/" class="color-main">upgrade your browser</a> to improve your experience.</div>
+	<![endif]-->
+
+	<div class="preloader">
+		<div class="preloader_image pulse"></div>
+	</div>
+
+	<!-- search modal -->
+	<div class="modal" tabindex="-1" role="dialog" aria-labelledby="search_modal" id="search_modal">
+		<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+			<span aria-hidden="true">&times;</span>
+		</button>
+		<div class="widget widget_search">
+			<form method="get" class="searchform search-form" action="/">
+				<div class="form-group">
+					<input type="text" value="" name="search" class="form-control" placeholder="Search keyword" id="modal-search-input">
+				</div>
+				<button type="submit" class="btn">Search</button>
+			</form>
+		</div>
+	</div>
+
+	<!-- Unyson messages modal -->
+	<div class="modal fade" tabindex="-1" role="dialog" id="messages_modal">
+		<div class="fw-messages-wrap ls p-normal">
+			<!-- Uncomment this UL with LI to show messages in modal popup to your user: -->
+			<!--
+		<ul class="list-unstyled">
+			<li>Message To User</li>
+		</ul>
+		-->
+
+		</div>
+	</div><!-- eof .modal -->
+
+	<div class="modal fade popupLogin" id="popupLogin" tabindex="-1" role="dialog" aria-hidden="true">
+		<div class="modal-dialog modal-dialog-centered" role="document">
+			<div class="modal-content ls border-r-def overflow-visible s-overlay s-mobile-overlay">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+				<div class="modal-body">
+					<div class="container">
+						<div class="row">
+							<div class="col-12">
+								<h4 class="mb-4">Log in</h4>
+								<form class="form-registration c-mb-40 c-gutter-20" action="/">
+									<div class="row mb-4">
+										<div class="col-sm-12">
+											<div class="form-group">
+												<input type="text" name="name" class="form-control" required placeholder="login" aria-required="true">
+											</div>
+										</div>
+										<div class="col-sm-12">
+											<div class="form-group">
+												<input type="password" name="password" class="form-control" placeholder="password" aria-required="true" required>
+											</div>
+										</div>
+									</div>
+									<a class="registerRedirect " data-dismiss="modal" data-target="#popupRegistr" data-toggle="modal" href="#">Not a member? Register!</a>
+									<button type="submit" class="btn btn-maincolor mt-30 d-block">Sign In</button>
+								</form>
+
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	
+
+	<!-- page wrapper -->
+	<div id="canvas">
+		<div id="box_wrapper">
+
+			<!-- page sections -->
+
+
+			<!-- header with three Bootstrap columns - left for logo, center for navigation and right for includes-->
+			<header class="page_header ls s-overlay s-py-10">
+				<div class="container-fluid">
+					<div class="row align-items-center">
+						<div class="col-xl-2 col-lg-3 col-11">
+							<a href="index.html" class="logo">
+								<img src="logo/rarsm-logo-wordmark-color.png" alt="RARSM">
+							</a>
+						</div>
+						<div class="col-xl-8 col-lg-6 col-1">
+							<!-- main nav start -->
+							<nav class="top-nav">
+								<ul class="nav sf-menu">
+									<li class="active">
+										<a href="index.html">Accueil</a>
+									</li>
+									<li>
+										<a href="#about">Le Livre</a>
+									</li>
+									<li>
+										<a href="#acheter">Acheter</a>
+									</li>
+									<li>
+										<a href="#author">Auteur</a>
+									</li>
+									<li>
+										<a href="blog.html">Blog</a>
+									</li>
+									<li>
+										<a href="faq.html">FAQ</a>
+									</li>
+									<li>
+										<a href="#contact">Contact</a>
+									</li>
+									<li class="menu-language-mobile d-lg-none">
+										<div class="language-switcher js-language-switcher">
+											<button type="button" class="language-toggle js-language-toggle" aria-expanded="false" aria-label="Choix de la langue actuelle">Fr</button>
+											<div class="language-menu" role="menu" aria-label="Choix de la langue">
+												<button type="button" class="language-option js-language-option is-active" data-language="fr" role="menuitem">Fr</button>
+												<button type="button" class="language-option js-language-option" data-language="en" role="menuitem">En</button>
+											</div>
+										</div>
+									</li>
+								</ul>
+							</nav>
+							<!-- eof main nav -->
+						</div>
+						<div class="col-xl-2 col-lg-3 text-right d-none d-lg-block">
+							<div class="header-language-control">
+								<div class="language-switcher js-language-switcher">
+									<button type="button" class="language-toggle js-language-toggle" aria-expanded="false" aria-label="Choix de la langue actuelle">Fr</button>
+									<div class="language-menu" role="menu" aria-label="Choix de la langue">
+										<button type="button" class="language-option js-language-option is-active" data-language="fr" role="menuitem">Fr</button>
+										<button type="button" class="language-option js-language-option" data-language="en" role="menuitem">En</button>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- header toggler -->
+				<span class="toggle_menu" aria-label="Ouvrir le menu mobile" role="button" tabindex="0"><span></span></span>
+			</header>
+
+			<section class="page_title ds s-parallax s-py-110" >
+				<div class="container">
+					<div class="row">
+
+						<div class="col-md-12 text-center">
+							<h1 class="small-title">Contact Us</h1>
+							<ol class="breadcrumb">
+								<li class="breadcrumb-item">
+									<a href="./">Home</a>
+								</li>
+								<li class="breadcrumb-item">
+									<a href="#">Pages</a>
+								</li>
+								<li class="breadcrumb-item active">
+									Contact Us 
+								</li>
+							</ol>
+						</div>
+
+					</div>
+				</div>
+			</section>
+
+			<section class="ls ms s-py-60 s-py-xl-90 js-rarsm-cartography" style="padding-top: 0;">
+				<div class="container">
+					<div class="row">
+						<div class="col-12 text-center">
+							<h3 class="special-heading"><span>Cartographie</span></h3>
+							<div class="divider-35"></div>
+							<p class="excerpt">Localisation du bureau RARSM a Gombe, Kinshasa.</p>
+							<div class="divider-40"></div>
+						</div>
+						<div class="col-12">
+							<div class="embed-responsive embed-responsive-21by9 border-r-def overflow-hidden">
+								<iframe class="embed-responsive-item" src="https://www.google.com/maps?q=Avenue%20Roi%20Beaudouin%2C%20N0.47%2C%20Building%203Z%2C%20Apartment%204a%2C%20Gombe%2C%20Kinshasa%2C%20DRC&z=16&output=embed" style="border: 0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Cartographie du bureau RARSM"></iframe>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<section class="ls s-py-90 s-py-xl-160">
+				<div class="container">
+					<div class="row">
+
+						<div class="col-lg-8 animate" data-animation="scaleAppear">
+							<div class="hero-bg p-40 p-xl-60">
+								<form class="contact-form c-mb-50 c-gutter-50" method="post" action="/">
+
+									<div class="row">
+
+										<div class="col-12">
+											<h4>Formulaire de Contact </h4>
+										</div>
+
+										<div class="col-12">
+											<div class="form-group has-placeholder">
+												<label for="name">Full Name <span class="required">*</span></label>
+												<input type="text" aria-required="true" size="30" value="" name="name" id="name" class="form-control" placeholder="Name">
+											</div>
+										</div>
+
+										<div class="col-12">
+											<div class="form-group has-placeholder">
+												<label for="email">Email address<span class="required">*</span></label>
+												<input type="email" aria-required="true" size="30" value="" name="email" id="email" class="form-control" placeholder="Email">
+											</div>
+										</div>
+
+
+										<div class="col-12">
+
+											<div class="form-group has-placeholder">
+												<label for="message">Message</label>
+												<textarea aria-required="true" rows="6" cols="45" name="message" id="message" class="form-control" placeholder="Message"></textarea>
+											</div>
+										</div>
+									</div>
+
+									<div class="wrap-forms">
+										<div class="row">
+											<div class="col-12">
+												<button type="submit" name="contact_submit" class="btn btn-maincolor">Send a message</button>
+											</div>
+										</div>
+									</div>
+
+								</form>
+							</div>
+							<div class="divider-60 divider-lg-0"></div>
+						</div>
+						<!--.col-* -->
+
+						<div class="col-lg-4 animate" data-animation="scaleAppear">
+							<div class="hero-bg p-40 p-xl-60">
+
+								<h4 class="my-0">Contact Info</h4>
+								<div class="divider-40"></div>
+
+								<div class="media mb-20">
+									<div class="icon-styled color-main fs-40">
+										<i class="fa fa-map-marker"></i>
+									</div>
+
+									<div class="media-body">
+										<h5 class="mt-0">
+											Address:
+										</h5>
+										<p>
+											Avenue Roi Beaudouin, N0.47, Building 3Z, Apartment 4a, Gombe, Kinshasa, DRC
+										</p>
+									</div>
+								</div>
+
+								<div class="media mb-20">
+									<div class="icon-styled color-main fs-40">
+										<i class="fa fa-phone"></i>
+									</div>
+
+									<div class="media-body">
+										<h5 class="mt-0">
+											Phone:
+										</h5>
+										<p>
+											(800)-398-7586<br>
+											(800)-398-7594
+										</p>
+									</div>
+								</div>
+
+								<div class="media mb-20">
+									<div class="icon-styled color-main fs-40">
+										<i class="fa fa-pencil"></i>
+									</div>
+
+									<div class="media-body">
+										<h5 class="mt-0">
+											Email:
+										</h5>
+										<p>
+											rarsm@support.com
+										</p>
+									</div>
+								</div>
+
+								<div class="divider-30 divider-xl-50"></div>
+
+								<h4 class="my-0">Social Links</h4>
+								<div class="divider-35"></div>
+								<p class="social-icons">
+									<a href="https://www.facebook.com/" class="fa border-icon rounded-icon fa-facebook" title="facebook"></a>
+									<a href="https://twitter.com/" class="fa border-icon rounded-icon fa-twitter" title="twitter"></a>
+									<a href="https://www.linkedin.com/" class="fa border-icon rounded-icon fa-linkedin" title="linkedin"></a>
+									<a href="https://www.youtube.com/" class="fa border-icon rounded-icon fa-youtube-play" title="linkedin"></a>
+								</p>
+
+							</div>
+						</div>
+						<!--.col-* -->
+
+
+					</div>
+				</div>
+			</section>
+
+			<footer class="page_footer ds s-py-85 s-py-xl-155">
+				<div class="container">
+					<div class="row">
+
+						<div class="col-12 text-center animate" data-animation="fadeInUp">
+							<a href="./" class="logo justify-content-center">
+								<img src="logo/rarsm-logo-wordmark-white.png" alt="RARSM">
+							</a>
+							<div class="divider-40"></div>
+							<div class="widget widget_nav_menu nav-in-line">
+								<ul class="menu">
+									<li class="menu-item">
+										<a href="index.html">Home</a>
+									</li>
+									<li class="menu-item">
+										<a href="author.html">Author</a>
+									</li>
+									<li class="menu-item">
+										<a href="chapter.html">Chapter</a>
+									</li>
+									<li class="menu-item">
+										<a href="blog-single-left.html">Blog</a>
+									</li>
+									<li class="menu-item">
+										<a href="contact.html">Contacts</a>
+									</li>
+								</ul>
+							</div>
+						</div>
+
+					</div>
+				</div>
+			</footer>
+
+			<section class="page_copyright ls s-py-20 s-py-xl-50">
+				<div class="container">
+					<div class="row align-items-center">
+						<div class="col-md-12 text-center color-dark">
+							<p>&copy; Copyright <span class="copyright_year">2020</span> All Rights Reserved</p>
+						</div>
+					</div>
+				</div>
+			</section>
+
+
+		</div><!-- eof #box_wrapper -->
+	</div><!-- eof #canvas -->
+
+
+	<script src="js/compressed.js"></script>
+	<script src="js/main.js"></script>
+
+
+	<!-- Google Map Script -->
+	<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC0pr5xCHpaTGv12l73IExOHDJisBP2FK4&callback=initGoogleMap"></script>
+
+</body>
+
+</html>

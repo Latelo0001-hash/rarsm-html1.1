@@ -1,0 +1,6 @@
+.quote-item {
+  .position{
+    @include meta-time();
+    margin-bottom: 25px;
+  }
+}

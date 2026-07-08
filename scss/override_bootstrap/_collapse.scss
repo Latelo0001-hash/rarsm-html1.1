@@ -1,0 +1,139 @@
+/* bootstrap collapse*/
+
+aside{
+  [role="tablist"] .card .card-body{
+    padding-left: 30px;
+    padding-right: 30px;
+    &::before{
+      display: none;
+    }
+  }
+}
+
+//unstyled
+[data-toggle="collapse"] {
+  display: inline-block;
+  position: relative;
+  padding-right: 20px;
+  &:after,
+  &:before {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    margin-top: -7px;
+    font-size: 10px;
+    font-family: 'FontAwesome';
+    content: "\f078";
+  }
+  &.collapsed {
+    &:after {
+      content: "\f054";
+    }
+  }
+}
+
+//cards as tabs
+[role="tablist"] {
+  .card {
+    border-radius: 0;
+    border: {
+      top: 1px solid $borderColor;
+      bottom: 1px solid $borderColor;
+      left: none;
+      right: none;
+    };
+    background: none;
+    margin-bottom: -1px;
+    .card-header {
+      padding: 0;
+      background: none;
+      border: none;
+      a {
+        font-family: 'Heebo', sans-serif;
+        font-size: 18px;
+        letter-spacing: normal;
+        font-weight: 300;
+        display: block;
+        position: relative;
+        padding: 32px 60px 31px 0 ;
+        transition: all .3s ease-in-out;
+        &:after {
+          content: '';
+          top: 46%;
+          bottom: auto;
+          right: 30px;
+          font-size: 20px;
+          color: $colorMain;
+          opacity: 0;
+          transition: all .3s ease-in-out;
+        }
+        &:before {
+          content: '';
+          display: inline-block;
+          width: 10px;
+          height: 1px;
+          background-color: $colorMain;
+          top: 59%;
+          bottom: auto;
+          right: 30px;
+          opacity: 1;
+          transition: all .3s ease-in-out;
+        }
+        &:hover {
+          color: inherit;
+          opacity: .6;
+        }
+        i{
+          margin-right: 5px;
+        }
+        &.collapsed {
+          background-color: transparent;
+          color: $darkgreyColor;
+          &:hover{
+
+          }
+          &:after {
+            content: '+';
+            opacity: 1;
+          }
+          &::before{
+            opacity: 0;
+          }
+        }
+      }
+    }
+    .collapse{
+      .card-body{
+        background-color: transparent;
+        transition: all .3s ease-in-out;
+      }
+      &.show{
+        .card-body{
+
+        }
+      }
+    }
+    .collapsing{
+      .card-body{
+
+      }
+    }
+    .card-body {
+      margin-top: -5px;
+      padding: 0 30px 25px 0;
+      position: relative;
+    }
+  }
+  [data-toggle="collapse"]{
+    font-size: 16px;
+    font-family: 'Heebo', sans-serif;
+    letter-spacing: normal;
+    &::before{
+      display: none;
+    }
+  }
+
+  .media img {
+    max-width: 80px;
+  }
+}

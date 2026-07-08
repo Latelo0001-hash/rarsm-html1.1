@@ -1,0 +1,18 @@
+/* widget_tag_cloud */
+.widget_tag_cloud {
+  a {
+    border: 1px solid $colorMain;
+    color: $colorMain;
+    padding: 2px 15px;
+    margin: 0 0 4px 0;
+    border-radius: 3px;
+    text-align: center;
+    display: inline-block;
+    font-size: 14px!important;
+    &:hover {
+      border-color: $darkgreyColor;
+      color: $darkgreyColor;
+    }
+  }
+
+}

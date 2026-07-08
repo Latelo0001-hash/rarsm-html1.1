@@ -1,0 +1,80 @@
+ul, ol {
+  padding-left: 1.15rem;
+  li{
+    line-height: 30px;
+  }
+}
+
+dt {
+  font-weight: 700;
+}
+
+dd {
+  margin: 0 1.5em 1.5em;
+}
+
+.list-bordered {
+  padding: 0;
+  list-style: none;
+  overflow: hidden;
+  li {
+    padding-top: 14px;
+    padding-bottom: 15px;
+    border-top: 1px solid $borderColor;
+    border-bottom: 1px solid $borderColor;
+  }
+  li + li {
+    border-top: none;
+  }
+  &.no-top-border > li:first-child {
+    border-top: none;
+  }
+  &.no-bottom-border > li:last-child {
+    border-bottom: none;
+  }
+}
+
+.list-styled ul,
+ul.list-styled {
+  list-style: none;
+  padding: 0;
+  li {
+    position: relative;
+    padding: 2px 0;
+    color: $darkColor;
+    &:before {
+      content: "";
+      -webkit-mask: url('../img/arrow-list.png') no-repeat center / cover;
+      background-color: $colorMain;
+      width: 20px;
+      height: 7px;
+      display: inline-block;
+      position: relative;
+      margin-right: 20px;
+    }
+  }
+}
+
+.list-num ol,
+ol.list-num{
+  counter-reset: li!important;
+  list-style: none outside none;
+  padding: 0;
+  margin-bottom: 0;
+  li{
+    position: relative;
+    padding: 2px 0;
+    font-size: 14px;
+    color: $darkColor;
+    &::before{
+      padding-right: 10px;
+      content: ".0" counter(li);
+      counter-increment: li;
+      left: 2px;
+      top: 50%;
+      -webkit-transform: translateY(-50%);
+      transform: translateY(-50%);
+      color: $colorMain;
+    }
+  }
+}

@@ -1,0 +1,236 @@
+/*
+** Buttons
+ */
+.btn:hover {
+  cursor: pointer;
+}
+
+.btn.focus,
+.btn:focus {
+  box-shadow: 0 0 3px 0 rgba(100, 100, 100, .75);
+}
+
+.btn-secondary {
+  border-color: $borderColor;
+  color: $darkgreyColor;
+}
+
+.btn-link{
+  color: $darkgreyColor;
+  text-decoration: underline;
+  &:hover{
+    color: $colorMain2;
+  }
+}
+
+.service-layout-3,
+.service-layout-1{
+  &.ls,
+  &.ds{
+    .btn-booking{
+      background-color: $greyColor;
+    }
+    &.ms{
+      .btn-booking{
+        background-color: $lightColor;
+      }
+    }
+  }
+
+}
+
+.btn-booking{
+  color: $darkColor;
+  background-color: $greyColor;
+  padding: 9px 50px 8px 25px;
+  border-radius: 30px;
+  height: 40px;
+  position: relative;
+  display: inline-block;
+  overflow: hidden;
+  transition: all .3s ease-in-out;
+  z-index: 1;
+  width: 100%;
+  &::before{
+    content: '\f04b';
+    font-family: "FontAwesome", sans-serif;
+    font-size: 12px;
+    color: $lightColor;
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    right: 0;
+    top: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: $colorMain;
+    z-index: 1;
+  }
+  &::after{
+    content: '';
+    position: absolute;
+    z-index: -1;
+    background-color: $colorMain;
+    width: 0;
+    height: 100%;
+    right: 0;
+    top: 0;
+    border-radius: 35px;
+    transition: all .4s ease-in-out;
+  }
+  &:hover{
+    color: $lightColor!important;
+    &::after{
+      width: 100%;
+    }
+  }
+}
+
+/*color background buttons*/
+.btn-maincolor2,
+.btn-maincolor3{
+  color: $darkgreyColor;
+}
+
+.btn-maincolor,
+.btn-maincolor2,
+.btn-maincolor3,
+.btn-darkgrey,
+.btn-grey{
+  border: 1px solid transparent;
+  position: relative;
+  background-color: transparent;
+  z-index: 1;
+  overflow: hidden;
+  &:hover{
+    background-color: transparent;
+  }
+  &.btn-slider{
+    &:hover{
+      color: $darkgreyColor!important;
+      &::before{
+        opacity: .7;
+        width: 120%;
+      }
+    }
+  }
+}
+
+.btn-maincolor {
+  border-color: $colorMain;
+  background-color: $colorMain;
+  color: $lightColor;
+  &:hover{
+    color: $colorMain;
+  }
+}
+
+.btn-maincolor2 {
+  border-color: $colorMain2;
+  background-color: $colorMain2;
+  &:hover{
+    color: $darkgreyColor;
+  }
+}
+
+.btn-maincolor3 {
+  border-color: $colorMain3;
+  background-color: $colorMain3;
+  &:hover{
+    color: $darkgreyColor;
+  }
+}
+
+.btn-grey {
+  border-color: $greyColor;
+  background-color: $greyColor;
+  &:hover{
+    color: $darkColor;
+  }
+}
+
+.btn-darkgrey {
+  border-color: $darkgreyColor;
+  color: $lightColor;
+  background-color: $darkgreyColor;
+  &:hover{
+    color: $darkgreyColor;
+  }
+}
+
+/*color outline buttons*/
+.btn-outline-maincolor,
+.btn-outline-maincolor2,
+.btn-outline-maincolor3,
+.btn-outline-darkgrey {
+  border: 1px solid transparent;
+  color: $darkgreyColor;
+  position: relative;
+  background-color: transparent;
+}
+
+.btn-outline-maincolor {
+  border-color: $colorMain;
+  color: $colorMain;
+  &:hover{
+    background-color: $colorMain;
+    color: $lightColor;
+  }
+}
+
+.btn-outline-maincolor2 {
+  border-color: $colorMain2;
+  &:hover{
+    background-color: $colorMain2;
+    color: $darkgreyColor;
+  }
+}
+
+.btn-outline-maincolor3 {
+  border-color: $colorMain3;
+  &:hover{
+    background-color: $colorMain3;
+    color: $darkgreyColor;
+  }
+}
+
+.btn-outline-darkgrey {
+  border-color: $darkgreyColor;
+  &:hover {
+    background-color: $darkgreyColor;
+    color: $lightColor;
+  }
+}
+
+.btn-with-line{
+  position: relative;
+  &:after {
+    content: "";
+    -webkit-mask: url('../img/arrow-list.png') no-repeat center / cover;
+    background-color: $darkgreyColor;
+    width: 20px;
+    height: 7px;
+    display: inline-block;
+    position: relative;
+    margin-left: 10px;
+    transition: all .3s ease-out;
+  }
+  &:hover{
+    color: initial;
+    &::after{
+      background-color: $colorMain;
+    }
+  }
+}
+
+.btn-amazon{
+  width: 170px;
+  height: 60px;
+  background: url("../img/btn-amazon.png");
+  transition: all .3s ease-in-out;
+  &:hover{
+    opacity: 0.8;
+  }
+}

@@ -1,0 +1,61 @@
+/* bootstrap breadcrumbs*/
+.breadcrumb {
+  margin: 0;
+  padding: 0;
+  background-color: transparent;
+  border-radius: 0;
+  color: inherit;
+  font-size: 16px;
+  & > li {
+    display: inline-block;
+    float: none;
+    @include meta-time();
+    padding-left: 12px!important;
+    color: $darkgreyColor!important;
+    font-weight: 400;
+    margin-top: 10px;
+    a{
+      color: $darkgreyColor!important;
+    }
+  }
+
+  .text-center & {
+    justify-content: center;
+  }
+  @media (min-width: 992px) {
+    .text-lg-right & {
+      justify-content: flex-end;
+    }
+  }
+}
+
+.ds{
+  .breadcrumb-item  {
+    color: $lightColor;
+  }
+}
+
+.breadcrumb-item:not(:last-child){
+  margin-right: 16px;
+}
+.breadcrumb-item{
+  &::before{
+    display: none!important;
+  }
+}
+.breadcrumb-item:not(:last-child){
+  position: relative;
+  margin-right: 40px;
+  &::after{
+    content: '';
+    -webkit-mask: url('../img/arrow-list.png') no-repeat center / cover;
+    background-color: $lightColor;
+    width: 20px;
+    height: 7px;
+    display: inline-block;
+    position: absolute;
+    right: -30px;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+}

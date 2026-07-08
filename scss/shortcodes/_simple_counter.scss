@@ -1,0 +1,15 @@
+/*
+** Simple counter
+*/
+
+.shortcode-simple-counter{
+  text-align: center;
+  .counter-wrap {
+    h2{
+      color: $colorMain2;
+    }
+  }
+  .counter-text{
+    margin-top: 10px;
+  }
+}

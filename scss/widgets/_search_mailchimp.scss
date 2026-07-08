@@ -1,0 +1,183 @@
+/*
+widget_search,
+widget_mailchimp
+widget_product_search
+*/
+.ds{
+  .widget_search,
+  .widget_product_search,
+  .widget_mailchimp{
+    form{
+      &::after{
+        background-color: $lightColor;
+      }
+    }
+  }
+}
+.widget_search,
+.widget_mailchimp {
+  form {
+    position: relative;
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+    &::after{
+      content: '';
+      display: inline-block;
+      width: 30px;
+      height: 1px;
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      background-color: $darkgreyColor;
+    }
+  }
+  .response{
+    width: 100%;
+    order: -1;
+  }
+  label {
+    margin: 0;
+    padding: 0;
+    display: inline;
+  }
+  input {
+    width: 100%;
+    font-style: normal;
+    margin-right: 90px;
+  }
+}
+
+.widget_mailchimp .mailchimp-1{
+  input{
+    height: 50px;
+  }
+}
+
+//buttons and icons inside a form to the right
+.widget_search button,
+.widget_mailchimp button:not(.btn),
+  //input instead of button is used in woo html
+.widget_product_search form input[type="submit"],
+.widget_product_search form:before {
+  text-align: center;
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0!important;
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: $colorMain3;
+  border: 1px solid $colorMain3;
+  border-radius: 50%;
+  opacity: 1;
+  min-width: unset;
+}
+
+.widget_mailchimp button:not(.btn){
+  background-color: $colorMain;
+  border-color: $colorMain;
+}
+
+.widget_product_search{
+  form{
+    position: relative;
+    &:before {
+      content: '';
+      -webkit-mask: url(../img/arrow-list.png) no-repeat center/cover;
+      background-color: $darkgreyColor;
+      width: 20px;
+      height: 7px;
+      display: inline-block;
+      position: absolute;
+      z-index: 2;
+      right: 20px;
+      transition: all .3s ease-in-out;
+    }
+    &::after{
+      content: '';
+      display: inline-block;
+      width: 30px;
+      height: 1px;
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      background-color: $darkgreyColor;
+    }
+    &:hover{
+      &::before{
+        background-color: $lightColor;
+      }
+    }
+  }
+  input[type='search']{
+    margin-right: 90px;
+  }
+}
+
+.widget_search button,
+.widget_mailchimp button:not(.btn),
+  //input instead of button is used in woo html
+.widget_product_search form input[type="submit"] {
+  padding: 21px 21px 18px 10px;
+  &:hover {
+    background-color: transparent;
+    &::before{
+      background-color: $darkgreyColor;
+    }
+  }
+}
+
+.ds{
+  .widget_search button,
+    //input instead of button is used in woo html
+  .widget_product_search form input[type="submit"] {
+    border-color: $colorMain3;
+    &:hover {
+      &::before{
+        background-color: $lightColor;
+      }
+    }
+  }
+}
+
+//icons for buttons
+.widget_search button,
+.widget_mailchimp button:not(.btn),
+  //input instead of button is used in woo html
+  {
+  &:before {
+    content: '';
+    -webkit-mask: url(../img/arrow-list.png) no-repeat center/cover;
+    background-color: $darkgreyColor;
+    width: 20px;
+    height: 7px;
+    display: inline-block;
+    position: relative;
+    transition: all .3s ease-in-out;
+  }
+}
+
+.widget_mailchimp button:not(.btn){
+  &::before{
+    background-color: $lightColor;
+  }
+}
+
+.widget_mailchimp form button:not(.btn):before {
+  content: "\f003";
+}
+
+.widget_product_search {
+  form:before {
+    line-height: 40px;
+  }
+  input[type="submit"] {
+    color: transparent;
+    font-size: 0;
+  }
+}

@@ -1,0 +1,70 @@
+/* Countdown */
+#comingsoon-countdown {
+  text-align: center;
+}
+
+#comingsoon-countdown:before,
+#comingsoon-countdown:after {
+  clear: both;
+  display: table;
+  content: ' ';
+}
+
+.countdown-rtl {
+  direction: rtl;
+}
+
+
+.countdown-row {
+  clear: both;
+  display: table;
+  margin: auto;
+  padding: 0;
+  text-align: center;
+}
+
+.countdown-section {
+  display: table-cell;
+  padding: 0;
+  text-align: center;
+  &:first-child {
+    border-left-width: 0;
+  }
+}
+
+.countdown-amount {
+  font-size: 50px;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  color: $colorMain2;
+}
+
+.countdown-period {
+  display: block;
+  color: $lightColor;
+  font-size: 14px;
+  font-weight: 400;
+  min-width: 14.5em;
+  margin-top: 10px;
+}
+
+.countdown-descr {
+  display: block;
+}
+
+@media(max-width: 1199px) {
+  .countdown-row{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .countdown-section {
+    padding: 30px 8px 0;
+  }
+  .countdown-amount {
+    font-size: 50px;
+  }
+  .countdown-period {
+    min-width: 6.5em;
+  }
+}

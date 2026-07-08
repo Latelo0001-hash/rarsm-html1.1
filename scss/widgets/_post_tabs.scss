@@ -1,0 +1,21 @@
+/*.widget_post_tabs*/
+
+.widget_post_tabs {
+  h4{
+    text-transform: none;
+    line-height: 1;
+    margin: 0;
+    font-size: 18px;
+  }
+  .vertical-item {
+    margin-bottom: 35px;
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+  .item-media{
+    img{
+      border-radius: 3px;
+    }
+  }
+}

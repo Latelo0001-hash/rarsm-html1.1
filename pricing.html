@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js">
+<!--<![endif]-->
+
+<head>
+	<title>RARSM Reccueil Des Actes Reglementaires Du secteur Minier</title>
+	<meta charset="utf-8">
+	<!--[if IE]>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<![endif]-->
+	<meta name="description" content="">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta name="format-detection" content="telephone=no">
+	<!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+	<link rel="icon" href="favicon.png?v=20260702-favicon" type="image/png">
+	<link rel="shortcut icon" href="favicon.png?v=20260702-favicon" type="image/png">
+	<link rel="apple-touch-icon" href="favicon.png?v=20260702-favicon">
+	<link rel="stylesheet" href="css/site.css">
+<script src="js/vendor/modernizr-2.6.2.min.js"></script>
+
+	<!--[if lt IE 9]>
+		<script src="js/vendor/html5shiv.min.js"></script>
+		<script src="js/vendor/respond.min.js"></script>
+		<script src="js/vendor/jquery-1.12.4.min.js"></script>
+	<![endif]-->
+
+</head>
+
+<body>
+	<!--[if lt IE 9]>
+		<div class="bg-danger text-center">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/" class="color-main">upgrade your browser</a> to improve your experience.</div>
+	<![endif]-->
+
+	<div class="preloader">
+		<div class="preloader_image pulse"></div>
+	</div>
+
+	<!-- search modal -->
+	<div class="modal" tabindex="-1" role="dialog" aria-labelledby="search_modal" id="search_modal">
+		<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+			<span aria-hidden="true">&times;</span>
+		</button>
+		<div class="widget widget_search">
+			<form method="get" class="searchform search-form" action="/">
+				<div class="form-group">
+					<input type="text" value="" name="search" class="form-control" placeholder="Search keyword" id="modal-search-input">
+				</div>
+				<button type="submit" class="btn">Search</button>
+			</form>
+		</div>
+	</div>
+
+	<!-- Unyson messages modal -->
+	<div class="modal fade" tabindex="-1" role="dialog" id="messages_modal">
+		<div class="fw-messages-wrap ls p-normal">
+			<!-- Uncomment this UL with LI to show messages in modal popup to your user: -->
+			<!--
+		<ul class="list-unstyled">
+			<li>Message To User</li>
+		</ul>
+		-->
+
+		</div>
+	</div><!-- eof .modal -->
+
+	<div class="modal fade popupLogin" id="popupLogin" tabindex="-1" role="dialog" aria-hidden="true">
+		<div class="modal-dialog modal-dialog-centered" role="document">
+			<div class="modal-content ls border-r-def overflow-visible s-overlay s-mobile-overlay">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+				<div class="modal-body">
+					<div class="container">
+						<div class="row">
+							<div class="col-12">
+								<h4 class="mb-4">Log in</h4>
+								<form class="form-registration c-mb-40 c-gutter-20" action="/">
+									<div class="row mb-4">
+										<div class="col-sm-12">
+											<div class="form-group">
+												<input type="text" name="name" class="form-control" required placeholder="login" aria-required="true">
+											</div>
+										</div>
+										<div class="col-sm-12">
+											<div class="form-group">
+												<input type="password" name="password" class="form-control" placeholder="password" aria-required="true" required>
+											</div>
+										</div>
+									</div>
+									<a class="registerRedirect " data-dismiss="modal" data-target="#popupRegistr" data-toggle="modal" href="#">Not a member? Register!</a>
+									<button type="submit" class="btn btn-maincolor mt-30 d-block">Sign In</button>
+								</form>
+
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="modal fade popupRegistr" id="popupRegistr" tabindex="-1" role="dialog" aria-hidden="true">
+		<div class="modal-dialog modal-dialog-centered" role="document">
+			<div class="modal-content ls border-r-def overflow-visible s-overlay s-mobile-overlay">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+				<div class="modal-body">
+					<div class="container">
+						<div class="row">
+							<div class="col-12">
+								<h4 class="mb-4">Registration</h4>
+								<form class="form-registration c-mb-40 c-gutter-40" method="post" action="/">
+									<div class="row">
+										<div class="col-12">
+											<div class="form-group">
+												<input type="text" name="name" class="form-control" required placeholder="login" aria-required="true">
+											</div>
+										</div>
+										<div class="col-12">
+											<div class="form-group">
+												<input type="password" name="password" class="form-control" placeholder="password" aria-required="true" required>
+											</div>
+										</div>
+										<div class="col-12">
+											<div class="form-group">
+												<input type="email" name="email" class="form-control" placeholder="email" required aria-required="true">
+											</div>
+										</div>
+										<div class="col-12">
+											<div class="form-group">
+												<input type="password" name="confirmPassword" class="form-control" placeholder="password" required aria-required="true">
+											</div>
+										</div>
+										<div class="col-12">
+											<div class="form-group checkbox-group">
+												<input type="checkbox" id="agreed" name="agreed" value="agreed" required aria-required="true"><label for="agreed">I agree to the rules</label>
+											</div>
+										</div>
+									</div>
+									<button type="submit" class="btn btn-maincolor mt-30 d-block">Registration</button>
+								</form>
+
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- page wrapper -->
+	<div id="canvas">
+		<div id="box_wrapper">
+
+			<!-- page sections -->
+
+
+			<!-- header with three Bootstrap columns - left for logo, center for navigation and right for includes-->
+			<header class="page_header ls s-overlay s-py-10">
+				<div class="container-fluid">
+					<div class="row align-items-center">
+						<div class="col-xl-2 col-lg-3 col-11">
+							<a href="./" class="logo">
+								<img src="logo/rarsm-logo-wordmark-color.png" alt="RARSM">
+							</a>
+						</div>
+						<div class="col-xl-8 col-lg-5 col-1">
+							<!-- main nav start -->
+							<nav class="top-nav">
+								<ul class="nav sf-menu">
+									<li class="active">
+										<a href="index.html">Home</a>
+										<ul>
+											<li>
+												<a href="index.html">MultiPage</a>
+											</li>
+											<li>
+												<a href="index_singlepage.html">Single Page</a>
+											</li>
+										</ul>
+									</li>
+									<li>
+										<a href="author.html">Pages</a>
+										<ul>
+											<li>
+												<a href="gallery-excerpt.html">Gallery</a>
+											</li>
+											<li>
+												<a href="services.html">Our Services</a>
+												<ul>
+													<li>
+														<a href="services.html">Services 1</a>
+													</li>
+													<li>
+														<a href="service-single2.html">Single Service 2</a>
+													</li>
+												</ul>
+											</li>
+											<li>
+												<a href="pricing.html">Pricing</a>
+											</li>
+											<li>
+												<a href="events-full.html">Events</a>
+												<ul>
+													<li>
+														<a href="events-full.html">Full Width</a>
+													</li>
+													<li>
+														<a href="event-single-full.html">Single Event</a>
+													</li>
+												</ul>
+											</li>
+											<li>
+												<a href="team.html">Team</a>
+												<ul>
+													<li>
+														<a href="team.html">Team List</a>
+													</li>
+													<li>
+														<a href="team-single.html">Team Member</a>
+													</li>
+												</ul>
+											</li>
+											<li>
+												<a href="comingsoon.html">Comingsoon</a>
+											</li>
+											<li>
+												<a href="faq.html">FAQ</a>
+											</li>
+											<li>
+												<a href="404.html">404</a>
+											</li>
+										</ul>
+									</li>
+									<li>
+										<a href="author.html">Author</a>
+									</li>
+									<li>
+										<a href="chapter.html">Chapter</a>
+									</li>
+									<li>
+										<a href="blog-single-left.html">Blog</a>
+										<ul>
+											<li>
+												<a href="blog-single-left.html">Post Left Sidebar</a>
+											</li>
+											<li>
+												<a href="blog-single-video-left.html">Video Post Left Sidebar</a>
+											</li>
+										</ul>
+									</li>
+									<li>
+										<a href="header3.html">Features</a>
+										<div class="mega-menu">
+											<ul class="mega-menu-row">
+												<li class="mega-menu-col">
+													<a href="header3.html">Headers</a>
+													<ul>
+														<li>
+															<a href="header3.html">Header Type 3</a>
+														</li>
+													</ul>
+												</li>
+												<li class="mega-menu-col">
+													<a href="header-side.html">Side Menus</a>
+													<ul>
+														<li>
+															<a href="header-side.html">Push Left</a>
+														</li>
+													</ul>
+												</li>
+												<li class="mega-menu-col">
+													<a href="title1.html">Title Sections</a>
+													<ul>
+														<li>
+															<a href="title1.html">Title section 1</a>
+														</li>
+													</ul>
+												</li>
+												<li class="mega-menu-col">
+													<a href="footer6.html#footer">Footers</a>
+													<ul>
+														<li>
+															<a href="footer6.html#footer">Footer Type 6</a>
+														</li>
+													</ul>
+												</li>
+												<li class="mega-menu-col">
+													<a href="copyright1.html#copyright">Copyright</a>
+													<ul>
+														<li>
+															<a href="copyright1.html#copyright">Copyright 1</a>
+														</li>
+													</ul>
+												</li>
+											</ul>
+										</div>
+									</li>
+									<li>
+										<a href="contact.html">Contact</a>
+										<ul>
+											<li>
+												<a href="contact.html">Contact 1</a>
+											</li>
+											<li>
+												<a href="contact4.html">Contact 4</a>
+											</li>
+										</ul>
+									</li>
+								</ul>
+							</nav>
+							<!-- eof main nav -->
+						</div>
+						<div class="col-xl-2 col-lg-3 text-right d-none d-lg-block">
+							
+						</div>
+					</div>
+				</div>
+				<!-- header toggler -->
+				<span class="toggle_menu"><span></span></span>
+			</header>
+
+			<section class="page_title ds s-parallax s-py-110">
+				<div class="container">
+					<div class="row">
+
+						<div class="col-md-12 text-center">
+							<h1 class="small-title">Pricing</h1>
+							<ol class="breadcrumb">
+								<li class="breadcrumb-item">
+									<a href="./">Home</a>
+								</li>
+								<li class="breadcrumb-item">
+									<a href="#">Pages</a>
+								</li>
+								<li class="breadcrumb-item active">
+									Pricing
+								</li>
+							</ol>
+						</div>
+
+					</div>
+				</div>
+			</section>
+
+			<section class="ls ms s-pt-90 s-pb-30 s-pt-xl-200 s-pb-xl-100 c-gutter-50 c-mb-60">
+				<div class="container">
+
+					<div class="row">
+
+						<div class="col-lg-4">
+
+							<div class="pricing-plan ls">
+								<div class="plan-name">
+									<h3>
+										Chapter One
+									</h3>
+								</div>
+								<div class="price-wrap">
+									<span class="plan-sign"></span>
+									<span class="plan-price">Free</span>
+									<span class="plan-decimals"></span>
+								</div>
+								<div class="plan-description">
+									Lorem ipsum dolor sit ametconse ctetur adipisicing elit.
+								</div>
+								<div class="plan-button">
+									<a href="#" class="btn btn-outline-maincolor">Download</a>
+								</div>
+							</div>
+
+						</div>
+
+						<div class="col-lg-4">
+
+							<div class="pricing-plan plan-featured ls">
+								<div class="plan-name">
+									<h3>
+										Printed book
+									</h3>
+								</div>
+								<div class="price-wrap">
+									<span class="plan-sign">$</span>
+									<span class="plan-price">59</span>
+									<span class="plan-decimals">.95</span>
+								</div>
+								<div class="plan-description">
+									Ut labore et dolore magna aliqua enim ad minim veniam, quis nostrud exercitation.
+								</div>
+								<div class="plan-features text-center">
+									<ul class="list-unstyled">
+										<li>Get e-book for free!</li>
+									</ul>
+								</div>
+								<div class="plan-button">
+									<a href="#" class="btn btn-maincolor">Purchase</a>
+								</div>
+							</div>
+
+						</div>
+
+						<div class="col-lg-4">
+
+							<div class="pricing-plan ls">
+								<div class="plan-name">
+									<h3>
+										E-book
+									</h3>
+								</div>
+								<div class="price-wrap">
+									<span class="plan-sign">$</span>
+									<span class="plan-price">19</span>
+									<span class="plan-decimals">.95</span>
+								</div>
+								<div class="plan-description">
+									Duis aute irure dolor in reprehenderit voluptate velit esse.
+								</div>
+								<div class="plan-button">
+									<a href="#" class="btn btn-outline-maincolor">Buy now</a>
+								</div>
+							</div>
+
+						</div>
+
+					</div>
+
+				</div>
+
+			</section>
+
+			<section class="ds section-testimonials s-py-90 s-py-xl-150">
+				<div class="container">
+					<div class="row">
+						<div class="col-12">
+							<div class="owl-carousel owl-nav-bottom" data-responsive-lg="3" data-responsive-md="2" data-responsive-sm="1" data-responsive-xs="1" data-nav="true" data-margin="60" data-loop="true" data-autoplay="true">
+								<div class="vertical-item quote-item">
+									<div class="item-content text-center">
+										<h4 class="mb-3">
+											Claudia T. Taylor
+										</h4>
+										<p class="position">Paramedic</p>
+										<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua minim veniam.</p>
+									</div>
+								</div>
+								<div class="vertical-item quote-item">
+									<div class="item-content text-center">
+										<h4 class="mb-3">
+											Maxie R. Broussard
+										</h4>
+										<p class="position">EEO officer</p>
+										<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua minim veniam.</p>
+									</div>
+								</div>
+								<div class="vertical-item quote-item">
+									<div class="item-content text-center">
+										<h4 class="mb-3">
+											Sarah J. Adams
+										</h4>
+										<p class="position">Athletic trainer</p>
+										<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua minim veniam.</p>
+									</div>
+								</div>
+								<div class="vertical-item quote-item">
+									<div class="item-content text-center">
+										<h4 class="mb-3">
+											Timothy P. Alexander
+										</h4>
+										<p class="position">Teacher</p>
+										<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua minim veniam.</p>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<section class="ls s-overlay mobile-overlay section-shop s-py-90 s-py-xl-150">
+				<div class="container">
+					<div class="row">
+						<div class="col-12">
+							<div class="owl-carousel owl-nav-bottom" data-responsive-lg="3" data-responsive-md="2" data-responsive-sm="2" data-responsive-xs="1" data-nav="true" data-margin="60" data-loop="true" data-autoplay="true">
+								<div class="vertical-item">
+									<div class="item-media border-r-def">
+										<img src="images/books/01.jpg" alt="img">
+										<div class="media-links">
+											<a class="abs-link" title="" href="shop-product-full.html"></a>
+										</div>
+									</div>
+									<div class="item-content text-center pt-3">
+										<h5>
+											<a href="shop-product-full.html">Lorem ipsum dolor</a>
+										</h5>
+									</div>
+								</div>
+								<div class="vertical-item">
+									<div class="item-media border-r-def">
+										<img src="images/books/02.jpg" alt="img">
+										<div class="media-links">
+											<a class="abs-link" title="" href="shop-product-full.html"></a>
+										</div>
+									</div>
+									<div class="item-content text-center pt-3">
+										<h5>
+											<a href="shop-product-full.html">Adipisicing elit</a>
+										</h5>
+									</div>
+								</div>
+								<div class="vertical-item">
+									<div class="item-media border-r-def">
+										<img src="images/books/03.jpg" alt="img">
+										<div class="media-links">
+											<a class="abs-link" title="" href="shop-product-full.html"></a>
+										</div>
+									</div>
+									<div class="item-content text-center pt-3">
+										<h5>
+											<a href="shop-product-full.html">Incididunt ut labore</a>
+										</h5>
+									</div>
+								</div>
+								<div class="vertical-item">
+									<div class="item-media border-r-def">
+										<img src="images/books/04.jpg" alt="img">
+										<div class="media-links">
+											<a class="abs-link" title="" href="shop-product-full.html"></a>
+										</div>
+									</div>
+									<div class="item-content text-center pt-3">
+										<h5>
+											<a href="shop-product-full.html">Dolore magna aliqua</a>
+										</h5>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<footer class="page_footer ds s-py-85 s-py-xl-155">
+				<div class="container">
+					<div class="row">
+
+						<div class="col-12 text-center animate" data-animation="fadeInUp">
+							<a href="./" class="logo justify-content-center">
+								<img src="logo/rarsm-logo-wordmark-white.png" alt="RARSM">
+							</a>
+							<div class="divider-40"></div>
+							<div class="widget widget_nav_menu nav-in-line">
+								<ul class="menu">
+									<li class="menu-item">
+										<a href="index.html">Home</a>
+									</li>
+									<li class="menu-item">
+										<a href="author.html">Author</a>
+									</li>
+									<li class="menu-item">
+										<a href="chapter.html">Chapter</a>
+									</li>
+									<li class="menu-item">
+										<a href="blog-single-left.html">Blog</a>
+									</li>
+									<li class="menu-item">
+										<a href="contact.html">Contacts</a>
+									</li>
+								</ul>
+							</div>
+						</div>
+
+					</div>
+				</div>
+			</footer>
+
+			<section class="page_copyright ls s-py-20 s-py-xl-50">
+				<div class="container">
+					<div class="row align-items-center">
+						<div class="col-md-12 text-center color-dark">
+							<p>&copy; Copyright <span class="copyright_year">2020</span> All Rights Reserved</p>
+						</div>
+					</div>
+				</div>
+			</section>
+
+
+		</div><!-- eof #box_wrapper -->
+	</div><!-- eof #canvas -->
+
+
+	<script src="js/compressed.js"></script>
+	<script src="js/main.js"></script>
+
+
+</body>
+
+</html>
+
+
