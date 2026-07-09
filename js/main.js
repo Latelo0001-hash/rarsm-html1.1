@@ -98,18 +98,7 @@ function menuHideExtraElements() {
 	}); //sf-menu each
 } //menuHideExtraElements
 
-// RARSM: les contenus de page (menu, logo, sections, images) sont geres directement dans les fichiers HTML.
-function isRarsmRootPage() {
-	var normalizedPath = window.location.pathname.replace(/\\/g, '/');
-
-	return normalizedPath.indexOf('/Shop/') === -1 && normalizedPath.indexOf('/Shortcodes/') === -1;
-}
-
 function initRarsmLanguageSwitchers() {
-	if (!isRarsmRootPage()) {
-		return;
-	}
-
 	var $languageSwitchers = $('.js-language-switcher');
 
 	if (!$languageSwitchers.length) {

@@ -516,7 +516,7 @@ expandOpen
 	}
 	100% {
 		-webkit-transform: scale(1);
-	}	
+	}
 }
 
 /*
@@ -619,7 +619,7 @@ hatch
 
 	transform-origin: 50% 100%;
 	-ms-transform-origin: 50% 100%;
-	-webkit-transform-origin: 50% 100%; 
+	-webkit-transform-origin: 50% 100%;
 
 	visibility: visible;
 }
@@ -645,7 +645,7 @@ hatch
 	}
 	100% {
 		transform: rotate(0deg);
-	}					
+	}
 }
 
 @-webkit-keyframes hatch {
@@ -692,7 +692,7 @@ bounce
 
 	transform-origin: 50% 100%;
 	-ms-transform-origin: 50% 100%;
-	-webkit-transform-origin: 50% 100%; 
+	-webkit-transform-origin: 50% 100%;
 }
 
 @keyframes bounce {
@@ -852,7 +852,7 @@ tossing
 	}
 	100% {
 		transform: rotate(-4deg);
-	}		
+	}
 }
 
 @-webkit-keyframes tossing {
@@ -885,7 +885,7 @@ pullUp
 
 	transform-origin: 50% 100%;
 	-ms-transform-origin: 50% 100%;
-	-webkit-transform-origin: 50% 100%; 
+	-webkit-transform-origin: 50% 100%;
 }
 
 @keyframes pullUp {
@@ -909,7 +909,7 @@ pullUp
 	}
 	100% {
 		transform: scaleY(1);
-	}			
+	}
 }
 
 @-webkit-keyframes pullUp {
@@ -954,7 +954,7 @@ pullDown
 
 	transform-origin: 50% 0%;
 	-ms-transform-origin: 50% 0%;
-	-webkit-transform-origin: 50% 0%; 
+	-webkit-transform-origin: 50% 0%;
 }
 
 @keyframes pullDown {
@@ -978,7 +978,7 @@ pullDown
 	}
 	100% {
 		transform: scaleY(1);
-	}			
+	}
 }
 
 @-webkit-keyframes pullDown {
@@ -1023,7 +1023,7 @@ stretchLeft
 
 	transform-origin: 100% 0%;
 	-ms-transform-origin: 100% 0%;
-	-webkit-transform-origin: 100% 0%; 
+	-webkit-transform-origin: 100% 0%;
 }
 
 @keyframes stretchLeft {
@@ -1047,7 +1047,7 @@ stretchLeft
 	}
 	100% {
 		transform: scaleX(1);
-	}			
+	}
 }
 
 @-webkit-keyframes stretchLeft {
@@ -1092,7 +1092,7 @@ stretchRight
 
 	transform-origin: 0% 0%;
 	-ms-transform-origin: 0% 0%;
-	-webkit-transform-origin: 0% 0%; 
+	-webkit-transform-origin: 0% 0%;
 }
 
 @keyframes stretchRight {
@@ -1116,7 +1116,7 @@ stretchRight
 	}
 	100% {
 		transform: scaleX(1);
-	}			
+	}
 }
 
 @-webkit-keyframes stretchRight {
@@ -5135,12 +5135,12 @@ Background color for dark muted section (.ds.ms): #062637
 Border colors for elements in light section (and .bordered elements): #e5e7e8, rgba(0, 0, 0, 0.5)
 Background color for elements in light section (.hero-bg): #f5f5f5
 
-Dark section (.ds) colors: 
+Dark section (.ds) colors:
 Text color in dark section: #9a9a9a
 Border colors for elements in dark section: rgba(255, 255, 255, 0.15)
 Background color for elements in dark section (.hero-bg): rgba(255, 255, 255, 0.05)
 
-Color section (.cs) colors: 
+Color section (.cs) colors:
 Background color for elements in color section: rgba(255, 255, 255, 0.1)
 Border color for elements in color section: rgba(255, 255, 255, 0.15)
 
@@ -8403,7 +8403,7 @@ html[xmlns] .slides {
 
 */
 /*
-	
+
 	1. Buttons
 
  */
@@ -8690,7 +8690,7 @@ a.pswp__share--download:hover {
 }
 
 /*
-	
+
 	4. Caption
 
  */
@@ -8845,7 +8845,7 @@ a.pswp__share--download:hover {
 }
 
 /*
-	
+
 	6. Additional styles
 
  */
@@ -8989,8 +8989,8 @@ a.pswp__share--download:hover {
 	margin-top: 0;
 }
 
-/* 
-** Time Table 
+/*
+** Time Table
 */
 #timetable span {
 	display: block;
@@ -9028,7 +9028,7 @@ a.pswp__share--download:hover {
 	color: #fff;
 }
 
-/* 
+/*
 ** toTop
 */
 #toTop {
@@ -25138,7 +25138,7 @@ body.active-side-header.slide-right .page_header_side {
 	}
 }
 
-/* 
+/*
 ** Intro Section Styles
 */
 .page_slider {
@@ -26957,7 +26957,7 @@ a:hover > img {
 	}
 }
 
-/* 
+/*
 ** Template Specific Styles
 */
 #box_wrapper > section,
@@ -27576,10 +27576,8 @@ img.absolute_image {
 }
 
 .section-counter {
-	background-image: url("../images/bg-section-count.png");
-	background-position: center;
-	background-repeat: no-repeat;
-	background-size: contain;
+	background-color: #031521;
+	overflow: hidden;
 }
 
 .mailchimp-1 {
@@ -28002,9 +28000,26 @@ body {
 }
 
 .section-testimonials::before,
-.section-counter::before,
 .page_footer::before {
 	background: linear-gradient(135deg, rgba(18, 32, 93, 0.96) 0%, rgba(48, 71, 165, 0.92) 58%, rgba(239, 59, 35, 0.7) 100%);
+	content: "";
+	inset: 0;
+	position: absolute;
+	z-index: 0;
+}
+
+#soon::before {
+	background: url("../images/bg-testimonials-section.png") center center / cover no-repeat;
+	content: "";
+	inset: 0;
+	opacity: 1;
+	position: absolute;
+	transform: scale(1.02);
+	z-index: 0;
+}
+
+#soon::after {
+	background: linear-gradient(135deg, rgba(4, 18, 43, 0.9) 0%, rgba(18, 43, 104, 0.72) 56%, rgba(239, 59, 35, 0.28) 100%);
 	content: "";
 	inset: 0;
 	position: absolute;
@@ -28094,8 +28109,27 @@ body {
 }
 
 .section-amazon {
-	background: var(--rarsm-paper) url("../images/bg-section-amazon.jpg") no-repeat right center/cover;
+	background-color: #f6f4ef;
 	color: var(--rarsm-text);
+	overflow: hidden;
+	position: relative;
+}
+
+.section-amazon::after {
+	background-image: url("../images/bg-section-amazon.jpg");
+	background-position: right center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	content: "";
+	inset: 0;
+	position: absolute;
+	z-index: 0;
+}
+
+@media (max-width: 991.98px) {
+	.section-amazon::after {
+		background-position: center center;
+	}
 }
 
 .section-book::before {
@@ -28149,7 +28183,7 @@ body {
 }
 
 .section-amazon .excerpt {
-	color: #031521;
+	color: #fff;
 }
 
 .section-book .scroll-block {
@@ -28167,7 +28201,7 @@ body {
 }
 
 .section-book .scroll-block::-webkit-scrollbar-thumb {
-	background-color: #031521;
+	background-color: #fff;
 	height: 60px;
 }
 
@@ -28187,6 +28221,55 @@ body {
 .section-counter a:not(.btn):hover,
 .page_footer a:not(.btn):hover {
 	color: var(--rarsm-yellow);
+}
+
+#soon .rarsm-counter-kicker {
+	color: var(--rarsm-yellow-soft);
+	font-size: 0.95rem;
+	font-weight: 600;
+	letter-spacing: 0.24em;
+	text-transform: uppercase;
+}
+
+#soon .rarsm-counter-intro {
+	color: rgba(255, 255, 255, 0.82);
+	margin: 18px auto 0;
+	max-width: 680px;
+}
+
+#soon .rarsm-counter-card {
+	background: rgba(255, 255, 255, 0.08);
+	border: 1px solid rgba(255, 255, 255, 0.16);
+	border-radius: 20px;
+	box-shadow: 0 18px 40px rgba(4, 13, 42, 0.28);
+	height: 100%;
+	padding: 34px 22px 28px;
+}
+
+#soon .rarsm-counter-value {
+	color: #fff;
+	font-size: clamp(2.75rem, 4vw, 3.6rem);
+	font-weight: 700;
+	line-height: 1;
+	margin-bottom: 12px;
+}
+
+#soon .rarsm-counter-label {
+	color: rgba(255, 255, 255, 0.78);
+	font-size: 0.85rem;
+	font-weight: 600;
+	letter-spacing: 0.18em;
+	text-transform: uppercase;
+}
+
+@media (max-width: 575px) {
+	#soon .rarsm-counter-card {
+		padding: 28px 18px 24px;
+	}
+
+	#soon .rarsm-counter-label {
+		letter-spacing: 0.12em;
+	}
 }
 
 .quote-item .item-content {
@@ -31190,14 +31273,6 @@ button.btn:hover {
 	align-items: center;
 }
 
-.home-modern #author .col-lg-6:first-child {
-	background: rgba(255, 255, 255, 0.08);
-	border: 1px solid rgba(255, 255, 255, 0.14);
-	border-radius: 32px;
-	box-shadow: 0 24px 60px rgba(5, 16, 62, 0.14);
-	padding: clamp(2rem, 4vw, 3.5rem);
-}
-
 .home-modern #author .divider-xl-200,
 .home-modern #author .divider-xl-150 {
 	display: none;
@@ -31229,23 +31304,25 @@ button.btn:hover {
 	line-height: 1.85;
 }
 
+.home-modern #author,
 .home-modern #about {
 	background: linear-gradient(180deg, #ffffff 0%, var(--rarsm-mist) 100%);
 }
 
-.home-modern #about .story-media-card,
-.home-modern #about .video-shortcode {
-	background: rgba(255, 255, 255, 0.9);
-	border: 1px solid var(--rarsm-border);
-	border-radius: 32px;
-	box-shadow: var(--rarsm-shadow-md);
-	padding: 14px;
+.home-modern #author .author-placeholder-square {
+	margin: 0 auto;
 }
 
-.home-modern #about .story-media-card img,
-.home-modern #about .video-shortcode img {
-	border-radius: 24px;
-	width: 100%;
+.home-modern #about .video-shortcode,
+.home-modern #about .border-r-def {
+	border-radius: 32px;
+	box-shadow: var(--rarsm-shadow-md);
+	overflow: hidden;
+}
+
+.home-modern #about .video-shortcode img,
+.home-modern #about .border-r-def img {
+	border-radius: inherit;
 }
 
 .home-modern #about .video-shortcode .photoswipe-link-button {
@@ -31253,15 +31330,6 @@ button.btn:hover {
 	left: 28px;
 	top: auto;
 	transform: none;
-}
-
-.home-modern #about ul.list-styled li {
-	background: rgba(255, 255, 255, 0.92);
-	border: 1px solid rgba(48, 71, 165, 0.12);
-	border-radius: 18px;
-	box-shadow: 0 14px 32px rgba(11, 23, 76, 0.08);
-	margin-bottom: 12px;
-	padding: 16px 18px 16px 56px;
 }
 
 .home-modern .section-testimonials .owl-stage {
@@ -31741,7 +31809,7 @@ button.btn:hover {
 	}
 
 	.home-modern #about .video-shortcode,
-	.home-modern #about .story-media-card,
+	.home-modern #about .border-r-def,
 	.home-modern #mail .inner-wrap,
 	.home-modern .pricing-plan,
 	.home-modern #blog .post-grid-item {
@@ -31749,12 +31817,8 @@ button.btn:hover {
 	}
 
 	.home-modern #about .video-shortcode img,
-	.home-modern #about .story-media-card img {
+	.home-modern #about .border-r-def img {
 		border-radius: 18px;
-	}
-
-	.home-modern #about ul.list-styled li {
-		padding: 14px 14px 14px 46px;
 	}
 
 	.home-modern #faqs [role="tablist"] .card .card-header a {
@@ -33501,5 +33565,19 @@ body,
 
 	.rarsm-mobile-buy-btn {
 		bottom: 18%;
+	}
+}
+
+@media (max-width: 767.98px) {
+	.page_title > [class*="container"] {
+		padding-bottom: 60px;
+		padding-top: 60px;
+	}
+}
+
+@media (max-width: 575.98px) {
+	.page_title > [class*="container"] {
+		padding-bottom: 48px;
+		padding-top: 48px;
 	}
 }

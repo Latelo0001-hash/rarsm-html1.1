@@ -1,13 +1,12 @@
 <!DOCTYPE html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="fr"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang="fr"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9" lang="fr"> <![endif]-->
 <!--[if gt IE 8]><!-->
-<html class="no-js">
+<html class="no-js" lang="fr">
 <!--<![endif]-->
-
 <head>
-	<title>RARSM Reccueil Des Actes Reglementaires Du secteur Minier</title>
+	<title>RARSM | FAQ</title>
 	<meta charset="utf-8">
 	<!--[if IE]>
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -15,21 +14,17 @@
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<meta name="format-detection" content="telephone=no">
-	<!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
 	<link rel="icon" href="favicon.png?v=20260702-favicon" type="image/png">
 	<link rel="shortcut icon" href="favicon.png?v=20260702-favicon" type="image/png">
 	<link rel="apple-touch-icon" href="favicon.png?v=20260702-favicon">
 	<link rel="stylesheet" href="css/site.css">
-<script src="js/vendor/modernizr-2.6.2.min.js"></script>
-
+	<script src="js/vendor/modernizr-2.6.2.min.js"></script>
 	<!--[if lt IE 9]>
 		<script src="js/vendor/html5shiv.min.js"></script>
 		<script src="js/vendor/respond.min.js"></script>
 		<script src="js/vendor/jquery-1.12.4.min.js"></script>
 	<![endif]-->
-
 </head>
-
 <body>
 	<!--[if lt IE 9]>
 		<div class="bg-danger text-center">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/" class="color-main">upgrade your browser</a> to improve your experience.</div>
@@ -39,128 +34,8 @@
 		<div class="preloader_image pulse"></div>
 	</div>
 
-	<!-- search modal -->
-	<div class="modal" tabindex="-1" role="dialog" aria-labelledby="search_modal" id="search_modal">
-		<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-			<span aria-hidden="true">&times;</span>
-		</button>
-		<div class="widget widget_search">
-			<form method="get" class="searchform search-form" action="/">
-				<div class="form-group">
-					<input type="text" value="" name="search" class="form-control" placeholder="Search keyword" id="modal-search-input">
-				</div>
-				<button type="submit" class="btn">Search</button>
-			</form>
-		</div>
-	</div>
-
-	<!-- Unyson messages modal -->
-	<div class="modal fade" tabindex="-1" role="dialog" id="messages_modal">
-		<div class="fw-messages-wrap ls p-normal">
-			<!-- Uncomment this UL with LI to show messages in modal popup to your user: -->
-			<!--
-		<ul class="list-unstyled">
-			<li>Message To User</li>
-		</ul>
-		-->
-
-		</div>
-	</div><!-- eof .modal -->
-
-	<div class="modal fade popupLogin" id="popupLogin" tabindex="-1" role="dialog" aria-hidden="true">
-		<div class="modal-dialog modal-dialog-centered" role="document">
-			<div class="modal-content ls border-r-def overflow-visible s-overlay s-mobile-overlay">
-				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-					<span aria-hidden="true">&times;</span>
-				</button>
-				<div class="modal-body">
-					<div class="container">
-						<div class="row">
-							<div class="col-12">
-								<h4 class="mb-4">Log in</h4>
-								<form class="form-registration c-mb-40 c-gutter-20" action="/">
-									<div class="row mb-4">
-										<div class="col-sm-12">
-											<div class="form-group">
-												<input type="text" name="name" class="form-control" required placeholder="login" aria-required="true">
-											</div>
-										</div>
-										<div class="col-sm-12">
-											<div class="form-group">
-												<input type="password" name="password" class="form-control" placeholder="password" aria-required="true" required>
-											</div>
-										</div>
-									</div>
-									<a class="registerRedirect " data-dismiss="modal" data-target="#popupRegistr" data-toggle="modal" href="#">Not a member? Register!</a>
-									<button type="submit" class="btn btn-maincolor mt-30 d-block">Sign In</button>
-								</form>
-
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-
-	<div class="modal fade popupRegistr" id="popupRegistr" tabindex="-1" role="dialog" aria-hidden="true">
-		<div class="modal-dialog modal-dialog-centered" role="document">
-			<div class="modal-content ls border-r-def overflow-visible s-overlay s-mobile-overlay">
-				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-					<span aria-hidden="true">&times;</span>
-				</button>
-				<div class="modal-body">
-					<div class="container">
-						<div class="row">
-							<div class="col-12">
-								<h4 class="mb-4">Registration</h4>
-								<form class="form-registration c-mb-40 c-gutter-40" method="post" action="/">
-									<div class="row">
-										<div class="col-12">
-											<div class="form-group">
-												<input type="text" name="name" class="form-control" required placeholder="login" aria-required="true">
-											</div>
-										</div>
-										<div class="col-12">
-											<div class="form-group">
-												<input type="password" name="password" class="form-control" placeholder="password" aria-required="true" required>
-											</div>
-										</div>
-										<div class="col-12">
-											<div class="form-group">
-												<input type="email" name="email" class="form-control" placeholder="email" required aria-required="true">
-											</div>
-										</div>
-										<div class="col-12">
-											<div class="form-group">
-												<input type="password" name="confirmPassword" class="form-control" placeholder="password" required aria-required="true">
-											</div>
-										</div>
-										<div class="col-12">
-											<div class="form-group checkbox-group">
-												<input type="checkbox" id="agreed" name="agreed" value="agreed" required aria-required="true"><label for="agreed">I agree to the rules</label>
-											</div>
-										</div>
-									</div>
-									<button type="submit" class="btn btn-maincolor mt-30 d-block">Registration</button>
-								</form>
-
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-
-	<!-- page wrapper -->
 	<div id="canvas">
 		<div id="box_wrapper">
-
-			<!-- page sections -->
-
-
-			<!-- header with three Bootstrap columns - left for logo, center for navigation and right for includes-->
 			<header class="page_header ls s-overlay s-py-10">
 				<div class="container-fluid">
 					<div class="row align-items-center">
@@ -170,25 +45,24 @@
 							</a>
 						</div>
 						<div class="col-xl-8 col-lg-6 col-1">
-							<!-- main nav start -->
 							<nav class="top-nav">
 								<ul class="nav sf-menu">
-									<li class="active">
+									<li>
 										<a href="index.html">Accueil</a>
 									</li>
 									<li>
-										<a href="#about">Le Livre</a>
+										<a href="book.html">Le Livre</a>
 									</li>
 									<li>
-										<a href="#acheter">Acheter</a>
+										<a href="pricing.html">Acheter le livre</a>
 									</li>
 									<li>
-										<a href="#author">Auteur</a>
+										<a href="author.html">Auteur</a>
 									</li>
 									<li>
-										<a href="blog.html">Blog</a>
+										<a href="blog.html">Blog / Actualites</a>
 									</li>
-									<li>
+									<li class="active">
 										<a href="faq.html">FAQ</a>
 									</li>
 									<li>
@@ -205,7 +79,6 @@
 									</li>
 								</ul>
 							</nav>
-							<!-- eof main nav -->
 						</div>
 						<div class="col-xl-2 col-lg-3 text-right d-none d-lg-block">
 							<div class="header-language-control">
@@ -220,74 +93,82 @@
 						</div>
 					</div>
 				</div>
-				<!-- header toggler -->
 				<span class="toggle_menu" aria-label="Ouvrir le menu mobile" role="button" tabindex="0"><span></span></span>
 			</header>
 
 			<section class="page_title ds s-parallax s-py-110">
 				<div class="container">
 					<div class="row">
-
 						<div class="col-md-12 text-center">
-							<h1 class="small-title">Frequently Asked Questions</h1>
+							<h1 class="small-title">FAQ</h1>
 							<ol class="breadcrumb">
 								<li class="breadcrumb-item">
-									<a href="./">Home</a>
-								</li>
-								<li class="breadcrumb-item">
-									<a href="#">Pages</a>
+									<a href="index.html">Accueil</a>
 								</li>
 								<li class="breadcrumb-item active">
-									Frequently Asked Questions
+									FAQ
 								</li>
 							</ol>
 						</div>
-
 					</div>
 				</div>
 			</section>
 
-			<section class="ls c-gutter-60">
+			<section class="ls ms s-py-60 s-py-xl-90 js-rarsm-cartography" style="padding-top: 0;">
 				<div class="container">
 					<div class="row">
-						<div class="col-lg-5 height-100">
+						<div class="col-12 text-center">
+								<h3 class="mb-0">Poser une question</h3>
+								<div class="divider-25"></div>
+								<p>Avant votre commande, vous pouvez nous contacter pour toute precision sur le format, la tarification, la livraison ou la disponibilite d'un extrait.</p>
+							<div class="divider-40"></div>
+						</div>
+						
+					</div>
+				</div>
+			</section>
+
+			<section class="ls c-gutter-60 ">
+				<div class="container">
+					<div class="row">
+						<div class="col-lg-5">
 							<div class="p-xl-80 p-50 ls ms">
+								<div class="divider-20"></div>
+								<h4> Remplissez le formulaire ci-dessous pour nous contacter.</h4>
 								<div class="divider-30"></div>
-								<h3 class="mb-0">Ask a question</h3>
-								<div class="divider-40"></div>
 								<form class="contact-form c-mb-50" action="/">
 									<div class="row">
 										<div class="col-12">
 											<div class="form-group has-placeholder">
-												<input type="text" aria-required="true" size="30" value="" name="name" class="form-control" placeholder="Full name">
+												<input type="text" aria-required="true" size="30" value="" name="name" class="form-control" placeholder="Nom complet">
 											</div>
 										</div>
 									</div>
 									<div class="row">
 										<div class="col-12">
 											<div class="form-group has-placeholder">
-												<input type="email" aria-required="true" size="30" value="" name="email" class="form-control" placeholder="Email address">
+												<input type="email" aria-required="true" size="30" value="" name="email" class="form-control" placeholder="Adresse email">
 											</div>
 										</div>
 									</div>
 									<div class="row">
 										<div class="col-12">
 											<div class="form-group has-placeholder">
-												<input type="text" aria-required="true" size="30" value="" name="email" class="form-control" placeholder="Subject">
+												<input type="text" aria-required="true" size="30" value="" name="subject" class="form-control" placeholder="Sujet">
 											</div>
 										</div>
 									</div>
 									<div class="row">
 										<div class="col-12">
 											<div class="form-group has-placeholder">
-												<textarea aria-required="true" rows="3" cols="45" name="message" class="form-control" placeholder="Your message"></textarea>
+												<textarea aria-required="true" rows="4" cols="45" name="message" class="form-control" placeholder="Votre question"></textarea>
 											</div>
 										</div>
 									</div>
 									<div class="wrap-forms">
 										<div class="row">
 											<div class="col-12">
-												<button type="submit" name="contact_submit" class="btn btn-maincolor">Ask a question</button>
+												<button type="submit" name="contact_submit" class="btn btn-maincolor">Envoyer la question</button>
 											</div>
 										</div>
 									</div>
@@ -297,271 +178,123 @@
 						</div>
 						<div class="col-lg-7 col-xl-6 offset-xl-1">
 							<div class="divider-60 divider-lg-90 divider-xl-150"></div>
-							<h4 class="my-0">General Questions</h4>
+							<h4 class="my-0">Avant l'achat</h4>
 							<div class="divider-35"></div>
 							<div id="accordion01" role="tablist">
 								<div class="card">
-									<div class="card-header" role="tab" id="collapse01_header">
+									<div class="card-header" role="tab" id="faq01_header">
 										<h5>
-											<a class="collapsed" data-toggle="collapse" href="#collapse01" aria-expanded="true" aria-controls="collapse01">
-												Lorem ipsum dolor sit amet, consectetur adipisicing?
+											<a class="collapsed" data-toggle="collapse" href="#faq01" aria-expanded="true" aria-controls="faq01">
+												Le prix du livre est-il fixe ?
 											</a>
 										</h5>
 									</div>
-
-									<div id="collapse01" class="collapse" role="tabpanel" aria-labelledby="collapse01_header" data-parent="#accordion01">
+									<div id="faq01" class="collapse" role="tabpanel" aria-labelledby="faq01_header" data-parent="#accordion01">
 										<div class="card-body">
-											<p>
-												Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip.
-											</p>
+											<p>Le tarif depend du format choisi, de la disponibilite de l'edition et, pour les commandes groupees, du volume souhaite. Le montant est confirme avant validation.</p>
 										</div>
 									</div>
 								</div>
-
 								<div class="card">
-									<div class="card-header" role="tab" id="collapse02_header">
+									<div class="card-header" role="tab" id="faq02_header">
 										<h5>
-											<a class="collapsed" data-toggle="collapse" href="#collapse02" aria-expanded="false" aria-controls="collapse02">
-												Sed do eiusmod tempor incididunt?
+											<a class="collapsed" data-toggle="collapse" href="#faq02" aria-expanded="false" aria-controls="faq02">
+												Puis-je demander un extrait avant de commander ?
 											</a>
 										</h5>
 									</div>
-									<div id="collapse02" class="collapse" role="tabpanel" aria-labelledby="collapse02_header" data-parent="#accordion01">
+									<div id="faq02" class="collapse" role="tabpanel" aria-labelledby="faq02_header" data-parent="#accordion01">
 										<div class="card-body">
-											<p>
-												Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip.
-											</p>
+											<p>Oui. Un extrait de presentation peut etre partage sur demande afin de vous permettre de decouvrir la structure generale du recueil et son approche editoriale.</p>
 										</div>
 									</div>
 								</div>
-
 								<div class="card">
-									<div class="card-header" role="tab" id="collapse04_header">
+									<div class="card-header" role="tab" id="faq03_header">
 										<h5>
-											<a class="collapsed" data-toggle="collapse" href="#collapse04" aria-expanded="false" aria-controls="collapse04">
-												Labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation?
+											<a class="collapsed" data-toggle="collapse" href="#faq03" aria-expanded="false" aria-controls="faq03">
+												A qui s'adresse principalement le RARSM ?
 											</a>
 										</h5>
 									</div>
-									<div id="collapse04" class="collapse" role="tabpanel" aria-labelledby="collapse04_header" data-parent="#accordion01">
+									<div id="faq03" class="collapse" role="tabpanel" aria-labelledby="faq03_header" data-parent="#accordion01">
 										<div class="card-body">
-											<p>
-												Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip.
-											</p>
+											<p>Le recueil s'adresse aux operateurs miniers, investisseurs, juristes, cabinets-conseils, administrations publiques, enseignants, chercheurs et etudiants interesses par le cadre juridique minier congolais.</p>
 										</div>
 									</div>
 								</div>
-
 								<div class="card">
-									<div class="card-header" role="tab" id="collapse05_header">
+									<div class="card-header" role="tab" id="faq04_header">
 										<h5>
-											<a class="collapsed" data-toggle="collapse" href="#collapse05" aria-expanded="false" aria-controls="collapse05">
-												Ullamco laboris nisi ut aliquip ex ea commodo?
+											<a class="collapsed" data-toggle="collapse" href="#faq04" aria-expanded="false" aria-controls="faq04">
+												Comment lancer une commande ?
 											</a>
 										</h5>
 									</div>
-									<div id="collapse05" class="collapse" role="tabpanel" aria-labelledby="collapse05_header" data-parent="#accordion01">
+									<div id="faq04" class="collapse" role="tabpanel" aria-labelledby="faq04_header" data-parent="#accordion01">
 										<div class="card-body">
-											<p>
-												Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip.
-											</p>
-										</div>
-									</div>
-								</div>
-
-								<div class="card">
-									<div class="card-header" role="tab" id="collapse06_header">
-										<h5>
-											<a class="collapsed" data-toggle="collapse" href="#collapse06" aria-expanded="false" aria-controls="collapse06">
-												Duis aute irure dolor in reprehenderit in voluptate velit?
-											</a>
-										</h5>
-									</div>
-									<div id="collapse06" class="collapse" role="tabpanel" aria-labelledby="collapse06_header" data-parent="#accordion01">
-										<div class="card-body">
-											<p>
-												Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip.
-											</p>
+											<p>Vous pouvez passer par la page de contact ou adresser une demande directe en precisant le format desire, la quantite souhaitee et votre localisation.</p>
 										</div>
 									</div>
 								</div>
 							</div>
 							<div class="divider-60"></div>
-							<h4 class="my-0">Financial topics</h4>
+							<h4 class="my-0">Formats, livraison et contact</h4>
 							<div class="divider-35"></div>
 							<div id="accordion02" role="tablist">
 								<div class="card">
-									<div class="card-header" role="tab" id="collapse07_header">
+									<div class="card-header" role="tab" id="faq05_header">
 										<h5>
-											<a class="collapsed" data-toggle="collapse" href="#collapse07" aria-expanded="true" aria-controls="collapse07">
-												Lorem ipsum dolor sit amet, consectetur adipisicing?
+											<a class="collapsed" data-toggle="collapse" href="#faq05" aria-expanded="true" aria-controls="faq05">
+												Le format PDF est-il disponible ?
 											</a>
 										</h5>
 									</div>
-
-									<div id="collapse07" class="collapse" role="tabpanel" aria-labelledby="collapse07_header" data-parent="#accordion02">
+									<div id="faq05" class="collapse" role="tabpanel" aria-labelledby="faq05_header" data-parent="#accordion02">
 										<div class="card-body">
-											<p>
-												Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip.
-											</p>
+											<p>Selon l'edition et la campagne de diffusion, une version numerique peut etre proposee. La disponibilite est toujours confirmee a la demande.</p>
 										</div>
 									</div>
 								</div>
-
 								<div class="card">
-									<div class="card-header" role="tab" id="collapse08_header">
+									<div class="card-header" role="tab" id="faq06_header">
 										<h5>
-											<a class="collapsed" data-toggle="collapse" href="#collapse08" aria-expanded="false" aria-controls="collapse08">
-												Sed do eiusmod tempor incididunt?
+											<a class="collapsed" data-toggle="collapse" href="#faq06" aria-expanded="false" aria-controls="faq06">
+												Comment se passe la livraison du livre ?
 											</a>
 										</h5>
 									</div>
-									<div id="collapse08" class="collapse" role="tabpanel" aria-labelledby="collapse08_header" data-parent="#accordion02">
+									<div id="faq06" class="collapse" role="tabpanel" aria-labelledby="faq06_header" data-parent="#accordion02">
 										<div class="card-body">
-											<p>
-												Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip.
-											</p>
+											<p>La remise depend de votre localisation et du format choisi. Une livraison locale, un envoi coordonne ou une transmission numerique peuvent etre organises.</p>
 										</div>
 									</div>
 								</div>
-
 								<div class="card">
-									<div class="card-header" role="tab" id="collapse09_header">
+									<div class="card-header" role="tab" id="faq07_header">
 										<h5>
-											<a class="collapsed" data-toggle="collapse" href="#collapse09" aria-expanded="false" aria-controls="collapse09">
-												Labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation?
+											<a class="collapsed" data-toggle="collapse" href="#faq07" aria-expanded="false" aria-controls="faq07">
+												Puis-je acheter plusieurs exemplaires ?
 											</a>
 										</h5>
 									</div>
-									<div id="collapse09" class="collapse" role="tabpanel" aria-labelledby="collapse09_header" data-parent="#accordion02">
+									<div id="faq07" class="collapse" role="tabpanel" aria-labelledby="faq07_header" data-parent="#accordion02">
 										<div class="card-body">
-											<p>
-												Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip.
-											</p>
+											<p>Oui. Les commandes institutionnelles ou groupees sont possibles et peuvent faire l'objet d'un devis, d'un suivi logistique et d'une facturation dedies.</p>
 										</div>
 									</div>
 								</div>
-
 								<div class="card">
-									<div class="card-header" role="tab" id="collapse10_header">
+									<div class="card-header" role="tab" id="faq08_header">
 										<h5>
-											<a class="collapsed" data-toggle="collapse" href="#collapse10" aria-expanded="false" aria-controls="collapse10">
-												Ullamco laboris nisi ut aliquip ex ea commodo?
+											<a class="collapsed" data-toggle="collapse" href="#faq08" aria-expanded="false" aria-controls="faq08">
+												Comment vous joindre rapidement ?
 											</a>
 										</h5>
 									</div>
-									<div id="collapse10" class="collapse" role="tabpanel" aria-labelledby="collapse10_header" data-parent="#accordion02">
+									<div id="faq08" class="collapse" role="tabpanel" aria-labelledby="faq08_header" data-parent="#accordion02">
 										<div class="card-body">
-											<p>
-												Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip.
-											</p>
-										</div>
-									</div>
-								</div>
-
-								<div class="card">
-									<div class="card-header" role="tab" id="collapse11_header">
-										<h5>
-											<a class="collapsed" data-toggle="collapse" href="#collapse11" aria-expanded="false" aria-controls="collapse11">
-												Duis aute irure dolor in reprehenderit in voluptate velit?
-											</a>
-										</h5>
-									</div>
-									<div id="collapse11" class="collapse" role="tabpanel" aria-labelledby="collapse11_header" data-parent="#accordion02">
-										<div class="card-body">
-											<p>
-												Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip.
-											</p>
-										</div>
-									</div>
-								</div>
-							</div>
-							<div class="divider-60"></div>
-							<h4 class="my-0">Other questions</h4>
-							<div class="divider-35"></div>
-							<div id="accordion03" role="tablist">
-								<div class="card">
-									<div class="card-header" role="tab" id="collapse12_header">
-										<h5>
-											<a class="collapsed" data-toggle="collapse" href="#collapse12" aria-expanded="true" aria-controls="collapse12">
-												Lorem ipsum dolor sit amet, consectetur adipisicing?
-											</a>
-										</h5>
-									</div>
-
-									<div id="collapse12" class="collapse" role="tabpanel" aria-labelledby="collapse12_header" data-parent="#accordion03">
-										<div class="card-body">
-											<p>
-												Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip.
-											</p>
-										</div>
-									</div>
-								</div>
-
-								<div class="card">
-									<div class="card-header" role="tab" id="collapse13_header">
-										<h5>
-											<a class="collapsed" data-toggle="collapse" href="#collapse13" aria-expanded="false" aria-controls="collapse13">
-												Sed do eiusmod tempor incididunt?
-											</a>
-										</h5>
-									</div>
-									<div id="collapse13" class="collapse" role="tabpanel" aria-labelledby="collapse13_header" data-parent="#accordion03">
-										<div class="card-body">
-											<p>
-												Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip.
-											</p>
-										</div>
-									</div>
-								</div>
-
-								<div class="card">
-									<div class="card-header" role="tab" id="collapse14_header">
-										<h5>
-											<a class="collapsed" data-toggle="collapse" href="#collapse14" aria-expanded="false" aria-controls="collapse14">
-												Labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation?
-											</a>
-										</h5>
-									</div>
-									<div id="collapse14" class="collapse" role="tabpanel" aria-labelledby="collapse14_header" data-parent="#accordion03">
-										<div class="card-body">
-											<p>
-												Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip.
-											</p>
-										</div>
-									</div>
-								</div>
-
-								<div class="card">
-									<div class="card-header" role="tab" id="collapse15_header">
-										<h5>
-											<a class="collapsed" data-toggle="collapse" href="#collapse15" aria-expanded="false" aria-controls="collapse15">
-												Ullamco laboris nisi ut aliquip ex ea commodo?
-											</a>
-										</h5>
-									</div>
-									<div id="collapse15" class="collapse" role="tabpanel" aria-labelledby="collapse15_header" data-parent="#accordion03">
-										<div class="card-body">
-											<p>
-												Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip.
-											</p>
-										</div>
-									</div>
-								</div>
-
-								<div class="card">
-									<div class="card-header" role="tab" id="collapse16_header">
-										<h5>
-											<a class="collapsed" data-toggle="collapse" href="#collapse16" aria-expanded="false" aria-controls="collapse16">
-												Duis aute irure dolor in reprehenderit in voluptate velit?
-											</a>
-										</h5>
-									</div>
-									<div id="collapse16" class="collapse" role="tabpanel" aria-labelledby="collapse16_header" data-parent="#accordion03">
-										<div class="card-body">
-											<p>
-												Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip.
-											</p>
+											<p>La page Contact centralise le formulaire, l'email, le WhatsApp et les reseaux sociaux pour permettre un echange rapide avant commande.</p>
 										</div>
 									</div>
 								</div>
@@ -575,7 +308,6 @@
 			<footer class="page_footer ds s-py-85 s-py-xl-155">
 				<div class="container">
 					<div class="row">
-
 						<div class="col-12 text-center animate" data-animation="fadeInUp">
 							<a href="./" class="logo justify-content-center">
 								<img src="logo/rarsm-logo-wordmark-white.png" alt="RARSM">
@@ -584,24 +316,29 @@
 							<div class="widget widget_nav_menu nav-in-line">
 								<ul class="menu">
 									<li class="menu-item">
-										<a href="index.html">Home</a>
+										<a href="index.html">Accueil</a>
 									</li>
 									<li class="menu-item">
-										<a href="author.html">Author</a>
+										<a href="book.html">Le Livre</a>
 									</li>
 									<li class="menu-item">
-										<a href="chapter.html">Chapter</a>
+										<a href="pricing.html">Acheter le livre</a>
 									</li>
 									<li class="menu-item">
-										<a href="blog-single-left.html">Blog</a>
+										<a href="author.html">Auteur</a>
 									</li>
 									<li class="menu-item">
-										<a href="contact.html">Contacts</a>
+										<a href="blog.html">Blog / Actualites</a>
+									</li>
+									<li class="menu-item">
+										<a href="faq.html">FAQ</a>
+									</li>
+									<li class="menu-item">
+										<a href="contact.html">Contact</a>
 									</li>
 								</ul>
 							</div>
 						</div>
-
 					</div>
 				</div>
 			</footer>
@@ -610,23 +347,15 @@
 				<div class="container">
 					<div class="row align-items-center">
 						<div class="col-md-12 text-center color-dark">
-							<p>&copy; Copyright <span class="copyright_year">2020</span> All Rights Reserved</p>
+							<p>&copy; <span class="copyright_year">2026</span> RARSM - Recueil des Actes Reglementaires du Secteur Minier. Tous droits reserves.</p>
 						</div>
 					</div>
 				</div>
 			</section>
-
-
-		</div><!-- eof #box_wrapper -->
-	</div><!-- eof #canvas -->
-
+		</div>
+	</div>
 
 	<script src="js/compressed.js"></script>
 	<script src="js/main.js"></script>
-
-
 </body>
-
 </html>
-
-
