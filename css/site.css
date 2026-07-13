@@ -19411,6 +19411,114 @@ span.muted-bg {
 	position: static;
 }
 
+#formats .pricing-plan {
+	display: flex;
+	flex-direction: column;
+	height: 100%;
+}
+
+#formats .pricing-plan .plan-description {
+	margin-bottom: 0;
+}
+
+#formats .pricing-plan .plan-features {
+	flex: 1 1 auto;
+}
+
+#formats .pricing-plan .plan-button {
+	display: flex;
+	justify-content: center;
+	margin-top: auto;
+	padding-top: 22px;
+}
+
+#formats .pricing-plan .plan-button .btn {
+	align-items: center;
+	display: inline-flex;
+	justify-content: center;
+	text-align: center;
+}
+
+#payment .payment-logo-grid {
+	align-items: center;
+	display: flex;
+	flex-wrap: wrap;
+	gap: 14px;
+	justify-content: center;
+	margin: 0 auto;
+	max-width: 980px;
+}
+
+#payment .payment-logo-chip {
+	align-items: center;
+	background: rgba(255, 255, 255, 0.08);
+	border: 1px solid rgba(255, 255, 255, 0.14);
+	border-radius: 999px;
+	box-shadow: 0 12px 28px rgba(5, 16, 46, 0.18);
+	display: inline-flex;
+	gap: 12px;
+	justify-content: center;
+	min-height: 56px;
+	padding: 10px 18px;
+}
+
+#payment .payment-logo-chip__icon {
+	align-items: center;
+	border-radius: 50%;
+	color: #fff;
+	display: inline-flex;
+	font-family: "Montserrat", sans-serif;
+	font-size: 0.95rem;
+	font-weight: 700;
+	height: 34px;
+	justify-content: center;
+	letter-spacing: 0.04em;
+	line-height: 1;
+	min-width: 34px;
+	padding-left: 0.04em;
+}
+
+#payment .payment-logo-chip__label {
+	color: #fff;
+	font-size: 0.95rem;
+	font-weight: 700;
+	letter-spacing: 0.01em;
+	line-height: 1.2;
+	white-space: nowrap;
+}
+
+#payment .payment-logo-chip--mpesa .payment-logo-chip__icon {
+	background: #0f8f45;
+}
+
+#payment .payment-logo-chip--airtel .payment-logo-chip__icon {
+	background: #d8192c;
+}
+
+#payment .payment-logo-chip--orange .payment-logo-chip__icon {
+	background: #ff7900;
+}
+
+#payment .payment-logo-chip--bank .payment-logo-chip__icon {
+	background: #1d4d8b;
+}
+
+#payment .payment-logo-chip--invoice .payment-logo-chip__icon {
+	background: #b38a1d;
+}
+
+#order-form .order-contact-button-wrap {
+	display: flex;
+	justify-content: center;
+}
+
+#order-form .order-contact-button {
+	align-items: center;
+	display: inline-flex;
+	justify-content: center;
+	text-align: center;
+}
+
 @media (min-width: 1200px) {
 	.pricing-plan.plan-featured {
 		margin-bottom: -40px;
@@ -27554,11 +27662,12 @@ img.absolute_image {
 }
 
 .section-amazon {
-	background: url("../images/bg-section-amazon.jpg") no-repeat center/cover;
+	--section-amazon-background: url("../images/bg-section-amazon-rarsm-v2.png");
+	background: var(--section-amazon-background) no-repeat center/cover;
 }
 
 .section-shop {
-	background-image: url("../images/bg-section-shop.png");
+	background-image: url("../images/rarsm-generated/hero-presentation-rarsm.png");
 	background-position: top;
 	background-repeat: no-repeat;
 	background-size: contain;
@@ -28109,6 +28218,7 @@ body {
 }
 
 .section-amazon {
+	background: var(--section-amazon-background) no-repeat center/cover;
 	background-color: #f6f4ef;
 	color: var(--rarsm-text);
 	overflow: hidden;
@@ -28116,7 +28226,7 @@ body {
 }
 
 .section-amazon::after {
-	background-image: url("../images/bg-section-amazon.jpg");
+	background-image: var(--section-amazon-background);
 	background-position: right center;
 	background-repeat: no-repeat;
 	background-size: cover;
@@ -32413,6 +32523,24 @@ img {
 
 	.pricing-plan .plan-button .btn {
 		width: min(100%, 280px);
+	}
+
+	#payment .payment-logo-grid {
+		gap: 10px;
+	}
+
+	#payment .payment-logo-chip {
+		min-height: 50px;
+		padding: 10px 14px;
+	}
+
+	#payment .payment-logo-chip__label {
+		font-size: 0.88rem;
+		white-space: normal;
+	}
+
+	#order-form .order-contact-button {
+		width: min(100%, 320px);
 	}
 
 	.post-grid-item .entry-title,
