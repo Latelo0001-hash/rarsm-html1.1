@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js" lang="fr">
+<!--<![endif]-->
+
+<head>
+	<title>RARSM | Institutions</title>
+	<meta charset="utf-8">
+	<!--[if IE]>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<![endif]-->
+	<meta name="description" content="">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta name="format-detection" content="telephone=no">
+	<!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+	<link rel="icon" href="favicon.png?v=20260702-favicon" type="image/png">
+	<link rel="shortcut icon" href="favicon.png?v=20260702-favicon" type="image/png">
+	<link rel="apple-touch-icon" href="favicon.png?v=20260702-favicon">
+	<link rel="stylesheet" href="css/site.css">
+<script src="js/vendor/modernizr-2.6.2.min.js"></script>
+
+	<!--[if lt IE 9]>
+		<script src="js/vendor/html5shiv.min.js"></script>
+		<script src="js/vendor/respond.min.js"></script>
+		<script src="js/vendor/jquery-1.12.4.min.js"></script>
+	<![endif]-->
+
+</head>
+
+<body>
+	<!--[if lt IE 9]>
+		<div class="bg-danger text-center">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/" class="color-main">upgrade your browser</a> to improve your experience.</div>
+	<![endif]-->
+
+	<div class="preloader">
+		<div class="preloader_image pulse"></div>
+	</div>
+
+	<!-- search modal -->
+	<div class="modal" tabindex="-1" role="dialog" aria-labelledby="search_modal" id="search_modal">
+		<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+			<span aria-hidden="true">&times;</span>
+		</button>
+		<div class="widget widget_search">
+			<form method="get" class="searchform search-form" action="/">
+				<div class="form-group">
+					<input type="text" value="" name="search" class="form-control" placeholder="Search keyword" id="modal-search-input">
+				</div>
+				<button type="submit" class="btn">Search</button>
+			</form>
+		</div>
+	</div>
+
+	<!-- Unyson messages modal -->
+	<div class="modal fade" tabindex="-1" role="dialog" id="messages_modal">
+		<div class="fw-messages-wrap ls p-normal">
+			<!-- Uncomment this UL with LI to show messages in modal popup to your user: -->
+			<!--
+		<ul class="list-unstyled">
+			<li>Message To User</li>
+		</ul>
+		-->
+
+		</div>
+	</div><!-- eof .modal -->
+
+	<div class="modal fade popupLogin" id="popupLogin" tabindex="-1" role="dialog" aria-hidden="true">
+		<div class="modal-dialog modal-dialog-centered" role="document">
+			<div class="modal-content ls border-r-def overflow-visible s-overlay s-mobile-overlay">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+				<div class="modal-body">
+					<div class="container">
+						<div class="row">
+							<div class="col-12">
+								<h4 class="mb-4">Log in</h4>
+								<form class="form-registration c-mb-40 c-gutter-20" action="/">
+									<div class="row mb-4">
+										<div class="col-sm-12">
+											<div class="form-group">
+												<input type="text" name="name" class="form-control" required placeholder="login" aria-required="true">
+											</div>
+										</div>
+										<div class="col-sm-12">
+											<div class="form-group">
+												<input type="password" name="password" class="form-control" placeholder="password" aria-required="true" required>
+											</div>
+										</div>
+									</div>
+									<a class="registerRedirect " data-dismiss="modal" data-target="#popupRegistr" data-toggle="modal" href="#">Not a member? Register!</a>
+									<button type="submit" class="btn btn-maincolor mt-30 d-block">Sign In</button>
+								</form>
+
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="modal fade popupRegistr" id="popupRegistr" tabindex="-1" role="dialog" aria-hidden="true">
+		<div class="modal-dialog modal-dialog-centered" role="document">
+			<div class="modal-content ls border-r-def overflow-visible s-overlay s-mobile-overlay">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+				<div class="modal-body">
+					<div class="container">
+						<div class="row">
+							<div class="col-12">
+								<h4 class="mb-4">Registration</h4>
+								<form class="form-registration c-mb-40 c-gutter-40" method="post" action="/">
+									<div class="row">
+										<div class="col-12">
+											<div class="form-group">
+												<input type="text" name="name" class="form-control" required placeholder="login" aria-required="true">
+											</div>
+										</div>
+										<div class="col-12">
+											<div class="form-group">
+												<input type="password" name="password" class="form-control" placeholder="password" aria-required="true" required>
+											</div>
+										</div>
+										<div class="col-12">
+											<div class="form-group">
+												<input type="email" name="email" class="form-control" placeholder="email" required aria-required="true">
+											</div>
+										</div>
+										<div class="col-12">
+											<div class="form-group">
+												<input type="password" name="confirmPassword" class="form-control" placeholder="password" required aria-required="true">
+											</div>
+										</div>
+										<div class="col-12">
+											<div class="form-group checkbox-group">
+												<input type="checkbox" id="agreed" name="agreed" value="agreed" required aria-required="true"><label for="agreed">I agree to the rules</label>
+											</div>
+										</div>
+									</div>
+									<button type="submit" class="btn btn-maincolor mt-30 d-block">Registration</button>
+								</form>
+
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+	<!-- page wrapper -->
+	<div id="canvas">
+		<div id="box_wrapper">
+
+			<!-- page sections -->
+
+
+			<!-- header with three Bootstrap columns - left for logo, center for navigation and right for includes-->
+			<header class="page_header ls s-overlay s-py-10">
+				<div class="container-fluid">
+					<div class="row align-items-center">
+						<div class="col-xl-2 col-lg-3 col-11">
+							<a href="index.html" class="logo">
+								<img src="logo/rarsm-logo-wordmark-color.png" alt="RARSM">
+							</a>
+						</div>
+						<div class="col-xl-8 col-lg-6 col-1">
+							<!-- main nav start -->
+							<nav class="top-nav">
+								<ul class="nav sf-menu">
+									<li>
+										<a href="index.html">Accueil</a>
+									</li>
+									<li>
+										<a href="book.html">Livre</a>
+									</li>
+									<li>
+										<a href="pricing.html">Acheter</a>
+									</li>
+									<li>
+										<a href="author.html">Auteur</a>
+									</li>
+									<li>
+										<a href="activites.html">Activités</a>
+									</li>
+									<li class="active">
+										<a href="institutions.html">Institutions</a>
+									</li>
+									<li>
+										<a href="contact.html">Contact</a>
+									</li>
+									<li class="menu-auth-item menu-auth-login">
+										<a data-toggle="modal" href="#popupLogin">Se connecter</a>
+									</li>
+									<li class="menu-auth-item menu-auth-register">
+										<a data-toggle="modal" href="#popupRegistr">S'inscrire</a>
+									</li>
+									<li class="menu-cart-mobile dropdown d-lg-none">
+										<button aria-expanded="false" aria-haspopup="true" aria-label="Ouvrir le panier" class="dropdown-toggle dropdown-shopping-cart" data-toggle="dropdown" id="dropdown-shopping-cart-mobile" type="button">
+											<i aria-hidden="true" class="fa fa-shopping-basket"></i>
+											<span class="badge bg-maincolor">1</span>
+											<span class="cart-total">$27.00</span>
+										</button>
+										<div aria-labelledby="dropdown-shopping-cart-mobile" class="dropdown-menu ls">
+											<div class="widget woocommerce widget_shopping_cart">
+												<div class="widget_shopping_cart_content">
+													<ul class="woocommerce-mini-cart cart_list product_list_widget">
+														<li class="woocommerce-mini-cart-item mini_cart_item">
+															<a href="#" class="remove" aria-label="Retirer cet article" data-product_id="rarsm-book" data-product_sku="RARSM-PRINT">×</a>
+															<a href="pricing.html#formats"><img src="images/view-rarsm.JPG" alt="Livre RARSM"></a>
+															<a href="pricing.html#formats">RARSM - Edition papier</a>
+															<span class="quantity">1 ×
+																<span class="woocommerce-Price-amount amount">
+																	<span class="woocommerce-Price-currencySymbol">$</span>
+																	27.00
+																</span>
+															</span>
+														</li>
+													</ul>
+													<p class="woocommerce-mini-cart__total total">
+														<strong>Sous-total :</strong>
+														<span class="woocommerce-Price-amount amount">
+															<span class="woocommerce-Price-currencySymbol">$</span>
+															27.00
+														</span>
+													</p>
+													<p class="woocommerce-mini-cart__buttons buttons">
+														<a href="pricing.html#formats" class="button wc-forward">Panier</a>
+														<a href="pricing.html#order-form" class="button checkout wc-forward">Commander</a>
+													</p>
+												</div>
+											</div>
+										</div>
+									</li>
+									<li class="menu-language-mobile d-lg-none">
+										<div class="language-switcher js-language-switcher">
+											<button type="button" class="language-toggle js-language-toggle" aria-expanded="false" aria-label="Choix de la langue actuelle">Fr</button>
+											<div class="language-menu" role="menu" aria-label="Choix de la langue">
+												<button type="button" class="language-option js-language-option is-active" data-language="fr" role="menuitem">Fr</button>
+												<button type="button" class="language-option js-language-option" data-language="en" role="menuitem">En</button>
+											</div>
+										</div>
+									</li>
+								</ul>
+							</nav>
+							<!-- eof main nav -->
+						</div>
+						<div class="col-xl-2 col-lg-3 text-right d-none d-lg-block">
+							<div class="header-utilities">
+								<div class="dropdown">
+									<a class="dropdown-toggle dropdown-shopping-cart" href="#" role="button" id="dropdown-shopping-cart" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" aria-label="Ouvrir le panier">
+										<i class="fa fa-shopping-basket" aria-hidden="true"></i>
+										<span class="badge bg-maincolor">1</span>
+										<span class="cart-total">$27.00</span>
+									</a>
+									<div class="dropdown-menu dropdown-menu-right ls" aria-labelledby="dropdown-shopping-cart">
+										<div class="widget woocommerce widget_shopping_cart">
+											<div class="widget_shopping_cart_content">
+												<ul class="woocommerce-mini-cart cart_list product_list_widget">
+													<li class="woocommerce-mini-cart-item mini_cart_item">
+														<a href="#" class="remove" aria-label="Retirer cet article" data-product_id="rarsm-book" data-product_sku="RARSM-PRINT">×</a>
+														<a href="pricing.html#formats"><img src="images/view-rarsm.JPG" alt="Livre RARSM"></a>
+														<a href="pricing.html#formats">RARSM - Edition papier</a>
+														<span class="quantity">1 ×
+															<span class="woocommerce-Price-amount amount">
+																<span class="woocommerce-Price-currencySymbol">$</span>
+																27.00
+															</span>
+														</span>
+													</li>
+												</ul>
+												<p class="woocommerce-mini-cart__total total">
+													<strong>Sous-total :</strong>
+													<span class="woocommerce-Price-amount amount">
+														<span class="woocommerce-Price-currencySymbol">$</span>
+														27.00
+													</span>
+												</p>
+												<p class="woocommerce-mini-cart__buttons buttons">
+													<a href="pricing.html#formats" class="button wc-forward">Panier</a>
+													<a href="pricing.html#order-form" class="button checkout wc-forward">Commander</a>
+												</p>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="header-language-control">
+									<div class="language-switcher js-language-switcher">
+										<button type="button" class="language-toggle js-language-toggle" aria-expanded="false" aria-label="Choix de la langue actuelle">Fr</button>
+										<div class="language-menu" role="menu" aria-label="Choix de la langue">
+											<button type="button" class="language-option js-language-option is-active" data-language="fr" role="menuitem">Fr</button>
+											<button type="button" class="language-option js-language-option" data-language="en" role="menuitem">En</button>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- header toggler -->
+				<span class="toggle_menu" aria-label="Ouvrir le menu mobile" role="button" tabindex="0"><span></span></span>
+			</header>
+            <section class="page_title ds s-parallax s-py-110">
+				<div class="container">
+					<div class="row">
+
+						<div class="col-md-12 text-center">
+							<h1 class="small-title">Institutions</h1>
+							<ol class="breadcrumb">
+								<li class="breadcrumb-item">
+									<a href="index.html">Accueil</a>
+								</li>
+								<li class="breadcrumb-item active">
+									Institutions
+								</li>
+							</ol>
+						</div>
+
+					</div>
+				</div>
+			</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            <footer class="page_footer ds s-py-85 s-py-xl-155">
+				<div class="container">
+					<div class="row">
+
+						<div class="col-12 text-center animate" data-animation="fadeInUp">
+							<a href="./" class="logo justify-content-center">
+								<img src="logo/rarsm-logo-wordmark-white.png" alt="RARSM">
+							</a>
+							<div class="divider-40"></div>
+							<div class="widget widget_nav_menu nav-in-line">
+								<ul class="menu">
+									<li class="menu-item">
+										<a href="index.html">Accueil</a>
+									</li>
+									<li class="menu-item">
+										<a href="book.html">Livre</a>
+									</li>
+									<li class="menu-item">
+										<a href="pricing.html">Acheter</a>
+									</li>
+									<li class="menu-item">
+										<a href="author.html">Auteur</a>
+									</li>
+									<li class="menu-item">
+										<a href="activites.html">Activités</a>
+									</li>
+									<li class="menu-item">
+										<a href="institutions.html">Institutions</a>
+									</li>
+									<li class="menu-item">
+										<a href="faq.html">FAQ</a>
+									</li>
+									<li class="menu-item">
+										<a href="contact.html">Contact</a>
+									</li>
+								</ul>
+							</div>
+						</div>
+
+					</div>
+				</div>
+			</footer>
+
+			<section class="page_copyright ls s-py-20 s-py-xl-50">
+				<div class="container">
+					<div class="row align-items-center">
+						<div class="col-md-12 text-center color-dark">
+							<p>&copy; Copyright <span class="copyright_year">2026</span> All Rights Reserved</p>
+						</div>
+					</div>
+				</div>
+			</section>
+
+
+		</div><!-- eof #box_wrapper -->
+	</div><!-- eof #canvas -->
+
+
+	<script src="js/compressed.js"></script>
+	<script src="js/rarsm-ui.js"></script>
+	<script src="js/activities-calendar.js"></script>
+
+
+</body>
+
+</html>
+
