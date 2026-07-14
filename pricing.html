@@ -177,28 +177,110 @@
 										<a href="index.html">Accueil</a>
 									</li>
 									<li>
-										<a href="book.html">Le Livre</a>
+										<a href="book.html">Livre</a>
 									</li>
 									<li class="active">
-										<a href="pricing.html">Acheter le livre</a>
+										<a href="pricing.html">Acheter</a>
 									</li>
 									<li>
 										<a href="author.html">Auteur</a>
 									</li>
 									<li>
-										<a href="blog.html">Blog / Actualites</a>
+										<a href="activites.html">Activités</a>
 									</li>
 									<li>
-										<a href="faq.html">FAQ</a>
+										<a href="pricing.html#institutions">Institutions</a>
 									</li>
 									<li>
 										<a href="contact.html">Contact</a>
+									</li>
+									<li class="menu-auth-item menu-auth-login">
+										<a data-toggle="modal" href="#popupLogin">Se connecter</a>
+									</li>
+									<li class="menu-auth-item menu-auth-register">
+										<a data-toggle="modal" href="#popupRegistr">S'inscrire</a>
+									</li>
+									<li class="menu-cart-mobile dropdown d-lg-none">
+										<button class="dropdown-toggle dropdown-shopping-cart" id="dropdown-shopping-cart-mobile" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" aria-label="Ouvrir le panier" type="button">
+											<i class="fa fa-shopping-basket" aria-hidden="true"></i>
+											<span class="badge bg-maincolor">1</span>
+											<span class="cart-total">$27.00</span>
+										</button>
+										<div class="dropdown-menu ls" aria-labelledby="dropdown-shopping-cart-mobile">
+											<div class="widget woocommerce widget_shopping_cart">
+												<div class="widget_shopping_cart_content">
+													<ul class="woocommerce-mini-cart cart_list product_list_widget">
+														<li class="woocommerce-mini-cart-item mini_cart_item">
+															<a href="#" class="remove" aria-label="Retirer cet article" data-product_id="rarsm-book" data-product_sku="RARSM-PRINT">×</a>
+															<a href="pricing.html#formats"><img src="images/view-rarsm.JPG" alt="Livre RARSM"></a>
+															<a href="pricing.html#formats">RARSM - Edition papier</a>
+															<span class="quantity">1 ×
+																<span class="woocommerce-Price-amount amount">
+																	<span class="woocommerce-Price-currencySymbol">$</span>
+																	27.00
+																</span>
+															</span>
+														</li>
+													</ul>
+													<p class="woocommerce-mini-cart__total total">
+														<strong>Sous-total :</strong>
+														<span class="woocommerce-Price-amount amount">
+															<span class="woocommerce-Price-currencySymbol">$</span>
+															27.00
+														</span>
+													</p>
+													<p class="woocommerce-mini-cart__buttons buttons">
+														<a href="pricing.html#formats" class="button wc-forward">Panier</a>
+														<a href="pricing.html#order-form" class="button checkout wc-forward">Commander</a>
+													</p>
+												</div>
+											</div>
+										</div>
 									</li>
 								</ul>
 							</nav>
 							<!-- eof main nav -->
 						</div>
 							<div class="col-xl-2 col-lg-3 text-right d-none d-lg-block">
+								<div class="header-utilities">
+									<div class="dropdown">
+										<a class="dropdown-toggle dropdown-shopping-cart" href="#" role="button" id="dropdown-shopping-cart" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" aria-label="Ouvrir le panier">
+											<i class="fa fa-shopping-basket" aria-hidden="true"></i>
+											<span class="badge bg-maincolor">1</span>
+											<span class="cart-total">$27.00</span>
+										</a>
+										<div class="dropdown-menu dropdown-menu-right ls" aria-labelledby="dropdown-shopping-cart">
+											<div class="widget woocommerce widget_shopping_cart">
+												<div class="widget_shopping_cart_content">
+													<ul class="woocommerce-mini-cart cart_list product_list_widget">
+														<li class="woocommerce-mini-cart-item mini_cart_item">
+															<a href="#" class="remove" aria-label="Retirer cet article" data-product_id="rarsm-book" data-product_sku="RARSM-PRINT">×</a>
+															<a href="pricing.html#formats"><img src="images/view-rarsm.JPG" alt="Livre RARSM"></a>
+															<a href="pricing.html#formats">RARSM - Edition papier</a>
+															<span class="quantity">1 ×
+																<span class="woocommerce-Price-amount amount">
+																	<span class="woocommerce-Price-currencySymbol">$</span>
+																	27.00
+																</span>
+															</span>
+														</li>
+													</ul>
+													<p class="woocommerce-mini-cart__total total">
+														<strong>Sous-total :</strong>
+														<span class="woocommerce-Price-amount amount">
+															<span class="woocommerce-Price-currencySymbol">$</span>
+															27.00
+														</span>
+													</p>
+													<p class="woocommerce-mini-cart__buttons buttons">
+														<a href="pricing.html#formats" class="button wc-forward">Panier</a>
+														<a href="pricing.html#order-form" class="button checkout wc-forward">Commander</a>
+													</p>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
 							</div>
 					</div>
 				</div>
@@ -240,7 +322,7 @@
 						</div>
 					</div>
 					<div class="row">
-						<div class="col-lg-4">
+						<div class="col-lg-4" id="institutions">
 							<div class="pricing-plan ls">
 								<div class="plan-name">
 									<h3>
@@ -263,7 +345,7 @@
 									</ul>
 								</div>
 								<div class="plan-button">
-									<a href="#order-form" class="btn btn-outline-maincolor">Commander le format papier</a>
+									<a href="#order-form" class="btn btn-outline-maincolor">Format papier</a>
 								</div>
 							</div>
 						</div>
@@ -276,8 +358,7 @@
 								</div>
 								<div class="price-wrap">
 									<span class="plan-sign"></span>
-									<span class="plan-price">Tarif</span>
-									<span class="plan-decimals">sur demande</span>
+									<span class="plan-price">Sur demande</span>
 								</div>
 								<div class="plan-description">
 									Format concu pour une consultation rapide sur ordinateur, tablette ou smartphone, avec transmission par voie numerique apres validation.
@@ -290,7 +371,7 @@
 									</ul>
 								</div>
 								<div class="plan-button">
-									<a href="#order-form" class="btn btn-maincolor">Demander le format numerique</a>
+									<a href="#order-form" class="btn btn-maincolor">Format numerique</a>
 								</div>
 							</div>
 						</div>
@@ -549,16 +630,19 @@
 										<a href="index.html">Accueil</a>
 									</li>
 									<li class="menu-item">
-										<a href="book.html">Le Livre</a>
+										<a href="book.html">Livre</a>
 									</li>
 									<li class="menu-item">
-										<a href="pricing.html">Acheter le livre</a>
+										<a href="pricing.html">Acheter</a>
 									</li>
 									<li class="menu-item">
 										<a href="author.html">Auteur</a>
 									</li>
 									<li class="menu-item">
-										<a href="blog.html">Blog / Actualites</a>
+										<a href="activites.html">Activités</a>
+									</li>
+									<li class="menu-item">
+										<a href="pricing.html#institutions">Institutions</a>
 									</li>
 									<li class="menu-item">
 										<a href="faq.html">FAQ</a>

@@ -7,7 +7,7 @@
 <!--<![endif]-->
 
 <head>
-	<title>RARSM | A propos de l'auteur</title>
+	<title>RARSM | Activités</title>
 	<meta charset="utf-8">
 	<!--[if IE]>
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -169,7 +169,7 @@
 								<img src="logo/rarsm-logo-wordmark-color.png" alt="RARSM">
 							</a>
 						</div>
-						<div class="col-xl-8 col-lg-5 col-1">
+						<div class="col-xl-8 col-lg-6 col-1">
 							<!-- main nav start -->
 							<nav class="top-nav">
 								<ul class="nav sf-menu">
@@ -180,16 +180,16 @@
 										<a href="book.html">Livre</a>
 									</li>
 									<li>
-										<a href="author.html">Auteur</a>
-									</li>
-									<li>
-										<a href="pricing.html#institutions">Institutions</a>
-									</li>
-									<li>
 										<a href="pricing.html">Acheter</a>
 									</li>
 									<li>
+										<a href="author.html">Auteur</a>
+									</li>
+									<li class="active">
 										<a href="activites.html">Activités</a>
+									</li>
+									<li>
+										<a href="pricing.html#institutions">Institutions</a>
 									</li>
 									<li>
 										<a href="contact.html">Contact</a>
@@ -201,12 +201,12 @@
 										<a data-toggle="modal" href="#popupRegistr">S'inscrire</a>
 									</li>
 									<li class="menu-cart-mobile dropdown d-lg-none">
-										<button class="dropdown-toggle dropdown-shopping-cart" id="dropdown-shopping-cart-mobile" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" aria-label="Ouvrir le panier" type="button">
-											<i class="fa fa-shopping-basket" aria-hidden="true"></i>
+										<button aria-expanded="false" aria-haspopup="true" aria-label="Ouvrir le panier" class="dropdown-toggle dropdown-shopping-cart" data-toggle="dropdown" id="dropdown-shopping-cart-mobile" type="button">
+											<i aria-hidden="true" class="fa fa-shopping-basket"></i>
 											<span class="badge bg-maincolor">1</span>
 											<span class="cart-total">$27.00</span>
 										</button>
-										<div class="dropdown-menu ls" aria-labelledby="dropdown-shopping-cart-mobile">
+										<div aria-labelledby="dropdown-shopping-cart-mobile" class="dropdown-menu ls">
 											<div class="widget woocommerce widget_shopping_cart">
 												<div class="widget_shopping_cart_content">
 													<ul class="woocommerce-mini-cart cart_list product_list_widget">
@@ -234,6 +234,15 @@
 														<a href="pricing.html#order-form" class="button checkout wc-forward">Commander</a>
 													</p>
 												</div>
+											</div>
+										</div>
+									</li>
+									<li class="menu-language-mobile d-lg-none">
+										<div class="language-switcher js-language-switcher">
+											<button type="button" class="language-toggle js-language-toggle" aria-expanded="false" aria-label="Choix de la langue actuelle">Fr</button>
+											<div class="language-menu" role="menu" aria-label="Choix de la langue">
+												<button type="button" class="language-option js-language-option is-active" data-language="fr" role="menuitem">Fr</button>
+												<button type="button" class="language-option js-language-option" data-language="en" role="menuitem">En</button>
 											</div>
 										</div>
 									</li>
@@ -280,12 +289,21 @@
 										</div>
 									</div>
 								</div>
+								<div class="header-language-control">
+									<div class="language-switcher js-language-switcher">
+										<button type="button" class="language-toggle js-language-toggle" aria-expanded="false" aria-label="Choix de la langue actuelle">Fr</button>
+										<div class="language-menu" role="menu" aria-label="Choix de la langue">
+											<button type="button" class="language-option js-language-option is-active" data-language="fr" role="menuitem">Fr</button>
+											<button type="button" class="language-option js-language-option" data-language="en" role="menuitem">En</button>
+										</div>
+									</div>
+								</div>
 							</div>
 						</div>
 					</div>
 				</div>
 				<!-- header toggler -->
-				<span class="toggle_menu"><span></span></span>
+				<span class="toggle_menu" aria-label="Ouvrir le menu mobile" role="button" tabindex="0"><span></span></span>
 			</header>
 
 			<section class="page_title ds s-parallax s-py-110">
@@ -293,13 +311,13 @@
 					<div class="row">
 
 						<div class="col-md-12 text-center">
-							<h1 class="small-title">A propos de l'auteur</h1>
+							<h1 class="small-title">Activités</h1>
 							<ol class="breadcrumb">
 								<li class="breadcrumb-item">
 									<a href="index.html">Accueil</a>
 								</li>
 								<li class="breadcrumb-item active">
-									Auteur
+									Activités
 								</li>
 							</ol>
 						</div>
@@ -308,175 +326,97 @@
 				</div>
 			</section>
 
-			<section id="author" class="ls s-overlay mobile-overlay s-py-90 s-py-xl-150 section-about">
+
+			<section class="ls s-pt-90 s-pb-60 s-pt-xl-140 section-activities-intro">
 				<div class="container">
-					<div class="row">
+					<div class="row align-items-center c-gutter-60">
 						<div class="col-lg-6">
-							<div class="divider-xl-200"></div>
-							<p class="mb-2 text-dark">Auteur du recueil</p>
-							<h2 class="special-heading ">
-								<span class="text-dark">Maitre Jean-Baptiste Otshudi Disashi</span>
-							</h2>
-							<div class="divider-40"></div>
-							<p class="excerpt text-dark">
-								Juriste du secteur minier, specialiste de la gouvernance publique et actuel Directeur juridique et de la lutte contre la fraude miniere au CEEC.
-							</p>
-							<div class="divider-40"></div>
-							<p class="excerpt text-dark">
-								Fort de plus de 20 ans d'experience en droit, en gouvernance publique et dans le secteur minier en RDC, il a conduit un travail rigoureux de compilation, d'analyse et de structuration pour faire de RARSM un outil de reference pratique, fiable et directement exploitable par les professionnels.
-							</p>
-							<div class="divider-40"></div>
-							<div class="columns-two">
-								<a href="author.html" class="btn btn-darkgrey">Voir la biographie</a>
-							</div>
-							<div class="divider-xl-150"></div>
-						</div>
-						<div class="col-lg-6 d-flex align-items-center justify-content-center">
-							<div class="author-placeholder-square" aria-label="Initiales de Maitre Jean-Baptiste Otshudi Disashi">JBO</div>
-						</div>
-					</div>
-				</div>
-			</section>
-
-			<section class="ls ms s-pt-90 s-pb-80 s-py-xl-150">
-				<div class="container">
-					<div class="row">
-						<div class="col-xl-8 offset-xl-2">
-							<h3 class="special-heading">
-								<span>Parcours et expertise</span>
-							</h3>
-							<div class="divider-40"></div>
-							<p>
-								Ne le 25 novembre 1968, il a construit un parcours marque par la pratique du droit, la gouvernance publique et la regulation du secteur extractif. Son experience s'est consolidee au contact des realites administratives, du contentieux et des mecanismes de controle appliques aux ressources naturelles.
-							</p>
-
-							<p>
-								A travers RARSM, il met cette expertise au service d'une ambition precise : rendre les actes reglementaires miniers plus lisibles, plus accessibles et plus facilement mobilisables par l'Etat, les investisseurs et les operateurs.
-							</p>
-
-							<ul class="list-styled">
-								<li>
-									Droit minier et contentieux
-								</li>
-								<li>
-									Gouvernance publique et encadrement institutionnel
-								</li>
-								<li>
-									Lutte contre la fraude miniere
-								</li>
-								<li>
-									Regulation et certification des ressources naturelles
-								</li>
-								<li>
-									Conformite administrative et securite juridique
-								</li>
-							</ul>
-						</div>
-						<div class="col-12">
-							<div class="divider-xl-60 divider-50"></div>
-							<figure class="text-center post_format-post-format-video">
-								<div class="embed-responsive embed-responsive-16by9">
-									<a href="book.html" class="embed-placeholder">
-										<img src="images/rarsm-generated/hero-presentation-rarsm.png" alt="Expertise de l'auteur autour du RARSM">
-									</a>
-								</div>
-								<figcaption>
-									Une expertise mise au service de la conformite, de la transparence et de la securite juridique du secteur minier.
-								</figcaption>
-							</figure>
-							<div class="divider-xl-60 divider-50"></div>
-						</div>
-						<div class="col-xl-8 offset-xl-2">
-							<p>
-								Le recueil ne se limite pas a compiler des textes. Il propose une organisation logique du cadre institutionnel, du suivi des activites, de la fiscalite, de l'exportation et des dispositifs de certification, afin de soutenir des decisions plus justes et plus securisees.
-							</p>
-							<blockquote>
+							<div class="activities-highlight-card">
+								<span class="activities-eyebrow">Agenda RARSM</span>
+								<h2>Suivez toutes les activités autour du livre</h2>
 								<p>
-									S'approprier ce recueil, c'est transformer la reglementation en avantage competitif, securiser l'avenir et participer a la revolution miniere du XXIe siecle.
+									Cette page centralise les conférences, rencontres institutionnelles, interviews, séances de dédicace et présentations publiques liées au RARSM.
 								</p>
-								<cite>
-									<span>RARSM</span>
-									<span>Conclusion de la presentation</span>
-								</cite>
-							</blockquote>
-							<p>
-								Cette vision fait du recueil une reference appelee a servir aussi bien la conformite immediate des acteurs que la construction durable d'un secteur minier transparent, equitable et pleinement maitrise.
-							</p>
-							<p>
-								Pour les entreprises, les juristes, les services publics et les investisseurs, le travail de l'auteur offre un point d'appui concret pour mieux comprendre, appliquer et defendre le droit minier en RDC.
-							</p>
+								<p>
+									Le calendrier ci-dessous permet d’identifier rapidement les dates importantes et les rendez-vous déjà programmés.
+								</p>
+								<div class="activities-actions">
+									<a href="contact.html" class="btn btn-maincolor">Proposer une invitation</a>
+									<a href="pricing.html" class="btn btn-outline-maincolor">Commander le livre</a>
+								</div>
+							</div>
+						</div>
+						<div class="col-lg-6">
+							<div class="activities-hero-media">
+								<img src="images/rarsm-generated/hero-presentation-rarsm.png" alt="Présentation publique du RARSM">
+							</div>
 						</div>
 					</div>
 				</div>
 			</section>
 
-			<section class="ls s-overlay mobile-overlay section-shop s-py-90 s-py-xl-150">
+			<section class="ls s-pb-90 s-pb-xl-150 section-activities-calendar-block">
 				<div class="container">
-					<div class="row">
-						<div class="col-12 text-center">
-							<h3 class="special-heading">
-								<span>Axes majeurs du recueil</span>
-							</h3>
-							<div class="divider-50"></div>
-						</div>
-					</div>
-					<div class="row">
+					<div class="row c-gutter-40">
 						<div class="col-12">
-							<div class="owl-carousel owl-nav-bottom" data-responsive-lg="3" data-responsive-md="2" data-responsive-sm="2" data-responsive-xs="1" data-nav="true" data-margin="60" data-loop="true" data-autoplay="true">
-								<div class="vertical-item">
-									<div class="item-media border-r-def">
-										<img src="images/rarsm-generated/cadre-institutionnel.png" alt="Cadre institutionnel">
-										<div class="media-links">
-											<a class="abs-link" title="" href="book.html"></a>
-										</div>
+							<div class="activities-calendar-shell">
+								<div class="activities-calendar-header">
+									<div>
+										<span class="activities-calendar-label">Calendrier des activités</span>
+										<h3 id="activities-current-title">Calendrier RARSM</h3>
+										<p class="activities-calendar-intro">
+											Naviguez par mois et par année pour afficher les activités programmées. Les dates marquées sont cliquables et ouvrent le détail de l’événement.
+										</p>
 									</div>
-									<div class="item-content text-center pt-3">
-										<h5>
-											<a href="book.html">Cadre institutionnel et encadrement des activites</a>
-										</h5>
+									<div class="activities-calendar-toolbar" aria-label="Navigation du calendrier">
+										<button class="activities-nav-btn" type="button" data-calendar-nav="prev-year">Annee precedente</button>
+										<button class="activities-nav-btn" type="button" data-calendar-nav="prev-month">Mois precedent</button>
+										<div class="activities-current-period">
+											<label class="sr-only" for="activities-month-select">Choisir le mois</label>
+											<select id="activities-month-select" class="activities-period-select"></select>
+											<label class="sr-only" for="activities-year-select">Choisir l'annee</label>
+											<select id="activities-year-select" class="activities-period-select"></select>
+										</div>
+										<button class="activities-nav-btn" type="button" data-calendar-nav="next-month">Mois suivant</button>
+										<button class="activities-nav-btn" type="button" data-calendar-nav="next-year">Annee suivante</button>
 									</div>
 								</div>
-								<div class="vertical-item">
-									<div class="item-media border-r-def">
-										<img src="images/rarsm-generated/suivi-droits-filieres.png" alt="Suivi des activites minieres">
-										<div class="media-links">
-											<a class="abs-link" title="" href="book.html"></a>
-										</div>
-									</div>
-									<div class="item-content text-center pt-3">
-										<h5>
-											<a href="book.html">Suivi des activites minieres et artisanales</a>
-										</h5>
-									</div>
+								<div class="activities-calendar-legend">
+									<span class="activities-legend-item"><span class="activities-legend-dot event-launch"></span>Lancement</span>
+									<span class="activities-legend-item"><span class="activities-legend-dot event-institution"></span>Institutions</span>
+									<span class="activities-legend-item"><span class="activities-legend-dot event-signing"></span>Dédicace</span>
+									<span class="activities-legend-item"><span class="activities-legend-dot event-media"></span>Média</span>
 								</div>
-								<div class="vertical-item">
-									<div class="item-media border-r-def">
-										<img src="images/rarsm-generated/exportation-fraude.png" alt="Exportations et lutte contre la fraude">
-										<div class="media-links">
-											<a class="abs-link" title="" href="book.html"></a>
-										</div>
-									</div>
-									<div class="item-content text-center pt-3">
-										<h5>
-											<a href="book.html">Exportations, controles et lutte contre la fraude</a>
-										</h5>
-									</div>
-								</div>
-								<div class="vertical-item">
-									<div class="item-media border-r-def">
-										<img src="images/rarsm-generated/tracabilite-certification.png" alt="Certification et tracabilite">
-										<div class="media-links">
-											<a class="abs-link" title="" href="book.html"></a>
-										</div>
-									</div>
-									<div class="item-content text-center pt-3">
-										<h5>
-											<a href="book.html">Transparence, tracabilite et certification</a>
-										</h5>
-									</div>
+								<div class="activities-calendar-board">
+									<div id="activities-calendar-weekdays" class="activities-calendar-weekdays"></div>
+									<div id="activities-calendar-days" class="activities-calendar-days"></div>
 								</div>
 							</div>
 						</div>
+
+						<div class="col-lg-7">
+							<div class="activities-program-card">
+								<span class="activities-calendar-label">Activité sélectionnée</span>
+								<h3 id="activities-detail-title">Détail de l’activité</h3>
+								<div id="activities-event-detail" class="activities-event-detail" aria-live="polite"></div>
+							</div>
+						</div>
+
+						<div class="col-lg-5">
+							<div class="activities-program-card activities-program-card-alt">
+								<span class="activities-calendar-label">Programme</span>
+								<h3>Prochaines activités</h3>
+								<div id="activities-event-list" class="activities-event-list"></div>
+								<div class="activities-sidebar-note">
+									<h4>Vous souhaitez inviter l’auteur ?</h4>
+									<p>
+										Utilisez la page de contact pour proposer une conférence, une interview, une séance de signature ou une rencontre institutionnelle.
+									</p>
+									<a href="contact.html" class="btn btn-maincolor">Contacter l’équipe</a>
+								</div>
+							</div>
+						</div>
+
 					</div>
 				</div>
 			</section>
@@ -541,6 +481,7 @@
 
 	<script src="js/compressed.js"></script>
 	<script src="js/rarsm-ui.js"></script>
+	<script src="js/activities-calendar.js"></script>
 
 
 </body>

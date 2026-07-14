@@ -129,22 +129,65 @@
 										<a href="index.html">Accueil</a>
 									</li>
 									<li>
-										<a href="book.html">Le Livre</a>
+										<a href="book.html">Livre</a>
 									</li>
 									<li>
-										<a href="pricing.html">Acheter le livre</a>
+										<a href="pricing.html">Acheter</a>
 									</li>
 									<li>
 										<a href="author.html">Auteur</a>
 									</li>
 									<li>
-										<a href="blog.html">Blog / Actualites</a>
+										<a href="activites.html">Activités</a>
 									</li>
 									<li>
-										<a href="faq.html">FAQ</a>
+										<a href="pricing.html#institutions">Institutions</a>
 									</li>
 									<li class="active">
 										<a href="contact.html">Contact</a>
+									</li>
+									<li class="menu-auth-item menu-auth-login">
+										<a data-toggle="modal" href="#popupLogin">Se connecter</a>
+									</li>
+									<li class="menu-auth-item menu-auth-register">
+										<a data-toggle="modal" href="#popupRegistr">S'inscrire</a>
+									</li>
+									<li class="menu-cart-mobile dropdown d-lg-none">
+										<button aria-expanded="false" aria-haspopup="true" aria-label="Ouvrir le panier" class="dropdown-toggle dropdown-shopping-cart" data-toggle="dropdown" id="dropdown-shopping-cart-mobile" type="button">
+											<i aria-hidden="true" class="fa fa-shopping-basket"></i>
+											<span class="badge bg-maincolor">1</span>
+											<span class="cart-total">$27.00</span>
+										</button>
+										<div aria-labelledby="dropdown-shopping-cart-mobile" class="dropdown-menu ls">
+											<div class="widget woocommerce widget_shopping_cart">
+												<div class="widget_shopping_cart_content">
+													<ul class="woocommerce-mini-cart cart_list product_list_widget">
+														<li class="woocommerce-mini-cart-item mini_cart_item">
+															<a href="#" class="remove" aria-label="Retirer cet article" data-product_id="rarsm-book" data-product_sku="RARSM-PRINT">×</a>
+															<a href="pricing.html#formats"><img src="images/view-rarsm.JPG" alt="Livre RARSM"></a>
+															<a href="pricing.html#formats">RARSM - Edition papier</a>
+															<span class="quantity">1 ×
+																<span class="woocommerce-Price-amount amount">
+																	<span class="woocommerce-Price-currencySymbol">$</span>
+																	27.00
+																</span>
+															</span>
+														</li>
+													</ul>
+													<p class="woocommerce-mini-cart__total total">
+														<strong>Sous-total :</strong>
+														<span class="woocommerce-Price-amount amount">
+															<span class="woocommerce-Price-currencySymbol">$</span>
+															27.00
+														</span>
+													</p>
+													<p class="woocommerce-mini-cart__buttons buttons">
+														<a href="pricing.html#formats" class="button wc-forward">Panier</a>
+														<a href="pricing.html#order-form" class="button checkout wc-forward">Commander</a>
+													</p>
+												</div>
+											</div>
+										</div>
 									</li>
 									<li class="menu-language-mobile d-lg-none">
 										<div class="language-switcher js-language-switcher">
@@ -160,12 +203,51 @@
 							<!-- eof main nav -->
 						</div>
 						<div class="col-xl-2 col-lg-3 text-right d-none d-lg-block">
-							<div class="header-language-control">
-								<div class="language-switcher js-language-switcher">
-									<button type="button" class="language-toggle js-language-toggle" aria-expanded="false" aria-label="Choix de la langue actuelle">Fr</button>
-									<div class="language-menu" role="menu" aria-label="Choix de la langue">
-										<button type="button" class="language-option js-language-option is-active" data-language="fr" role="menuitem">Fr</button>
-										<button type="button" class="language-option js-language-option" data-language="en" role="menuitem">En</button>
+							<div class="header-utilities">
+								<div class="dropdown">
+									<a class="dropdown-toggle dropdown-shopping-cart" href="#" role="button" id="dropdown-shopping-cart" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" aria-label="Ouvrir le panier">
+										<i class="fa fa-shopping-basket" aria-hidden="true"></i>
+										<span class="badge bg-maincolor">1</span>
+										<span class="cart-total">$27.00</span>
+									</a>
+									<div class="dropdown-menu dropdown-menu-right ls" aria-labelledby="dropdown-shopping-cart">
+										<div class="widget woocommerce widget_shopping_cart">
+											<div class="widget_shopping_cart_content">
+												<ul class="woocommerce-mini-cart cart_list product_list_widget">
+													<li class="woocommerce-mini-cart-item mini_cart_item">
+														<a href="#" class="remove" aria-label="Retirer cet article" data-product_id="rarsm-book" data-product_sku="RARSM-PRINT">×</a>
+														<a href="pricing.html#formats"><img src="images/view-rarsm.JPG" alt="Livre RARSM"></a>
+														<a href="pricing.html#formats">RARSM - Edition papier</a>
+														<span class="quantity">1 ×
+															<span class="woocommerce-Price-amount amount">
+																<span class="woocommerce-Price-currencySymbol">$</span>
+																27.00
+															</span>
+														</span>
+													</li>
+												</ul>
+												<p class="woocommerce-mini-cart__total total">
+													<strong>Sous-total :</strong>
+													<span class="woocommerce-Price-amount amount">
+														<span class="woocommerce-Price-currencySymbol">$</span>
+														27.00
+													</span>
+												</p>
+												<p class="woocommerce-mini-cart__buttons buttons">
+													<a href="pricing.html#formats" class="button wc-forward">Panier</a>
+													<a href="pricing.html#order-form" class="button checkout wc-forward">Commander</a>
+												</p>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="header-language-control">
+									<div class="language-switcher js-language-switcher">
+										<button type="button" class="language-toggle js-language-toggle" aria-expanded="false" aria-label="Choix de la langue actuelle">Fr</button>
+										<div class="language-menu" role="menu" aria-label="Choix de la langue">
+											<button type="button" class="language-option js-language-option is-active" data-language="fr" role="menuitem">Fr</button>
+											<button type="button" class="language-option js-language-option" data-language="en" role="menuitem">En</button>
+										</div>
 									</div>
 								</div>
 							</div>
@@ -353,16 +435,19 @@
 										<a href="index.html">Accueil</a>
 									</li>
 									<li class="menu-item">
-										<a href="book.html">Le Livre</a>
+										<a href="book.html">Livre</a>
 									</li>
 									<li class="menu-item">
-										<a href="pricing.html">Acheter le livre</a>
+										<a href="pricing.html">Acheter</a>
 									</li>
 									<li class="menu-item">
 										<a href="author.html">Auteur</a>
 									</li>
 									<li class="menu-item">
-										<a href="blog.html">Blog / Actualites</a>
+										<a href="activites.html">Activités</a>
+									</li>
+									<li class="menu-item">
+										<a href="pricing.html#institutions">Institutions</a>
 									</li>
 									<li class="menu-item">
 										<a href="faq.html">FAQ</a>

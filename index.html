@@ -34,6 +34,91 @@
 			<div class="preloader">
 			<div class="preloader_image pulse"></div>
 		</div>
+<div class="modal fade popupLogin" id="popupLogin" tabindex="-1" role="dialog" aria-hidden="true">
+<div class="modal-dialog modal-dialog-centered" role="document">
+<div class="modal-content ls border-r-def overflow-visible s-overlay s-mobile-overlay">
+<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+<span aria-hidden="true">&times;</span>
+</button>
+<div class="modal-body">
+<div class="container">
+<div class="row">
+<div class="col-12">
+<h4 class="mb-4">Log in</h4>
+<form class="form-registration c-mb-40 c-gutter-20" action="/">
+<div class="row mb-4">
+<div class="col-sm-12">
+<div class="form-group">
+<input type="text" name="name" class="form-control" required placeholder="login" aria-required="true"/>
+</div>
+</div>
+<div class="col-sm-12">
+<div class="form-group">
+<input type="password" name="password" class="form-control" placeholder="password" aria-required="true" required/>
+</div>
+</div>
+</div>
+<a class="registerRedirect" data-dismiss="modal" data-target="#popupRegistr" data-toggle="modal" href="#">Not a member? Register!</a>
+<button type="submit" class="btn btn-maincolor mt-30 d-block">Sign In</button>
+</form>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="modal fade popupRegistr" id="popupRegistr" tabindex="-1" role="dialog" aria-hidden="true">
+<div class="modal-dialog modal-dialog-centered" role="document">
+<div class="modal-content ls border-r-def overflow-visible s-overlay s-mobile-overlay">
+<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+<span aria-hidden="true">&times;</span>
+</button>
+<div class="modal-body">
+<div class="container">
+<div class="row">
+<div class="col-12">
+<h4 class="mb-4">Registration</h4>
+<form class="form-registration c-mb-40 c-gutter-40" method="post" action="/">
+<div class="row">
+<div class="col-12">
+<div class="form-group">
+<input type="text" name="name" class="form-control" required placeholder="login" aria-required="true"/>
+</div>
+</div>
+<div class="col-12">
+<div class="form-group">
+<input type="email" name="email" class="form-control" required placeholder="email" aria-required="true"/>
+</div>
+</div>
+<div class="col-12">
+<div class="form-group">
+<input type="password" name="password" class="form-control" placeholder="password" aria-required="true" required/>
+</div>
+</div>
+<div class="col-12">
+<div class="form-group">
+<input type="password" name="password2" class="form-control" placeholder="password" aria-required="true" required/>
+</div>
+</div>
+<div class="col-12">
+<div class="form-group">
+<div class="checkbox">
+<input type="checkbox" id="popupRegistrTerms" name="popupRegistrTerms"/>
+<label for="popupRegistrTerms">I agree with all the text in the <a href="#">Terms of service</a></label>
+</div>
+</div>
+</div>
+</div>
+<button type="submit" class="btn btn-maincolor mt-30 d-block">Register</button>
+</form>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
 <!-- page wrapper -->
 <div id="canvas">
 <div id="box_wrapper">
@@ -55,22 +140,65 @@
 <a href="index.html">Accueil</a>
 </li>
 <li>
-<a href="book.html">Le Livre</a>
-</li>
-<li>
-<a href="pricing.html">Acheter</a>
+<a href="book.html">Livre</a>
 </li>
 <li>
 <a href="author.html">Auteur</a>
 </li>
 <li>
-<a href="blog.html">Blog</a>
+<a href="pricing.html#institutions">Institutions</a>
 </li>
 <li>
-<a href="faq.html">FAQ</a>
+<a href="pricing.html">Acheter</a>
+</li>
+<li>
+<a href="activites.html">Activités</a>
 </li>
 <li>
 <a href="contact.html">Contact</a>
+</li>
+<li class="menu-auth-item menu-auth-login">
+<a data-toggle="modal" href="#popupLogin">Se connecter</a>
+</li>
+<li class="menu-auth-item menu-auth-register">
+<a data-toggle="modal" href="#popupRegistr">S'inscrire</a>
+</li>
+<li class="menu-cart-mobile dropdown d-lg-none">
+<button aria-expanded="false" aria-haspopup="true" aria-label="Ouvrir le panier" class="dropdown-toggle dropdown-shopping-cart" data-toggle="dropdown" id="dropdown-shopping-cart-mobile" type="button">
+<i aria-hidden="true" class="fa fa-shopping-basket"></i>
+<span class="badge bg-maincolor">1</span>
+<span class="cart-total">$27.00</span>
+</button>
+<div aria-labelledby="dropdown-shopping-cart-mobile" class="dropdown-menu ls">
+<div class="widget woocommerce widget_shopping_cart">
+<div class="widget_shopping_cart_content">
+<ul class="woocommerce-mini-cart cart_list product_list_widget">
+<li class="woocommerce-mini-cart-item mini_cart_item">
+<a aria-label="Retirer cet article" class="remove" data-product_id="rarsm-book" data-product_sku="RARSM-PRINT" href="#">×</a>
+<a href="pricing.html#formats"><img alt="Livre RARSM" src="images/view-rarsm.JPG"/></a>
+<a href="pricing.html#formats">RARSM - Edition papier</a>
+<span class="quantity">1 ×
+<span class="woocommerce-Price-amount amount">
+<span class="woocommerce-Price-currencySymbol">$</span>
+27.00
+</span>
+</span>
+</li>
+</ul>
+<p class="woocommerce-mini-cart__total total">
+<strong>Sous-total :</strong>
+<span class="woocommerce-Price-amount amount">
+<span class="woocommerce-Price-currencySymbol">$</span>
+27.00
+</span>
+</p>
+<p class="woocommerce-mini-cart__buttons buttons">
+<a class="button wc-forward" href="pricing.html#formats">Panier</a>
+<a class="button checkout wc-forward" href="pricing.html#order-form">Commander</a>
+</p>
+</div>
+</div>
+</div>
 </li>
 <li class="menu-language-mobile d-lg-none">
 <div class="language-switcher js-language-switcher">
@@ -86,12 +214,51 @@
 <!-- eof main nav -->
 </div>
 <div class="col-xl-2 col-lg-3 text-right d-none d-lg-block">
+<div class="header-utilities">
+<div class="dropdown">
+<a aria-expanded="false" aria-haspopup="true" aria-label="Ouvrir le panier" class="dropdown-toggle dropdown-shopping-cart" data-toggle="dropdown" href="#" id="dropdown-shopping-cart" role="button">
+<i aria-hidden="true" class="fa fa-shopping-basket"></i>
+<span class="badge bg-maincolor">1</span>
+<span class="cart-total">$27.00</span>
+</a>
+<div aria-labelledby="dropdown-shopping-cart" class="dropdown-menu dropdown-menu-right ls">
+<div class="widget woocommerce widget_shopping_cart">
+<div class="widget_shopping_cart_content">
+<ul class="woocommerce-mini-cart cart_list product_list_widget">
+<li class="woocommerce-mini-cart-item mini_cart_item">
+<a aria-label="Retirer cet article" class="remove" data-product_id="rarsm-book" data-product_sku="RARSM-PRINT" href="#">×</a>
+<a href="pricing.html#formats"><img alt="Livre RARSM" src="images/view-rarsm.JPG"/></a>
+<a href="pricing.html#formats">RARSM - Edition papier</a>
+<span class="quantity">1 ×
+<span class="woocommerce-Price-amount amount">
+<span class="woocommerce-Price-currencySymbol">$</span>
+27.00
+</span>
+</span>
+</li>
+</ul>
+<p class="woocommerce-mini-cart__total total">
+<strong>Sous-total :</strong>
+<span class="woocommerce-Price-amount amount">
+<span class="woocommerce-Price-currencySymbol">$</span>
+27.00
+</span>
+</p>
+<p class="woocommerce-mini-cart__buttons buttons">
+<a class="button wc-forward" href="pricing.html#formats">Panier</a>
+<a class="button checkout wc-forward" href="pricing.html#order-form">Commander</a>
+</p>
+</div>
+</div>
+</div>
+</div>
 <div class="header-language-control">
 <div class="language-switcher js-language-switcher">
 <button aria-expanded="false" aria-label="Choix de la langue actuelle" class="language-toggle js-language-toggle" type="button">Fr</button>
 <div aria-label="Choix de la langue" class="language-menu" role="menu">
 <button class="language-option js-language-option is-active" data-language="fr" role="menuitem" type="button">Fr</button>
 <button class="language-option js-language-option" data-language="en" role="menuitem" type="button">En</button>
+</div>
 </div>
 </div>
 </div>
@@ -123,13 +290,13 @@
 </div>
 <div class="intro_layers">
 <div class="intro_layer intro_feature_word" data-animation="fadeInRight">
-<p>Reference juridique du secteur minier</p>
+<p>Référence juridique du secteur minier</p>
 </div>
 <div class="intro_layer" data-animation="fadeInRight">
 <h1>RARSM</h1>
 </div>
 <div class="intro_layer" data-animation="fadeInRight">
-<p>Au coeur de la richesse miniere congolaise se trouve le Droit. Maitriser les references juridiques du secteur minier congolais, c’est comprendre les fondements de sa gouvernance, de sa regulation et de son organisation.</p>
+<p>Au cœur de la richesse minière congolaise se trouve le Droit. Maîtriser les références juridiques du secteur minier congolais, c'est comprendre les fondements de sa gouvernance, de sa régulation et de son organisation. Le RARSM centralise et unifie dans un corpus unique l'ensemble des actes réglementaires régissant le secteur minier, afin d'en faciliter une compréhension claire, précise et approfondie.</p>
 </div>
 <div class="intro_layer several-buttons" data-animation="fadeInUp">
 <a class="btn btn-maincolor" href="pricing.html">Acheter le livre</a>
@@ -154,9 +321,9 @@
 							<p class="mb-2 text-dark">Auteur du recueil</p>
 							<h2 class="special-heading"><span class="text-dark">Jean-Baptiste OTSHUDI DISASHI KALONDA</span></h2>
 							<div class="divider-40"></div>
-							<p class="excerpt text-dark">Juriste, expert en gouvernance publique et specialiste du secteur minier, actuellement Directeur Juridique au Centre d’Expertise, d’Evaluation et de Certification des Substances Minerales Precieuses et Semi-precieuses (CEEC).</p>
+							<p class="excerpt text-dark">Juriste, Expert en Gouvernance Publique et Spécialiste du secteur Minier, actuellement Directeur Juridique au Centre d'Expertise, d'Évaluation et de Certification des Substances Minérales Précieuses et Semi-précieuses (CEEC).</p>
 							<div class="divider-30"></div>
-							<p class="excerpt text-dark">Partisan de la lutte contre la fraude miniere et expert reconnu avec plus de deux decennies d’experience en droit et gouvernance miniere en RDC, il livre ici un travail d’analyse et de structuration majeur.</p>
+							<p class="excerpt text-dark">Partisan de la Lutte contre la Fraude Minière et expert reconnu avec plus de deux décennies d'expérience en Droit et Gouvernance Minière en RDC, il livre ici un travail d'analyse et de structuration majeur.</p>
 						<div class="divider-40"></div>
 						<div class="columns-two"><a class="btn btn-darkgrey" href="author.html">Voir la biographie</a></div>
 						<div class="divider-xl-150"></div>
@@ -178,10 +345,10 @@
 		</div>
 		<div class="col-lg-6">
 		<div class="divider-60 divider-lg-0"></div>
-		<h3 class="special-heading"><span>A propos du RARSM</span></h3>
+		<h3 class="special-heading"><span>À propos du RARSM</span></h3>
 		<div class="divider-40"></div>
-		<p>Il est indeniable qu’aujourd’hui, le secteur minier represente un levier majeur de croissance economique pour la RDC.</p>
-		<p>Dans un domaine ou existent plusieurs centaines d’actes juridiques, caracterise par une dispersion des textes, le RARSM constitue un ouvrage de reference juridique essentielle. Il regroupe les textes reglementaires applicables au secteur minier en RDC afin d’en faciliter une comprehension claire, precise et approfondie.</p>
+		<p>Il est indéniable qu'aujourd'hui, le secteur minier représente un levier majeur de croissance économique pour la RDC.</p>
+		<p>Dans un domaine dans lequel il existe plusieurs centaines d'actes juridiques, caractérisé par une dispersion des textes et dans un souci de plus grande clarté, le RARSM constitue un ouvrage de référence juridique essentiel, regroupant l'ensemble des textes réglementaires applicables au secteur minier en RDC.</p>
 
 		</div>
 		</div>
@@ -191,15 +358,15 @@
 		<div class="divider-60 divider-lg-0"></div>
 		<h3 class="special-heading"><span>Pourquoi ce recueil est indispensable ?</span></h3>
 		<div class="divider-40"></div>
-		<p>L’indispensabilite de ce recueil reside avant tout dans sa necessite pratique, juridique et institutionnelle.</p>
-		<p>Dans un secteur aussi strategique et complexe que celui des mines, la multiplicite des textes reglementaires rend souvent leur acces difficile pour les praticiens, les chercheurs, les investisseurs ainsi que les autorites publiques.</p>
-		<p>Le RARSM centralise, organise et met a la disposition des acteurs du domaine les actes juridiques regissant le secteur minier. Il garantit une meilleure lisibilite des normes, renforce la securite juridique et facilite leur application effective.</p>
-		<ul class="list-styled">
-		<li>Centralisation des textes reglementaires du secteur minier</li>
-		<li>Meilleure lisibilite des normes applicables</li>
-		<li>Reduction des erreurs d’interpretation</li>
-		<li>Promotion de la transparence et de la conformite miniere</li>
-		</ul>
+		<p>L'indispensabilité de ce recueil réside avant tout dans sa nécessité pratique, juridique et institutionnelle.</p>
+		<p>Dans un secteur aussi stratégique et complexe que celui des mines, la multiplicité des textes réglementaires rend souvent leur accès difficile pour les praticiens, les chercheurs, les investisseurs ainsi que les autorités publiques.</p>
+		<p>Le présent recueil s'impose comme un outil indispensable en ce qu'il centralise, organise et met à la disposition des personnes soucieuses du domaine tous les actes juridiques régissant le secteur minier. Il permet ainsi de garantir une meilleure lisibilité des normes, de renforcer la sécurité juridique et de faciliter leur application effective.</p>
+		<p>En outre, ce recueil contribue à prévenir les erreurs d'interprétation, à promouvoir la transparence dans la gouvernance minière et à soutenir la conformité des activités minières aux exigences légales et réglementaires en vigueur.</p>
+		<p>Centralisation des textes réglementaires du secteur minier</p>
+		<p>Renforcement de la sécurité juridique</p>
+		<p>Prévention des erreurs d'interprétation</p>
+		<p>Promotion de la transparence et de la conformité minière</p>
+
 		</div>
 		<div class="col-lg-6 order-1 order-lg-2">
 		<div class="border-r-def overflow-hidden"><img alt="Pourquoi le recueil RARSM est indispensable" src="images/rarsm-generated/indispensable-recueil.png"/></div>
@@ -212,16 +379,16 @@
 		</div>
 		<div class="col-lg-6">
 		<div class="divider-60 divider-lg-0"></div>
-		<h3 class="special-heading"><span>Transparence, tracabilite et certification</span></h3>
+		<h3 class="special-heading"><span>Transparence, traçabilité et certification</span></h3>
 		<div class="divider-40"></div>
-		<p>La transparence, la tracabilite et la certification garantissent la conformite des activites minieres aux exigences legales ainsi que la credibilite des substances minerales sur les marches nationaux et internationaux.</p>
-		<p>La transparence renforce l’acces a l’information et limite les pratiques frauduleuses. La tracabilite assure le suivi des substances minerales depuis leur extraction jusqu’a leur commercialisation. La certification valide la conformite des produits miniers aux normes etablies, notamment dans la lutte contre les minerais issus de zones de conflit ou de circuits illicites.</p>
-		<ul class="list-styled">
-		<li>Visibilite des operations minieres</li>
-		<li>Suivi de l’origine et du parcours des substances minerales</li>
-		<li>Validation de la conformite aux normes de certification</li>
-		<li>Lutte contre la fraude miniere et les circuits illicites</li>
-		</ul>
+		<p>Elles garantissent non seulement la conformité des activités minières aux exigences légales, mais aussi la crédibilité des substances minérales sur les marchés nationaux et internationaux.</p>
+		<p>La transparence permet une meilleure visibilité des opérations minières, en renforçant l'accès à l'information et en limitant les pratiques frauduleuses ou illicites. La traçabilité, quant à elle, assure le suivi des substances minérales depuis leur extraction jusqu'à leur commercialisation, permettant ainsi d'identifier leur origine et leur parcours. Enfin, la certification constitue un mécanisme de validation de la conformité des produits miniers aux normes établies.</p>
+
+		<p class="text-dark text-italic">- Visibilité des opérations minières</p>
+		<p>- Suivi de l'origine et du parcours des substances minérales</p>
+		<p>- Validation de la conformité aux normes de certification</p>
+		<p>- Lutte contre la fraude minière et les circuits illicites</p>
+
 		</div>
 		</div>
 		</div>
@@ -232,7 +399,7 @@
 <div class="container">
 <div class="row">
 <div class="col-12 text-center">
-<p class="mb-2">Publics concernes</p>
+<p class="mb-2">Publics concernés</p>
 <h2 class="special-heading"><span>A qui s’adresse RARSM ?</span></h2>
 <div class="divider-60"></div>
 </div>
@@ -240,90 +407,144 @@
 <div class="row">
 <div class="col-12">
 <div class="owl-carousel owl-nav-bottom" data-autoplay="true" data-loop="true" data-margin="40" data-nav="true" data-responsive-lg="4" data-responsive-md="2" data-responsive-sm="1" data-responsive-xs="1">
-<div class="vertical-item quote-item"><div class="item-content text-center"><h4 class="mb-3">Juristes et monde academique</h4><p class="position">Reference doctrinale</p><p>Avocats, magistrats, enseignants, chercheurs et etudiants y trouvent un support clair pour etudier, interpreter et mobiliser le droit minier congolais.</p></div></div>
-<div class="vertical-item quote-item"><div class="item-content text-center"><h4 class="mb-3">Administrations publiques</h4><p class="position">Outil institutionnel</p><p>Ministeres, services techniques et autorites administratives y trouvent une base claire pour appliquer les textes, harmoniser les pratiques et decider pour une exploitation responsable.</p></div></div>
-<div class="vertical-item quote-item"><div class="item-content text-center"><h4 class="mb-3">Entreprises minieres légales</h4><p class="position">Conformite operationnelle</p><p>Entreprises, cooperatives et operateurs economiques peuvent mieux identifier leurs obligations, structurer leur conformite et encadrer leurs activites.</p></div></div>
-<div class="vertical-item quote-item"><div class="item-content text-center"><h4 class="mb-3">Investisseurs locaux et étrangers</h4><p class="position">Assuer une Securité juridique</p><p>Investisseurs nationaux et internationaux disposent d’une lecture claire du cadre reglementaire pour evaluer les risques et orienter leurs engagements.</p></div></div>
+<div class="vertical-item quote-item"><div class="item-content text-center"><h4 class="mb-3">Juristes et praticiens du droit</h4><p class="position">Référence doctrinale</p><p>Avocats, magistrats, enseignants et étudiants en droit y trouvent un outil clair pour étudier, interpréter et mobiliser le droit minier congolais.</p></div></div>
+<div class="vertical-item quote-item"><div class="item-content text-center"><h4 class="mb-3">Administrations et services publics</h4><p class="position">Appui institutionnel</p><p>Les administrations, organismes et services publics de l'État y disposent d'une base structurée pour appliquer les textes et harmoniser leurs pratiques.</p></div></div>
+<div class="vertical-item quote-item"><div class="item-content text-center"><h4 class="mb-3">Entreprises et coopératives minières</h4><p class="position">Conformité opérationnelle</p><p>Entreprises minières, coopératives et opérateurs économiques peuvent mieux encadrer leurs activités et sécuriser leur conformité réglementaire.</p></div></div>
+<div class="vertical-item quote-item"><div class="item-content text-center"><h4 class="mb-3">Investisseurs et partenaires</h4><p class="position">Lecture stratégique</p><p>Investisseurs nationaux et internationaux bénéficient d'une compréhension lucide du cadre normatif pour évaluer les risques et orienter leurs engagements.</p></div></div>
 </div>
 </div>
 </div>
 </div>
 </section>
-<section class="ls ms s-py-90 s-py-xl-150 c-gutter-50" id="faqs">
-<div class="container">
-<div class="row">
-<div class="col-12">
-<h2 class="special-heading"><span>Structure générale de l’ouvrage</span></h2>
-<div class="divider-40"></div>
-<p class="excerpt">De maniere pedagogique, le recueil comporte trois grandes parties organisees autour du cadre institutionnel, du suivi des activites minieres et des mecanismes de transparence, tracabilite et certification.</p>
-<div class="divider-40"></div>
-</div>
-<div class="col-lg-6">
-<div id="accordion01" role="tablist">
-<div class="card">
-<div class="card-header" id="collapse01_header" role="tab"><h5><a aria-controls="collapse01" aria-expanded="true" data-toggle="collapse" href="#collapse01">Partie 1 : Cadre institutionnel et encadrement des activites</a></h5></div>
-<div aria-labelledby="collapse01_header" class="collapse show" data-parent="#accordion01" id="collapse01" role="tabpanel"><div class="card-body">
-<h6>Titre 1 : Administration et services techniques</h6>
-<ul class="list-unstyled"><li>Chapitre 1 : Administration et services techniques du Ministere des Mines</li><li>Chapitre 2 : Collaboration institutionnelle</li><li>Chapitre 3 : Les auxiliaires</li></ul>
-<h6>Titre 2 : Encadrement des activites minieres</h6>
-<ul class="list-unstyled"><li>Chapitre 1 : Exploitation miniere industrielle</li><li>Chapitre 2 : Exploitation miniere artisanale</li></ul>
-</div></div>
-</div>
-<div class="card">
-<div class="card-header" id="collapse02_header" role="tab"><h5><a aria-controls="collapse02" aria-expanded="false" class="collapsed" data-toggle="collapse" href="#collapse02">Partie 2 : Suivi des activites minieres</a></h5></div>
-<div aria-labelledby="collapse02_header" class="collapse" data-parent="#accordion01" id="collapse02" role="tabpanel"><div class="card-body">
-<ul class="list-unstyled"><li>Suivi des titulaires de droits miniers et de droits de carrieres</li><li>Suivi des detenteurs d’agrement au titre d’entite de traitement</li><li>Suivi des cooperatives minieres, negociants, comptoirs, bourses et centres de negoce</li><li>Fiscalite, auxiliaires, laboratoires et exportations</li></ul>
-</div></div>
-</div>
-</div>
-</div>
-<div class="col-lg-6">
-<div id="accordion02" role="tablist">
-<div class="card">
-<div class="card-header" id="collapse07_header" role="tab"><h5><a aria-controls="collapse07" aria-expanded="true" data-toggle="collapse" href="#collapse07">Partie 3 : Transparence, tracabilite et certification</a></h5></div>
-<div aria-labelledby="collapse07_header" class="collapse show" data-parent="#accordion02" id="collapse07" role="tabpanel"><div class="card-body">
-<ul class="list-unstyled"><li>Transparence : ITIE</li><li>Processus de Kimberley</li><li>CIRGL</li><li>Dodd-Frank et Reglement UE</li><li>Due Diligence OCDE</li><li>Manuel de certification CTC</li><li>Manuel des procedures de tracabilite</li></ul>
-</div></div>
-</div>
-<div class="card">
-<div class="card-header" id="collapse08_header" role="tab"><h5><a aria-controls="collapse08" aria-expanded="false" class="collapsed" data-toggle="collapse" href="#collapse08">Objectif pedagogique du recueil</a></h5></div>
-<div aria-labelledby="collapse08_header" class="collapse" data-parent="#accordion02" id="collapse08" role="tabpanel"><div class="card-body"><p>Le RARSM rassemble, structure et rend accessible dans un meme document les principaux textes reglementaires regissant les activites minieres, afin de renforcer la securite juridique et la gouvernance miniere.</p></div></div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</section>
-<section class="ls s-overlay mobile-overlay s-py-90 s-py-xl-150 section-book" id="chapter">
-<div class="container">
-<div class="row">
-<div class="col-lg-6 ml-auto">
-<div class="divider-xl-110"></div>
-<h3 class="special-heading"><span class="text-white">Introduction et contexte</span></h3>
-<div class="divider-40"></div>
-<div class="scroll-block ">
-<p class="first-letter text-white">Le secteur minier occupe une place strategique dans l’economie de la RDC, en raison de l’abondance et de la diversite de ses ressources naturelles. Il constitue un pilier important du developpement economique, de la mobilisation des recettes publiques et de l’attraction des investissements.</p>
-<p class="text-white">Cependant, l’evolution constante du cadre juridique applicable a ce secteur a engendre une multiplication des actes normatifs, souvent disperses et parfois difficiles d’acces pour les differents acteurs concernes.</p>
-<p class="text-white">C’est dans ce contexte qu’a ete concu le Recueil des Actes Reglementaires du Secteur Minier (RARSM), avec pour ambition de rassembler, structurer et rendre accessible dans un meme document les principaux textes reglementaires regissant les activites minieres.</p>
-</div>
-<div class="divider-xl-100"></div>
-</div>
-</div>
-</div>
-</section>
+
+
+	<section class="ls ms s-py-90 s-py-xl-150 c-gutter-50" id="faqs">
+		<div class="container">
+				<div class="row">
+						<div class="col-12">
+								<h2 class="special-heading"><span>Structure générale de l’ouvrage</span></h2>
+								<div class="divider-40"></div>
+								<p class="excerpt">De manière pédagogique, ce recueil comporte trois grandes parties organisées autour du cadre institutionnel, du suivi des activités minières et des mécanismes de transparence, traçabilité et certification.</p>
+								<div class="divider-40"></div>
+						</div>
+						<div class="col-lg-6">
+							<div id="accordion01" role="tablist">
+								<div class="card">
+									<div class="card-header" id="collapse01_header" role="tab">
+										<h5>
+											<a aria-controls="collapse01" aria-expanded="true" data-toggle="collapse" href="#collapse01">Partie 1 : Cadre institutionnel et encadrement des activités</a>
+										</h5>
+									</div>
+									<div aria-labelledby="collapse01_header" class="collapse show" data-parent="#accordion01" id="collapse01" role="tabpanel">
+										<div class="card-body">
+											<h6>Titre 1 : L'Administration et les services techniques</h6>
+											<ul class="list-unstyled"><li>Chapitre 1 : L'administration et les services techniques du Ministère des Mines</li><li>Chapitre 2 : Collaboration</li><li>Chapitre 3 : Les auxiliaires</li></ul>
+											<h6>Titre 2 : L'encadrement des activités minières</h6>
+											<ul class="list-unstyled"><li>Chapitre 1 : Encadrement de l'exploitation minière industrielle</li><li>Chapitre 2 : Encadrement de l'exploitation minière artisanale</li></ul>
+										</div>
+									</div>
+								</div>
+								<div class="card">
+									<div class="card-header" id="collapse02_header" role="tab">
+										<h5>
+											<a aria-controls="collapse02" aria-expanded="false" class="collapsed" data-toggle="collapse" href="#collapse02">Partie 2 : Suivi des activités minières</a>
+										</h5>
+									</div>
+									<div aria-labelledby="collapse02_header" class="collapse" data-parent="#accordion01" id="collapse02" role="tabpanel">
+										<div class="card-body">
+												<h6>Titre 1 : Suivi des titulaires et détenteurs d'agrément</h6>
+												<ul class="list-unstyled"><li>Chapitre 1 : Titulaires de droits miniers</li>
+												<li>Chapitre 2 : Titulaires de droits de carrière</li>
+											    <li>Chapitre 3 : Détenteurs d'agrément au titre d'entité de traitement</li>
+												</ul>
+												<h6>Titre 2 : Suivi des opérateurs du secteur minier artisanal</h6>
+												<ul class="list-unstyled"><li>Chapitre 1 : Les coopératives minières</li>
+													<li>Chapitre 2 : Négociants, comptoirs, bourses et centres de négoce</li>
+													<li>Chapitre 3 : Fiscalité</li>
+												</ul>
+												<h6>Titre 3 et 4 : Auxiliaires et exportations</h6>
+												<ul class="list-unstyled"><li>Suivi des laboratoires et autres auxiliaires</li>
+													<li>Mécanismes d'exportation</li>
+												</ul>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					<div class="col-lg-6">
+						<div id="accordion02" role="tablist">
+							<div class="card">
+							<div class="card-header" id="collapse07_header" role="tab">
+								<h5>
+									<a aria-controls="collapse07" aria-expanded="true" data-toggle="collapse" href="#collapse07">Partie 3 : Transparence, traçabilité et certification</a>
+								</h5>
+							</div>
+							<div aria-labelledby="collapse07_header" class="collapse show" data-parent="#accordion02" id="collapse07" role="tabpanel">
+								<div class="card-body">
+									<ul class="list-unstyled">
+										<li>3.1 Transparence : ITIE</li>
+										<li>3.2.2 Processus de Kimberley</li>
+										<li>3.2.3 CIRGL</li>
+										<li>3.2.4 et 3.2.5 Dodd-Frank / Règlement UE</li>
+										<li>3.2.6 Due Diligence OCDE</li>
+										<li>3.2.7 Manuel de certification CTC</li>
+										<li>3.2.8 Manuel des procédures de traçabilité</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+							<div class="card">
+							<div class="card-header" id="collapse08_header" role="tab">
+								<h5>
+									<a aria-controls="collapse08" aria-expanded="false" class="collapsed" data-toggle="collapse" href="#collapse08">Objectif pedagogique du recueil</a>
+								</h5>
+							</div>
+							<div aria-labelledby="collapse08_header" class="collapse" data-parent="#accordion02" id="collapse08" role="tabpanel">
+								<div class="card-body">
+									<p>Le RARSM a été conçu pour rassembler, structurer et rendre accessibles dans un même document les principaux textes réglementaires régissant les activités minières, afin de renforcer la sécurité juridique et de promouvoir une gouvernance minière plus efficace.</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+		</div>
+	</section>
+
+
+	<section class="ls s-overlay mobile-overlay s-py-90 s-py-xl-150 section-book" id="chapter">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-6 ml-auto">
+					<div class="divider-xl-110"></div>
+						<h3 class="special-heading"><span class="text-white">Introduction et contexte</span></h3>
+							<div class="divider-40"></div>
+								<div class="scroll-block ">
+									<p class="first-letter text-white">Le secteur minier occupe une place stratégique dans l'économie de la RDC, en raison de l'abondance et de la diversité de ses ressources naturelles. Il constitue un pilier important du développement économique, de la mobilisation des recettes publiques et de l'attraction des investissements.</p>
+									<p class="text-white">Cependant, l'évolution constante du cadre juridique applicable à ce secteur a engendré une multiplication des actes normatifs, souvent dispersés et parfois difficiles d'accès pour les différents acteurs concernés.</p>
+									<p class="text-white">C'est dans ce contexte qu'a été conçu le Recueil des Actes Réglementaires du Secteur Minier (RARSM), avec pour ambition de rassembler, structurer et rendre accessible dans un même document les principaux textes réglementaires régissant les activités minières.</p>
+									<p class="text-white">Cet ouvrage répond à un besoin réel de centralisation de l'information juridique, de renforcement de la sécurité juridique et de promotion d'une gouvernance minière plus efficace, plus transparente et mieux conforme aux exigences nationales et internationales.</p>
+								</div>
+							<div class="divider-xl-100"></div>
+				</div>
+			</div>
+		</div>
+	</section>
 	<section class="ls ms s-overlay mobile-overlay s-py-90 s-py-xl-150 section-amazon" id="valeur-ajoutee">
 			<div class="container">
 				<div class="row">
 					<div class="col-lg-6">
 						<div class="divider-xl-110"></div>
-						<h3 class="special-heading"><span>Une valeur ajoutee concrete pour la RDC et les investisseurs</span></h3>
+						<h3 class="special-heading"><span>Une valeur ajoutée concrète pour la RDC et les investisseurs</span></h3>
 						<div class="divider-40"></div>
-						<p class="excerpt">Le RARSM apporte une valeur ajoutee pertinente et significative tant pour la RDC que pour les investisseurs nationaux et internationaux.</p>
+						<p class="excerpt">Le RARSM apporte une valeur ajoutée très pertinente et significative tant pour la RDC que pour les investisseurs nationaux et internationaux.</p>
 						<div class="divider-40"></div>
-						<p>Pour la RDC, il participe au renforcement de la bonne gouvernance miniere en facilitant l’acces aux normes juridiques applicables au secteur. Il contribue a une meilleure application de la reglementation, a la consolidation de la securite juridique et a la promotion de la transparence dans la gestion des ressources naturelles.</p>
-						<p>Pour les investisseurs, le RARSM constitue un manuel de reference pour une comprehension lucide du cadre normatif du secteur minier congolais. Il apparait ainsi comme le socle d’une comprehension logique et sans ambiguite des textes <br> reglementant le secteur minier.</p>
+						<p>Pour la RDC, ce recueil participe au renforcement de la bonne gouvernance minière en facilitant l'accès aux normes juridiques applicables au secteur. Il contribue à une meilleure application de la réglementation, à la consolidation de la sécurité juridique et à la promotion de la transparence dans la gestion des ressources naturelles.</p>
+						<p>Pour les investisseurs, le RARSM constitue un manuel de référence pour une compréhension lucide du cadre normatif du secteur minier congolais. Cela étant dit, il apparaît comme le socle d'une compréhension logique et sans ambiguïté des textes réglementant le secteur minier congolais, afin de promouvoir le développement de ce dernier.</p>
 						<div class="divider-40"></div>
-						<div class="columns-two-left"><a class="btn btn-darkgrey" href="#contact">Demander une presentation</a><a class="btn btn-outline-darkgrey" href="#acheter">Acheter le livre</a></div>
+						<div class="columns-two-left">
+							<a class="btn btn-darkgrey" href="#contact">Acheter le livre</a>
+							<a class="btn btn-outline-darkgrey" href="#acheter">Lire un extrait</a>
+						</div>
 						<div class="divider-xl-100"></div>
 					</div>
 				</div>
@@ -334,35 +555,29 @@
 		<div class="container">
 			<div class="row justify-content-center text-center">
 				<div class="col-lg-8">
-					<p class="rarsm-counter-kicker mb-3">RARSM en chiffres</p>
-					<h2 class="special-heading"><span>Une reference pratique pour le secteur minier</span></h2>
-					<p class="rarsm-counter-intro">Le recueil rassemble les textes essentiels pour offrir une lecture claire, exploitable et directement utile aux acteurs publics, prives et institutionnels.</p>
+					<p class="rarsm-counter-kicker mb-3">Pourquoi adopter RARSM ?</p>
+					<h2 class="special-heading"><span>Un choix de rationalisation, de sécurisation et d'efficacité</span></h2>
+					<p class="rarsm-counter-intro">Le choix et l'adoption du RARSM résultent d'une triple exigence : rationaliser l'accès aux textes, sécuriser leur compréhension et renforcer l'efficacité dans l'application du droit minier en RDC.</p>
 					<div class="divider-50"></div>
 				</div>
 			</div>
 			<div class="row">
-				<div class="col-sm-6 col-lg-3 mb-30">
+				<div class="col-md-4 mb-30">
 					<div class="rarsm-counter-card text-center">
-						<div class="rarsm-counter-value">3</div>
-						<p class="rarsm-counter-label mb-0">Grandes parties</p>
+						<div class="rarsm-counter-value">01</div>
+						<p class="rarsm-counter-label mb-0">Rationalisation de l'accès aux textes</p>
 					</div>
 				</div>
-				<div class="col-sm-6 col-lg-3 mb-30">
+				<div class="col-md-4 mb-30">
 					<div class="rarsm-counter-card text-center">
-						<div class="rarsm-counter-value">2000+</div>
-						<p class="rarsm-counter-label mb-0">Pages</p>
+						<div class="rarsm-counter-value">02</div>
+						<p class="rarsm-counter-label mb-0">Sécurisation de la compréhension juridique</p>
 					</div>
 				</div>
-				<div class="col-sm-6 col-lg-3 mb-30">
+				<div class="col-md-4 mb-30">
 					<div class="rarsm-counter-card text-center">
-						<div class="rarsm-counter-value">1</div>
-						<p class="rarsm-counter-label mb-0">Guide d'utilisation</p>
-					</div>
-				</div>
-				<div class="col-sm-6 col-lg-3 mb-30">
-					<div class="rarsm-counter-card text-center">
-						<div class="rarsm-counter-value">3</div>
-						<p class="rarsm-counter-label mb-0">Versions</p>
+						<div class="rarsm-counter-value">03</div>
+						<p class="rarsm-counter-label mb-0">Efficacité dans l'application du droit minier</p>
 					</div>
 				</div>
 			</div>
@@ -478,11 +693,13 @@
 <div class="col-12 text-center">
 <p class="mb-2 color-dark">Axes majeurs du recueil</p>
 <h2 class="special-heading"><span>Axes majeurs du recueil</span></h2>
+<div class="divider-30"></div>
+<p class="excerpt">Partie 1 : Cadre institutionnel et encadrement des activités minières. Partie 2 : Suivi des activités minières. Partie 3 : Transparence, traçabilité et certification.</p>
 <div class="divider-60 divider-xl-70"></div>
 <div class="owl-carousel owl-nav-bottom" data-autoplay="true" data-loop="true" data-margin="60" data-nav="true" data-responsive-lg="3" data-responsive-md="2" data-responsive-sm="1" data-responsive-xs="1">
 <article class="text-center post-grid-item post type-post status-publish format-standard has-post-thumbnail"><div class="item-media post-thumbnail"><img alt="Cadre institutionnel" src="images/rarsm-generated/cadre-institutionnel.png"/><div class="media-links"><a class="abs-link" href="#faqs"></a></div><p class="item-meta"><span class="time-meta">Partie 1</span></p></div><div class="item-content"><header class="entry-header"><h4 class="entry-title"><a href="#faqs" rel="bookmark">Cadre institutionnel et encadrement des activites minieres</a></h4></header></div></article>
-<article class="text-center post-grid-item post type-post status-publish format-standard has-post-thumbnail"><div class="item-media post-thumbnail"><img alt="Suivi des activites minieres" src="images/rarsm-generated/suivi-droits-filieres.png"/><div class="media-links"><a class="abs-link" href="#faqs"></a></div><p class="item-meta"><span class="time-meta">Partie 2</span></p></div><div class="item-content"><header class="entry-header"><h4 class="entry-title"><a href="#faqs" rel="bookmark">Suivi des activites minieres</a></h4></header></div></article>
-<article class="text-center post-grid-item post type-post status-publish format-standard has-post-thumbnail"><div class="item-media post-thumbnail"><img alt="Transparence, tracabilite et certification" src="images/rarsm-generated/approvisionnement-responsable.png"/><div class="media-links"><a class="abs-link" href="#faqs"></a></div><p class="item-meta"><span class="time-meta">Partie 3</span></p></div><div class="item-content"><header class="entry-header"><h4 class="entry-title"><a href="#faqs" rel="bookmark">Transparence, tracabilite et certification</a></h4></header></div></article>
+<article class="text-center post-grid-item post type-post status-publish format-standard has-post-thumbnail"><div class="item-media post-thumbnail"><img alt="Suivi des activités minières" src="images/rarsm-generated/suivi-droits-filieres.png"/><div class="media-links"><a class="abs-link" href="#faqs"></a></div><p class="item-meta"><span class="time-meta">Partie 2</span></p></div><div class="item-content"><header class="entry-header"><h4 class="entry-title"><a href="#faqs" rel="bookmark">Suivi des activites minieres</a></h4></header></div></article>
+<article class="text-center post-grid-item post type-post status-publish format-standard has-post-thumbnail"><div class="item-media post-thumbnail"><img alt="Transparence, traçabilité et certification" src="images/rarsm-generated/approvisionnement-responsable.png"/><div class="media-links"><a class="abs-link" href="#faqs"></a></div><p class="item-meta"><span class="time-meta">Partie 3</span></p></div><div class="item-content"><header class="entry-header"><h4 class="entry-title"><a href="#faqs" rel="bookmark">Transparence, tracabilite et certification</a></h4></header></div></article>
 </div>
 </div>
 </div>
@@ -582,7 +799,7 @@
 <a href="index.html">Accueil</a>
 </li>
 <li class="menu-item">
-<a href="#about">Le Livre</a>
+<a href="#about">Livre</a>
 </li>
 <li class="menu-item">
 <a href="#acheter">Acheter</a>
@@ -591,7 +808,10 @@
 <a href="#author">Auteur</a>
 </li>
 <li class="menu-item">
-<a href="blog.html">Blog</a>
+<a href="activites.html">Activités</a>
+</li>
+<li class="menu-item">
+<a href="pricing.html#institutions">Institutions</a>
 </li>
 <li class="menu-item">
 <a href="faq.html">FAQ</a>

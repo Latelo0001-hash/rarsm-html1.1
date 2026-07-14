@@ -33,6 +33,91 @@
 	<div class="preloader">
 		<div class="preloader_image pulse"></div>
 	</div>
+	<div class="modal fade popupLogin" id="popupLogin" tabindex="-1" role="dialog" aria-hidden="true">
+		<div class="modal-dialog modal-dialog-centered" role="document">
+			<div class="modal-content ls border-r-def overflow-visible s-overlay s-mobile-overlay">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+				<div class="modal-body">
+					<div class="container">
+						<div class="row">
+							<div class="col-12">
+								<h4 class="mb-4">Log in</h4>
+								<form class="form-registration c-mb-40 c-gutter-20" action="/">
+									<div class="row mb-4">
+										<div class="col-sm-12">
+											<div class="form-group">
+												<input type="text" name="name" class="form-control" required placeholder="login" aria-required="true">
+											</div>
+										</div>
+										<div class="col-sm-12">
+											<div class="form-group">
+												<input type="password" name="password" class="form-control" placeholder="password" aria-required="true" required>
+											</div>
+										</div>
+									</div>
+									<a class="registerRedirect" data-dismiss="modal" data-target="#popupRegistr" data-toggle="modal" href="#">Not a member? Register!</a>
+									<button type="submit" class="btn btn-maincolor mt-30 d-block">Sign In</button>
+								</form>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="modal fade popupRegistr" id="popupRegistr" tabindex="-1" role="dialog" aria-hidden="true">
+		<div class="modal-dialog modal-dialog-centered" role="document">
+			<div class="modal-content ls border-r-def overflow-visible s-overlay s-mobile-overlay">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+				<div class="modal-body">
+					<div class="container">
+						<div class="row">
+							<div class="col-12">
+								<h4 class="mb-4">Registration</h4>
+								<form class="form-registration c-mb-40 c-gutter-40" method="post" action="/">
+									<div class="row">
+										<div class="col-12">
+											<div class="form-group">
+												<input type="text" name="name" class="form-control" required placeholder="login" aria-required="true">
+											</div>
+										</div>
+										<div class="col-12">
+											<div class="form-group">
+												<input type="email" name="email" class="form-control" required placeholder="email" aria-required="true">
+											</div>
+										</div>
+										<div class="col-12">
+											<div class="form-group">
+												<input type="password" name="password" class="form-control" placeholder="password" aria-required="true" required>
+											</div>
+										</div>
+										<div class="col-12">
+											<div class="form-group">
+												<input type="password" name="password2" class="form-control" placeholder="password" aria-required="true" required>
+											</div>
+										</div>
+										<div class="col-12">
+											<div class="form-group">
+												<div class="checkbox">
+													<input type="checkbox" id="popupRegistrTerms" name="popupRegistrTerms">
+													<label for="popupRegistrTerms">I agree with all the text in the <a href="#">Terms of service</a></label>
+												</div>
+											</div>
+										</div>
+									</div>
+									<button type="submit" class="btn btn-maincolor mt-30 d-block">Register</button>
+								</form>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 
 	<div id="canvas">
 		<div id="box_wrapper">
@@ -51,22 +136,65 @@
 										<a href="index.html">Accueil</a>
 									</li>
 									<li class="active">
-										<a href="book.html">Le Livre</a>
-									</li>
-									<li>
-										<a href="pricing.html">Acheter le livre</a>
+										<a href="book.html">Livre</a>
 									</li>
 									<li>
 										<a href="author.html">Auteur</a>
 									</li>
 									<li>
-										<a href="blog.html">Blog / Actualites</a>
+										<a href="pricing.html#institutions">Institutions</a>
 									</li>
 									<li>
-										<a href="faq.html">FAQ</a>
+										<a href="pricing.html">Acheter</a>
+									</li>
+									<li>
+										<a href="activites.html">Activités</a>
 									</li>
 									<li>
 										<a href="contact.html">Contact</a>
+									</li>
+									<li class="menu-auth-item menu-auth-login">
+										<a data-toggle="modal" href="#popupLogin">Se connecter</a>
+									</li>
+									<li class="menu-auth-item menu-auth-register">
+										<a data-toggle="modal" href="#popupRegistr">S'inscrire</a>
+									</li>
+									<li class="menu-cart-mobile dropdown d-lg-none">
+										<button aria-expanded="false" aria-haspopup="true" aria-label="Ouvrir le panier" class="dropdown-toggle dropdown-shopping-cart" data-toggle="dropdown" id="dropdown-shopping-cart-mobile" type="button">
+											<i aria-hidden="true" class="fa fa-shopping-basket"></i>
+											<span class="badge bg-maincolor">1</span>
+											<span class="cart-total">$27.00</span>
+										</button>
+										<div aria-labelledby="dropdown-shopping-cart-mobile" class="dropdown-menu ls">
+											<div class="widget woocommerce widget_shopping_cart">
+												<div class="widget_shopping_cart_content">
+													<ul class="woocommerce-mini-cart cart_list product_list_widget">
+														<li class="woocommerce-mini-cart-item mini_cart_item">
+															<a aria-label="Retirer cet article" class="remove" data-product_id="rarsm-book" data-product_sku="RARSM-PRINT" href="#">×</a>
+															<a href="pricing.html#formats"><img alt="Livre RARSM" src="images/view-rarsm.JPG"></a>
+															<a href="pricing.html#formats">RARSM - Edition papier</a>
+															<span class="quantity">1 ×
+																<span class="woocommerce-Price-amount amount">
+																	<span class="woocommerce-Price-currencySymbol">$</span>
+																	27.00
+																</span>
+															</span>
+														</li>
+													</ul>
+													<p class="woocommerce-mini-cart__total total">
+														<strong>Sous-total :</strong>
+														<span class="woocommerce-Price-amount amount">
+															<span class="woocommerce-Price-currencySymbol">$</span>
+															27.00
+														</span>
+													</p>
+													<p class="woocommerce-mini-cart__buttons buttons">
+														<a class="button wc-forward" href="pricing.html#formats">Panier</a>
+														<a class="button checkout wc-forward" href="pricing.html#order-form">Commander</a>
+													</p>
+												</div>
+											</div>
+										</div>
 									</li>
 									<li class="menu-language-mobile d-lg-none">
 										<div class="language-switcher js-language-switcher">
@@ -81,12 +209,51 @@
 							</nav>
 						</div>
 						<div class="col-xl-2 col-lg-3 text-right d-none d-lg-block">
-							<div class="header-language-control">
-								<div class="language-switcher js-language-switcher">
-									<button aria-expanded="false" aria-label="Choix de la langue actuelle" class="language-toggle js-language-toggle" type="button">Fr</button>
-									<div aria-label="Choix de la langue" class="language-menu" role="menu">
-										<button class="language-option js-language-option is-active" data-language="fr" role="menuitem" type="button">Fr</button>
-										<button class="language-option js-language-option" data-language="en" role="menuitem" type="button">En</button>
+							<div class="header-utilities">
+								<div class="dropdown">
+									<a aria-expanded="false" aria-haspopup="true" aria-label="Ouvrir le panier" class="dropdown-toggle dropdown-shopping-cart" data-toggle="dropdown" href="#" id="dropdown-shopping-cart" role="button">
+										<i aria-hidden="true" class="fa fa-shopping-basket"></i>
+										<span class="badge bg-maincolor">1</span>
+										<span class="cart-total">$27.00</span>
+									</a>
+									<div aria-labelledby="dropdown-shopping-cart" class="dropdown-menu dropdown-menu-right ls">
+										<div class="widget woocommerce widget_shopping_cart">
+											<div class="widget_shopping_cart_content">
+												<ul class="woocommerce-mini-cart cart_list product_list_widget">
+													<li class="woocommerce-mini-cart-item mini_cart_item">
+														<a aria-label="Retirer cet article" class="remove" data-product_id="rarsm-book" data-product_sku="RARSM-PRINT" href="#">×</a>
+														<a href="pricing.html#formats"><img alt="Livre RARSM" src="images/view-rarsm.JPG"></a>
+														<a href="pricing.html#formats">RARSM - Edition papier</a>
+														<span class="quantity">1 ×
+															<span class="woocommerce-Price-amount amount">
+																<span class="woocommerce-Price-currencySymbol">$</span>
+																27.00
+															</span>
+														</span>
+													</li>
+												</ul>
+												<p class="woocommerce-mini-cart__total total">
+													<strong>Sous-total :</strong>
+													<span class="woocommerce-Price-amount amount">
+														<span class="woocommerce-Price-currencySymbol">$</span>
+														27.00
+													</span>
+												</p>
+												<p class="woocommerce-mini-cart__buttons buttons">
+													<a class="button wc-forward" href="pricing.html#formats">Panier</a>
+													<a class="button checkout wc-forward" href="pricing.html#order-form">Commander</a>
+												</p>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="header-language-control">
+									<div class="language-switcher js-language-switcher">
+										<button aria-expanded="false" aria-label="Choix de la langue actuelle" class="language-toggle js-language-toggle" type="button">Fr</button>
+										<div aria-label="Choix de la langue" class="language-menu" role="menu">
+											<button class="language-option js-language-option is-active" data-language="fr" role="menuitem" type="button">Fr</button>
+											<button class="language-option js-language-option" data-language="en" role="menuitem" type="button">En</button>
+										</div>
 									</div>
 								</div>
 							</div>
@@ -232,16 +399,19 @@
 										<a href="index.html">Accueil</a>
 									</li>
 									<li class="menu-item">
-										<a href="book.html">Le Livre</a>
+										<a href="book.html">Livre</a>
 									</li>
 									<li class="menu-item">
-										<a href="pricing.html">Acheter le livre</a>
+										<a href="pricing.html">Acheter</a>
 									</li>
 									<li class="menu-item">
 										<a href="author.html">Auteur</a>
 									</li>
 									<li class="menu-item">
-										<a href="blog.html">Blog / Actualites</a>
+										<a href="activites.html">Activités</a>
+									</li>
+									<li class="menu-item">
+										<a href="pricing.html#institutions">Institutions</a>
 									</li>
 									<li class="menu-item">
 										<a href="faq.html">FAQ</a>
