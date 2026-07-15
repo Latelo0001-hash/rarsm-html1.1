@@ -92,7 +92,11 @@
 										</div>
 									</div>
 									<a class="registerRedirect " data-dismiss="modal" data-target="#popupRegistr" data-toggle="modal" href="#">Not a member? Register!</a>
-									<button type="submit" class="btn btn-maincolor mt-30 d-block">Sign In</button>
+<div class="modal-form-actions">
+<button type="button" class="btn btn-outline-maincolor" data-dismiss="modal">Annuler</button>
+<button type="submit" class="btn btn-maincolor">Sign In</button>
+</div>
+
 								</form>
 
 							</div>
@@ -142,7 +146,10 @@
 											</div>
 										</div>
 									</div>
-									<button type="submit" class="btn btn-maincolor mt-30 d-block">Registration</button>
+									<div class="modal-form-actions">
+									<button type="button" class="btn btn-outline-maincolor" data-dismiss="modal">Annuler</button>
+									<button type="submit" class="btn btn-maincolor">Registration</button>
+								</div>
 								</form>
 
 							</div>
@@ -159,9 +166,10 @@
 
 			<!-- page sections -->
 
+
 			<!-- header with three Bootstrap columns - left for logo, center for navigation and right for includes-->
-			<header class="page_header ls s-py-10">
-				<div class="container">
+			<header class="page_header ls s-overlay s-py-10">
+				<div class="container-fluid">
 					<div class="row align-items-center">
 						<div class="col-xl-2 col-lg-3 col-11">
 							<a href="./" class="logo">
@@ -324,44 +332,225 @@
 				<span class="toggle_menu"><span></span></span>
 			</header>
 
-			<section class="ds s-overlay mobile-overlay s-py-90 error-404 not-found page_404">
+			<section class="page_title ds s-parallax s-py-110">
 				<div class="container">
 					<div class="row">
 
-						<div class="divider-lg-60 divider-xl-120"></div>
-
-						<div class="col-12 col-md-8 col-lg-6 col-xl-4 ml-auto mr-auto text-center">
-
-							<header class="page-header">
-								<h3>404</h3>
-								<p class="text-404">Oops, page not found</p>
-							</header>
-							<!-- .page-header -->
-
-							<div class="page-content">
-								<div class="widget widget_mailchimp">
-
-									<form class="signup" action="/">
-										<label for="mailchimp_email">
-											<span class="screen-reader-text">Subscribe:</span>
-										</label>
-
-										<input id="mailchimp_email" name="email" type="email" class="form-control mailchimp_email" placeholder="Email address">
-
-										<button type="submit" class="search-submit">
-											<span class="screen-reader-text">Subscribe</span>
-										</button>
-										<div class="response"></div>
-									</form>
-
-								</div>
-							</div>
-							<!-- .page-content -->
+						<div class="col-md-12 text-center">
+							<h1 class="small-title">Services</h1>
+							<ol class="breadcrumb">
+								<li class="breadcrumb-item">
+									<a href="./">Home</a>
+								</li>
+								<li class="breadcrumb-item">
+									<a href="#">Pages</a>
+								</li>
+								<li class="breadcrumb-item active">
+									Services
+								</li>
+							</ol>
 						</div>
+
 					</div>
 				</div>
 			</section>
 
+			<section class="ls s-pt-90 s-pb-40 s-pt-xl-160 s-pb-xl-110 c-gutter-60 c-mb-50">
+				<div class="container">
+					<div class="row">
+						<div class="col-xl-4 col-lg-6">
+							<div class="vertical-item service-layout hero-bg content-padding">
+								<div class="position-relative">
+									<div class="item-media">
+										<img src="images/gallery/01.jpg" alt="img">
+										<div class="media-links">
+											<a class="abs-link" title="" href="service-single.html"></a>
+										</div>
+									</div>
+									<span class="cat-links">
+										<span class="screen-reader-text">Categories</span>
+										<a href="service-single.html" rel="category tag">
+											Services
+										</a>
+									</span>
+								</div>
+								<div class="item-content">
+									<h5>
+										<a href="service-single.html">Accumulation</a>
+									</h5>
+									<p>
+										At vero eos et accusam et justo duo dolores rebum stet clita
+									</p>
+								</div>
+							</div>
+						</div><!-- .col-* -->
+						<div class="col-xl-4 col-lg-6">
+							<div class="vertical-item service-layout hero-bg content-padding">
+								<div class="position-relative">
+									<div class="item-media">
+										<img src="images/gallery/02.jpg" alt="img">
+										<div class="media-links">
+											<a class="abs-link" title="" href="service-single.html"></a>
+										</div>
+									</div>
+									<span class="cat-links">
+										<span class="screen-reader-text">Categories</span>
+										<a href="service-single.html" rel="category tag">
+											Services
+										</a>
+									</span>
+								</div>
+								<div class="item-content">
+									<h5>
+										<a href="service-single.html">Taxation</a>
+									</h5>
+									<p>
+										No sea takimata sanctus est lorem ipsum dolor sit amet
+									</p>
+								</div>
+							</div>
+						</div><!-- .col-* -->
+						<div class="col-xl-4 col-lg-6">
+							<div class="vertical-item service-layout hero-bg content-padding">
+								<div class="position-relative">
+									<div class="item-media">
+										<img src="images/gallery/03.jpg" alt="img">
+										<div class="media-links">
+											<a class="abs-link" title="" href="service-single.html"></a>
+										</div>
+									</div>
+									<span class="cat-links">
+										<span class="screen-reader-text">Categories</span>
+										<a href="service-single.html" rel="category tag">
+											Services
+										</a>
+									</span>
+								</div>
+								<div class="item-content">
+									<h5>
+										<a href="service-single.html">Risk Management</a>
+									</h5>
+									<p>
+										Ipsum dolorsit amet consetetur sadipscing sed diam
+									</p>
+								</div>
+							</div>
+						</div><!-- .col-* -->
+						<div class="col-xl-4 col-lg-6">
+							<div class="vertical-item service-layout hero-bg content-padding">
+								<div class="position-relative">
+									<div class="item-media">
+										<img src="images/gallery/04.jpg" alt="img">
+										<div class="media-links">
+											<a class="abs-link" title="" href="service-single.html"></a>
+										</div>
+									</div>
+									<span class="cat-links">
+										<span class="screen-reader-text">Categories</span>
+										<a href="service-single.html" rel="category tag">
+											Services
+										</a>
+									</span>
+								</div>
+								<div class="item-content">
+									<h5>
+										<a href="service-single.html">Estate Planning</a>
+									</h5>
+									<p>
+										Eirmod tempor invidunt ut labore et dolore magna aliquyam
+									</p>
+								</div>
+							</div>
+						</div><!-- .col-* -->
+						<div class="col-xl-4 col-lg-6">
+							<div class="vertical-item service-layout hero-bg content-padding">
+								<div class="position-relative">
+									<div class="item-media">
+										<img src="images/gallery/05.jpg" alt="img">
+										<div class="media-links">
+											<a class="abs-link" title="" href="service-single.html"></a>
+										</div>
+									</div>
+									<span class="cat-links">
+										<span class="screen-reader-text">Categories</span>
+										<a href="service-single.html" rel="category tag">
+											Services
+										</a>
+									</span>
+								</div>
+								<div class="item-content">
+									<h5>
+										<a href="service-single.html">Stock</a>
+									</h5>
+									<p>
+										At vero eos et accusam et justo duo dolores et ea rebum
+									</p>
+								</div>
+							</div>
+						</div><!-- .col-* -->
+						<div class="col-xl-4 col-lg-6">
+							<div class="vertical-item service-layout hero-bg content-padding">
+								<div class="position-relative">
+									<div class="item-media">
+										<img src="images/gallery/06.jpg" alt="img">
+										<div class="media-links">
+											<a class="abs-link" title="" href="service-single.html"></a>
+										</div>
+									</div>
+									<span class="cat-links">
+										<span class="screen-reader-text">Categories</span>
+										<a href="service-single.html" rel="category tag">
+											Services
+										</a>
+									</span>
+								</div>
+								<div class="item-content">
+									<h5>
+										<a href="service-single.html">Business Planning</a>
+									</h5>
+									<p>
+										Stet clita kasd gubergren, no sea takimata sanctus est
+									</p>
+								</div>
+							</div>
+						</div><!-- .col-* -->
+					</div>
+				</div>
+			</section>
+
+			<footer class="page_footer ds s-py-85 s-py-xl-155">
+				<div class="container">
+					<div class="row">
+
+						<div class="col-12 text-center animate" data-animation="fadeInUp">
+							<a href="./" class="logo justify-content-center">
+								<img src="logo/rarsm-logo-wordmark-white.png" alt="RARSM">
+							</a>
+							<div class="divider-40"></div>
+							<div class="widget widget_nav_menu nav-in-line">
+								<ul class="menu">
+									<li class="menu-item">
+										<a href="index.html">Home</a>
+									</li>
+									<li class="menu-item">
+										<a href="author.html">Author</a>
+									</li>
+									<li class="menu-item">
+										<a href="chapter.html">Chapter</a>
+									</li>
+									<li class="menu-item">
+										<a href="blog-single-left.html">Blog</a>
+									</li>
+									<li class="menu-item">
+										<a href="contact.html">Contacts</a>
+									</li>
+								</ul>
+							</div>
+						</div>
+
+					</div>
+				</div>
+			</footer>
 
 			<section class="page_copyright ls s-py-20 s-py-xl-50">
 				<div class="container">
@@ -372,6 +561,7 @@
 					</div>
 				</div>
 			</section>
+
 
 		</div><!-- eof #box_wrapper -->
 	</div><!-- eof #canvas -->

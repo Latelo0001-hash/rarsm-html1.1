@@ -92,7 +92,11 @@
 										</div>
 									</div>
 									<a class="registerRedirect " data-dismiss="modal" data-target="#popupRegistr" data-toggle="modal" href="#">Not a member? Register!</a>
-									<button type="submit" class="btn btn-maincolor mt-30 d-block">Sign In</button>
+<div class="modal-form-actions">
+<button type="button" class="btn btn-outline-maincolor" data-dismiss="modal">Annuler</button>
+<button type="submit" class="btn btn-maincolor">Sign In</button>
+</div>
+
 								</form>
 
 							</div>
@@ -142,7 +146,10 @@
 											</div>
 										</div>
 									</div>
-									<button type="submit" class="btn btn-maincolor mt-30 d-block">Registration</button>
+									<div class="modal-form-actions">
+									<button type="button" class="btn btn-outline-maincolor" data-dismiss="modal">Annuler</button>
+									<button type="submit" class="btn btn-maincolor">Registration</button>
+								</div>
 								</form>
 
 							</div>
@@ -159,16 +166,48 @@
 
 			<!-- page sections -->
 
-			<header class="page_header_side header_push ls ms">
-				<span class="toggle_menu toggle_menu_side "><span></span></span>
-				<div class="scrollbar-macosx">
-					<div class="side_header_inner">
+			<!--topline section visible only on small screens|-->
+			<section class="page_topline ls ms s-borderbottom c-my-10 d-lg-none">
+				<div class="container-fluid">
+					<div class="row align-items-center">
+						<div class="col-8 text-left">
+							<span class="social-icons">
 
+								<a href="https://www.facebook.com/" class="fa fa-facebook border-icon rounded-icon" title="facebook"></a>
+								<a href="https://twitter.com/" class="fa fa-twitter border-icon rounded-icon" title="twitter"></a>
+								<a href="https://www.linkedin.com/" class="fa fa-linkedin border-icon rounded-icon" title="linkedin"></a>
+								<a href="https://www.instagram.com/" class="fa fa-instagram border-icon rounded-icon" title="instagram"></a>
+								<a href="https://www.youtube.com/" class="fa fa-youtube-play border-icon rounded-icon" title="youtube"></a>
 
-						<div class="header-side-menu">
-							<!-- main side nav start -->
-							<nav class="mainmenu_side_wrapper">
-								<ul class="nav menu-click">
+							</span>
+						</div>
+						<div class="col-4 text-right">
+							<!--modal search-->
+							<span>
+								<a href="#" class="search_modal_button hidden-below-xl">
+									<i class="fa fa-search"></i>
+								</a>
+							</span>
+
+						</div>
+					</div>
+				</div>
+			</section>
+			<!--eof topline-->
+
+			<!-- header with three Bootstrap columns - left for logo, center for navigation and right for includes-->
+			<header class="page_header ls justify-nav-center s-py-10">
+				<div class="container-fluid">
+					<div class="row align-items-center">
+						<div class="col-xl-2 col-lg-3 col-11">
+							<a href="./" class="logo">
+								<img src="logo/rarsm-logo-wordmark-color.png" alt="RARSM">
+							</a>
+						</div>
+						<div class="col-xl-8 col-lg-5 col-1">
+							<!-- main nav start -->
+							<nav class="top-nav">
+								<ul class="nav sf-menu">
 									<li class="active">
 										<a href="index.html">Home</a>
 										<ul>
@@ -252,23 +291,50 @@
 									</li>
 									<li>
 										<a href="header3.html">Features</a>
-										<ul>
-											<li>
-												<a href="header3.html">Header Type 3</a>
-											</li>
-											<li>
-												<a href="header-side.html">Push Left</a>
-											</li>
-											<li>
-												<a href="title1.html">Title section 1</a>
-											</li>
-											<li>
-												<a href="footer6.html#footer">Footer Type 6</a>
-											</li>
-											<li>
-												<a href="copyright1.html#copyright">Copyright 1</a>
-											</li>
-										</ul>
+										<div class="mega-menu">
+											<ul class="mega-menu-row">
+												<li class="mega-menu-col">
+													<a href="header3.html">Headers</a>
+													<ul>
+														<li>
+															<a href="header3.html">Header Type 3</a>
+														</li>
+													</ul>
+												</li>
+												<li class="mega-menu-col">
+													<a href="header-side.html">Side Menus</a>
+													<ul>
+														<li>
+															<a href="header-side.html">Push Left</a>
+														</li>
+													</ul>
+												</li>
+												<li class="mega-menu-col">
+													<a href="title1.html">Title Sections</a>
+													<ul>
+														<li>
+															<a href="title1.html">Title section 1</a>
+														</li>
+													</ul>
+												</li>
+												<li class="mega-menu-col">
+													<a href="footer6.html#footer">Footers</a>
+													<ul>
+														<li>
+															<a href="footer6.html#footer">Footer Type 6</a>
+														</li>
+													</ul>
+												</li>
+												<li class="mega-menu-col">
+													<a href="copyright1.html#copyright">Copyright</a>
+													<ul>
+														<li>
+															<a href="copyright1.html#copyright">Copyright 1</a>
+														</li>
+													</ul>
+												</li>
+											</ul>
+										</div>
 									</li>
 									<li>
 										<a href="contact.html">Contact</a>
@@ -283,137 +349,23 @@
 									</li>
 								</ul>
 							</nav>
-							<!-- eof main side nav -->
+							<!-- eof main nav -->
 						</div>
-
-						<div class="text-center">
-							<span class="social-icons">
-
-								<a href="https://www.facebook.com/" class="fa fa-facebook border-icon rounded-icon" title="facebook"></a>
-								<a href="https://twitter.com/" class="fa fa-twitter border-icon rounded-icon" title="twitter"></a>
-								<a href="https://www.linkedin.com/" class="fa fa-linkedin border-icon rounded-icon" title="linkedin"></a>
-								<a href="https://www.instagram.com/" class="fa fa-instagram border-icon rounded-icon" title="instagram"></a>
-								<a href="https://www.youtube.com/" class="fa fa-youtube-play border-icon rounded-icon" title="youtube"></a>
-
-							</span>
-						</div>
-
-						<div class="widget widget_search">
-
-							<form role="search" method="get" class="search-form" action="/">
-								<label for="search-form-widget">
-									<span class="screen-reader-text">Search for:</span>
-								</label>
-								<input type="search" id="search-form-widget" class="search-field" placeholder="Search" value="" name="search">
-								<button type="submit" class="search-submit">
-									<span class="screen-reader-text">Search</span>
-								</button>
-							</form>
-						</div>
-
-
-						<div class="widget widget_icons_list links-maincolor">
-							<ul class="list-unstyled">
-								<li class="icon-inline">
-									<div class="icon-styled color-darkgrey icon-top fs-14">
-										<i class="fa fa-map-marker"></i>
-									</div>
-									<p>90000, New Str. 123, Los Angeles, CA</p>
-								</li>
-								<li class="icon-inline">
-									<div class="icon-styled color-darkgrey icon-top fs-14">
-										<i class="fa fa-phone"></i>
-									</div>
-									<p>1-800-123-4567</p>
-								</li>
-								<li class="icon-inline">
-									<div class="icon-styled color-darkgrey icon-top fs-14">
-										<i class="fa fa-envelope"></i>
-									</div>
-									<p>
-										<a href="#">email@example.com</a>
-									</p>
-								</li>
-							</ul>
-						</div>
-
-					</div>
-				</div>
-			</header>
-
-			<section class="page_topline ls ms s-py-5 c-my-5">
-				<div class="container">
-					<div class="row align-items-center">
-						<div class="col-lg-6 text-lg-left text-center d-none d-lg-block">
-							<p><strong class="color-darkgrey">Welcome to our site! Check our services and gain success!</strong></p>
-						</div>
-						<div class="col-lg-6 text-lg-right text-center">
-
-							<ul class="top-includes border-divided small-text">
-
-								<li>
-									<span>
-										<a href="#" data-target="#popupLogin" data-toggle="modal"><i class="fa fa-user"></i> Login</a>
-									</span>
-								</li>
-
-
-								<li>
-									<span>
-										<a href="#" data-target="#popupRegistr" data-toggle="modal"><i class="fa fa-lock"></i> Register</a>
-									</span>
-								</li>
-
-
-							</ul>
-
+						<div class="col-xl-2 col-lg-3 text-right d-none d-lg-block">
+							
 						</div>
 					</div>
 				</div>
-			</section>
-
-			<!-- header with three Bootstrap columns - left for logo, center for navigation and right for includes-->
-			<header class="page_header ls c-my-5">
-				<div class="container">
-					<div class="row align-items-center">
-						<div class="col-sm-6 text-center text-sm-left">
-
-							<a href="./" class="logo">
-								<img src="logo/rarsm-logo-wordmark-color.png" alt="RARSM">
-							</a>
-
-						</div>
-						<div class="col-sm-6 text-center text-sm-right">
-
-							<ul class="top-includes">
-
-
-								<li>
-									<span class="social-icons">
-
-										<a href="https://www.facebook.com/" class="fa fa-facebook border-icon rounded-icon" title="facebook"></a>
-										<a href="https://twitter.com/" class="fa fa-twitter border-icon rounded-icon" title="twitter"></a>
-										<a href="https://www.linkedin.com/" class="fa fa-linkedin border-icon rounded-icon" title="linkedin"></a>
-										<a href="https://www.instagram.com/" class="fa fa-instagram border-icon rounded-icon" title="instagram"></a>
-										<a href="https://www.youtube.com/" class="fa fa-youtube-play border-icon rounded-icon" title="youtube"></a>
-
-									</span>
-								</li>
-
-
-							</ul>
-
-						</div>
-					</div>
-				</div>
+				<!-- header toggler -->
+				<span class="toggle_menu"><span></span></span>
 			</header>
 
 			<section class="page_title ds s-py-110">
 				<div class="container">
 					<div class="row">
 
-						<div class="col-md-12">
-							<h1>Side Header</h1>
+						<div class="col-md-12 text-center">
+							<h1>Header 3</h1>
 							<ol class="breadcrumb">
 								<li class="breadcrumb-item">
 									<a href="./">Home</a>
@@ -422,7 +374,7 @@
 									<a href="#">Headers</a>
 								</li>
 								<li class="breadcrumb-item active">
-									Side Header
+									Header 3
 								</li>
 							</ol>
 						</div>
@@ -459,7 +411,7 @@
 								</div>
 							</div>
 						</main>
-						<aside class="col-lg-5 col-xl-4 ">
+						<aside class="col-lg-5 col-xl-4 affix-aside">
 							<div class="widget widget_categories">
 
 								<h3 class="widget-title">Categories</h3>

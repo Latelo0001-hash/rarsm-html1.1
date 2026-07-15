@@ -92,7 +92,11 @@
 										</div>
 									</div>
 									<a class="registerRedirect " data-dismiss="modal" data-target="#popupRegistr" data-toggle="modal" href="#">Not a member? Register!</a>
-									<button type="submit" class="btn btn-maincolor mt-30 d-block">Sign In</button>
+<div class="modal-form-actions">
+<button type="button" class="btn btn-outline-maincolor" data-dismiss="modal">Annuler</button>
+<button type="submit" class="btn btn-maincolor">Sign In</button>
+</div>
+
 								</form>
 
 							</div>
@@ -142,7 +146,10 @@
 											</div>
 										</div>
 									</div>
-									<button type="submit" class="btn btn-maincolor mt-30 d-block">Registration</button>
+									<div class="modal-form-actions">
+									<button type="button" class="btn btn-outline-maincolor" data-dismiss="modal">Annuler</button>
+									<button type="submit" class="btn btn-maincolor">Registration</button>
+								</div>
 								</form>
 
 							</div>
@@ -330,7 +337,7 @@
 					<div class="row">
 
 						<div class="col-md-12 text-center">
-							<h1 class="small-title">Contact</h1>
+							<h1 class="small-title">Team Member</h1>
 							<ol class="breadcrumb">
 								<li class="breadcrumb-item">
 									<a href="./">Home</a>
@@ -339,7 +346,7 @@
 									<a href="#">Pages</a>
 								</li>
 								<li class="breadcrumb-item active">
-									Contact
+									Team Member
 								</li>
 							</ol>
 						</div>
@@ -348,128 +355,196 @@
 				</div>
 			</section>
 
-			<section class="ls ms page_map" data-draggable="false" data-scrollwheel="false">
-
-				<div class="marker">
-					<div class="marker-address">Avenue Roi Beaudouin, N0.47, Building 3Z, Apartment 4a, Gombe, Kinshasa, DRC</div>
-					<div class="marker-title">RARSM</div>
-					<div class="marker-description">
-
-						<ul class="list-unstyled">
-							<li>
-								<span class="icon-inline">
-									<span class="icon-styled color-main">
-										<i class="fa fa-map-marker"></i>
-									</span>
-
-									<span>
-										Avenue Roi Beaudouin, N0.47, Building 3Z, Apartment 4a, Gombe, Kinshasa, DRC
-									</span>
-								</span>
-							</li>
-
-							<li>
-								<span class="icon-inline">
-									<span class="icon-styled color-main">
-										<i class="fa fa-briefcase"></i>
-									</span>
-
-									<span>
-										Gouvernance, suivi des activites, exportation et certification
-									</span>
-								</span>
-							</li>
-							<li>
-								<span class="icon-inline">
-									<span class="icon-styled color-main">
-										<i class="fa fa-envelope"></i>
-									</span>
-
-									<span>
-										Presentation, information et partenariats autour du recueil
-									</span>
-								</span>
-							</li>
-						</ul>
-					</div>
-
-					<img class="marker-icon" src="images/map_marker_icon.png" alt="img">
-				</div>
-				<!-- .marker -->
-
-			</section>
-
-			<section class="ls ms s-py-90 s-py-xl-160">
+			<section class="ls s-py-90 s-py-xl-160 ">
 				<div class="container">
 					<div class="row">
-						<div class="col-lg-4 animate" data-animation="scaleAppear">
-							<div class="divider-lg-60"></div>
-							<h2 class="special-heading">
-								<span>Demander une presentation</span>
-							</h2>
-							<div class="divider-35"></div>
-							<p>
-								Utilisez ce formulaire pour toute demande d'information, d'acquisition, de presentation ou de partenariat autour du recueil RARSM.
-							</p>
-							<div class="divider-35"></div>
-							<ul class="pl-0">
-								<li class="icon-inline">
-									<div class="icon-styled color-main fs-16">
-										<i class="fa fa-users"></i>
-									</div>
-									<p>Operateurs miniers, juristes, investisseurs et institutions publiques</p>
-								</li>
-								<li class="icon-inline links-grey">
-									<div class="icon-styled color-main fs-16">
-										<i class="fa fa-briefcase"></i>
-									</div>
-									<p>Presentation de l'ouvrage, demande d'information ou partenariat</p>
-								</li>
-								<li class="icon-inline">
-									<div class="icon-styled color-main fs-16">
-										<i class="fa fa-map-marker"></i>
-									</div>
-									<p>Avenue Roi Beaudouin, N0.47, Building 3Z, Apartment 4a, Gombe, Kinshasa, DRC</p>
-								</li>
-							</ul>
-						</div>
-						<div class="col-lg-8 animate" data-animation="scaleAppear">
-							<div class="divider-lg-0 divider-60"></div>
-							<div class="inner-wrap ls p-30 p-xl-70 border-r-def">
-								<form class="contact-form c-mb-50 c-gutter-50" method="post" action="/">
-									<div class="row">
-										<div class="col-sm-6">
-											<div class="form-group has-placeholder">
-												<label for="name">Nom complet <span class="required">*</span></label>
-												<input type="text" aria-required="true" size="30" value="" name="name" id="name" class="form-control" placeholder="Votre nom">
-											</div>
-										</div>
-										<div class="col-sm-6">
-											<div class="form-group has-placeholder">
-												<label for="email">Adresse email<span class="required">*</span></label>
-												<input type="email" aria-required="true" size="30" value="" name="email" id="email" class="form-control" placeholder="Votre email">
-											</div>
-										</div>
-									</div>
+						<div class="col-12">
+							<div class="row c-gutter-60">
 
-									<div class="row">
-										<div class="col-sm-12">
-											<div class="form-group has-placeholder">
-												<label for="subject">Objet<span class="required">*</span></label>
-												<input type="text" aria-required="true" size="30" value="" name="subject" id="subject" class="form-control" placeholder="Objet de votre demande">
-											</div>
+								<div class="col-lg-6 col-xl-5">
+									<div class="vertical-item hero-bg text-center team-layout content-padding">
+										<div class="item-media">
+											<img src="images/team/01_big.jpg" alt="img">
+										</div>
+										<div class="item-content">
+											<h5 class="mb-0">Michael S. Williams</h5>
+											<p class="team-position">
+												Author
+											</p>
+											<ul class="list-bordered">
+												<li>
+													<a href="mailto:MichaelWilliams@example.com">MichaelWilliams@example.com</a>
+												</li>
+												<li>
+													<a href="tel:8001234567">(800) 123 4567</a>
+												</li>
+												<li>
+													<a href="himynameismichael.com">himynameismichael.com</a>
+												</li>
+											</ul>
+											<p class="social-icons">
+												<a href="https://www.facebook.com/" class="fa border-icon rounded-icon fa-facebook" title="facebook"></a>
+												<a href="https://twitter.com/" class="fa border-icon rounded-icon fa-twitter" title="twitter"></a>
+												<a href="https://www.linkedin.com/" class="fa border-icon rounded-icon fa-linkedin" title="linkedin"></a>
+											</p>
 										</div>
 									</div>
-									<div class="row">
-										<div class="col-sm-12">
-											<div class="form-group has-placeholder">
-												<label for="message">Message</label>
-												<textarea aria-required="true" rows="3" cols="45" name="message" id="message" class="form-control" placeholder="Votre message"></textarea>
-											</div>
+								</div>
+
+								<div class="col-lg-6 offset-xl-1">
+									<div class="divider-lg-70 divider-60"></div>
+
+									<p class="excerpt">
+										Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur sint occaecat cupidatat
+									</p>
+
+									<p class="first-letter">
+										Lotam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+									</p>
+									<p>
+										Sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis.
+									</p>
+									<ul class="list-styled">
+										<li>Labore et dolore magna aliqua</li>
+										<li>Uenim ad minim veniam quis nostrud exercitation ullamco</li>
+										<li>Duis aute irure dolor in reprehenderit voluptate</li>
+										<li>Velit esse cillum dolore eu fugiat nulla</li>
+										<li>Excepteur occaecat cupidatat</li>
+									</ul>
+									<p>
+										Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam.
+									</p>
+									<h4>About</h4>
+									<p>
+										Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+									</p>
+									<p>
+										Duis aute irure dolor ideprehenderit voluptate velit esse cillum dolore eu fugiat nulla pariatur excepteur sint occaecat cupidatat proiden sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae.
+									</p>
+									<div class="divider-40"></div>
+									<p class="progress-title">Progress bar 1</p>
+									<div class="progress">
+										<div class="progress-bar bg-success" role="progressbar" style="width: 25%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">
+											<span>75%</span>
 										</div>
 									</div>
-									<div class="wrap-forms">
-										<div class="row">
-											<div class="col-12">
-												<button type="submit" name="contact_submit" class="btn btn-maincolor">Envoyer la demande</button>
-								
+									<p class="progress-title">Progress bar 2</p>
+									<div class="progress">
+										<div class="progress-bar bg-info" role="progressbar" style="width: 50%" aria-valuenow="68" aria-valuemin="0" aria-valuemax="100">
+											<span>68%</span>
+										</div>
+									</div>
+									<p class="progress-title">Progress bar 3</p>
+									<div class="progress">
+										<div class="progress-bar bg-warning" role="progressbar" style="width: 75%" aria-valuenow="87" aria-valuemin="0" aria-valuemax="100">
+											<span>87%</span>
+										</div>
+									</div>
+									<p class="progress-title">Progress bar 4</p>
+									<div class="progress">
+										<div class="progress-bar bg-warning" role="progressbar" style="width: 75%" aria-valuenow="82" aria-valuemin="0" aria-valuemax="100">
+											<span>82%</span>
+										</div>
+									</div>
+									<div class="divider-45"></div>
+									<p>
+										Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae disunt explicabo nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit.
+									</p>
+									<div class="divider-50 divider-xl-70"></div>
+									<div class="ls ms p-40 p-lg-50 border-r-def">
+										<form class="contact-form c-mb-50" action="/">
+											<div class="row">
+												<div class="col-12">
+													<div class="form-group has-placeholder">
+														<input type="text" aria-required="true" size="30" value="" name="name" class="form-control" placeholder="Name">
+													</div>
+												</div>
+											</div>
+											<div class="row">
+												<div class="col-12">
+													<div class="form-group has-placeholder">
+														<input type="email" aria-required="true" size="30" value="" name="email" class="form-control" placeholder="Email">
+													</div>
+												</div>
+											</div>
+											<div class="row">
+												<div class="col-12">
+													<div class="form-group has-placeholder">
+														<textarea aria-required="true" rows="3" cols="45" name="message" class="form-control" placeholder="Message"></textarea>
+													</div>
+												</div>
+											</div>
+											<div class="wrap-forms">
+												<div class="row">
+													<div class="col-12">
+														<button type="submit" name="contact_submit" class="btn btn-maincolor">Send a message</button>
+													</div>
+												</div>
+											</div>
+										</form>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<footer class="page_footer ds s-py-85 s-py-xl-155">
+				<div class="container">
+					<div class="row">
+
+						<div class="col-12 text-center animate" data-animation="fadeInUp">
+							<a href="./" class="logo justify-content-center">
+								<img src="logo/rarsm-logo-wordmark-white.png" alt="RARSM">
+							</a>
+							<div class="divider-40"></div>
+							<div class="widget widget_nav_menu nav-in-line">
+								<ul class="menu">
+									<li class="menu-item">
+										<a href="index.html">Home</a>
+									</li>
+									<li class="menu-item">
+										<a href="author.html">Author</a>
+									</li>
+									<li class="menu-item">
+										<a href="chapter.html">Chapter</a>
+									</li>
+									<li class="menu-item">
+										<a href="blog-single-left.html">Blog</a>
+									</li>
+									<li class="menu-item">
+										<a href="contact.html">Contacts</a>
+									</li>
+								</ul>
+							</div>
+						</div>
+
+					</div>
+				</div>
+			</footer>
+
+			<section class="page_copyright ls s-py-20 s-py-xl-50">
+				<div class="container">
+					<div class="row align-items-center">
+						<div class="col-md-12 text-center color-dark">
+							<p>&copy; Copyright <span class="copyright_year">2020</span> All Rights Reserved</p>
+						</div>
+					</div>
+				</div>
+			</section>
+
+
+		</div><!-- eof #box_wrapper -->
+	</div><!-- eof #canvas -->
+
+
+	<script src="js/compressed.js"></script>
+	<script src="js/rarsm-ui.js"></script>
+
+
+</body>
+
+</html>
+
+

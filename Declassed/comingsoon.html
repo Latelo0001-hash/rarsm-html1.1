@@ -92,7 +92,11 @@
 										</div>
 									</div>
 									<a class="registerRedirect " data-dismiss="modal" data-target="#popupRegistr" data-toggle="modal" href="#">Not a member? Register!</a>
-									<button type="submit" class="btn btn-maincolor mt-30 d-block">Sign In</button>
+<div class="modal-form-actions">
+<button type="button" class="btn btn-outline-maincolor" data-dismiss="modal">Annuler</button>
+<button type="submit" class="btn btn-maincolor">Sign In</button>
+</div>
+
 								</form>
 
 							</div>
@@ -142,7 +146,10 @@
 											</div>
 										</div>
 									</div>
-									<button type="submit" class="btn btn-maincolor mt-30 d-block">Registration</button>
+									<div class="modal-form-actions">
+									<button type="button" class="btn btn-outline-maincolor" data-dismiss="modal">Annuler</button>
+									<button type="submit" class="btn btn-maincolor">Registration</button>
+								</div>
 								</form>
 
 							</div>
@@ -158,7 +165,6 @@
 		<div id="box_wrapper">
 
 			<!-- page sections -->
-
 
 			<!-- header with three Bootstrap columns - left for logo, center for navigation and right for includes-->
 			<header class="page_header ls s-overlay s-py-10">
@@ -325,129 +331,28 @@
 				<span class="toggle_menu"><span></span></span>
 			</header>
 
-			<section class="page_title ds s-parallax s-py-110">
+			<section class="ds comingsoon-page s-py-90 s-py-xl-160 s-parallax s-overlay ">
+				<div class="divider-md-90 divider-lg-100"></div>
 				<div class="container">
 					<div class="row">
 
-						<div class="col-md-12 text-center">
-							<h1 class="small-title">Title Section 1</h1>
-							<ol class="breadcrumb">
-								<li class="breadcrumb-item">
-									<a href="./">Home</a>
-								</li>
-								<li class="breadcrumb-item">
-									<a href="#">Pages</a>
-								</li>
-								<li class="breadcrumb-item active">
-									Title Section 1
-								</li>
-							</ol>
+						<div class="col-sm-12 text-center">
+							<p class="text-white mb-2">Stay Tuned!</p>
+							<h2 class="special-heading">
+								Coming Soon!
+							</h2>
+							<div class="divider-60"></div>
+							<div id="comingsoon-countdown"></div>
+							<!--
+					use "data-date" attribute with your date value to set date that you need to count to
+					<div id="comingsoon-countdown" data-date="March 29, 2018 10:00:00"></div>
+				-->
+
 						</div>
-
 					</div>
 				</div>
+				<div class="divider-md-90 divider-lg-100"></div>
 			</section>
-
-			<section class="ls s-py-90 s-py-xl-160 c-gutter-60">
-				<div class="container">
-					<div class="row">
-						<main class="col-lg-7 col-xl-8">
-							<div class="vertical-item">
-								<div class="item-media">
-									<img src="images/gallery/04.jpg" alt="img">
-								</div>
-								<div class="item-content">
-									<p class="excerpt">
-										Aspernatur dicta harum odio odit perferendis quasi quis repellendus. Alias, aut corporis earum explicabo iure labore non porro quae recusandae, tempora voluptas!
-									</p>
-
-									<p>
-										Consectetur adipisicing elit. A alias architecto deserunt laborum magnam neque obcaecati qui saepe totam velit. Aliquam at cum doloremque exercitationem harum illum obcaecati pariatur porro.
-									</p>
-
-									<p>
-										Consectetur adipisicing elit. A alias architecto deserunt laborum magnam neque obcaecati qui saepe totam velit. Aliquam at cum doloremque exercitationem harum illum obcaecati pariatur porro.
-									</p>
-
-									<p>
-										Consectetur adipisicing elit. A alias architecto deserunt laborum magnam neque obcaecati qui saepe totam velit. Aliquam at cum doloremque exercitationem harum illum obcaecati pariatur porro.
-									</p>
-
-								</div>
-							</div>
-						</main>
-						<aside class="col-lg-5 col-xl-4 affix-aside">
-							<div class="widget widget_categories">
-
-								<h3 class="widget-title">Categories</h3>
-
-								<ul>
-									<li class="cat-item">
-										<a href="blog-right.html">Lorem ipsum dolor sit amet</a>
-										<ul class="children">
-											<li class="cat-item">
-												<a href="blog-right.html">Consectetur adipisicing</a>
-											</li>
-											<li class="cat-item">
-												<a href="blog-right.html">Elit sed do eiusmod</a>
-											</li>
-										</ul>
-									</li>
-									<li class="cat-item">
-										<a href="blog-right.html">Consectetur adipisicing</a>
-									</li>
-									<li class="cat-item">
-										<a href="blog-right.html">Sed do eiusmod tempor incididunt</a>
-									</li>
-									<li class="cat-item">
-										<a href="blog-right.html">Labore dolore magna</a>
-									</li>
-									<li class="cat-item">
-										<a href="blog-right.html">Enim ad minim veniam quis</a>
-									</li>
-								</ul>
-							</div>
-
-
-						</aside>
-					</div>
-
-				</div>
-			</section>
-
-			<footer class="page_footer ds s-py-85 s-py-xl-155">
-				<div class="container">
-					<div class="row">
-
-						<div class="col-12 text-center animate" data-animation="fadeInUp">
-							<a href="./" class="logo justify-content-center">
-								<img src="logo/rarsm-logo-wordmark-white.png" alt="RARSM">
-							</a>
-							<div class="divider-40"></div>
-							<div class="widget widget_nav_menu nav-in-line">
-								<ul class="menu">
-									<li class="menu-item">
-										<a href="index.html">Home</a>
-									</li>
-									<li class="menu-item">
-										<a href="author.html">Author</a>
-									</li>
-									<li class="menu-item">
-										<a href="chapter.html">Chapter</a>
-									</li>
-									<li class="menu-item">
-										<a href="blog-single-left.html">Blog</a>
-									</li>
-									<li class="menu-item">
-										<a href="contact.html">Contacts</a>
-									</li>
-								</ul>
-							</div>
-						</div>
-
-					</div>
-				</div>
-			</footer>
 
 			<section class="page_copyright ls s-py-20 s-py-xl-50">
 				<div class="container">
@@ -458,7 +363,6 @@
 					</div>
 				</div>
 			</section>
-
 
 		</div><!-- eof #box_wrapper -->
 	</div><!-- eof #canvas -->

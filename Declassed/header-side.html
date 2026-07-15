@@ -92,7 +92,11 @@
 										</div>
 									</div>
 									<a class="registerRedirect " data-dismiss="modal" data-target="#popupRegistr" data-toggle="modal" href="#">Not a member? Register!</a>
-									<button type="submit" class="btn btn-maincolor mt-30 d-block">Sign In</button>
+<div class="modal-form-actions">
+<button type="button" class="btn btn-outline-maincolor" data-dismiss="modal">Annuler</button>
+<button type="submit" class="btn btn-maincolor">Sign In</button>
+</div>
+
 								</form>
 
 							</div>
@@ -142,7 +146,10 @@
 											</div>
 										</div>
 									</div>
-									<button type="submit" class="btn btn-maincolor mt-30 d-block">Registration</button>
+									<div class="modal-form-actions">
+									<button type="button" class="btn btn-outline-maincolor" data-dismiss="modal">Annuler</button>
+									<button type="submit" class="btn btn-maincolor">Registration</button>
+								</div>
 								</form>
 
 							</div>
@@ -159,20 +166,16 @@
 
 			<!-- page sections -->
 
+			<header class="page_header_side header_push ls ms">
+				<span class="toggle_menu toggle_menu_side "><span></span></span>
+				<div class="scrollbar-macosx">
+					<div class="side_header_inner">
 
-			<!-- header with three Bootstrap columns - left for logo, center for navigation and right for includes-->
-			<header class="page_header ls s-overlay s-py-10">
-				<div class="container-fluid">
-					<div class="row align-items-center">
-						<div class="col-xl-2 col-lg-3 col-11">
-							<a href="./" class="logo">
-								<img src="logo/rarsm-logo-wordmark-color.png" alt="RARSM">
-							</a>
-						</div>
-						<div class="col-xl-8 col-lg-5 col-1">
-							<!-- main nav start -->
-							<nav class="top-nav">
-								<ul class="nav sf-menu">
+
+						<div class="header-side-menu">
+							<!-- main side nav start -->
+							<nav class="mainmenu_side_wrapper">
+								<ul class="nav menu-click">
 									<li class="active">
 										<a href="index.html">Home</a>
 										<ul>
@@ -256,50 +259,23 @@
 									</li>
 									<li>
 										<a href="header3.html">Features</a>
-										<div class="mega-menu">
-											<ul class="mega-menu-row">
-												<li class="mega-menu-col">
-													<a href="header3.html">Headers</a>
-													<ul>
-														<li>
-															<a href="header3.html">Header Type 3</a>
-														</li>
-													</ul>
-												</li>
-												<li class="mega-menu-col">
-													<a href="header-side.html">Side Menus</a>
-													<ul>
-														<li>
-															<a href="header-side.html">Push Left</a>
-														</li>
-													</ul>
-												</li>
-												<li class="mega-menu-col">
-													<a href="title1.html">Title Sections</a>
-													<ul>
-														<li>
-															<a href="title1.html">Title section 1</a>
-														</li>
-													</ul>
-												</li>
-												<li class="mega-menu-col">
-													<a href="footer6.html#footer">Footers</a>
-													<ul>
-														<li>
-															<a href="footer6.html#footer">Footer Type 6</a>
-														</li>
-													</ul>
-												</li>
-												<li class="mega-menu-col">
-													<a href="copyright1.html#copyright">Copyright</a>
-													<ul>
-														<li>
-															<a href="copyright1.html#copyright">Copyright 1</a>
-														</li>
-													</ul>
-												</li>
-											</ul>
-										</div>
+										<ul>
+											<li>
+												<a href="header3.html">Header Type 3</a>
+											</li>
+											<li>
+												<a href="header-side.html">Push Left</a>
+											</li>
+											<li>
+												<a href="title1.html">Title section 1</a>
+											</li>
+											<li>
+												<a href="footer6.html#footer">Footer Type 6</a>
+											</li>
+											<li>
+												<a href="copyright1.html#copyright">Copyright 1</a>
+											</li>
+										</ul>
 									</li>
 									<li>
 										<a href="contact.html">Contact</a>
@@ -314,32 +290,146 @@
 									</li>
 								</ul>
 							</nav>
-							<!-- eof main nav -->
+							<!-- eof main side nav -->
 						</div>
-						<div class="col-xl-2 col-lg-3 text-right d-none d-lg-block">
-							
+
+						<div class="text-center">
+							<span class="social-icons">
+
+								<a href="https://www.facebook.com/" class="fa fa-facebook border-icon rounded-icon" title="facebook"></a>
+								<a href="https://twitter.com/" class="fa fa-twitter border-icon rounded-icon" title="twitter"></a>
+								<a href="https://www.linkedin.com/" class="fa fa-linkedin border-icon rounded-icon" title="linkedin"></a>
+								<a href="https://www.instagram.com/" class="fa fa-instagram border-icon rounded-icon" title="instagram"></a>
+								<a href="https://www.youtube.com/" class="fa fa-youtube-play border-icon rounded-icon" title="youtube"></a>
+
+							</span>
+						</div>
+
+						<div class="widget widget_search">
+
+							<form role="search" method="get" class="search-form" action="/">
+								<label for="search-form-widget">
+									<span class="screen-reader-text">Search for:</span>
+								</label>
+								<input type="search" id="search-form-widget" class="search-field" placeholder="Search" value="" name="search">
+								<button type="submit" class="search-submit">
+									<span class="screen-reader-text">Search</span>
+								</button>
+							</form>
+						</div>
+
+
+						<div class="widget widget_icons_list links-maincolor">
+							<ul class="list-unstyled">
+								<li class="icon-inline">
+									<div class="icon-styled color-darkgrey icon-top fs-14">
+										<i class="fa fa-map-marker"></i>
+									</div>
+									<p>90000, New Str. 123, Los Angeles, CA</p>
+								</li>
+								<li class="icon-inline">
+									<div class="icon-styled color-darkgrey icon-top fs-14">
+										<i class="fa fa-phone"></i>
+									</div>
+									<p>1-800-123-4567</p>
+								</li>
+								<li class="icon-inline">
+									<div class="icon-styled color-darkgrey icon-top fs-14">
+										<i class="fa fa-envelope"></i>
+									</div>
+									<p>
+										<a href="#">email@example.com</a>
+									</p>
+								</li>
+							</ul>
+						</div>
+
+					</div>
+				</div>
+			</header>
+
+			<section class="page_topline ls ms s-py-5 c-my-5">
+				<div class="container">
+					<div class="row align-items-center">
+						<div class="col-lg-6 text-lg-left text-center d-none d-lg-block">
+							<p><strong class="color-darkgrey">Welcome to our site! Check our services and gain success!</strong></p>
+						</div>
+						<div class="col-lg-6 text-lg-right text-center">
+
+							<ul class="top-includes border-divided small-text">
+
+								<li>
+									<span>
+										<a href="#" data-target="#popupLogin" data-toggle="modal"><i class="fa fa-user"></i> Login</a>
+									</span>
+								</li>
+
+
+								<li>
+									<span>
+										<a href="#" data-target="#popupRegistr" data-toggle="modal"><i class="fa fa-lock"></i> Register</a>
+									</span>
+								</li>
+
+
+							</ul>
+
 						</div>
 					</div>
 				</div>
-				<!-- header toggler -->
-				<span class="toggle_menu"><span></span></span>
+			</section>
+
+			<!-- header with three Bootstrap columns - left for logo, center for navigation and right for includes-->
+			<header class="page_header ls c-my-5">
+				<div class="container">
+					<div class="row align-items-center">
+						<div class="col-sm-6 text-center text-sm-left">
+
+							<a href="./" class="logo">
+								<img src="logo/rarsm-logo-wordmark-color.png" alt="RARSM">
+							</a>
+
+						</div>
+						<div class="col-sm-6 text-center text-sm-right">
+
+							<ul class="top-includes">
+
+
+								<li>
+									<span class="social-icons">
+
+										<a href="https://www.facebook.com/" class="fa fa-facebook border-icon rounded-icon" title="facebook"></a>
+										<a href="https://twitter.com/" class="fa fa-twitter border-icon rounded-icon" title="twitter"></a>
+										<a href="https://www.linkedin.com/" class="fa fa-linkedin border-icon rounded-icon" title="linkedin"></a>
+										<a href="https://www.instagram.com/" class="fa fa-instagram border-icon rounded-icon" title="instagram"></a>
+										<a href="https://www.youtube.com/" class="fa fa-youtube-play border-icon rounded-icon" title="youtube"></a>
+
+									</span>
+								</li>
+
+
+							</ul>
+
+						</div>
+					</div>
+				</div>
 			</header>
 
-			<section class="page_title ds s-parallax s-py-110">
+			<section class="page_title ds s-py-110">
 				<div class="container">
 					<div class="row">
 
-						<div class="col-md-12 text-center">
-							<h1 class="small-title">Services</h1>
+						<div class="col-md-12">
+							<h1>Side Header</h1>
 							<ol class="breadcrumb">
 								<li class="breadcrumb-item">
 									<a href="./">Home</a>
 								</li>
 								<li class="breadcrumb-item">
-									<a href="#">Pages</a>
+									<a href="#">Headers</a>
 								</li>
 								<li class="breadcrumb-item active">
-									Services
+									Side Header
 								</li>
 							</ol>
 						</div>
@@ -348,166 +438,70 @@
 				</div>
 			</section>
 
-			<section class="ls s-pt-90 s-pb-40 s-pt-xl-160 s-pb-xl-110 c-gutter-60 c-mb-50">
+			<section class="ls s-py-90 s-py-xl-160 c-gutter-60">
 				<div class="container">
 					<div class="row">
-						<div class="col-xl-4 col-lg-6">
-							<div class="vertical-item service-layout hero-bg content-padding">
-								<div class="position-relative">
-									<div class="item-media">
-										<img src="images/gallery/01.jpg" alt="img">
-										<div class="media-links">
-											<a class="abs-link" title="" href="service-single.html"></a>
-										</div>
-									</div>
-									<span class="cat-links">
-										<span class="screen-reader-text">Categories</span>
-										<a href="service-single.html" rel="category tag">
-											Services
-										</a>
-									</span>
+						<main class="col-lg-7 col-xl-8">
+							<div class="vertical-item">
+								<div class="item-media">
+									<img src="images/gallery/04.jpg" alt="img">
 								</div>
 								<div class="item-content">
-									<h5>
-										<a href="service-single.html">Accumulation</a>
-									</h5>
-									<p>
-										At vero eos et accusam et justo duo dolores rebum stet clita
+									<p class="excerpt">
+										Aspernatur dicta harum odio odit perferendis quasi quis repellendus. Alias, aut corporis earum explicabo iure labore non porro quae recusandae, tempora voluptas!
 									</p>
+
+									<p>
+										Consectetur adipisicing elit. A alias architecto deserunt laborum magnam neque obcaecati qui saepe totam velit. Aliquam at cum doloremque exercitationem harum illum obcaecati pariatur porro.
+									</p>
+
+									<p>
+										Consectetur adipisicing elit. A alias architecto deserunt laborum magnam neque obcaecati qui saepe totam velit. Aliquam at cum doloremque exercitationem harum illum obcaecati pariatur porro.
+									</p>
+
+									<p>
+										Consectetur adipisicing elit. A alias architecto deserunt laborum magnam neque obcaecati qui saepe totam velit. Aliquam at cum doloremque exercitationem harum illum obcaecati pariatur porro.
+									</p>
+
 								</div>
 							</div>
-						</div><!-- .col-* -->
-						<div class="col-xl-4 col-lg-6">
-							<div class="vertical-item service-layout hero-bg content-padding">
-								<div class="position-relative">
-									<div class="item-media">
-										<img src="images/gallery/02.jpg" alt="img">
-										<div class="media-links">
-											<a class="abs-link" title="" href="service-single.html"></a>
-										</div>
-									</div>
-									<span class="cat-links">
-										<span class="screen-reader-text">Categories</span>
-										<a href="service-single.html" rel="category tag">
-											Services
-										</a>
-									</span>
-								</div>
-								<div class="item-content">
-									<h5>
-										<a href="service-single.html">Taxation</a>
-									</h5>
-									<p>
-										No sea takimata sanctus est lorem ipsum dolor sit amet
-									</p>
-								</div>
+						</main>
+						<aside class="col-lg-5 col-xl-4 ">
+							<div class="widget widget_categories">
+
+								<h3 class="widget-title">Categories</h3>
+
+								<ul>
+									<li class="cat-item">
+										<a href="blog-right.html">Lorem ipsum dolor sit amet</a>
+										<ul class="children">
+											<li class="cat-item">
+												<a href="blog-right.html">Consectetur adipisicing</a>
+											</li>
+											<li class="cat-item">
+												<a href="blog-right.html">Elit sed do eiusmod</a>
+											</li>
+										</ul>
+									</li>
+									<li class="cat-item">
+										<a href="blog-right.html">Consectetur adipisicing</a>
+									</li>
+									<li class="cat-item">
+										<a href="blog-right.html">Sed do eiusmod tempor incididunt</a>
+									</li>
+									<li class="cat-item">
+										<a href="blog-right.html">Labore dolore magna</a>
+									</li>
+									<li class="cat-item">
+										<a href="blog-right.html">Enim ad minim veniam quis</a>
+									</li>
+								</ul>
 							</div>
-						</div><!-- .col-* -->
-						<div class="col-xl-4 col-lg-6">
-							<div class="vertical-item service-layout hero-bg content-padding">
-								<div class="position-relative">
-									<div class="item-media">
-										<img src="images/gallery/03.jpg" alt="img">
-										<div class="media-links">
-											<a class="abs-link" title="" href="service-single.html"></a>
-										</div>
-									</div>
-									<span class="cat-links">
-										<span class="screen-reader-text">Categories</span>
-										<a href="service-single.html" rel="category tag">
-											Services
-										</a>
-									</span>
-								</div>
-								<div class="item-content">
-									<h5>
-										<a href="service-single.html">Risk Management</a>
-									</h5>
-									<p>
-										Ipsum dolorsit amet consetetur sadipscing sed diam
-									</p>
-								</div>
-							</div>
-						</div><!-- .col-* -->
-						<div class="col-xl-4 col-lg-6">
-							<div class="vertical-item service-layout hero-bg content-padding">
-								<div class="position-relative">
-									<div class="item-media">
-										<img src="images/gallery/04.jpg" alt="img">
-										<div class="media-links">
-											<a class="abs-link" title="" href="service-single.html"></a>
-										</div>
-									</div>
-									<span class="cat-links">
-										<span class="screen-reader-text">Categories</span>
-										<a href="service-single.html" rel="category tag">
-											Services
-										</a>
-									</span>
-								</div>
-								<div class="item-content">
-									<h5>
-										<a href="service-single.html">Estate Planning</a>
-									</h5>
-									<p>
-										Eirmod tempor invidunt ut labore et dolore magna aliquyam
-									</p>
-								</div>
-							</div>
-						</div><!-- .col-* -->
-						<div class="col-xl-4 col-lg-6">
-							<div class="vertical-item service-layout hero-bg content-padding">
-								<div class="position-relative">
-									<div class="item-media">
-										<img src="images/gallery/05.jpg" alt="img">
-										<div class="media-links">
-											<a class="abs-link" title="" href="service-single.html"></a>
-										</div>
-									</div>
-									<span class="cat-links">
-										<span class="screen-reader-text">Categories</span>
-										<a href="service-single.html" rel="category tag">
-											Services
-										</a>
-									</span>
-								</div>
-								<div class="item-content">
-									<h5>
-										<a href="service-single.html">Stock</a>
-									</h5>
-									<p>
-										At vero eos et accusam et justo duo dolores et ea rebum
-									</p>
-								</div>
-							</div>
-						</div><!-- .col-* -->
-						<div class="col-xl-4 col-lg-6">
-							<div class="vertical-item service-layout hero-bg content-padding">
-								<div class="position-relative">
-									<div class="item-media">
-										<img src="images/gallery/06.jpg" alt="img">
-										<div class="media-links">
-											<a class="abs-link" title="" href="service-single.html"></a>
-										</div>
-									</div>
-									<span class="cat-links">
-										<span class="screen-reader-text">Categories</span>
-										<a href="service-single.html" rel="category tag">
-											Services
-										</a>
-									</span>
-								</div>
-								<div class="item-content">
-									<h5>
-										<a href="service-single.html">Business Planning</a>
-									</h5>
-									<p>
-										Stet clita kasd gubergren, no sea takimata sanctus est
-									</p>
-								</div>
-							</div>
-						</div><!-- .col-* -->
+
+
+						</aside>
 					</div>
+
 				</div>
 			</section>
 

@@ -92,7 +92,11 @@
 										</div>
 									</div>
 									<a class="registerRedirect " data-dismiss="modal" data-target="#popupRegistr" data-toggle="modal" href="#">Not a member? Register!</a>
-									<button type="submit" class="btn btn-maincolor mt-30 d-block">Sign In</button>
+<div class="modal-form-actions">
+<button type="button" class="btn btn-outline-maincolor" data-dismiss="modal">Annuler</button>
+<button type="submit" class="btn btn-maincolor">Sign In</button>
+</div>
+
 								</form>
 
 							</div>
@@ -142,7 +146,10 @@
 											</div>
 										</div>
 									</div>
-									<button type="submit" class="btn btn-maincolor mt-30 d-block">Registration</button>
+									<div class="modal-form-actions">
+									<button type="button" class="btn btn-outline-maincolor" data-dismiss="modal">Annuler</button>
+									<button type="submit" class="btn btn-maincolor">Registration</button>
+								</div>
 								</form>
 
 							</div>
@@ -159,37 +166,9 @@
 
 			<!-- page sections -->
 
-			<!--topline section visible only on small screens|-->
-			<section class="page_topline ls ms s-borderbottom c-my-10 d-lg-none">
-				<div class="container-fluid">
-					<div class="row align-items-center">
-						<div class="col-8 text-left">
-							<span class="social-icons">
-
-								<a href="https://www.facebook.com/" class="fa fa-facebook border-icon rounded-icon" title="facebook"></a>
-								<a href="https://twitter.com/" class="fa fa-twitter border-icon rounded-icon" title="twitter"></a>
-								<a href="https://www.linkedin.com/" class="fa fa-linkedin border-icon rounded-icon" title="linkedin"></a>
-								<a href="https://www.instagram.com/" class="fa fa-instagram border-icon rounded-icon" title="instagram"></a>
-								<a href="https://www.youtube.com/" class="fa fa-youtube-play border-icon rounded-icon" title="youtube"></a>
-
-							</span>
-						</div>
-						<div class="col-4 text-right">
-							<!--modal search-->
-							<span>
-								<a href="#" class="search_modal_button hidden-below-xl">
-									<i class="fa fa-search"></i>
-								</a>
-							</span>
-
-						</div>
-					</div>
-				</div>
-			</section>
-			<!--eof topline-->
 
 			<!-- header with three Bootstrap columns - left for logo, center for navigation and right for includes-->
-			<header class="page_header ls justify-nav-center s-py-10">
+			<header class="page_header ls s-overlay s-py-10">
 				<div class="container-fluid">
 					<div class="row align-items-center">
 						<div class="col-xl-2 col-lg-3 col-11">
@@ -353,21 +332,21 @@
 				<span class="toggle_menu"><span></span></span>
 			</header>
 
-			<section class="page_title ds s-py-110">
+			<section class="page_title ds s-parallax s-py-110">
 				<div class="container">
 					<div class="row">
 
 						<div class="col-md-12 text-center">
-							<h1>Header 3</h1>
+							<h1 class="small-title">Team</h1>
 							<ol class="breadcrumb">
 								<li class="breadcrumb-item">
 									<a href="./">Home</a>
 								</li>
 								<li class="breadcrumb-item">
-									<a href="#">Headers</a>
+									<a href="#">Pages</a>
 								</li>
 								<li class="breadcrumb-item active">
-									Header 3
+									Team
 								</li>
 							</ol>
 						</div>
@@ -376,68 +355,150 @@
 				</div>
 			</section>
 
-			<section class="ls s-py-90 s-py-xl-160 c-gutter-60">
+			<section class="ls s-pt-90 s-pb-30 s-pt-xl-160 s-pb-xl-100 c-mb-60 c-gutter-60">
 				<div class="container">
 					<div class="row">
-						<main class="col-lg-7 col-xl-8">
-							<div class="vertical-item">
+
+						<div class="col-lg-4 col-md-6">
+							<div class="vertical-item hero-bg text-center team-layout content-padding">
 								<div class="item-media">
-									<img src="images/gallery/04.jpg" alt="img">
+									<img src="images/team/01.jpg" alt="img">
+									<div class="media-links">
+										<a class="abs-link" title="" href="team-single.html"></a>
+									</div>
 								</div>
 								<div class="item-content">
-									<p class="excerpt">
-										Aspernatur dicta harum odio odit perferendis quasi quis repellendus. Alias, aut corporis earum explicabo iure labore non porro quae recusandae, tempora voluptas!
-									</p>
+									<h5 class="mb-0">
+										<a href="team-single.html">Esther D. Lamoure</a>
+									</h5>
 
-									<p>
-										Consectetur adipisicing elit. A alias architecto deserunt laborum magnam neque obcaecati qui saepe totam velit. Aliquam at cum doloremque exercitationem harum illum obcaecati pariatur porro.
+									<p class="team-position">
+										Author
 									</p>
-
-									<p>
-										Consectetur adipisicing elit. A alias architecto deserunt laborum magnam neque obcaecati qui saepe totam velit. Aliquam at cum doloremque exercitationem harum illum obcaecati pariatur porro.
+									<p class="social-icons">
+										<a href="https://www.facebook.com/" class="fa border-icon rounded-icon fa-facebook" title="facebook"></a>
+										<a href="https://twitter.com/" class="fa border-icon rounded-icon fa-twitter" title="twitter"></a>
+										<a href="https://www.linkedin.com/" class="fa border-icon rounded-icon fa-linkedin" title="linkedin"></a>
 									</p>
-
-									<p>
-										Consectetur adipisicing elit. A alias architecto deserunt laborum magnam neque obcaecati qui saepe totam velit. Aliquam at cum doloremque exercitationem harum illum obcaecati pariatur porro.
-									</p>
-
 								</div>
 							</div>
-						</main>
-						<aside class="col-lg-5 col-xl-4 affix-aside">
-							<div class="widget widget_categories">
-
-								<h3 class="widget-title">Categories</h3>
-
-								<ul>
-									<li class="cat-item">
-										<a href="blog-right.html">Lorem ipsum dolor sit amet</a>
-										<ul class="children">
-											<li class="cat-item">
-												<a href="blog-right.html">Consectetur adipisicing</a>
-											</li>
-											<li class="cat-item">
-												<a href="blog-right.html">Elit sed do eiusmod</a>
-											</li>
-										</ul>
-									</li>
-									<li class="cat-item">
-										<a href="blog-right.html">Consectetur adipisicing</a>
-									</li>
-									<li class="cat-item">
-										<a href="blog-right.html">Sed do eiusmod tempor incididunt</a>
-									</li>
-									<li class="cat-item">
-										<a href="blog-right.html">Labore dolore magna</a>
-									</li>
-									<li class="cat-item">
-										<a href="blog-right.html">Enim ad minim veniam quis</a>
-									</li>
-								</ul>
+						</div><!-- .col-* -->
+						<div class="col-lg-4 col-md-6">
+							<div class="vertical-item hero-bg text-center team-layout content-padding">
+								<div class="item-media">
+									<img src="images/team/02.jpg" alt="img">
+									<div class="media-links">
+										<a class="abs-link" title="" href="team-single.html"></a>
+									</div>
+								</div>
+								<div class="item-content">
+									<h5 class="mb-0">
+										<a href="team-single.html">Everett J. Copeland</a>
+									</h5>
+									<p class="team-position">
+										Author
+									</p>
+									<p class="social-icons">
+										<a href="https://www.facebook.com/" class="fa border-icon rounded-icon fa-facebook" title="facebook"></a>
+										<a href="https://twitter.com/" class="fa border-icon rounded-icon fa-twitter" title="twitter"></a>
+										<a href="https://www.linkedin.com/" class="fa border-icon rounded-icon fa-linkedin" title="linkedin"></a>
+									</p>
+								</div>
 							</div>
+						</div><!-- .col-* -->
+						<div class="col-lg-4 col-md-6">
+							<div class="vertical-item hero-bg text-center team-layout content-padding">
+								<div class="item-media">
+									<img src="images/team/03.jpg" alt="img">
+									<div class="media-links">
+										<a class="abs-link" title="" href="team-single.html"></a>
+									</div>
+								</div>
+								<div class="item-content">
+									<h5 class="mb-0">
+										<a href="team-single.html">Dennis M. Capozzily</a>
+									</h5>
+									<p class="team-position">
+										Author
+									</p>
+									<p class="social-icons">
+										<a href="https://www.facebook.com/" class="fa border-icon rounded-icon fa-facebook" title="facebook"></a>
+										<a href="https://twitter.com/" class="fa border-icon rounded-icon fa-twitter" title="twitter"></a>
+										<a href="https://www.linkedin.com/" class="fa border-icon rounded-icon fa-linkedin" title="linkedin"></a>
+									</p>
+								</div>
+							</div>
+						</div><!-- .col-* -->
+						<div class="col-lg-4 col-md-6">
+							<div class="vertical-item hero-bg text-center team-layout content-padding">
+								<div class="item-media">
+									<img src="images/team/04.jpg" alt="img">
+									<div class="media-links">
+										<a class="abs-link" title="" href="team-single.html"></a>
+									</div>
+								</div>
+								<div class="item-content">
+									<h5 class="mb-0">
+										<a href="team-single.html">Eileen M. Loftinkab</a>
+									</h5>
+									<p class="team-position">
+										Author
+									</p>
+									<p class="social-icons">
+										<a href="https://www.facebook.com/" class="fa border-icon rounded-icon fa-facebook" title="facebook"></a>
+										<a href="https://twitter.com/" class="fa border-icon rounded-icon fa-twitter" title="twitter"></a>
+										<a href="https://www.linkedin.com/" class="fa border-icon rounded-icon fa-linkedin" title="linkedin"></a>
+									</p>
+								</div>
+							</div>
+						</div><!-- .col-* -->
+						<div class="col-lg-4 col-md-6">
+							<div class="vertical-item hero-bg text-center team-layout content-padding">
+								<div class="item-media">
+									<img src="images/team/05.jpg" alt="img">
+									<div class="media-links">
+										<a class="abs-link" title="" href="team-single.html"></a>
+									</div>
+								</div>
+								<div class="item-content">
+									<h5 class="mb-0">
+										<a href="team-single.html">Michael S. Williams</a>
+									</h5>
+									<p class="team-position">
+										Author
+									</p>
+									<p class="social-icons">
+										<a href="https://www.facebook.com/" class="fa border-icon rounded-icon fa-facebook" title="facebook"></a>
+										<a href="https://twitter.com/" class="fa border-icon rounded-icon fa-twitter" title="twitter"></a>
+										<a href="https://www.linkedin.com/" class="fa border-icon rounded-icon fa-linkedin" title="linkedin"></a>
+									</p>
+								</div>
+							</div>
+						</div><!-- .col-* -->
+						<div class="col-lg-4 col-md-6">
+							<div class="vertical-item hero-bg text-center team-layout content-padding">
+								<div class="item-media">
+									<img src="images/team/06.jpg" alt="img">
+									<div class="media-links">
+										<a class="abs-link" title="" href="team-single.html"></a>
+									</div>
+								</div>
+								<div class="item-content">
+									<h5 class="mb-0">
+										<a href="team-single.html">Amber M. Freeman</a>
+									</h5>
+									<p class="team-position">
+										Author
+									</p>
+									<p class="social-icons">
+										<a href="https://www.facebook.com/" class="fa border-icon rounded-icon fa-facebook" title="facebook"></a>
+										<a href="https://twitter.com/" class="fa border-icon rounded-icon fa-twitter" title="twitter"></a>
+										<a href="https://www.linkedin.com/" class="fa border-icon rounded-icon fa-linkedin" title="linkedin"></a>
+									</p>
+								</div>
+							</div>
+						</div><!-- .col-* -->
 
-
-						</aside>
 					</div>
 
 				</div>
