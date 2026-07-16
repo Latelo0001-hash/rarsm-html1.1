@@ -30,7 +30,7 @@
 
 </head>
 
-<body>
+<body class="author-page">
 	<!--[if lt IE 9]>
 		<div class="bg-danger text-center">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/" class="color-main">upgrade your browser</a> to improve your experience.</div>
 	<![endif]-->
@@ -78,7 +78,7 @@
 						<div class="row">
 							<div class="col-12">
 								<h4 class="mb-4">Log in</h4>
-								<form class="form-registration c-mb-40 c-gutter-20" action="/">
+								<form class="form-registration c-mb-40 c-gutter-20" method="post" action="actions/login.php">
 									<div class="row mb-4">
 										<div class="col-sm-12">
 											<div class="form-group">
@@ -118,7 +118,7 @@
 						<div class="row">
 							<div class="col-12">
 								<h4 class="mb-4">Registration</h4>
-								<form class="form-registration c-mb-40 c-gutter-40" method="post" action="/">
+								<form class="form-registration c-mb-40 c-gutter-40" method="post" action="actions/register.php">
 									<div class="row">
 										<div class="col-12">
 											<div class="form-group">
@@ -186,14 +186,14 @@
 									<li>
 										<a href="book.html">Livre</a>
 									</li>
-									<li>
+									<li class="active">
 										<a href="author.html">Auteur</a>
 									</li>
 									<li>
-										<a href="institutions.php">Institutions</a>
+										<a href="pricing.html">Shop</a>
 									</li>
 									<li>
-										<a href="pricing.html">Acheter</a>
+										<a href="institutions.php">Institutions</a>
 									</li>
 									<li>
 										<a href="activites.html">Activités</a>
@@ -210,8 +210,8 @@
 									<li class="menu-cart-mobile dropdown d-lg-none">
 										<button class="dropdown-toggle dropdown-shopping-cart" id="dropdown-shopping-cart-mobile" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" aria-label="Ouvrir le panier" type="button">
 											<i class="fa fa-shopping-basket" aria-hidden="true"></i>
-											<span class="badge bg-maincolor">1</span>
-											<span class="cart-total">$27.00</span>
+											<span class="badge bg-maincolor">0</span>
+											<span class="cart-total">$0.00</span>
 										</button>
 										<div class="dropdown-menu ls" aria-labelledby="dropdown-shopping-cart-mobile">
 											<div class="widget woocommerce widget_shopping_cart">
@@ -219,12 +219,12 @@
 													<ul class="woocommerce-mini-cart cart_list product_list_widget">
 														<li class="woocommerce-mini-cart-item mini_cart_item">
 															<a href="#" class="remove" aria-label="Retirer cet article" data-product_id="rarsm-book" data-product_sku="RARSM-PRINT">×</a>
-															<a href="pricing.html#formats"><img src="images/view-rarsm.JPG" alt="Livre RARSM"></a>
-															<a href="pricing.html#formats">RARSM - Edition papier</a>
-															<span class="quantity">1 ×
+															<a href="shop-cart.php"><img src="images/view-rarsm.JPG" alt="Livre RARSM"></a>
+															<a href="shop-cart.php">RARSM - Edition papier</a>
+															<span class="quantity">0 ×
 																<span class="woocommerce-Price-amount amount">
 																	<span class="woocommerce-Price-currencySymbol">$</span>
-																	27.00
+																	0.00
 																</span>
 															</span>
 														</li>
@@ -233,12 +233,12 @@
 														<strong>Sous-total :</strong>
 														<span class="woocommerce-Price-amount amount">
 															<span class="woocommerce-Price-currencySymbol">$</span>
-															27.00
+															0.00
 														</span>
 													</p>
 													<p class="woocommerce-mini-cart__buttons buttons">
-														<a href="pricing.html#formats" class="button wc-forward">Panier</a>
-														<a href="pricing.html#order-form" class="button checkout wc-forward">Commander</a>
+														<a href="shop-cart.php" class="button wc-forward">Voir le panier</a>
+														<a href="shop-checkout.php" class="button checkout wc-forward">Passer a la commande</a>
 													</p>
 												</div>
 											</div>
@@ -253,8 +253,8 @@
 								<div class="dropdown">
 									<a class="dropdown-toggle dropdown-shopping-cart" href="#" role="button" id="dropdown-shopping-cart" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" aria-label="Ouvrir le panier">
 										<i class="fa fa-shopping-basket" aria-hidden="true"></i>
-										<span class="badge bg-maincolor">1</span>
-										<span class="cart-total">$27.00</span>
+										<span class="badge bg-maincolor">0</span>
+										<span class="cart-total">$0.00</span>
 									</a>
 									<div class="dropdown-menu dropdown-menu-right ls" aria-labelledby="dropdown-shopping-cart">
 										<div class="widget woocommerce widget_shopping_cart">
@@ -262,12 +262,12 @@
 												<ul class="woocommerce-mini-cart cart_list product_list_widget">
 													<li class="woocommerce-mini-cart-item mini_cart_item">
 														<a href="#" class="remove" aria-label="Retirer cet article" data-product_id="rarsm-book" data-product_sku="RARSM-PRINT">×</a>
-														<a href="pricing.html#formats"><img src="images/view-rarsm.JPG" alt="Livre RARSM"></a>
-														<a href="pricing.html#formats">RARSM - Edition papier</a>
-														<span class="quantity">1 ×
+														<a href="shop-cart.php"><img src="images/view-rarsm.JPG" alt="Livre RARSM"></a>
+														<a href="shop-cart.php">RARSM - Edition papier</a>
+														<span class="quantity">0 ×
 															<span class="woocommerce-Price-amount amount">
 																<span class="woocommerce-Price-currencySymbol">$</span>
-																27.00
+																0.00
 															</span>
 														</span>
 													</li>
@@ -276,12 +276,12 @@
 													<strong>Sous-total :</strong>
 													<span class="woocommerce-Price-amount amount">
 														<span class="woocommerce-Price-currencySymbol">$</span>
-														27.00
+														0.00
 													</span>
 												</p>
 												<p class="woocommerce-mini-cart__buttons buttons">
-													<a href="pricing.html#formats" class="button wc-forward">Panier</a>
-													<a href="pricing.html#order-form" class="button checkout wc-forward">Commander</a>
+													<a href="shop-cart.php" class="button wc-forward">Voir le panier</a>
+													<a href="shop-checkout.php" class="button checkout wc-forward">Passer a la commande</a>
 												</p>
 											</div>
 										</div>
@@ -315,171 +315,133 @@
 				</div>
 			</section>
 
-			<section id="author" class="ls s-overlay mobile-overlay s-py-90 s-py-xl-150 section-about">
+			<section class="ls ms s-py-90 s-py-xl-150 c">
 				<div class="container">
-					<div class="row">
+					<div class="row align-items-center c-gutter-50">
 						<div class="col-lg-6">
-							<div class="divider-xl-200"></div>
-							<p class="mb-2 text-dark">Auteur du recueil</p>
-							<h2 class="special-heading ">
-								<span class="text-dark">Maitre Jean-Baptiste Otshudi Disashi</span>
-							</h2>
-							<div class="divider-40"></div>
-							<p class="excerpt text-dark">
-								Juriste du secteur minier, specialiste de la gouvernance publique et actuel Directeur juridique et de la lutte contre la fraude miniere au CEEC.
-							</p>
-							<div class="divider-40"></div>
-							<p class="excerpt text-dark">
-								Fort de plus de 20 ans d'experience en droit, en gouvernance publique et dans le secteur minier en RDC, il a conduit un travail rigoureux de compilation, d'analyse et de structuration pour faire de RARSM un outil de reference pratique, fiable et directement exploitable par les professionnels.
-							</p>
-							<div class="divider-40"></div>
-							<div class="columns-two">
-								<a href="author.html" class="btn btn-darkgrey">Voir la biographie</a>
+							<div class="author-hero-copy author-hero-copy-simple">
+								<p class="mb-2 text-dark">Auteur du recueil</p>
+								<h2 class="special-heading">
+									<span class="text-dark">Maitre Jean-Baptiste Otshudi Disashi Kalonda</span>
+								</h2>
+								<div class="divider-40"></div>
+								<p class="excerpt text-dark">Juriste du secteur minier, expert en gouvernance publique et actuel Directeur juridique et de la lutte contre la fraude miniere au CEEC.</p>
+								<div class="divider-30"></div>
+								<p class="excerpt text-dark">Fort de plus de vingt ans d'experience en droit, en gouvernance publique et dans le secteur minier en RDC, il porte avec le RARSM un travail rigoureux de structuration, de clarification et de mise a disposition des textes reglementaires.</p>
 							</div>
-							<div class="divider-xl-150"></div>
 						</div>
 						<div class="col-lg-6 d-flex align-items-center justify-content-center">
-							<div class="author-placeholder-square" aria-label="Initiales de Maitre Jean-Baptiste Otshudi Disashi">JBO</div>
+							<div class="author-placeholder-square" aria-label="Initiales de Maitre Jean-Baptiste Otshudi Disashi Kalonda">JBO</div>
 						</div>
 					</div>
 				</div>
 			</section>
 
-			<section class="ls ms s-pt-90 s-pb-80 s-py-xl-150">
+			<section class="ls s-py-90 s-py-xl-150 ">
 				<div class="container">
-					<div class="row">
-						<div class="col-xl-8 offset-xl-2">
-							<h3 class="special-heading">
-								<span>Parcours et expertise</span>
-							</h3>
-							<div class="divider-40"></div>
-							<p>
-								Ne le 25 novembre 1968, il a construit un parcours marque par la pratique du droit, la gouvernance publique et la regulation du secteur extractif. Son experience s'est consolidee au contact des realites administratives, du contentieux et des mecanismes de controle appliques aux ressources naturelles.
-							</p>
-
-							<p>
-								A travers RARSM, il met cette expertise au service d'une ambition precise : rendre les actes reglementaires miniers plus lisibles, plus accessibles et plus facilement mobilisables par l'Etat, les investisseurs et les operateurs.
-							</p>
-
-							<ul class="list-styled">
-								<li>
-									Droit minier et contentieux
-								</li>
-								<li>
-									Gouvernance publique et encadrement institutionnel
-								</li>
-								<li>
-									Lutte contre la fraude miniere
-								</li>
-								<li>
-									Regulation et certification des ressources naturelles
-								</li>
-								<li>
-									Conformite administrative et securite juridique
-								</li>
-							</ul>
-						</div>
-						<div class="col-12">
-							<div class="divider-xl-60 divider-50"></div>
-							<figure class="text-center post_format-post-format-video">
-								<div class="embed-responsive embed-responsive-16by9">
-									<a href="book.html" class="embed-placeholder">
-										<img src="images/rarsm-generated/hero-presentation-rarsm.png" alt="Expertise de l'auteur autour du RARSM">
-									</a>
+					<div class="row c-gutter-40">
+						<div class="col-lg-7">
+							<div class="author-story-card">
+								<span class="author-section-kicker">Parcours</span>
+								<h3>Une pratique du droit construite sur le terrain</h3>
+								<p>Ne le 25 novembre 1968, Maitre Jean-Baptiste Otshudi Disashi Kalonda a construit un parcours marque par la pratique du droit, la gouvernance publique et la regulation du secteur extractif. Son experience s'est consolidee au contact des realites administratives, du contentieux et des mecanismes de controle appliques aux ressources naturelles.</p>
+								<p>A travers le RARSM, il met cette experience au service d'une ambition precise : rendre les actes reglementaires miniers plus lisibles, plus accessibles et plus facilement mobilisables par l'Etat, les investisseurs, les entreprises et les operateurs.</p>
+								<div class="author-timeline">
+									<div class="author-timeline-item">
+										<span class="author-timeline-year">1968</span>
+										<div>
+											<strong>Naissance et vocation</strong>
+											<p>Le point de depart d'un parcours qui s'oriente vers le droit, l'institution publique et les enjeux de gouvernance.</p>
+										</div>
+									</div>
+									<div class="author-timeline-item">
+										<span class="author-timeline-year">20+</span>
+										<div>
+											<strong>Annees d'experience</strong>
+											<p>Une pratique consolidee a travers les realites du secteur minier, la regulation et la conformite.</p>
+										</div>
+									</div>
+									<div class="author-timeline-item">
+										<span class="author-timeline-year">CEEC</span>
+										<div>
+											<strong>Fonction actuelle</strong>
+											<p>Direction juridique et lutte contre la fraude miniere au sein d'un organe cle de controle et de certification.</p>
+										</div>
+									</div>
 								</div>
-								<figcaption>
-									Une expertise mise au service de la conformite, de la transparence et de la securite juridique du secteur minier.
-								</figcaption>
-							</figure>
-							<div class="divider-xl-60 divider-50"></div>
+								<div class="author-inline-quote">
+									<p>Le travail de l'auteur ne consiste pas seulement a reunir des textes, mais a transformer la reglementation en outil de lecture, de decision et de securisation des pratiques.</p>
+								</div>
+							</div>
 						</div>
-						<div class="col-xl-8 offset-xl-2">
-							<p>
-								Le recueil ne se limite pas a compiler des textes. Il propose une organisation logique du cadre institutionnel, du suivi des activites, de la fiscalite, de l'exportation et des dispositifs de certification, afin de soutenir des decisions plus justes et plus securisees.
-							</p>
-							<blockquote>
-								<p>
-									S'approprier ce recueil, c'est transformer la reglementation en avantage competitif, securiser l'avenir et participer a la revolution miniere du XXIe siecle.
-								</p>
-								<cite>
-									<span>RARSM</span>
-									<span>Conclusion de la presentation</span>
-								</cite>
-							</blockquote>
-							<p>
-								Cette vision fait du recueil une reference appelee a servir aussi bien la conformite immediate des acteurs que la construction durable d'un secteur minier transparent, equitable et pleinement maitrise.
-							</p>
-							<p>
-								Pour les entreprises, les juristes, les services publics et les investisseurs, le travail de l'auteur offre un point d'appui concret pour mieux comprendre, appliquer et defendre le droit minier en RDC.
-							</p>
+						<div class="col-lg-5">
+							<div class="author-expertise-card">
+								<span class="author-section-kicker">Domaines de competence</span>
+								<ul class="list-unstyled author-expertise-list">
+									<li>
+										<span class="author-list-mark">01</span>
+										<div>
+											<strong>Droit minier et contentieux</strong>
+											<p>Interpretation, application et defense des textes encadrant les activites minieres en RDC.</p>
+										</div>
+									</li>
+									<li>
+										<span class="author-list-mark">02</span>
+										<div>
+											<strong>Gouvernance publique</strong>
+											<p>Lecture institutionnelle des services, organes de controle et circuits de decision publics.</p>
+										</div>
+									</li>
+									<li>
+										<span class="author-list-mark">03</span>
+										<div>
+											<strong>Lutte contre la fraude miniere</strong>
+											<p>Conformite, tracabilite et maitrise des risques lies aux operations et aux flux mineraux.</p>
+										</div>
+									</li>
+									<li>
+										<span class="author-list-mark">04</span>
+										<div>
+											<strong>Certification et regulation</strong>
+											<p>Encadrement des dispositifs de transparence, de certification et de securite juridique.</p>
+										</div>
+									</li>
+								</ul>
+							</div>
 						</div>
 					</div>
 				</div>
 			</section>
 
-			<section class="ls s-overlay mobile-overlay section-shop s-py-90 s-py-xl-150">
+			<section class="ls ms s-py-90 s-py-xl-150 author-vision-section">
 				<div class="container">
-					<div class="row">
-						<div class="col-12 text-center">
-							<h3 class="special-heading">
-								<span>Axes majeurs du recueil</span>
-							</h3>
-							<div class="divider-50"></div>
-						</div>
-					</div>
-					<div class="row">
-						<div class="col-12">
-							<div class="owl-carousel owl-nav-bottom" data-responsive-lg="3" data-responsive-md="2" data-responsive-sm="2" data-responsive-xs="1" data-nav="true" data-margin="60" data-loop="true" data-autoplay="true">
-								<div class="vertical-item">
-									<div class="item-media border-r-def">
-										<img src="images/rarsm-generated/cadre-institutionnel.png" alt="Cadre institutionnel">
-										<div class="media-links">
-											<a class="abs-link" title="" href="book.html"></a>
-										</div>
-									</div>
-									<div class="item-content text-center pt-3">
-										<h5>
-											<a href="book.html">Cadre institutionnel et encadrement des activites</a>
-										</h5>
-									</div>
+					<div class="author-vision-panel">
+						<div class="row align-items-center c-gutter-40">
+							<div class="col-lg-5">
+								<div class="author-vision-media border-r-def overflow-hidden">
+									<img src="images/rarsm-generated/hero-presentation-rarsm.png" alt="Presentation du recueil RARSM">
 								</div>
-								<div class="vertical-item">
-									<div class="item-media border-r-def">
-										<img src="images/rarsm-generated/suivi-droits-filieres.png" alt="Suivi des activites minieres">
-										<div class="media-links">
-											<a class="abs-link" title="" href="book.html"></a>
-										</div>
+							</div>
+							<div class="col-lg-7">
+								<span class="author-section-kicker">Contribution au RARSM</span>
+								<h3 class="special-heading">
+									<span>Transformer la reglementation en outil de decision</span>
+								</h3>
+								<div class="divider-30"></div>
+								<p>Le recueil ne se limite pas a compiler des textes. Il propose une organisation logique du cadre institutionnel, du suivi des activites, de la fiscalite, de l'exportation et des dispositifs de certification, afin de soutenir des decisions plus justes et plus securisees.</p>
+								<p>Cette vision fait du RARSM une reference destinee a servir aussi bien la conformite immediate des acteurs que la construction durable d'un secteur minier transparent, equitable et pleinement maitrise.</p>
+								<div class="author-vision-points">
+									<div class="author-vision-point">
+										<strong>Lisibilite</strong>
+										<span>Une lecture plus claire des actes et procedures applicables.</span>
 									</div>
-									<div class="item-content text-center pt-3">
-										<h5>
-											<a href="book.html">Suivi des activites minieres et artisanales</a>
-										</h5>
+									<div class="author-vision-point">
+										<strong>Securite juridique</strong>
+										<span>Un appui concret pour reduire les erreurs d'interpretation et de mise en oeuvre.</span>
 									</div>
-								</div>
-								<div class="vertical-item">
-									<div class="item-media border-r-def">
-										<img src="images/rarsm-generated/exportation-fraude.png" alt="Exportations et lutte contre la fraude">
-										<div class="media-links">
-											<a class="abs-link" title="" href="book.html"></a>
-										</div>
-									</div>
-									<div class="item-content text-center pt-3">
-										<h5>
-											<a href="book.html">Exportations, controles et lutte contre la fraude</a>
-										</h5>
-									</div>
-								</div>
-								<div class="vertical-item">
-									<div class="item-media border-r-def">
-										<img src="images/rarsm-generated/tracabilite-certification.png" alt="Certification et tracabilite">
-										<div class="media-links">
-											<a class="abs-link" title="" href="book.html"></a>
-										</div>
-									</div>
-									<div class="item-content text-center pt-3">
-										<h5>
-											<a href="book.html">Transparence, tracabilite et certification</a>
-										</h5>
+									<div class="author-vision-point">
+										<strong>Utilite pratique</strong>
+										<span>Un support directement mobilisable par les entreprises, juristes et institutions.</span>
 									</div>
 								</div>
 							</div>
@@ -487,6 +449,28 @@
 					</div>
 				</div>
 			</section>
+
+			<section class="ls s-py-90 s-py-xl-120 author-cta-section">
+				<div class="container">
+					<div class="author-cta-panel">
+						<div class="row align-items-center c-gutter-30">
+							<div class="col-lg-8">
+								<span class="author-section-kicker">Aller plus loin</span>
+								<h3>Decouvrez l'ouvrage porte par cette expertise</h3>
+								<p>Le RARSM prolonge cette experience de terrain par une lecture structuree du cadre juridique minier, pensee pour les institutions, les praticiens, les entreprises et les investisseurs.</p>
+							</div>
+							<div class="col-lg-4">
+								<div class="author-cta-actions">
+									<a href="book.html" class="btn btn-outline-maincolor">Voir le livre</a>
+									<a href="pricing.html" class="btn btn-maincolor">Commander</a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			
 
 			<footer class="page_footer ds s-py-85 s-py-xl-155">
 				<div class="container">
@@ -506,22 +490,22 @@
 										<a href="book.html">Livre</a>
 									</li>
 									<li class="menu-item">
-										<a href="pricing.html">Acheter</a>
-									</li>
-									<li class="menu-item">
 										<a href="author.html">Auteur</a>
 									</li>
 									<li class="menu-item">
-										<a href="activites.html">Activités</a>
+										<a href="pricing.html">Shop</a>
 									</li>
 									<li class="menu-item">
 										<a href="institutions.php">Institutions</a>
 									</li>
 									<li class="menu-item">
-										<a href="faq.html">FAQ</a>
+										<a href="activites.html">Activités</a>
 									</li>
 									<li class="menu-item">
 										<a href="contact.html">Contact</a>
+									</li>
+									<li class="menu-item">
+										<a href="faq.html">FAQ</a>
 									</li>
 								</ul>
 							</div>
@@ -535,7 +519,7 @@
 				<div class="container">
 					<div class="row align-items-center">
 						<div class="col-md-12 text-center color-dark">
-							<p>&copy; Copyright <span class="copyright_year">2020</span> All Rights Reserved</p>
+							<p>&copy; Copyright <span class="copyright_year">2026</span> All Rights Reserved</p>
 						</div>
 					</div>
 				</div>

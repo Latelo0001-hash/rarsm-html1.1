@@ -178,6 +178,403 @@ function initRarsmLanguageSwitchers() {
 	syncLanguageState('fr');
 }
 
+function initRarsmSessionState() {
+	if (window.location.protocol === 'file:') {
+		return;
+	}
+
+	var scriptNode = document.querySelector('script[src*="rarsm-ui.js"]');
+	var scriptSrc = scriptNode && scriptNode.src ? scriptNode.src : '';
+	var baseUrl = scriptSrc.replace(/\/js\/rarsm-ui\.js(?:\?.*)?$/, '');
+
+	if (!baseUrl) {
+		return;
+	}
+
+	function escapeHtml(value) {
+		return String(value || '')
+			.replace(/&/g, '&amp;')
+			.replace(/</g, '&lt;')
+			.replace(/>/g, '&gt;')
+			.replace(/"/g, '&quot;')
+			.replace(/'/g, '&#39;');
+	}
+
+	function renderAmountHtml(displayValue) {
+		var value = String(displayValue || '$0.00');
+
+		if (value.charAt(0) === '$') {
+			return '<span class="woocommerce-Price-currencySymbol">$</span>' + escapeHtml(value.slice(1));
+		}
+
+		return escapeHtml(value);
+	}
+
+	function renderMiniCartItems(cart) {
+		var items = cart && Array.isArray(cart.items) ? cart.items : [];
+
+		if (!items.length) {
+			return '<li class="woocommerce-mini-cart-item mini_cart_item rarsm-mini-cart-empty">Votre panier est vide.</li>';
+		}
+
+		return items.map(function (item) {
+			return ''
+				+ '<li class="woocommerce-mini-cart-item mini_cart_item">'
+				+ '<a href="shop-cart.php" class="remove" aria-label="Voir le panier">×</a>'
+				+ '<a href="shop-cart.php"><img src="' + escapeHtml(item.image || 'images/view-rarsm.JPG') + '" alt="' + escapeHtml(item.name || 'Produit RARSM') + '"></a>'
+				+ '<a href="shop-cart.php">' + escapeHtml(item.name || 'Produit RARSM') + '</a>'
+				+ '<span class="quantity">' + escapeHtml(item.quantity || 0) + ' ×'
+				+ '<span class="woocommerce-Price-amount amount">' + renderAmountHtml(item.display_subtotal || '$0.00') + '</span>'
+				+ '</span>'
+				+ '</li>';
+		}).join('');
+	}
+
+	function applyCartState(cart) {
+		var safeCart = cart || {};
+		var itemCount = typeof safeCart.item_count === 'number' ? safeCart.item_count : 0;
+		var displayTotal = safeCart.display_total || '$0.00';
+
+		$('.dropdown-shopping-cart .badge').text(itemCount);
+		$('.dropdown-shopping-cart .cart-total').text(displayTotal);
+
+		$('.menu-auth-item > a[href="shop-cart.php"]').each(function () {
+			var $link = $(this);
+			if (/^Panier\s*\(/i.test($.trim($link.text()))) {
+				$link.text('Panier (' + itemCount + ')');
+			}
+		});
+
+		$('.widget_shopping_cart_content').each(function () {
+			var $content = $(this);
+			$content.find('.woocommerce-mini-cart').html(renderMiniCartItems(safeCart));
+			$content.find('.woocommerce-mini-cart__total .amount').html(renderAmountHtml(displayTotal));
+		});
+	}
+
+	function buildSessionParts(user) {
+		var $avatar = $('<span/>', {
+			'class': 'rarsm-session-avatar',
+			text: user.initials || 'RC'
+		});
+		var $text = $('<span/>', {
+			'class': 'rarsm-session-text'
+		});
+		$text.append($('<span/>', {
+			'class': 'rarsm-session-name',
+			text: user.display_name || 'Utilisateur'
+		}));
+
+		return [$avatar, $text];
+	}
+
+	function buildUserMenu(user, accountHref, logoutHref, isMobile) {
+		var wrapperClass = isMobile
+			? 'rarsm-user-menu rarsm-user-menu-mobile'
+			: 'rarsm-user-menu rarsm-user-menu--client';
+		var toggleClass = isMobile
+			? 'rarsm-session-nav-link rarsm-user-menu-toggle'
+			: 'rarsm-session-indicator rarsm-user-menu-toggle';
+		var menuClass = isMobile
+			? 'rarsm-user-menu-panel rarsm-user-menu-panel-mobile'
+			: 'rarsm-user-menu-panel';
+		var $wrapper = $('<div/>', {
+			'class': wrapperClass
+		});
+		var $toggle = $('<button/>', {
+			'class': toggleClass,
+			type: 'button',
+			'aria-haspopup': 'true',
+			'aria-expanded': 'false',
+			'aria-label': 'Options du compte'
+		});
+		var parts = buildSessionParts(user);
+		var $menu = $('<div/>', {
+			'class': menuClass,
+			hidden: true
+		});
+		var $accountLink = $('<a/>', {
+			'class': 'rarsm-user-menu-action',
+			href: accountHref
+		});
+		var $logoutLink = $('<a/>', {
+			'class': 'rarsm-user-menu-action rarsm-user-menu-action-danger',
+			href: logoutHref
+		});
+
+		$toggle.append(parts[0], parts[1], $('<i/>', {
+			'class': 'fa fa-angle-down rarsm-session-caret',
+			'aria-hidden': 'true'
+		}));
+
+		$accountLink.append(
+			$('<span/>', {
+				'class': 'rarsm-user-menu-action-icon'
+			}).append($('<i/>', {
+				'class': 'fa fa-user-o',
+				'aria-hidden': 'true'
+			})),
+			$('<span/>', {
+				text: 'Compte'
+			})
+		);
+
+		$logoutLink.append(
+			$('<span/>', {
+				'class': 'rarsm-user-menu-action-icon'
+			}).append($('<i/>', {
+				'class': 'fa fa-sign-out',
+				'aria-hidden': 'true'
+			})),
+			$('<span/>', {
+				text: 'Se deconnecter'
+			})
+		);
+
+		$menu.append($accountLink, $logoutLink);
+
+		return $wrapper.append($toggle, $menu);
+	}
+
+	function applySessionState(data) {
+		var $navMenus = $('.top-nav .sf-menu, .sf-menu.nav');
+		var $desktopAuthButtons = $('.header-utilities > a.btn[href*="shop-account-login.php"], .header-utilities > a.btn[href*="shop-account-register.php"]');
+		var $mobileAuthItems = $('.menu-auth-login, .menu-auth-register');
+		var $headerUtilities = $('.header-utilities').first();
+		var logoutHref = data.links.logout || 'logout.php';
+
+		applyCartState(data.cart || {});
+
+		$('.menu-session-item.rarsm-session-item--client, .rarsm-user-menu--client').remove();
+		$mobileAuthItems.removeClass('rarsm-auth-hidden').css('display', '');
+		$desktopAuthButtons.removeClass('rarsm-auth-hidden').css('display', '');
+
+		if (!data.authenticated || !data.user) {
+			return;
+		}
+
+		$mobileAuthItems.addClass('rarsm-auth-hidden').css('display', 'none');
+		$desktopAuthButtons.addClass('rarsm-auth-hidden').css('display', 'none');
+
+		$navMenus.each(function () {
+			var $menu = $(this);
+
+			if ($menu.find('.menu-session-item').length) {
+				return;
+			}
+
+			var $sessionItem = $('<li/>', {
+				'class': 'menu-session-item rarsm-session-item--client d-lg-none'
+			}).append(buildUserMenu(data.user, data.links.account, logoutHref, true));
+
+			var $insertBefore = $menu.find('.menu-cart-mobile, .menu-language-mobile').first();
+			if ($insertBefore.length) {
+				$insertBefore.before($sessionItem);
+			} else {
+				$menu.append($sessionItem);
+			}
+		});
+
+		if ($headerUtilities.length && !$headerUtilities.find('.rarsm-user-menu, .rarsm-session-indicator').length) {
+			var $indicator = buildUserMenu(data.user, data.links.account, logoutHref, false);
+			var $cartToggle = $headerUtilities.find('.dropdown-shopping-cart').first();
+
+			if ($cartToggle.length) {
+				$indicator.insertBefore($cartToggle);
+			} else {
+				$headerUtilities.prepend($indicator);
+			}
+		}
+
+		menuHideExtraElements();
+		initMegaMenu(1);
+	}
+
+	fetch(baseUrl + '/session-status.php', {
+		credentials: 'same-origin',
+		headers: {
+			'Accept': 'application/json'
+		}
+	})
+		.then(function (response) {
+			if (!response.ok) {
+				throw new Error('Session endpoint unavailable');
+			}
+
+			return response.json();
+	})
+		.then(function (data) {
+			applySessionState(data);
+		})
+		.catch(function () {
+			// Keep existing navigation when PHP session data is unavailable.
+		});
+}
+
+function initRarsmUserMenus() {
+	if (initRarsmUserMenus.initialized) {
+		return;
+	}
+
+	initRarsmUserMenus.initialized = true;
+
+	function closeMenus($except) {
+		var $menus = $('.rarsm-user-menu');
+
+		if ($except && $except.length) {
+			$menus = $menus.not($except);
+		}
+
+		$menus.each(function () {
+			var $menu = $(this);
+			$menu.removeClass('is-open');
+			$menu.find('.rarsm-user-menu-toggle').attr('aria-expanded', 'false');
+			$menu.find('.rarsm-user-menu-panel').prop('hidden', true);
+		});
+	}
+
+	$(document).on('click', '.rarsm-user-menu-toggle', function (event) {
+		event.preventDefault();
+		event.stopPropagation();
+
+		var $menu = $(this).closest('.rarsm-user-menu');
+		var isOpen = $menu.hasClass('is-open');
+
+		closeMenus($menu);
+
+		if (isOpen) {
+			$menu.removeClass('is-open');
+			$menu.find('.rarsm-user-menu-toggle').attr('aria-expanded', 'false');
+			$menu.find('.rarsm-user-menu-panel').prop('hidden', true);
+			return;
+		}
+
+		$menu.addClass('is-open');
+		$menu.find('.rarsm-user-menu-toggle').attr('aria-expanded', 'true');
+		$menu.find('.rarsm-user-menu-panel').prop('hidden', false);
+	});
+
+	$(document).on('click', '.rarsm-user-menu-panel a', function () {
+		closeMenus();
+	});
+
+	$(document).on('click', function (event) {
+		if (!$(event.target).closest('.rarsm-user-menu').length) {
+			closeMenus();
+		}
+	});
+
+	$(document).on('keydown', function (event) {
+		if (event.key === 'Escape') {
+			closeMenus();
+		}
+	});
+}
+
+function initRarsmAuthForms() {
+	if (window.location.protocol === 'file:') {
+		return;
+	}
+
+	var scriptNode = document.querySelector('script[src*="rarsm-ui.js"]');
+	var scriptSrc = scriptNode && scriptNode.src ? scriptNode.src : '';
+	var baseUrl = scriptSrc.replace(/\/js\/rarsm-ui\.js(?:\?.*)?$/, '');
+
+	if (!baseUrl) {
+		return;
+	}
+
+	var currentPath = window.location.pathname;
+	var basePath = new URL(baseUrl + '/').pathname;
+	var relativePath = currentPath;
+
+	if (basePath && currentPath.indexOf(basePath) === 0) {
+		relativePath = currentPath.slice(basePath.length);
+	}
+
+	relativePath = relativePath.replace(/^\/+/, '');
+	if (!relativePath) {
+		relativePath = 'index.html';
+	}
+
+	function computeRedirectPath(path) {
+		var cleanPath = String(path || '').split('?')[0].split('#')[0];
+		var fileName = cleanPath.split('/').pop().toLowerCase();
+		var shopLikePages = ['success.php', 'cancel.php', 'pending.php', 'payment-redirect.php'];
+
+		if (fileName.indexOf('shop-') === 0 || shopLikePages.indexOf(fileName) !== -1) {
+			return path;
+		}
+
+		return 'shop-cart.php';
+	}
+
+	var redirectPath = computeRedirectPath(relativePath);
+
+	function ensureHiddenInput($form, name, value) {
+		var $field = $form.find('input[name="' + name + '"]');
+
+		if (!$field.length) {
+			$field = $('<input>', {
+				type: 'hidden',
+				name: name
+			}).appendTo($form);
+		}
+
+		$field.val(value);
+	}
+
+	$('#popupLogin form.form-registration').each(function () {
+		var $form = $(this);
+
+		$form.attr('method', 'post');
+		$form.attr('action', baseUrl + '/actions/login.php');
+		ensureHiddenInput($form, 'redirect', redirectPath);
+
+		var $textInput = $form.find('input[type="text"]').first();
+		if ($textInput.length) {
+			$textInput.attr('name', 'login');
+			$textInput.attr('placeholder', 'Email ou identifiant');
+			$textInput.attr('autocomplete', 'username');
+		}
+
+		var $passwordInput = $form.find('input[type="password"]').first();
+		if ($passwordInput.length) {
+			$passwordInput.attr('name', 'password');
+			$passwordInput.attr('autocomplete', 'current-password');
+		}
+	});
+
+	$('#popupRegistr form.form-registration').each(function () {
+		var $form = $(this);
+
+		$form.attr('method', 'post');
+		$form.attr('action', baseUrl + '/actions/register.php');
+		ensureHiddenInput($form, 'redirect', redirectPath);
+
+		var $textInput = $form.find('input[type="text"]').first();
+		if ($textInput.length) {
+			$textInput.attr('name', 'name');
+			$textInput.attr('placeholder', 'Nom ou identifiant');
+			$textInput.attr('autocomplete', 'nickname');
+		}
+
+		var $emailInput = $form.find('input[type="email"]').first();
+		if ($emailInput.length) {
+			$emailInput.attr('name', 'email');
+			$emailInput.attr('autocomplete', 'email');
+		}
+
+		var $passwordInputs = $form.find('input[type="password"]');
+		if ($passwordInputs.length) {
+			$passwordInputs.eq(0).attr('name', 'password').attr('autocomplete', 'new-password');
+		}
+		if ($passwordInputs.length > 1) {
+			$passwordInputs.eq(1).attr('name', 'password_confirm').attr('autocomplete', 'new-password');
+		}
+	});
+}
+
 function initMegaMenu(timeOut) {
 	var $megaMenu = $('.top-nav .mega-menu');
 	if($megaMenu.length) {
@@ -573,7 +970,10 @@ function documentReadyInit() {
 	////////////
 	//mainmenu//
 	////////////
+	initRarsmAuthForms();
 	initRarsmLanguageSwitchers();
+	initRarsmUserMenus();
+	initRarsmSessionState();
 
 	if ($().scrollbar) {
 		$('[class*="scrollbar-"]').scrollbar();

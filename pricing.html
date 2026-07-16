@@ -78,7 +78,7 @@
 						<div class="row">
 							<div class="col-12">
 								<h4 class="mb-4">Log in</h4>
-								<form class="form-registration c-mb-40 c-gutter-20" action="/">
+								<form class="form-registration c-mb-40 c-gutter-20" method="post" action="actions/login.php">
 									<div class="row mb-4">
 										<div class="col-sm-12">
 											<div class="form-group">
@@ -92,10 +92,10 @@
 										</div>
 									</div>
 									<a class="registerRedirect " data-dismiss="modal" data-target="#popupRegistr" data-toggle="modal" href="#">Not a member? Register!</a>
-<div class="modal-form-actions">
-<button type="button" class="btn btn-outline-maincolor" data-dismiss="modal">Annuler</button>
-<button type="submit" class="btn btn-maincolor">Sign In</button>
-</div>
+									<div class="modal-form-actions">
+										<button type="button" class="btn btn-outline-maincolor" data-dismiss="modal">Annuler</button>
+										<button type="submit" class="btn btn-maincolor">Sign In</button>
+									</div>
 
 								</form>
 
@@ -118,7 +118,7 @@
 						<div class="row">
 							<div class="col-12">
 								<h4 class="mb-4">Registration</h4>
-								<form class="form-registration c-mb-40 c-gutter-40" method="post" action="/">
+								<form class="form-registration c-mb-40 c-gutter-40" method="post" action="actions/register.php">
 									<div class="row">
 										<div class="col-12">
 											<div class="form-group">
@@ -186,17 +186,17 @@
 									<li>
 										<a href="book.html">Livre</a>
 									</li>
-									<li class="active">
-										<a href="pricing.html">Acheter</a>
-									</li>
 									<li>
 										<a href="author.html">Auteur</a>
 									</li>
-									<li>
-										<a href="activites.html">Activités</a>
+									<li class="active">
+										<a href="pricing.html">Shop</a>
 									</li>
 									<li>
 										<a href="institutions.php">Institutions</a>
+									</li>
+									<li>
+										<a href="activites.html">Activités</a>
 									</li>
 									<li>
 										<a href="contact.html">Contact</a>
@@ -210,8 +210,8 @@
 									<li class="menu-cart-mobile dropdown d-lg-none">
 										<button class="dropdown-toggle dropdown-shopping-cart" id="dropdown-shopping-cart-mobile" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" aria-label="Ouvrir le panier" type="button">
 											<i class="fa fa-shopping-basket" aria-hidden="true"></i>
-											<span class="badge bg-maincolor">1</span>
-											<span class="cart-total">$27.00</span>
+											<span class="badge bg-maincolor">0</span>
+											<span class="cart-total">$0.00</span>
 										</button>
 										<div class="dropdown-menu ls" aria-labelledby="dropdown-shopping-cart-mobile">
 											<div class="widget woocommerce widget_shopping_cart">
@@ -219,12 +219,12 @@
 													<ul class="woocommerce-mini-cart cart_list product_list_widget">
 														<li class="woocommerce-mini-cart-item mini_cart_item">
 															<a href="#" class="remove" aria-label="Retirer cet article" data-product_id="rarsm-book" data-product_sku="RARSM-PRINT">×</a>
-															<a href="pricing.html#formats"><img src="images/view-rarsm.JPG" alt="Livre RARSM"></a>
-															<a href="pricing.html#formats">RARSM - Edition papier</a>
-															<span class="quantity">1 ×
+															<a href="shop-cart.php"><img src="images/view-rarsm.JPG" alt="Livre RARSM"></a>
+															<a href="shop-cart.php">RARSM - Edition papier</a>
+															<span class="quantity">0 ×
 																<span class="woocommerce-Price-amount amount">
 																	<span class="woocommerce-Price-currencySymbol">$</span>
-																	27.00
+																	0.00
 																</span>
 															</span>
 														</li>
@@ -233,12 +233,12 @@
 														<strong>Sous-total :</strong>
 														<span class="woocommerce-Price-amount amount">
 															<span class="woocommerce-Price-currencySymbol">$</span>
-															27.00
+															0.00
 														</span>
 													</p>
 													<p class="woocommerce-mini-cart__buttons buttons">
-														<a href="pricing.html#formats" class="button wc-forward">Panier</a>
-														<a href="pricing.html#order-form" class="button checkout wc-forward">Commander</a>
+														<a href="shop-cart.php" class="button wc-forward">Voir le panier</a>
+														<a href="shop-checkout.php" class="button checkout wc-forward">Passer a la commande</a>
 													</p>
 												</div>
 											</div>
@@ -253,8 +253,8 @@
 									<div class="dropdown">
 										<a class="dropdown-toggle dropdown-shopping-cart" href="#" role="button" id="dropdown-shopping-cart" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" aria-label="Ouvrir le panier">
 											<i class="fa fa-shopping-basket" aria-hidden="true"></i>
-											<span class="badge bg-maincolor">1</span>
-											<span class="cart-total">$27.00</span>
+											<span class="badge bg-maincolor">0</span>
+											<span class="cart-total">$0.00</span>
 										</a>
 										<div class="dropdown-menu dropdown-menu-right ls" aria-labelledby="dropdown-shopping-cart">
 											<div class="widget woocommerce widget_shopping_cart">
@@ -262,12 +262,12 @@
 													<ul class="woocommerce-mini-cart cart_list product_list_widget">
 														<li class="woocommerce-mini-cart-item mini_cart_item">
 															<a href="#" class="remove" aria-label="Retirer cet article" data-product_id="rarsm-book" data-product_sku="RARSM-PRINT">×</a>
-															<a href="pricing.html#formats"><img src="images/view-rarsm.JPG" alt="Livre RARSM"></a>
-															<a href="pricing.html#formats">RARSM - Edition papier</a>
-															<span class="quantity">1 ×
+															<a href="shop-cart.php"><img src="images/view-rarsm.JPG" alt="Livre RARSM"></a>
+															<a href="shop-cart.php">RARSM - Edition papier</a>
+															<span class="quantity">0 ×
 																<span class="woocommerce-Price-amount amount">
 																	<span class="woocommerce-Price-currencySymbol">$</span>
-																	27.00
+																	0.00
 																</span>
 															</span>
 														</li>
@@ -276,12 +276,12 @@
 														<strong>Sous-total :</strong>
 														<span class="woocommerce-Price-amount amount">
 															<span class="woocommerce-Price-currencySymbol">$</span>
-															27.00
+															0.00
 														</span>
 													</p>
 													<p class="woocommerce-mini-cart__buttons buttons">
-														<a href="pricing.html#formats" class="button wc-forward">Panier</a>
-														<a href="pricing.html#order-form" class="button checkout wc-forward">Commander</a>
+														<a href="shop-cart.php" class="button wc-forward">Voir le panier</a>
+														<a href="shop-checkout.php" class="button checkout wc-forward">Passer a la commande</a>
 													</p>
 												</div>
 											</div>
@@ -338,8 +338,8 @@
 								</div>
 								<div class="price-wrap">
 									<span class="plan-sign"></span>
-									<span class="plan-price">Prix</span>
-									<span class="plan-decimals">sur demande</span>
+									<span class="plan-price">$27</span>
+									<span class="plan-decimals">USD</span>
 								</div>
 								<div class="plan-description">
 									Format recommande pour les juristes, administrations, cabinets, bibliotheques et lecteurs souhaitant une consultation physique de reference.
@@ -352,7 +352,11 @@
 									</ul>
 								</div>
 								<div class="plan-button">
-									<a href="#order-form" class="btn btn-outline-maincolor">Format papier</a>
+									<form action="actions/add-to-cart.php" class="rarsm-plan-action" method="post">
+										<input type="hidden" name="product_id" value="rarsm-print">
+										<input type="hidden" name="quantity" value="1">
+										<button type="submit" class="btn btn-outline-maincolor">Ajouter au panier</button>
+									</form>
 								</div>
 							</div>
 						</div>
@@ -365,7 +369,8 @@
 								</div>
 								<div class="price-wrap">
 									<span class="plan-sign"></span>
-									<span class="plan-price">Sur demande</span>
+									<span class="plan-price">$18</span>
+									<span class="plan-decimals">USD</span>
 								</div>
 								<div class="plan-description">
 									Format concu pour une consultation rapide sur ordinateur, tablette ou smartphone, avec transmission par voie numerique apres validation.
@@ -378,7 +383,11 @@
 									</ul>
 								</div>
 								<div class="plan-button">
-									<a href="#order-form" class="btn btn-maincolor">Format numerique</a>
+									<form action="actions/add-to-cart.php" class="rarsm-plan-action" method="post">
+										<input type="hidden" name="product_id" value="rarsm-digital">
+										<input type="hidden" name="quantity" value="1">
+										<button type="submit" class="btn btn-maincolor">Ajouter au panier</button>
+									</form>
 								</div>
 							</div>
 						</div>
@@ -405,8 +414,17 @@
 									</ul>
 								</div>
 								<div class="plan-button">
-									<a href="#order-form" class="btn btn-outline-maincolor">Demander un devis</a>
+									<form action="actions/add-to-cart.php" class="rarsm-plan-action" method="post">
+										<input type="hidden" name="product_id" value="rarsm-institutional">
+										<input type="hidden" name="quantity" value="1">
+										<button type="submit" class="btn btn-outline-maincolor">Demander un devis</button>
+									</form>
 								</div>
+							</div>
+						</div>
+						<div class="col-12">
+							<div class="rarsm-pricing-flow-note text-center">
+								<p class="mb-0">Nouveau parcours : l’utilisateur choisit un format, ajoute le produit au panier, se connecte au checkout puis est redirige vers la passerelle intermediaire de paiement.</p>
 							</div>
 						</div>
 					</div>
@@ -421,7 +439,7 @@
 								<span class="text-white">Moyens de paiement acceptes</span>
 							</h3>
 							<div class="divider-30"></div>
-							<p class="excerpt text-white">Les coordonnees ou references de paiement sont communiquees apres confirmation du format, de la quantite et de la disponibilite du livre.</p>
+							<p class="excerpt text-white">Au checkout, l’utilisateur est redirige vers une passerelle intermediaire de paiement, avec suivi du statut dans son compte client.</p>
 							<div class="divider-30"></div>
 							
 							<div class="divider-60"></div>
@@ -452,154 +470,13 @@
 						</div>
 						<div class="col-12">
 							<div class="divider-10"></div>
-							<p class="text-white mb-0">Le paiement est confirme uniquement apres validation de la commande par l'equipe RARSM.</p>
+							<p class="text-white mb-0">Le paiement est suivi par commande, avec retour utilisateur vers les pages succes, annulation ou attente.</p>
 						</div>
 					</div>
 				</div>
 			</section>
 
-			<section class="ls ms s-py-90 s-py-xl-150" id="order-form">
-				<div class="container">
-					<div class="row">
-						<div class="col-lg-8 animate" data-animation="scaleAppear">
-							<div class="hero-bg p-40 p-xl-60">
-								<form class="contact-form c-mb-40 c-gutter-30" method="post" action="/">
-									<div class="row">
-										<div class="col-12">
-											<h4>Formulaire de commande</h4>
-											<p class="mb-0">Utilisez ce formulaire pour demander un exemplaire, un devis ou des informations precises sur la vente du livre.</p>
-											<div class="divider-30"></div>
-										</div>
-										<div class="col-md-6">
-											<div class="form-group has-placeholder">
-												<label for="order-name">Nom complet <span class="required">*</span></label>
-												<input type="text" aria-required="true" required size="30" value="" name="name" id="order-name" class="form-control" placeholder="Votre nom complet">
-											</div>
-										</div>
-										<div class="col-md-6">
-											<div class="form-group has-placeholder">
-												<label for="order-email">Adresse email <span class="required">*</span></label>
-												<input type="email" aria-required="true" required size="30" value="" name="email" id="order-email" class="form-control" placeholder="Votre email">
-											</div>
-										</div>
-										<div class="col-md-6">
-											<div class="form-group has-placeholder">
-												<label for="order-phone">WhatsApp / Telephone <span class="required">*</span></label>
-												<input type="text" aria-required="true" required size="30" value="" name="phone" id="order-phone" class="form-control" placeholder="Votre numero WhatsApp ou telephone">
-											</div>
-										</div>
-										<div class="col-md-6">
-											<div class="form-group has-placeholder">
-												<label for="order-quantity">Quantite souhaitee <span class="required">*</span></label>
-												<input type="text" aria-required="true" required size="30" value="" name="quantity" id="order-quantity" class="form-control" placeholder="Ex. 1, 5 ou 20 exemplaires">
-											</div>
-										</div>
-										<div class="col-md-6">
-											<div class="form-group">
-												<label for="order-format">Format souhaite <span class="required">*</span></label>
-												<select aria-required="true" required name="book_format" id="order-format" class="form-control">
-													<option value="">Choisir un format</option>
-													<option value="papier">Exemplaire imprime</option>
-													<option value="numerique">Version numerique</option>
-													<option value="institutionnel">Commande institutionnelle</option>
-												</select>
-											</div>
-										</div>
-										<div class="col-md-6">
-											<div class="form-group">
-												<label for="order-payment">Mode de paiement prefere <span class="required">*</span></label>
-												<select aria-required="true" required name="payment_method" id="order-payment" class="form-control">
-													<option value="">Choisir un moyen de paiement</option>
-													<option value="mobile-money">Mobile Money</option>
-													<option value="virement">Virement bancaire</option>
-													<option value="remise-locale">Paiement a la remise locale</option>
-													<option value="facturation">Facturation institutionnelle</option>
-												</select>
-											</div>
-										</div>
-										<div class="col-md-6">
-											<div class="form-group has-placeholder">
-												<label for="order-destination">Ville / Pays de destination</label>
-												<input type="text" size="30" value="" name="destination" id="order-destination" class="form-control" placeholder="Ex. Kinshasa, Lubumbashi, Bruxelles">
-											</div>
-										</div>
-										<div class="col-md-6">
-											<div class="form-group">
-												<label for="order-delivery">Mode de remise prefere</label>
-												<select name="delivery_mode" id="order-delivery" class="form-control">
-													<option value="">Choisir une modalite</option>
-													<option value="remise-locale">Remise locale</option>
-													<option value="expedition">Expedition</option>
-													<option value="email">Envoi numerique par email</option>
-												</select>
-											</div>
-										</div>
-										<div class="col-12">
-											<div class="form-group has-placeholder">
-												<label for="order-message">Precisions complementaires</label>
-												<textarea rows="6" cols="45" name="message" id="order-message" class="form-control" placeholder="Indiquez ici vos besoins particuliers : facture, devis, bon de commande, urgence, format, destination, etc."></textarea>
-											</div>
-										</div>
-									</div>
-
-									<div class="wrap-forms">
-										<div class="row">
-											<div class="col-12">
-												<button type="submit" name="contact_submit" class="btn btn-maincolor">Envoyer la demande de commande</button>
-											</div>
-										</div>
-									</div>
-								</form>
-							</div>
-						</div>
-
-						<div class="col-lg-4 animate" data-animation="scaleAppear">
-							<div class="divider-60 divider-lg-0"></div>
-							<div class="hero-bg p-40 p-xl-60">
-								<h4 class="my-0">Commande rapide</h4>
-								<div class="divider-35"></div>
-
-								<div class="media mb-20">
-									<div class="icon-styled color-main fs-40">
-										<i class="fa fa-phone"></i>
-									</div>
-									<div class="media-body">
-										<h5 class="mt-0">WhatsApp / Telephone</h5>
-										<p>(800)-398-7586<br>(800)-398-7594</p>
-									</div>
-								</div>
-
-								<div class="media mb-20">
-									<div class="icon-styled color-main fs-40">
-										<i class="fa fa-pencil"></i>
-									</div>
-									<div class="media-body">
-										<h5 class="mt-0">Email</h5>
-										<p>rarsm@support.com</p>
-									</div>
-								</div>
-
-								<div class="media mb-20">
-									<div class="icon-styled color-main fs-40">
-										<i class="fa fa-map-marker"></i>
-									</div>
-									<div class="media-body">
-										<h5 class="mt-0">Adresse</h5>
-										<p>Avenue Roi Beaudouin, N0.47, Building 3Z, Apartment 4a, Gombe, Kinshasa, DRC</p>
-									</div>
-								</div>
-
-								<div class="divider-20"></div>
-								<p>Pour toute commande, l'equipe confirme d'abord la disponibilite du livre, puis transmet les references necessaires pour finaliser le paiement et organiser la remise.</p>
-								<div class="divider-20"></div>
-								<div class="order-contact-button-wrap">
-									<a href="contact.html" class="btn btn-outline-maincolor order-contact-button">Canaux de contact</a>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</section>
+			
 
 			<footer class="page_footer ds s-py-85 s-py-xl-155">
 				<div class="container">
@@ -619,22 +496,22 @@
 										<a href="book.html">Livre</a>
 									</li>
 									<li class="menu-item">
-										<a href="pricing.html">Acheter</a>
-									</li>
-									<li class="menu-item">
 										<a href="author.html">Auteur</a>
 									</li>
 									<li class="menu-item">
-										<a href="activites.html">Activités</a>
+										<a href="pricing.html">Shop</a>
 									</li>
 									<li class="menu-item">
 										<a href="institutions.php">Institutions</a>
 									</li>
 									<li class="menu-item">
-										<a href="faq.html">FAQ</a>
+										<a href="activites.html">Activités</a>
 									</li>
 									<li class="menu-item">
 										<a href="contact.html">Contact</a>
+									</li>
+									<li class="menu-item">
+										<a href="faq.html">FAQ</a>
 									</li>
 								</ul>
 							</div>

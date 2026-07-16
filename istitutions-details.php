@@ -331,7 +331,8 @@ foreach ($institutions as $slug => $institution) {
 						<div class="row">
 							<div class="col-12">
 								<h4 class="mb-4">Se connecter</h4>
-								<form class="form-registration c-mb-40 c-gutter-20" action="/">
+								<form class="form-registration c-mb-40 c-gutter-20" method="post" action="actions/login.php">
+									<input type="hidden" name="redirect" value="shop-cart.php">
 									<div class="row mb-4">
 										<div class="col-sm-12">
 											<div class="form-group">
@@ -369,7 +370,8 @@ foreach ($institutions as $slug => $institution) {
 						<div class="row">
 							<div class="col-12">
 								<h4 class="mb-4">Inscription</h4>
-								<form class="form-registration c-mb-40 c-gutter-40" method="post" action="/">
+								<form class="form-registration c-mb-40 c-gutter-40" method="post" action="actions/register.php">
+									<input type="hidden" name="redirect" value="shop-cart.php">
 									<div class="row">
 										<div class="col-12">
 											<div class="form-group">
@@ -426,8 +428,8 @@ foreach ($institutions as $slug => $institution) {
 									<li><a href="index.html">Accueil</a></li>
 									<li><a href="book.html">Livre</a></li>
 									<li><a href="author.html">Auteur</a></li>
+									<li><a href="pricing.html">Shop</a></li>
 									<li class="active"><a href="institutions.php">Institutions</a></li>
-									<li><a href="pricing.html">Acheter</a></li>
 									<li><a href="activites.html">Activités</a></li>
 									<li><a href="contact.html">Contact</a></li>
 									<li class="menu-auth-item menu-auth-login">
@@ -444,8 +446,8 @@ foreach ($institutions as $slug => $institution) {
 								<div class="dropdown">
 									<a class="dropdown-toggle dropdown-shopping-cart" href="#" role="button" id="dropdown-shopping-cart" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" aria-label="Ouvrir le panier">
 										<i class="fa fa-shopping-basket" aria-hidden="true"></i>
-										<span class="badge bg-maincolor">1</span>
-										<span class="cart-total">$27.00</span>
+										<span class="badge bg-maincolor">0</span>
+										<span class="cart-total">$0.00</span>
 									</a>
 									<div class="dropdown-menu dropdown-menu-right ls" aria-labelledby="dropdown-shopping-cart">
 										<div class="widget woocommerce widget_shopping_cart">
@@ -453,12 +455,12 @@ foreach ($institutions as $slug => $institution) {
 												<ul class="woocommerce-mini-cart cart_list product_list_widget">
 													<li class="woocommerce-mini-cart-item mini_cart_item">
 														<a href="#" class="remove" aria-label="Retirer cet article" data-product_id="rarsm-book" data-product_sku="RARSM-PRINT">×</a>
-														<a href="pricing.html#formats"><img src="images/view-rarsm.JPG" alt="Livre RARSM"></a>
-														<a href="pricing.html#formats">RARSM - Edition papier</a>
-														<span class="quantity">1 ×
+														<a href="shop-cart.php"><img src="images/view-rarsm.JPG" alt="Livre RARSM"></a>
+														<a href="shop-cart.php">RARSM - Edition papier</a>
+														<span class="quantity">0 ×
 															<span class="woocommerce-Price-amount amount">
 																<span class="woocommerce-Price-currencySymbol">$</span>
-																27.00
+																0.00
 															</span>
 														</span>
 													</li>
@@ -467,12 +469,12 @@ foreach ($institutions as $slug => $institution) {
 													<strong>Sous-total :</strong>
 													<span class="woocommerce-Price-amount amount">
 														<span class="woocommerce-Price-currencySymbol">$</span>
-														27.00
+														0.00
 													</span>
 												</p>
 												<p class="woocommerce-mini-cart__buttons buttons">
-													<a href="pricing.html#formats" class="button wc-forward">Panier</a>
-													<a href="pricing.html#order-form" class="button checkout wc-forward">Commander</a>
+													<a href="shop-cart.php" class="button wc-forward">Voir le panier</a>
+													<a href="shop-checkout.php" class="button checkout wc-forward">Passer a la commande</a>
 												</p>
 											</div>
 										</div>
@@ -566,7 +568,7 @@ foreach ($institutions as $slug => $institution) {
 									<h4>Acces utiles</h4>
 									<div class="institution-quick-actions">
 										<a href="institutions.php" class="btn btn-maincolor">Retour au panorama</a>
-										<a href="pricing.html#formats" class="btn btn-outline-maincolor">Commander le livre</a>
+										<a href="shop-cart.php" class="btn btn-outline-maincolor">Commander le livre</a>
 										<a href="contact.html" class="btn btn-outline-maincolor">Contacter l'equipe</a>
 										<?php if ($selected['website'] !== ''): ?>
 											<a href="<?php echo rarsm_e($selected['website']); ?>" class="btn btn-outline-maincolor" target="_blank" rel="noopener">Site officiel</a>
@@ -592,12 +594,12 @@ foreach ($institutions as $slug => $institution) {
 								<ul class="menu">
 									<li class="menu-item"><a href="index.html">Accueil</a></li>
 									<li class="menu-item"><a href="book.html">Livre</a></li>
-									<li class="menu-item"><a href="pricing.html">Acheter</a></li>
 									<li class="menu-item"><a href="author.html">Auteur</a></li>
-									<li class="menu-item"><a href="activites.html">Activités</a></li>
+									<li class="menu-item"><a href="pricing.html">Shop</a></li>
 									<li class="menu-item"><a href="institutions.php">Institutions</a></li>
-									<li class="menu-item"><a href="faq.html">FAQ</a></li>
+									<li class="menu-item"><a href="activites.html">Activités</a></li>
 									<li class="menu-item"><a href="contact.html">Contact</a></li>
+									<li class="menu-item"><a href="faq.html">FAQ</a></li>
 								</ul>
 							</div>
 						</div>

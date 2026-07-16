@@ -45,7 +45,7 @@
 <div class="row">
 <div class="col-12">
 <h4 class="mb-4">Log in</h4>
-<form class="form-registration c-mb-40 c-gutter-20" action="/">
+<form class="form-registration c-mb-40 c-gutter-20" method="post" action="actions/login.php">
 <div class="row mb-4">
 <div class="col-sm-12">
 <div class="form-group">
@@ -79,7 +79,7 @@
 <div class="row">
 <div class="col-12">
 <h4 class="mb-4">Registration</h4>
-<form class="form-registration c-mb-40 c-gutter-40" method="post" action="/">
+<form class="form-registration c-mb-40 c-gutter-40" method="post" action="actions/register.php">
 <div class="row">
 <div class="col-12">
 <div class="form-group">
@@ -134,83 +134,83 @@
 </div>
 <div class="col-xl-8 col-lg-6 col-1">
 <!-- main nav start -->
-<nav class="top-nav">
-<ul class="nav sf-menu">
-<li class="active">
-<a href="index.html">Accueil</a>
-</li>
-<li>
-<a href="book.html">Livre</a>
-</li>
-<li>
-<a href="author.html">Auteur</a>
-</li>
-<li>
-<a href="institutions.php">Institutions</a>
-</li>
-<li>
-<a href="pricing.html">Acheter</a>
-</li>
-<li>
-<a href="activites.html">Activités</a>
-</li>
-<li>
-<a href="contact.html">Contact</a>
-</li>
-<li class="menu-auth-item menu-auth-login">
-<a data-toggle="modal" href="#popupLogin">Se connecter</a>
-</li>
-<li class="menu-auth-item menu-auth-register">
-<a data-toggle="modal" href="#popupRegistr">S'inscrire</a>
-</li>
-<li class="menu-cart-mobile dropdown d-lg-none">
-<button aria-expanded="false" aria-haspopup="true" aria-label="Ouvrir le panier" class="dropdown-toggle dropdown-shopping-cart" data-toggle="dropdown" id="dropdown-shopping-cart-mobile" type="button">
-<i aria-hidden="true" class="fa fa-shopping-basket"></i>
-<span class="badge bg-maincolor">1</span>
-<span class="cart-total">$400.00</span>
-</button>
-<div aria-labelledby="dropdown-shopping-cart-mobile" class="dropdown-menu ls">
-<div class="widget woocommerce widget_shopping_cart">
-<div class="widget_shopping_cart_content">
-<ul class="woocommerce-mini-cart cart_list product_list_widget">
-<li class="woocommerce-mini-cart-item mini_cart_item">
-<a aria-label="Retirer cet article" class="remove" data-product_id="rarsm-book" data-product_sku="RARSM-PRINT" href="#">×</a>
-<a href="pricing.html#formats"><img alt="Livre RARSM" src="images/view-rarsm.JPG"/></a>
-<a href="pricing.html#formats">RARSM - Edition papier</a>
-<span class="quantity">1 ×
-<span class="woocommerce-Price-amount amount">
-<span class="woocommerce-Price-currencySymbol">$</span>
-400.00
-</span>
-</span>
-</li>
-</ul>
-<p class="woocommerce-mini-cart__total total">
-<strong>Sous-total :</strong>
-<span class="woocommerce-Price-amount amount">
-<span class="woocommerce-Price-currencySymbol">$</span>
-400.00
-</span>
-</p>
-<p class="woocommerce-mini-cart__buttons buttons">
-<a class="button wc-forward" href="pricing.html#formats">Panier</a>
-<a class="button checkout wc-forward" href="pricing.html#order-form">Commander</a>
-</p>
-</div>
-</div>
-</div>
-</li>
-<li class="menu-language-mobile d-lg-none">
-<div class="language-switcher js-language-switcher">
-<button aria-expanded="false" aria-label="Choix de la langue actuelle" class="language-toggle js-language-toggle" type="button">Fr</button>
-<div aria-label="Choix de la langue" class="language-menu" role="menu">
-<button class="language-option js-language-option is-active" data-language="fr" role="menuitem" type="button">Fr</button>
-<button class="language-option js-language-option" data-language="en" role="menuitem" type="button">En</button>
-</div>
-</div>
-</li>
-</ul>
-</nav>
+				<nav class="top-nav">
+					<ul class="nav sf-menu">
+						<li class="active">
+							<a href="index.html">Accueil</a>
+						</li>
+						<li>
+							<a href="book.html">Livre</a>
+						</li>
+						<li>
+							<a href="author.html">Auteur</a>
+						</li>
+						<li>
+							<a href="pricing.html">Shop</a>
+						</li>
+						<li>
+							<a href="institutions.php">Institutions</a>
+						</li>
+						<li>
+							<a href="activites.html">Activités</a>
+						</li>
+						<li>
+							<a href="contact.html">Contact</a>
+						</li>
+						<li class="menu-auth-item menu-auth-login">
+							<a data-toggle="modal" href="#popupLogin">Se connecter</a>
+						</li>
+						<li class="menu-auth-item menu-auth-register">
+							<a data-toggle="modal" href="#popupRegistr">S'inscrire</a>
+						</li>
+						<li class="menu-cart-mobile dropdown d-lg-none">
+							<button aria-expanded="false" aria-haspopup="true" aria-label="Ouvrir le panier" class="dropdown-toggle dropdown-shopping-cart" data-toggle="dropdown" id="dropdown-shopping-cart-mobile" type="button">
+								<i aria-hidden="true" class="fa fa-shopping-basket"></i>
+								<span class="badge bg-maincolor">0</span>
+								<span class="cart-total">$0.00</span>
+							</button>
+						<div aria-labelledby="dropdown-shopping-cart-mobile" class="dropdown-menu ls">
+							<div class="widget woocommerce widget_shopping_cart">
+								<div class="widget_shopping_cart_content">
+									<ul class="woocommerce-mini-cart cart_list product_list_widget">
+										<li class="woocommerce-mini-cart-item mini_cart_item">
+											<a aria-label="Retirer cet article" class="remove" data-product_id="rarsm-book" data-product_sku="RARSM-PRINT" href="#">×</a>
+											<a href="shop-cart.php"><img alt="Livre RARSM" src="images/view-rarsm.JPG"/></a>
+											<a href="shop-cart.php">RARSM - Edition papier</a>
+												<span class="quantity">0 ×
+													<span class="woocommerce-Price-amount amount">
+														<span class="woocommerce-Price-currencySymbol">$</span>
+															0.00
+													</span>
+												</span>
+										</li>
+									</ul>
+									<p class="woocommerce-mini-cart__total total">
+										<strong>Sous-total :</strong>
+										<span class="woocommerce-Price-amount amount">
+											<span class="woocommerce-Price-currencySymbol">$</span>
+											0.00
+										</span>
+									</p>
+									<p class="woocommerce-mini-cart__buttons buttons">
+										<a class="button wc-forward" href="shop-cart.php">Voir le panier</a>
+										<a class="button checkout wc-forward" href="shop-checkout.php">Passer a la commande</a>
+									</p>
+								</div>
+							</div>
+						</div>
+						</li>
+					<li class="menu-language-mobile d-lg-none">
+					<div class="language-switcher js-language-switcher">
+					<button aria-expanded="false" aria-label="Choix de la langue actuelle" class="language-toggle js-language-toggle" type="button">Fr</button>
+					<div aria-label="Choix de la langue" class="language-menu" role="menu">
+					<button class="language-option js-language-option is-active" data-language="fr" role="menuitem" type="button">Fr</button>
+					<button class="language-option js-language-option" data-language="en" role="menuitem" type="button">En</button>
+					</div>
+					</div>
+					</li>
+					</ul>
+				</nav>
 <!-- eof main nav -->
 </div>
 <div class="col-xl-2 col-lg-3 text-right d-none d-lg-block">
@@ -218,35 +218,25 @@
 <div class="dropdown">
 <a aria-expanded="false" aria-haspopup="true" aria-label="Ouvrir le panier" class="dropdown-toggle dropdown-shopping-cart" data-toggle="dropdown" href="#" id="dropdown-shopping-cart" role="button">
 <i aria-hidden="true" class="fa fa-shopping-basket"></i>
-<span class="badge bg-maincolor">1</span>
-<span class="cart-total">$400.00</span>
+<span class="badge bg-maincolor">0</span>
+<span class="cart-total">$0.00</span>
 </a>
 <div aria-labelledby="dropdown-shopping-cart" class="dropdown-menu dropdown-menu-right ls">
 <div class="widget woocommerce widget_shopping_cart">
 <div class="widget_shopping_cart_content">
 <ul class="woocommerce-mini-cart cart_list product_list_widget">
-<li class="woocommerce-mini-cart-item mini_cart_item">
-<a aria-label="Retirer cet article" class="remove" data-product_id="rarsm-book" data-product_sku="RARSM-PRINT" href="#">×</a>
-<a href="pricing.html#formats"><img alt="Livre RARSM" src="images/view-rarsm.JPG"/></a>
-<a href="pricing.html#formats">RARSM - Edition papier</a>
-<span class="quantity">1 ×
-<span class="woocommerce-Price-amount amount">
-<span class="woocommerce-Price-currencySymbol">$</span>
-400.00
-</span>
-</span>
-</li>
+
 </ul>
 <p class="woocommerce-mini-cart__total total">
 <strong>Sous-total :</strong>
 <span class="woocommerce-Price-amount amount">
 <span class="woocommerce-Price-currencySymbol">$</span>
-400.00
+0.00
 </span>
 </p>
 <p class="woocommerce-mini-cart__buttons buttons">
-<a class="button wc-forward" href="pricing.html#formats">Panier</a>
-<a class="button checkout wc-forward" href="pricing.html#order-form">Commander</a>
+<a class="button wc-forward" href="shop-cart.php">Voir le panier</a>
+<a class="button checkout wc-forward" href="shop-checkout.php">Passer a la commande</a>
 </p>
 </div>
 </div>
@@ -394,27 +384,52 @@
 
 
 </section>
-<section class="ds section-testimonials s-py-90 s-py-xl-150" id="quotes">
-<div class="container">
-<div class="row">
-<div class="col-12 text-center">
-<p class="mb-2">Publics concernés</p>
-<h2 class="special-heading"><span>A qui s’adresse RARSM ?</span></h2>
-<div class="divider-60"></div>
-</div>
-</div>
-<div class="row">
-<div class="col-12">
-<div class="owl-carousel owl-nav-bottom" data-autoplay="true" data-loop="true" data-margin="40" data-nav="true" data-responsive-lg="4" data-responsive-md="2" data-responsive-sm="1" data-responsive-xs="1">
-<div class="vertical-item quote-item"><div class="item-content text-center"><h4 class="mb-3">Juristes et praticiens du droit</h4><p class="position">Référence doctrinale</p><p>Avocats, magistrats, enseignants et étudiants en droit y trouvent un outil clair pour étudier, interpréter et mobiliser le droit minier congolais.</p></div></div>
-<div class="vertical-item quote-item"><div class="item-content text-center"><h4 class="mb-3">Administrations et services publics</h4><p class="position">Appui institutionnel</p><p>Les administrations, organismes et services publics de l'État y disposent d'une base structurée pour appliquer les textes et harmoniser leurs pratiques.</p></div></div>
-<div class="vertical-item quote-item"><div class="item-content text-center"><h4 class="mb-3">Entreprises et coopératives minières</h4><p class="position">Conformité opérationnelle</p><p>Entreprises minières, coopératives et opérateurs économiques peuvent mieux encadrer leurs activités et sécuriser leur conformité réglementaire.</p></div></div>
-<div class="vertical-item quote-item"><div class="item-content text-center"><h4 class="mb-3">Investisseurs et partenaires</h4><p class="position">Lecture stratégique</p><p>Investisseurs nationaux et internationaux bénéficient d'une compréhension lucide du cadre normatif pour évaluer les risques et orienter leurs engagements.</p></div></div>
-</div>
-</div>
-</div>
-</div>
-</section>
+	<section class="ds section-testimonials s-py-90 s-py-xl-150" id="quotes">
+			<div class="container">
+					<div class="row">
+						<div class="col-12 text-center">
+							<p class="mb-2">Publics concernés</p>
+								<h2 class="special-heading">
+									<span>A qui s’adresse RARSM ?</span>
+								</h2>
+							<div class="divider-60"></div>
+						</div>
+					</div>
+						<div class="row">
+					<div class="col-12">
+						<div class="owl-carousel owl-nav-bottom" data-autoplay="true" data-loop="true" data-margin="40" data-nav="true" data-responsive-lg="4" data-responsive-md="2" data-responsive-sm="1" data-responsive-xs="1">
+						<div class="vertical-item quote-item">
+							<div class="item-content text-center">
+								<h4 class="mb-3">Juristes et praticiens du droit</h4>
+									<p class="position">Référence doctrinale</p><p>Avocats, magistrats, enseignants et étudiants en droit y trouvent un outil clair pour étudier, interpréter et mobiliser le droit minier congolais.</p>
+								</div>
+							</div>
+						<div class="vertical-item quote-item">
+							<div class="item-content text-center">
+								<h4 class="mb-3">Administrations et services publics</h4>
+								<p class="position">Appui institutionnel</p>
+								<p>Les administrations, organismes et services publics de l'État y disposent d'une base structurée pour appliquer les textes et harmoniser leurs pratiques.</p>
+							</div>
+						</div>
+						<div class="vertical-item quote-item">
+							<div class="item-content text-center">
+								<h4 class="mb-3">Entreprises et coopératives</h4>
+								<p class="position text-white">Conformité opérationnelle</p>
+								<p>Entreprises minières, coopératives et opérateurs économiques peuvent mieux encadrer leurs activités et sécuriser leur conformité réglementaire.</p>
+							</div>
+						</div>
+						<div class="vertical-item quote-item">
+							<div class="item-content text-center">
+								<h4 class="mb-3">Investisseurs et partenaires</h4>
+								<p class="position">Lecture stratégique</p>
+								<p>Investisseurs nationaux et internationaux bénéficient d'une compréhension lucide du cadre normatif pour évaluer les risques et orienter leurs engagements.</p>
+							</div>
+						</div>
+						</div>
+					</div>
+				</div>
+			</div>
+	</section>
 
 
 	<section class="ls ms s-py-90 s-py-xl-150 c-gutter-50" id="faqs">
@@ -528,6 +543,7 @@
 			</div>
 		</div>
 	</section>
+
 	<section class="ls ms s-overlay mobile-overlay s-py-90 s-py-xl-150 section-amazon" id="valeur-ajoutee">
 			<div class="container">
 				<div class="row">
@@ -586,51 +602,48 @@
 
 <section class="ls ms s-pt-90 s-pb-30 s-pt-xl-200 s-pb-xl-100 c-gutter-50 c-mb-60" id="acheter">
 <div class="container">
-<div class="row text-center">
-<div class="col-12">
-<p class="mb-2 color-dark">Commande et acquisition</p>
-<h2 class="special-heading">
-<span>Acheter le livre RARSM</span>
-</h2>
-<div class="divider-40"></div>
-<p class="excerpt">Choisissez le format adapte a vos besoins : exemplaire imprime, format numerique ou commande institutionnelle.</p>
-<div class="divider-60"></div>
-</div>
-</div>
+			<div class="row text-center">
+				<div class="col-12">
+					<p class="mb-2 color-dark">Commande et acquisition</p>
+						<h2 class="special-heading">
+							<span>Acheter le livre RARSM</span>
+						</h2>
+					<div class="divider-40"></div>
+						<p class="excerpt">Choisissez le format adapte a vos besoins : exemplaire imprime, format numerique ou commande institutionnelle.</p>
+					<div class="divider-60"></div>
+				</div>
+			</div>
 <div class="row">
-<div class="col-lg-4">
-<div class="pricing-plan ls">
-<div class="plan-name">
-<h3>
-										Version papier
-									</h3>
-</div>
-<div class="price-wrap">
-<span class="plan-sign"></span>
-<span class="plan-price">01</span>
-<span class="plan-decimals"></span>
-</div>
-<div class="plan-description">
-									Commandez l'exemplaire imprime du recueil pour votre bibliotheque professionnelle, cabinet, entreprise ou institution.
-								</div>
-<div class="plan-features text-center">
-<ul class="list-unstyled">
-<li>Support physique</li>
-<li>Usage professionnel</li>
-<li>Livraison sur demande</li>
-</ul>
-</div>
-<div class="plan-button">
-<a class="btn btn-outline-maincolor" href="#contact">Commander</a>
-</div>
-</div>
-</div>
+	<div class="col-lg-4">
+			<div class="pricing-plan ls">
+				<div class="plan-name">
+					<h3>Version papier</h3>
+				</div>
+				<div class="price-wrap">
+					<span class="plan-sign"></span>
+					<span class="plan-price">01</span>
+					<span class="plan-decimals"></span>
+				</div>
+				<div class="plan-description">
+					Commandez l'exemplaire imprime du recueil pour votre bibliotheque professionnelle, cabinet, entreprise ou institution.
+				</div>
+					<div class="plan-features text-center">
+						<ul class="list-unstyled">
+							<li>Support physique</li>
+							<li>Usage professionnel</li>
+							<li>Livraison sur demande</li>
+						</ul>
+					</div>
+					<div class="plan-button">
+						<a class="btn btn-outline-maincolor" href="#contact">Commander</a>
+					</div>
+			</div>
+	</div>
 <div class="col-lg-4">
 <div class="pricing-plan plan-featured ls">
 <div class="plan-name">
-<h3>
-										Version numerique
-									</h3>
+<h3>Version numerique </h3>
+									
 </div>
 <div class="price-wrap">
 <span class="plan-sign"></span>
@@ -710,7 +723,7 @@
 <div class="col-lg-4">
 <div class="divider-lg-60"></div>
 <h2 class="special-heading">
-<span>Demander une presentation ou commander</span>
+<span>Nous contacter</span>
 </h2>
 <div class="divider-35"></div>
 <p>Utilisez ce formulaire pour toute demande d’information, d’acquisition, de presentation ou de partenariat autour du recueil RARSM.</p>
@@ -798,25 +811,25 @@
 <a href="index.html">Accueil</a>
 </li>
 <li class="menu-item">
-<a href="#about">Livre</a>
+<a href="book.html">Livre</a>
 </li>
 <li class="menu-item">
-<a href="#acheter">Acheter</a>
+<a href="author.html">Auteur</a>
 </li>
 <li class="menu-item">
-<a href="#author">Auteur</a>
-</li>
-<li class="menu-item">
-<a href="activites.html">Activités</a>
+<a href="pricing.html">Shop</a>
 </li>
 <li class="menu-item">
 <a href="institutions.php">Institutions</a>
 </li>
 <li class="menu-item">
-<a href="faq.html">FAQ</a>
+<a href="activites.html">Activités</a>
 </li>
 <li class="menu-item">
 <a href="contact.html">Contact</a>
+</li>
+<li class="menu-item">
+<a href="faq.html">FAQ</a>
 </li>
 </ul>
 </div>

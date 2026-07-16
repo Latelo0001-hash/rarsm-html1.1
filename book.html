@@ -44,7 +44,7 @@
 						<div class="row">
 							<div class="col-12">
 								<h4 class="mb-4">Log in</h4>
-								<form class="form-registration c-mb-40 c-gutter-20" action="/">
+								<form class="form-registration c-mb-40 c-gutter-20" method="post" action="actions/login.php">
 									<div class="row mb-4">
 										<div class="col-sm-12">
 											<div class="form-group">
@@ -83,7 +83,7 @@
 						<div class="row">
 							<div class="col-12">
 								<h4 class="mb-4">Enregistrement</h4>
-								<form class="form-registration c-mb-40 c-gutter-40" method="post" action="/">
+								<form class="form-registration c-mb-40 c-gutter-40" method="post" action="actions/register.php">
 									<div class="row">
 										<div class="col-12">
 											<div class="form-group">
@@ -148,10 +148,10 @@
 										<a href="author.html">Auteur</a>
 									</li>
 									<li>
-										<a href="institutions.php">Institutions</a>
+										<a href="pricing.html">Shop</a>
 									</li>
 									<li>
-										<a href="pricing.html">Acheter</a>
+										<a href="institutions.php">Institutions</a>
 									</li>
 									<li>
 										<a href="activites.html">Activités</a>
@@ -168,8 +168,8 @@
 									<li class="menu-cart-mobile dropdown d-lg-none">
 										<button aria-expanded="false" aria-haspopup="true" aria-label="Ouvrir le panier" class="dropdown-toggle dropdown-shopping-cart" data-toggle="dropdown" id="dropdown-shopping-cart-mobile" type="button">
 											<i aria-hidden="true" class="fa fa-shopping-basket"></i>
-											<span class="badge bg-maincolor">1</span>
-											<span class="cart-total">$27.00</span>
+											<span class="badge bg-maincolor">0</span>
+											<span class="cart-total">$0.00</span>
 										</button>
 										<div aria-labelledby="dropdown-shopping-cart-mobile" class="dropdown-menu ls">
 											<div class="widget woocommerce widget_shopping_cart">
@@ -177,12 +177,12 @@
 													<ul class="woocommerce-mini-cart cart_list product_list_widget">
 														<li class="woocommerce-mini-cart-item mini_cart_item">
 															<a aria-label="Retirer cet article" class="remove" data-product_id="rarsm-book" data-product_sku="RARSM-PRINT" href="#">×</a>
-															<a href="pricing.html#formats"><img alt="Livre RARSM" src="images/view-rarsm.JPG"></a>
-															<a href="pricing.html#formats">RARSM - Edition papier</a>
-															<span class="quantity">1 ×
+															<a href="shop-cart.php"><img alt="Livre RARSM" src="images/view-rarsm.JPG"></a>
+															<a href="shop-cart.php">RARSM - Edition papier</a>
+															<span class="quantity">0 ×
 																<span class="woocommerce-Price-amount amount">
 																	<span class="woocommerce-Price-currencySymbol">$</span>
-																	27.00
+																	0.00
 																</span>
 															</span>
 														</li>
@@ -191,12 +191,12 @@
 														<strong>Sous-total :</strong>
 														<span class="woocommerce-Price-amount amount">
 															<span class="woocommerce-Price-currencySymbol">$</span>
-															27.00
+															0.00
 														</span>
 													</p>
 													<p class="woocommerce-mini-cart__buttons buttons">
-														<a class="button wc-forward" href="pricing.html#formats">Panier</a>
-														<a class="button checkout wc-forward" href="pricing.html#order-form">Commander</a>
+														<a class="button wc-forward" href="shop-cart.php">Voir le panier</a>
+														<a class="button checkout wc-forward" href="shop-checkout.php">Passer a la commande</a>
 													</p>
 												</div>
 											</div>
@@ -219,8 +219,8 @@
 								<div class="dropdown">
 									<a aria-expanded="false" aria-haspopup="true" aria-label="Ouvrir le panier" class="dropdown-toggle dropdown-shopping-cart" data-toggle="dropdown" href="#" id="dropdown-shopping-cart" role="button">
 										<i aria-hidden="true" class="fa fa-shopping-basket"></i>
-										<span class="badge bg-maincolor">1</span>
-										<span class="cart-total">$27.00</span>
+										<span class="badge bg-maincolor">0</span>
+										<span class="cart-total">$0.00</span>
 									</a>
 									<div aria-labelledby="dropdown-shopping-cart" class="dropdown-menu dropdown-menu-right ls">
 										<div class="widget woocommerce widget_shopping_cart">
@@ -228,12 +228,12 @@
 												<ul class="woocommerce-mini-cart cart_list product_list_widget">
 													<li class="woocommerce-mini-cart-item mini_cart_item">
 														<a aria-label="Retirer cet article" class="remove" data-product_id="rarsm-book" data-product_sku="RARSM-PRINT" href="#">×</a>
-														<a href="pricing.html#formats"><img alt="Livre RARSM" src="images/view-rarsm.JPG"></a>
-														<a href="pricing.html#formats">RARSM - Edition papier</a>
-														<span class="quantity">1 ×
+														<a href="shop-cart.php"><img alt="Livre RARSM" src="images/view-rarsm.JPG"></a>
+														<a href="shop-cart.php">RARSM - Edition papier</a>
+														<span class="quantity">0 ×
 															<span class="woocommerce-Price-amount amount">
 																<span class="woocommerce-Price-currencySymbol">$</span>
-																27.00
+																0.00
 															</span>
 														</span>
 													</li>
@@ -242,12 +242,12 @@
 													<strong>Sous-total :</strong>
 													<span class="woocommerce-Price-amount amount">
 														<span class="woocommerce-Price-currencySymbol">$</span>
-														27.00
+														0.00
 													</span>
 												</p>
 												<p class="woocommerce-mini-cart__buttons buttons">
-													<a class="button wc-forward" href="pricing.html#formats">Panier</a>
-													<a class="button checkout wc-forward" href="pricing.html#order-form">Commander</a>
+													<a class="button wc-forward" href="shop-cart.php">Voir le panier</a>
+													<a class="button checkout wc-forward" href="shop-checkout.php">Passer a la commande</a>
 												</p>
 											</div>
 										</div>
@@ -349,42 +349,212 @@
 							</div>
 						</div>
 					</div>
-					<div class="divider-xl-80 divider-60"></div>
-					<div class="row">
-						<div class="col-12 text-center">
-							<h3 class="special-heading">
-								<span>Table des matieres generale</span>
-							</h3>
-							<div class="divider-40"></div>
+				</div>
+			</section>
+
+
+			<section class="ls ms s-py-90 s-py-xl-150 c-gutter-50" id="faqs">
+		<div class="container">
+				<div class="row">
+						<div class="col-12">
+								<h2 class="special-heading"><span>Structure générale de l’ouvrage</span></h2>
+								<div class="divider-40"></div>
+								<p class="excerpt">De manière pédagogique, ce recueil comporte trois grandes parties organisées autour du cadre institutionnel, du suivi des activités minières et des mécanismes de transparence, traçabilité et certification.</p>
+								<div class="divider-40"></div>
 						</div>
-						<div class="col-lg-4">
-							<div class="hero-bg p-40 h-100">
-								<h5>1. Cadre institutionnel</h5>
-								<p>Organisation des autorites, encadrement des activites miniere et artisanale, articulation des services techniques et des acteurs auxiliaires.</p>
+						<div class="col-lg-6">
+							<div id="accordion01" role="tablist">
+								<div class="card">
+									<div class="card-header" id="collapse01_header" role="tab">
+										<h5>
+											<a aria-controls="collapse01" aria-expanded="true" data-toggle="collapse" href="#collapse01">Partie 1 : Cadre institutionnel et encadrement des activités</a>
+										</h5>
+									</div>
+									<div aria-labelledby="collapse01_header" class="collapse show" data-parent="#accordion01" id="collapse01" role="tabpanel">
+										<div class="card-body">
+											<h6>Titre 1 : L'Administration et les services techniques</h6>
+											<ul class="list-unstyled"><li>Chapitre 1 : L'administration et les services techniques du Ministère des Mines</li><li>Chapitre 2 : Collaboration</li><li>Chapitre 3 : Les auxiliaires</li></ul>
+											<h6>Titre 2 : L'encadrement des activités minières</h6>
+											<ul class="list-unstyled"><li>Chapitre 1 : Encadrement de l'exploitation minière industrielle</li><li>Chapitre 2 : Encadrement de l'exploitation minière artisanale</li></ul>
+										</div>
+									</div>
+								</div>
+								<div class="card">
+									<div class="card-header" id="collapse02_header" role="tab">
+										<h5>
+											<a aria-controls="collapse02" aria-expanded="false" class="collapsed" data-toggle="collapse" href="#collapse02">Partie 2 : Suivi des activités minières</a>
+										</h5>
+									</div>
+									<div aria-labelledby="collapse02_header" class="collapse" data-parent="#accordion01" id="collapse02" role="tabpanel">
+										<div class="card-body">
+												<h6>Titre 1 : Suivi des titulaires et détenteurs d'agrément</h6>
+												<ul class="list-unstyled"><li>Chapitre 1 : Titulaires de droits miniers</li>
+												<li>Chapitre 2 : Titulaires de droits de carrière</li>
+											    <li>Chapitre 3 : Détenteurs d'agrément au titre d'entité de traitement</li>
+												</ul>
+												<h6>Titre 2 : Suivi des opérateurs du secteur minier artisanal</h6>
+												<ul class="list-unstyled"><li>Chapitre 1 : Les coopératives minières</li>
+													<li>Chapitre 2 : Négociants, comptoirs, bourses et centres de négoce</li>
+													<li>Chapitre 3 : Fiscalité</li>
+												</ul>
+												<h6>Titre 3 et 4 : Auxiliaires et exportations</h6>
+												<ul class="list-unstyled"><li>Suivi des laboratoires et autres auxiliaires</li>
+													<li>Mécanismes d'exportation</li>
+												</ul>
+										</div>
+									</div>
+								</div>
 							</div>
 						</div>
-						<div class="col-lg-4">
-							<div class="hero-bg p-40 h-100">
-								<h5>2. Suivi des activites</h5>
-								<p>Droits miniers et de carrieres, entites de traitement, cooperatives, negociants, comptoirs, fiscalite documentaire et controles operationnels.</p>
+					<div class="col-lg-6">
+						<div id="accordion02" role="tablist">
+							<div class="card">
+							<div class="card-header" id="collapse07_header" role="tab">
+								<h5>
+									<a aria-controls="collapse07" aria-expanded="true" data-toggle="collapse" href="#collapse07">Partie 3 : Transparence, traçabilité et certification</a>
+								</h5>
+							</div>
+							<div aria-labelledby="collapse07_header" class="collapse show" data-parent="#accordion02" id="collapse07" role="tabpanel">
+								<div class="card-body">
+									<ul class="list-unstyled">
+										<li>3.1 Transparence : ITIE</li>
+										<li>3.2.2 Processus de Kimberley</li>
+										<li>3.2.3 CIRGL</li>
+										<li>3.2.4 et 3.2.5 Dodd-Frank / Règlement UE</li>
+										<li>3.2.6 Due Diligence OCDE</li>
+										<li>3.2.7 Manuel de certification CTC</li>
+										<li>3.2.8 Manuel des procédures de traçabilité</li>
+									</ul>
+								</div>
 							</div>
 						</div>
-						<div class="col-lg-4">
-							<div class="hero-bg p-40 h-100">
-								<h5>3. Transparence et certification</h5>
-								<p>ITIE, Processus de Kimberley, CIRGL, due diligence, tracabilite des chaines d'approvisionnement et dispositifs de certification applicables.</p>
+							<div class="card">
+							<div class="card-header" id="collapse08_header" role="tab">
+								<h5>
+									<a aria-controls="collapse08" aria-expanded="false" class="collapsed" data-toggle="collapse" href="#collapse08">Objectif pedagogique du recueil</a>
+								</h5>
+							</div>
+							<div aria-labelledby="collapse08_header" class="collapse" data-parent="#accordion02" id="collapse08" role="tabpanel">
+								<div class="card-body">
+									<p>Le RARSM a été conçu pour rassembler, structurer et rendre accessibles dans un même document les principaux textes réglementaires régissant les activités minières, afin de renforcer la sécurité juridique et de promouvoir une gouvernance minière plus efficace.</p>
+								</div>
 							</div>
 						</div>
 					</div>
-					<div class="divider-xl-80 divider-60"></div>
+				</div>
+		</div>
+	</section>
+
+				<section class="ls ms s-pt-90 s-pb-30 s-pt-xl-200 s-pb-xl-100 c-gutter-50 c-mb-60" id="formats">
+				<div class="container">
+					<div class="row text-center">
+						<div class="col-12">
+							<p class="mb-2 color-dark">Formats et acquisition</p>
+							<h2 class="special-heading">
+								<span>Choisissez la formule adaptee a votre besoin</span>
+							</h2>
+							<div class="divider-30"></div>
+							<p class="excerpt">Cette page regroupe les formats disponibles, les moyens de paiement, les informations a fournir pour commander et les modalites de remise du livre.</p>
+							<div class="divider-60"></div>
+						</div>
+					</div>
 					<div class="row">
-						<div class="col-xl-8 offset-xl-2 text-center">
-							<h4>Pourquoi lire cette page avant d'acheter ?</h4>
-							<div class="divider-25"></div>
-							<p>Elle vous donne une vue synthetique du contenu, des usages du livre et de la valeur pratique qu'il peut apporter a votre organisation ou a votre travail quotidien.</p>
-							<div class="navigation-btn">
-								<a href="author.html" class="btn btn-outline-maincolor">Voir l'auteur</a>
-								<a href="pricing.html" class="btn btn-maincolor">Acheter le livre</a>
+						<div class="col-lg-4" id="institutions">
+							<div class="pricing-plan ls">
+								<div class="plan-name">
+									<h3>
+										Exemplaire imprime
+									</h3>
+								</div>
+								<div class="price-wrap">
+									<span class="plan-sign"></span>
+									<span class="plan-price">$27</span>
+									<span class="plan-decimals">USD</span>
+								</div>
+								<div class="plan-description">
+									Format recommande pour les juristes, administrations, cabinets, bibliotheques et lecteurs souhaitant une consultation physique de reference.
+								</div>
+								<div class="plan-features text-center">
+									<ul class="list-unstyled">
+										<li>Commande a l'unite ou en quantite</li>
+										<li>Disponibilite confirmee avant paiement</li>
+										<li>Remise locale ou expedition selon destination</li>
+									</ul>
+								</div>
+								<div class="plan-button">
+									<form action="actions/add-to-cart.php" class="rarsm-plan-action" method="post">
+										<input type="hidden" name="product_id" value="rarsm-print">
+										<input type="hidden" name="quantity" value="1">
+										<button type="submit" class="btn btn-outline-maincolor">Ajouter au panier</button>
+									</form>
+								</div>
+							</div>
+						</div>
+						<div class="col-lg-4">
+							<div class="pricing-plan plan-featured ls">
+								<div class="plan-name">
+									<h3>
+										Version numerique
+									</h3>
+								</div>
+								<div class="price-wrap">
+									<span class="plan-sign"></span>
+									<span class="plan-price">$18</span>
+									<span class="plan-decimals">USD</span>
+								</div>
+								<div class="plan-description">
+									Format concu pour une consultation rapide sur ordinateur, tablette ou smartphone, avec transmission par voie numerique apres validation.
+								</div>
+								<div class="plan-features text-center">
+									<ul class="list-unstyled">
+										<li>Envoi par email apres confirmation</li>
+										<li>Acces simple pour lecture personnelle ou professionnelle</li>
+										<li>Edition et disponibilite precisees a la commande</li>
+									</ul>
+								</div>
+								<div class="plan-button">
+									<form action="actions/add-to-cart.php" class="rarsm-plan-action" method="post">
+										<input type="hidden" name="product_id" value="rarsm-digital">
+										<input type="hidden" name="quantity" value="1">
+										<button type="submit" class="btn btn-maincolor">Ajouter au panier</button>
+									</form>
+								</div>
+							</div>
+						</div>
+						<div class="col-lg-4">
+							<div class="pricing-plan ls">
+								<div class="plan-name">
+									<h3>
+										Commande institutionnelle
+									</h3>
+								</div>
+								<div class="price-wrap">
+									<span class="plan-sign"></span>
+									<span class="plan-price">Devis</span>
+									<span class="plan-decimals">personnalise</span>
+								</div>
+								<div class="plan-description">
+									Formule dediee aux entreprises, universites, administrations et organisations souhaitant plusieurs exemplaires, une facture ou un traitement specifique.
+								</div>
+								<div class="plan-features text-center">
+									<ul class="list-unstyled">
+										<li>Tarification selon quantite et destination</li>
+										<li>Facture, pro forma ou bon de commande possible</li>
+										<li>Suivi logistique adapte aux besoins de la structure</li>
+									</ul>
+								</div>
+								<div class="plan-button">
+									<form action="actions/add-to-cart.php" class="rarsm-plan-action" method="post">
+										<input type="hidden" name="product_id" value="rarsm-institutional">
+										<input type="hidden" name="quantity" value="1">
+										<button type="submit" class="btn btn-outline-maincolor">Demander un devis</button>
+									</form>
+								</div>
+							</div>
+						</div>
+						<div class="col-12">
+							<div class="rarsm-pricing-flow-note text-center">
+								<p class="mb-0">Nouveau parcours : l’utilisateur choisit un format, ajoute le produit au panier, se connecte au checkout puis est redirige vers la passerelle intermediaire de paiement.</p>
 							</div>
 						</div>
 					</div>
@@ -408,22 +578,22 @@
 										<a href="book.html">Livre</a>
 									</li>
 									<li class="menu-item">
-										<a href="pricing.html">Acheter</a>
-									</li>
-									<li class="menu-item">
 										<a href="author.html">Auteur</a>
 									</li>
 									<li class="menu-item">
-										<a href="activites.html">Activités</a>
+										<a href="pricing.html">Shop</a>
 									</li>
 									<li class="menu-item">
 										<a href="institutions.php">Institutions</a>
 									</li>
 									<li class="menu-item">
-										<a href="faq.html">FAQ</a>
+										<a href="activites.html">Activités</a>
 									</li>
 									<li class="menu-item">
 										<a href="contact.html">Contact</a>
+									</li>
+									<li class="menu-item">
+										<a href="faq.html">FAQ</a>
 									</li>
 								</ul>
 							</div>
