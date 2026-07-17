@@ -220,7 +220,7 @@ function initRarsmSessionState() {
 		return items.map(function (item) {
 			return ''
 				+ '<li class="woocommerce-mini-cart-item mini_cart_item">'
-				+ '<a href="shop-cart.php" class="remove" aria-label="Voir le panier">×</a>'
+				+ '<a href="#" class="remove" data-remove-id="' + escapeHtml(item.id || '') + '" aria-label="Retirer cet article">×</a>'
 				+ '<a href="shop-cart.php"><img src="' + escapeHtml(item.image || 'images/view-rarsm.JPG') + '" alt="' + escapeHtml(item.name || 'Produit RARSM') + '"></a>'
 				+ '<a href="shop-cart.php">' + escapeHtml(item.name || 'Produit RARSM') + '</a>'
 				+ '<span class="quantity">' + escapeHtml(item.quantity || 0) + ' ×'
@@ -249,6 +249,42 @@ function initRarsmSessionState() {
 			var $content = $(this);
 			$content.find('.woocommerce-mini-cart').html(renderMiniCartItems(safeCart));
 			$content.find('.woocommerce-mini-cart__total .amount').html(renderAmountHtml(displayTotal));
+		});
+	}
+
+	function requestSessionState() {
+		return fetch(baseUrl + '/session-status.php', {
+			credentials: 'same-origin',
+			headers: {
+				'Accept': 'application/json'
+			}
+		}).then(function (response) {
+			if (!response.ok) {
+				throw new Error('Session endpoint unavailable');
+			}
+
+			return response.json();
+		});
+	}
+
+	function removeMiniCartItem(itemId) {
+		var payload = new URLSearchParams();
+		payload.append('remove_id', itemId);
+
+		return fetch(baseUrl + '/actions/update-cart.php', {
+			method: 'POST',
+			credentials: 'same-origin',
+			headers: {
+				'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8',
+				'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+			},
+			body: payload.toString()
+		}).then(function (response) {
+			if (!response.ok) {
+				throw new Error('Cart update failed');
+			}
+
+			return response.text();
 		});
 	}
 
@@ -338,18 +374,20 @@ function initRarsmSessionState() {
 
 	function applySessionState(data) {
 		var $navMenus = $('.top-nav .sf-menu, .sf-menu.nav');
-		var $desktopAuthButtons = $('.header-utilities > a.btn[href*="shop-account-login.php"], .header-utilities > a.btn[href*="shop-account-register.php"]');
-		var $mobileAuthItems = $('.menu-auth-login, .menu-auth-register');
+		var $desktopAuthButtons = $('.header-utilities > a.btn[href*="shop-account-login.php"], .header-utilities > a.btn[href*="shop-account-register.php"], .header-utilities > a.btn[data-toggle][href="#popupLogin"], .header-utilities > a.btn[data-toggle][href="#popupRegistr"]');
+		var $mobileAuthItems = $('.page_header .menu-auth-login, .page_header .menu-auth-register');
 		var $headerUtilities = $('.header-utilities').first();
 		var logoutHref = data.links.logout || 'logout.php';
+		var isAuthenticated = !!(data.authenticated && data.user);
 
 		applyCartState(data.cart || {});
+		$body.toggleClass('rarsm-session-authenticated', isAuthenticated);
 
 		$('.menu-session-item.rarsm-session-item--client, .rarsm-user-menu--client').remove();
 		$mobileAuthItems.removeClass('rarsm-auth-hidden').css('display', '');
 		$desktopAuthButtons.removeClass('rarsm-auth-hidden').css('display', '');
 
-		if (!data.authenticated || !data.user) {
+		if (!isAuthenticated) {
 			return;
 		}
 
@@ -390,19 +428,35 @@ function initRarsmSessionState() {
 		initMegaMenu(1);
 	}
 
-	fetch(baseUrl + '/session-status.php', {
-		credentials: 'same-origin',
-		headers: {
-			'Accept': 'application/json'
-		}
-	})
-		.then(function (response) {
-			if (!response.ok) {
-				throw new Error('Session endpoint unavailable');
+	$(document)
+		.off('click.rarsmMiniCartRemove')
+		.on('click.rarsmMiniCartRemove', '.widget_shopping_cart_content .remove[data-remove-id]', function (event) {
+			event.preventDefault();
+			event.stopPropagation();
+
+			var $link = $(this);
+			var itemId = String($link.data('remove-id') || '');
+
+			if (!itemId || $link.data('rarsmRemoving')) {
+				return;
 			}
 
-			return response.json();
-	})
+			$link.data('rarsmRemoving', true).attr('aria-disabled', 'true');
+
+			removeMiniCartItem(itemId)
+				.then(requestSessionState)
+				.then(function (data) {
+					applySessionState(data);
+				})
+				.catch(function () {
+					window.location.href = baseUrl + '/shop-cart.php';
+				})
+				.finally(function () {
+					$link.removeData('rarsmRemoving').removeAttr('aria-disabled');
+				});
+		});
+
+	requestSessionState()
 		.then(function (data) {
 			applySessionState(data);
 		})
@@ -2011,7 +2065,7 @@ function windowLoadInit() {
 
 
 		//remove product from cart - only for HTML
-		$('a.remove').on('click', function (e) {
+		$('.woocommerce-cart-form a.remove').on('click', function (e) {
 			e.preventDefault();
 			$(this).closest('tr, .woocommerce-mini-cart-item').remove();
 		});

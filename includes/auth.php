@@ -140,6 +140,8 @@ function rarsm_login_user(array $input): array
 function rarsm_logout_user(): void
 {
     unset($_SESSION['rarsm_user']);
+    $_SESSION['rarsm_cart'] = [];
+    unset($_SESSION['rarsm_latest_order_id']);
 }
 
 function rarsm_user_display_name(array $user): string
