@@ -42,130 +42,130 @@ function rarsm_initials($label)
 
 $institutions = [
 	'igm' => [
-		'name' => "Inspection Generale des Mines - IGM",
+		'name' => "Inspection Générale des Mines - IGM",
 		'sector' => "Mines",
-		'summary' => "Service public d'inspection, de controle et d'audit des activites minieres et des carrieres en RDC.",
-		'details' => "L'Inspection Generale des Mines est un service public place sous l'autorite du ministere des Mines. Elle assure l'inspection, le controle et l'audit des activites minieres et des carrieres sur l'ensemble du territoire national. Elle veille au respect du Code minier, du Reglement minier et des autres textes applicables, tout en renforcant la tracabilite des minerais et la lutte contre la fraude, la contrebande et le commerce illicite des produits miniers.",
+		'summary' => "Service public d'inspection, de contrôle et d'audit des activités minières et des carrières en RDC.",
+		'details' => "L'Inspection Générale des Mines est un service public place sous l'autorité du ministère des Mines. Elle assure l'inspection, le contrôle et l'audit des activités minières et des carrières sur l'ensemble du territoire national. Elle veille au respect du Code minier, du Règlement minier et des autres textes applicables, tout en renforçant la traçabilité des minerais et la lutte contre la fraude, la contrebande et le commerce illicite des produits miniers.",
 		'website' => '',
 		'website_label' => '',
 	],
 	'ctcpm' => [
 		'name' => "Cellule Technique de Coordination et de Planification Miniere - CTCPM",
 		'sector' => "Mines",
-		'summary' => "Organe technique de conseil, d'etudes, de coordination et de planification rattache au ministere des Mines.",
-		'details' => "La CTCPM assiste le ministre dans la conception et la mise en oeuvre de la politique miniere nationale. Elle analyse les donnees economiques, techniques, juridiques et statistiques relatives au secteur minier, centralise certaines informations sur la production et les exportations, et formule des avis sur les projets miniers, les strategies sectorielles et les reformes reglementaires.",
+		'summary' => "Organe technique de conseil, d'études, de coordination et de planification rattaché au ministère des Mines.",
+		'details' => "La CTCPM assiste le ministre dans la conception et la mise en œuvre de la politique minière nationale. Elle analyse les données économiques, techniques, juridiques et statistiques relatives au secteur minier, centralise certaines informations sur la production et les exportations, et formule des avis sur les projets miniers, les stratégies sectorielles et les réformes réglementaires.",
 		'website' => 'https://www.ctcpm.cd/',
 		'website_label' => 'ctcpm.cd',
 	],
 	'fomin' => [
 		'name' => "Fonds Minier pour les Generations Futures - FOMIN",
 		'sector' => "Mines",
-		'summary' => "Etablissement public charge de constituer des richesses financieres et materielles au profit de l'apres-mine.",
-		'details' => "Le FOMIN a pour mission de preserver une partie des revenus tires des ressources miniere non renouvelables au profit des generations futures. Il gere notamment une quotite de la redevance miniere selon des principes de securite, de rentabilite, de transparence et de responsabilite, et participe a la perennisation de la recherche geologique et miniere.",
+		'summary' => "Etablissement public chargé de constituer des richesses financières et materielles au profit de l'après-mine.",
+		'details' => "Le FOMIN a pour mission de preserver une partie des revenus tires des ressources minière non renouvelables au profit des generations futures. Il gere notamment une quotite de la redevance minière selon des principes de sécurité, de rentabilite, de transparence et de responsabilite, et participe a la perennisation de la recherche geologique et minière.",
 		'website' => 'https://www.fomin.cd/',
 		'website_label' => 'fomin.cd',
 	],
 	'ceec' => [
 		'name' => "Centre d'Expertise, d'Evaluation et de Certification - CEEC",
 		'sector' => "Mines",
-		'summary' => "Autorite chargee de l'expertise, de l'evaluation et de la certification de certaines substances minerales.",
-		'details' => "Le CEEC intervient principalement dans les filieres des substances minerales precieuses, semi-precieuses et strategiques. Il analyse la qualite, la teneur, la quantite et la valeur marchande des produits miniers, delivre des certificats de conformite, d'origine et de tracabilite, et contribue a la lutte contre la sous-evaluation, la fraude et l'exportation illegale des minerais.",
+		'summary' => "Autorite chargée de l'expertise, de l'évaluation et de la certification de certaines substances minérales.",
+		'details' => "Le CEEC intervient principalement dans les filières des substances minérales precieuses, semi-precieuses et stratégiques. Il analyse la qualité, la teneur, la quantité et la valeur marchande des produits miniers, delivre des certificats de conformité, d'origine et de traçabilité, et contribue a la lutte contre la sous-évaluation, la fraude et l'exportation illégale des minerais.",
 		'website' => 'https://ceec.cd/',
 		'website_label' => 'ceec.cd',
 	],
 	'sgnc' => [
 		'name' => "Service Geologique National du Congo - SGNC",
 		'sector' => "Mines",
-		'summary' => "Etablissement public de reference charge de la connaissance scientifique du sol et du sous-sol congolais.",
-		'details' => "Le SGNC acquiert, centralise, traite, conserve et diffuse les donnees geologiques et minieres nationales. Il realise des travaux de cartographie geologique, geophysique, geochimique et hydrogeologique, identifie les formations geologiques, evalue le potentiel mineral du pays et etudie aussi les risques naturels lies a la geologie.",
+		'summary' => "Etablissement public de référence chargé de la connaissance scientifique du sol et du sous-sol congolais.",
+		'details' => "Le SGNC acquiert, centralise, traite, conserve et diffusé les données géologiques et minières nationales. Il réalise des travaux de cartographie geologique, geophysique, geochimique et hydrogeologique, identifie les formations géologiques, évalue le potentiel mineral du pays et etudie aussi les risques naturels liés a la géologie.",
 		'website' => 'https://sgnc.cd/',
 		'website_label' => 'sgnc.cd',
 	],
 	'cami' => [
 		'name' => "Cadastre Minier - CAMI",
 		'sector' => "Mines",
-		'summary' => "Etablissement public charge de la gestion du domaine minier ainsi que des droits miniers et de carrieres.",
-		'details' => "Le CAMI recoit, enregistre et traite les demandes d'octroi, de renouvellement, de transformation, d'extension ou de transfert des droits miniers. Il verifie la disponibilite des perimetres, tient les registres officiels des permis et etablit les cartes cadastrales qui permettent de prevenir les chevauchements et les conflits entre titres.",
+		'summary' => "Etablissement public chargé de la gestion du domaine minier ainsi que des droits miniers et de carrières.",
+		'details' => "Le CAMI reçoit, enregistre et traite les demandes d'octroi, de renouvellement, de transformation, d'extension ou de transfert des droits miniers. Il vérifie la disponibilité des périmètres, tient les registres officiels des permis et etablit les cartes cadastrales qui permettent de prévenir les chevauchements et les conflits entre titres.",
 		'website' => 'https://cami.cd/',
 		'website_label' => 'cami.cd',
 	],
 	'saemape' => [
-		'name' => "Service d'Assistance et d'Encadrement de l'Exploitation miniere artisanale et a petite echelle - SAEMAPE",
+		'name' => "Service d'Assistance et d'Encadrement de l'Exploitation minière artisanale et à petite échelle - SAEMAPE",
 		'sector' => "Mines",
-		'summary' => "Service public charge de l'assistance et de l'encadrement des exploitants miniers artisanaux et des cooperatives.",
-		'details' => "Le SAEMAPE favorise la formalisation et la professionnalisation de l'exploitation miniere artisanale. Il apporte une assistance technique, administrative et manageriale, sensibilise aux regles de securite, de protection de l'environnement et de tracabilite, et contribue a la lutte contre le travail des enfants, les accidents et les pratiques minieres dangereuses.",
+		'summary' => "Service public chargé de l'assistance et de l'encadrement des exploitants miniers artisanaux et des cooperatives.",
+		'details' => "Le SAEMAPE favorise la formalisation et la professionnalisation de l'exploitation minière artisanale. Il apporte une assistance technique, administrative et manageriale, sensibilise aux règles de sécurité, de protection de l'environnement et de traçabilité, et contribue a la lutte contre le travail des enfants, les accidents et les pratiques minières dangereuses.",
 		'website' => 'https://saemape.cd/',
 		'website_label' => 'saemape.cd',
 	],
 	'arecoms' => [
-		'name' => "Autorite de Regulation et de Controle des Marches des Substances Minerales Strategiques - ARECOMS",
+		'name' => "Autorite de Regulation et de Contrôle des Marches des Substances Minerales Strategiques - ARECOMS",
 		'sector' => "Mines",
-		'summary' => "Autorite publique chargee de la regulation et du controle des marches des substances minerales strategiques.",
-		'details' => "L'ARECOMS veille a l'organisation, a l'assainissement et a la stabilite des marches des substances minerales declarees strategiques en RDC, notamment le cobalt, le germanium et la colombo-tantalite. Elle controle les activites de production, d'achat, de traitement, de commercialisation et d'exportation relevant de son mandat, et propose au Gouvernement des mesures de sauvegarde et des reformes sectorielles.",
+		'summary' => "Autorite publique chargée de la régulation et du contrôle des marches des substances minérales stratégiques.",
+		'details' => "L'ARECOMS veille a l'organisation, a l'assainissement et a la stabilité des marches des substances minérales declarees stratégiques en RDC, notamment le cobalt, le germanium et la colombo-tantalite. Elle contrôle les activités de production, d'achat, de traitement, de commercialisation et d'exportation relevant de son mandat, et propose au Gouvernement des mesures de sauvegarde et des réformes sectorielles.",
 		'website' => '',
 		'website_label' => '',
 	],
 	'cnlfm' => [
 		'name' => "Commission Nationale de Lutte contre la Fraude Miniere - CNLFM",
 		'sector' => "Mines",
-		'summary' => "Mecanisme de coordination entre plusieurs services publics impliques dans la lutte contre la fraude et la contrebande minieres.",
-		'details' => "La CNLFM favorise la collaboration entre les Mines, l'Interieur, la Justice, la Defense, les regies financieres et les organismes techniques. Elle organise l'echange d'informations, les missions conjointes de controle et les actions de terrain contre l'exploitation clandestine, le transport irregulier, la dissimulation et l'exportation frauduleuse des produits miniers.",
+		'summary' => "Mécanisme de coordination entre plusieurs services publics impliques dans la lutte contre la fraude et la contrebande minières.",
+		'details' => "La CNLFM favorise la collaboration entre les Mines, l'Intérieur, la Justice, la Défense, les régies financières et les organismes techniques. Elle organise l'échange d'informations, les missions conjointes de contrôle et les actions de terrain contre l'exploitation clandestine, le transport irrégulier, la dissimulation et l'exportation frauduleuse des produits miniers.",
 		'website' => 'https://ceec.cd/fraude-miniere',
 		'website_label' => 'Plus d\'informations',
 	],
 	'ministere-finances' => [
-		'name' => "Ministere des Finances",
+		'name' => "Ministère des Finances",
 		'sector' => "Finances",
-		'summary' => "Organe charge de la gestion generale des finances publiques et de la mobilisation des recettes du pouvoir central.",
-		'details' => "Le ministere des Finances conçoit et met en oeuvre la politique fiscale, financiere, comptable et budgetaire de l'Etat. Dans le secteur minier, il veille a la perception des impots, droits de douane, taxes, redevances et autres recettes revenant au pouvoir central, tout en suivant la tresorerie, la dette publique et les reformes de transparence et de digitalisation.",
+		'summary' => "Organe chargé de la gestion generale des finances publiques et de la mobilisation des recettes du pouvoir central.",
+		'details' => "Le ministère des Finances conçoit et met en oeuvre la politique fiscale, financière, comptable et budgétaire de l'Etat. Dans le secteur minier, il veille a la perception des impôts, droits de douane, taxes, redevances et autres recettes revenant au pouvoir central, tout en suivant la trésorerie, la dette publique et les réformes de transparence et de digitalisation.",
 		'website' => 'https://finances.gouv.cd/',
 		'website_label' => 'finances.gouv.cd',
 	],
 	'dgi' => [
-		'name' => "Direction Generale des Impots - DGI",
+		'name' => "Direction Générale des Impots - DGI",
 		'sector' => "Finances",
-		'summary' => "Regie financiere chargee de l'assiette, du controle, du recouvrement et du contentieux des impots du pouvoir central.",
-		'details' => "La DGI identifie les contribuables, recoit les declarations fiscales et controle leur exactitude. Elle recouvre notamment les impots sur les benefices, les revenus, les remunerations et la TVA selon la legislation applicable, et intervient dans le secteur minier pour suivre les obligations fiscales des societes, sous-traitants, fournisseurs et travailleurs concernes.",
+		'summary' => "Regie financière chargée de l'assiette, du contrôle, du recouvrement et du contentieux des impôts du pouvoir central.",
+		'details' => "La DGI identifie les contribuables, reçoit les declarations fiscales et contrôle leur exactitude. Elle recouvre notamment les impôts sur les bénéfices, les revenus, les remunerations et la TVA selon la législation applicable, et intervient dans le secteur minier pour suivre les obligations fiscales des sociétés, sous-traitants, fournisseurs et travailleurs concernes.",
 		'website' => 'https://dgi.gouv.cd/',
 		'website_label' => 'dgi.gouv.cd',
 	],
 	'dgda' => [
-		'name' => "Direction Generale des Douanes et Accises - DGDA",
+		'name' => "Direction Générale des Douanes et Accises - DGDA",
 		'sector' => "Finances",
-		'summary' => "Regie financiere chargee de l'application de la legislation douaniere et accisienne sur toute l'etendue du territoire national.",
-		'details' => "La DGDA percoit les droits, taxes et redevances dus a l'importation, a l'exportation, au transit et a l'entreposage des marchandises. Dans le secteur minier, elle verifie les formalites douanieres relatives aux equipements importes et aux produits miniers exportes, tout en participant a la lutte contre la fraude, la contrebande et la fausse declaration.",
+		'summary' => "Regie financière chargée de l'application de la législation douaniere et accisienne sur toute l'etendue du territoire national.",
+		'details' => "La DGDA percoit les droits, taxes et redevances dus a l'importation, a l'exportation, au transit et a l'entreposage des marchandises. Dans le secteur minier, elle vérifie les formalites douanieres relatives aux équipements importes et aux produits miniers exportes, tout en participant a la lutte contre la fraude, la contrebande et la fausse declaration.",
 		'website' => 'https://douane.gouv.cd/',
 		'website_label' => 'douane.gouv.cd',
 	],
 	'dgrad' => [
-		'name' => "Direction Generale des Recettes Administratives, Judiciaires, Domaniales et de Participations - DGRAD",
+		'name' => "Direction Générale des Recettes Administratives, Judiciaires, Domaniales et de Participations - DGRAD",
 		'sector' => "Finances",
-		'summary' => "Service public charge de l'ordonnancement et du recouvrement des recettes non fiscales du pouvoir central.",
-		'details' => "La DGRAD verifie les operations des services d'assiette, etablit les titres de perception et assure le recouvrement des recettes non fiscales provenant notamment des mines, de l'environnement, du commerce, des transports et des affaires foncieres. Sa digitalisation vise a renforcer la tracabilite et a limiter les paiements irreguliers.",
+		'summary' => "Service public chargé de l'ordonnancement et du recouvrement des recettes non fiscales du pouvoir central.",
+		'details' => "La DGRAD vérifie les operations des services d'assiette, etablit les titres de perception et assure le recouvrement des recettes non fiscales provenant notamment des mines, de l'environnement, du commerce, des transports et des affaires foncieres. Sa digitalisation vise a renforcer la traçabilité et a limiter les paiements irréguliers.",
 		'website' => 'https://dgrad.gouv.cd/',
 		'website_label' => 'dgrad.gouv.cd',
 	],
 	'recettes-provinciales' => [
 		'name' => "Directions provinciales des recettes",
 		'sector' => "Finances",
-		'summary' => "Regies financieres instituees par les provinces pour mobiliser les revenus relevant de leurs competences.",
-		'details' => "Leur appellation et leur organisation varient selon les provinces, mais leur mission reste d'identifier les contribuables, d'ordonner, de recouvrer et de controler les impots, taxes, droits et redevances provinciaux. Dans les provinces minieres, elles jouent un role important dans le suivi des operateurs et des activites economiques liees aux mines.",
+		'summary' => "Regies financières instituees par les provinces pour mobiliser les revenus relevant de leurs competences.",
+		'details' => "Leur appellation et leur organisation varient selon les provinces, mais leur mission reste d'identifier les contribuables, d'ordonner, de recouvrer et de contrôler les impôts, taxes, droits et redevances provinciaux. Dans les provinces minières, elles jouent un rôle important dans le suivi des opérateurs et des activités économiques liees aux mines.",
 		'website' => '',
 		'website_label' => '',
 	],
 	'ministere-transports' => [
-		'name' => "Ministere des Transports, Voies de Communication et Desenclavement",
+		'name' => "Ministère des Transports, Voies de Communication et Desenclavement",
 		'sector' => "Transports",
-		'summary' => "Ministere charge de la politique nationale des transports et des corridors logistiques en RDC.",
-		'details' => "Ce ministere prepare les normes, strategies et programmes relatifs aux transports routier, ferroviaire, fluvial, lacustre, maritime et aerien. Dans le secteur minier, il intervient dans l'organisation des corridors servant a acheminer les minerais et les equipements, et son action influence directement les couts et la competitivite des exportations miniere congolaises.",
+		'summary' => "Ministère chargé de la politique nationale des transports et des corridors logistiques en RDC.",
+		'details' => "Ce ministère prépare les normes, stratégies et programmes relatifs aux transports routier, ferroviaire, fluvial, lacustre, maritime et aérien. Dans le secteur minier, il intervient dans l'organisation des corridors servant a acheminer les minerais et les équipements, et son action influence directement les coûts et la compétitivité des exportations minière congolaises.",
 		'website' => 'https://transports.gouv.cd/',
 		'website_label' => 'transports.gouv.cd',
 	],
 	'ogefrem' => [
 		'name' => "Office de Gestion du Fret Multimodal - OGEFREM",
 		'sector' => "Transports",
-		'summary' => "Etablissement public charge de l'encadrement et de la regulation du fret congolais.",
-		'details' => "L'OGEFREM defend les interets des chargeurs congolais, suit les cargaisons importees ou exportees par les differents corridors desservant la RDC et gere des documents de suivi du fret. Il collecte et analyse des donnees sur les volumes, les itineraires et les couts logistiques, ce qui en fait un acteur important pour le suivi des minerais exportes et des equipements importes.",
+		'summary' => "Etablissement public chargé de l'encadrement et de la régulation du fret congolais.",
+		'details' => "L'OGEFREM defend les interets des chargeurs congolais, suit les cargaisons importees ou exportees par les differents corridors desservant la RDC et gere des documents de suivi du fret. Il collecte et analyse des données sur les volumes, les itineraires et les coûts logistiques, ce qui en fait un acteur important pour le suivi des minerais exportes et des équipements importes.",
 		'website' => 'https://ogefrem.cd/',
 		'website_label' => 'ogefrem.cd',
 	],
@@ -173,31 +173,31 @@ $institutions = [
 		'name' => "Lignes Maritimes Congolaises - LMC",
 		'sector' => "Transports",
 		'summary' => "Armement maritime national de la RDC, intervenant dans l'organisation du transport maritime et multimodal.",
-		'details' => "La LMC assure a la RDC l'exercice et la jouissance de ses droits de trafic maritime. Elle peut transporter des marchandises par ses propres navires, des navires affretes ou des accords avec d'autres transporteurs. Son role est strategique pour un pays dependant fortement des ports et corridors regionaux pour son commerce exterieur, y compris les produits miniers.",
+		'details' => "La LMC assure a la RDC l'exercice et la jouissance de ses droits de trafic maritime. Elle peut transporter des marchandises par ses propres navires, des navires affrétés ou des accords avec d'autres transporteurs. Son rôle est stratégique pour un pays dépendant fortement des ports et corridors régionaux pour son commerce extérieur, y compris les produits miniers.",
 		'website' => 'https://lmc.cd/',
 		'website_label' => 'lmc.cd',
 	],
 	'ministere-recherche' => [
-		'name' => "Ministere charge de la Recherche scientifique et de l'Innovation technologique",
+		'name' => "Ministère chargé de la Recherche scientifique et de l'Innovation technologique",
 		'sector' => "Recherche",
-		'summary' => "Ministere charge de la politique nationale de recherche, d'innovation et de developpement technologique.",
-		'details' => "Ce ministere oriente les programmes scientifiques vers les besoins economiques, industriels, environnementaux et sociaux du pays. Il supervise les centres, instituts et organismes publics de recherche, encourage la formation des chercheurs et accompagne les institutions travaillant sur la geologie, la metallurgie, l'environnement et l'energie dans le champ minier.",
+		'summary' => "Ministère chargé de la politique nationale de recherche, d'innovation et de développement technologique.",
+		'details' => "Ce ministère oriente les programmes scientifiques vers les besoins économiques, industriels, environnementaux et sociaux du pays. Il supervise les centres, instituts et organismes publics de recherche, encourage la formation des chercheurs et accompagne les institutions travaillant sur la géologie, la métallurgie, l'environnement et l'énergie dans le champ minier.",
 		'website' => 'https://minesursi.gouv.cd/',
 		'website_label' => 'minesursi.gouv.cd',
 	],
 	'cnpri' => [
 		'name' => "Comite National de Protection contre les Rayonnements Ionisants - CNPRI",
 		'sector' => "Recherche",
-		'summary' => "Autorite reglementaire nationale chargee de la surete nucleaire, de la securite radiologique et de la radioprotection.",
-		'details' => "Le CNPRI veille a la protection des travailleurs, des patients, du public, des biens et de l'environnement. Il controle les activites qui utilisent, detiennent, transportent, importent ou exportent des sources radioactives. Dans le secteur minier, son intervention est importante lorsque des minerais contiennent des substances radioactives ou lorsque des appareils utilisant des rayonnements sont employes.",
+		'summary' => "Autorite réglementaire nationale chargée de la surete nucleaire, de la sécurité radiologique et de la radioprotection.",
+		'details' => "Le CNPRI veille a la protection des travailleurs, des patients, du public, des biens et de l'environnement. Il contrôle les activités qui utilisent, detiennent, transportent, importent ou exportent des sources radioactives. Dans le secteur minier, son intervention est importante lorsque des minerais contiennent des substances radioactives ou lorsque des appareils utilisant des rayonnements sont employes.",
 		'website' => 'https://cnpri.cd/',
 		'website_label' => 'cnpri.cd',
 	],
 	'cgea' => [
 		'name' => "Commissariat General a l'Energie Atomique - CGEA",
 		'sector' => "Recherche",
-		'summary' => "Institution congolaise chargee de promouvoir et coordonner les recherches liees a l'utilisation pacifique de l'energie atomique.",
-		'details' => "Le CGEA developpe des programmes scientifiques et technologiques dans plusieurs domaines, notamment la physique, la chimie, l'agronomie, les sciences de la vie et les techniques appliquees. Dans le secteur minier, ses techniques peuvent etre utilisees pour caracteriser des minerais, etudier des materiaux et detecter certains elements.",
+		'summary' => "Institution congolaise chargée de promouvoir et coordonnér les recherches liees a l'utilisation pacifique de l'énergie atomique.",
+		'details' => "Le CGEA developpe des programmes scientifiques et technologiques dans plusieurs domaines, notamment la physique, la chimie, l'agronomie, les sciences de la vie et les techniques appliquees. Dans le secteur minier, ses techniques peuvent être utilisees pour caracteriser des minerais, etudier des matériaux et detecter certains elements.",
 		'website' => 'https://cgea-rdc.org/',
 		'website_label' => 'cgea-rdc.org',
 	],
@@ -205,75 +205,75 @@ $institutions = [
 		'name' => "Centre de Recherches Geologiques et Minieres - CRGM",
 		'sector' => "Recherche",
 		'summary' => "Etablissement public a caractere scientifique et technique specialise dans les sciences de la Terre.",
-		'details' => "Le CRGM conçoit et execute des projets destines a ameliorer la connaissance du sol et du sous-sol de la RDC. Il realise des travaux de prospection geologique et miniere, produit des cartes geologiques, gitologiques, hydrogeologiques et geotechniques, et etudie aussi les risques geologiques ainsi que les effets environnementaux des activites minieres.",
+		'details' => "Le CRGM conçoit et execute des projets destines a améliorer la connaissance du sol et du sous-sol de la RDC. Il réalise des travaux de prospection geologique et minière, produit des cartes géologiques, gitologiques, hydrogéologiques et geotechniques, et etudie aussi les risques géologiques ainsi que les effets environnementaux des activités minières.",
 		'website' => '',
 		'website_label' => '',
 	],
 	'ministere-commerce-exterieur' => [
-		'name' => "Ministere du Commerce exterieur",
+		'name' => "Ministère du Commerce extérieur",
 		'sector' => "Commerce",
-		'summary' => "Ministere charge de la politique nationale relative aux importations, exportations, transit et relations commerciales internationales.",
-		'details' => "Le ministere du Commerce exterieur elabore les orientations destinees a promouvoir les produits congolais sur les marches etrangers, negocie et suit les accords commerciaux et supervise ou collabore avec des organismes comme l'OCC. Dans le secteur minier, il encadre les aspects commerciaux des exportations de minerais et de produits transformes.",
+		'summary' => "Ministère chargé de la politique nationale relative aux importations, exportations, transit et relations commerciales internationales.",
+		'details' => "Le ministère du Commerce extérieur élabore les orientations destinees a promouvoir les produits congolais sur les marches étrangers, négocie et suit les accords commerciaux et supervise ou collabore avec des organismes comme l'OCC. Dans le secteur minier, il encadre les aspects commerciaux des exportations de minerais et de produits transformés.",
 		'website' => '',
 		'website_label' => '',
 	],
 	'occ' => [
-		'name' => "Office Congolais de Controle - OCC",
+		'name' => "Office Congolais de Contrôle - OCC",
 		'sector' => "Commerce",
-		'summary' => "Etablissement public charge du controle de la qualite, de la conformite et de certaines analyses techniques.",
-		'details' => "L'OCC controle les marchandises et produits importes, exportes ou fabriques localement. Ses missions portent sur la qualite, la quantite, la conformite, le prix et le respect des normes applicables. Dans le domaine minier, il peut intervenir dans le controle de certains produits, equipements et operations lies au commerce exterieur.",
+		'summary' => "Etablissement public chargé du contrôle de la qualité, de la conformité et de certaines analyses techniques.",
+		'details' => "L'OCC contrôle les marchandises et produits importes, exportes ou fabriques localement. Ses missions portent sur la qualité, la quantité, la conformité, le prix et le respect des normes applicables. Dans le domaine minier, il peut intervenir dans le contrôle de certains produits, équipements et operations liés au commerce extérieur.",
 		'website' => 'https://www.occ.cd/',
 		'website_label' => 'occ.cd',
 	],
 	'ministere-environnement' => [
-		'name' => "Ministere de l'Environnement, Developpement durable et Nouvelle Economie du climat",
+		'name' => "Ministère de l'Environnement, Développement durable et Nouvelle Économie du climat",
 		'sector' => "Environnement",
-		'summary' => "Organe gouvernemental charge de definir et mettre en oeuvre la politique nationale en matiere d'environnement.",
-		'details' => "Ce ministere veille a la protection des ecosystemes, de la biodiversite, des forets, des ressources naturelles et du cadre de vie des populations. Dans le domaine minier, il intervient dans la prevention et la gestion des pollutions de l'air, de l'eau et des sols, et suit l'application des conventions environnementales ratifiees par la RDC.",
+		'summary' => "Organe gouvernemental chargé de definir et mettre en oeuvre la politique nationale en matière d'environnement.",
+		'details' => "Ce ministère veille a la protection des écosystèmes, de la biodiversité, des forêts, des ressources naturelles et du cadre de vie des populations. Dans le domaine minier, il intervient dans la prévention et la gestion des pollutions de l'air, de l'eau et des sols, et suit l'application des conventions environnementales ratifiées par la RDC.",
 		'website' => 'https://medd.gouv.cd/',
 		'website_label' => 'medd.gouv.cd',
 	],
 	'ace' => [
 		'name' => "Agence Congolaise de l'Environnement - ACE",
 		'sector' => "Environnement",
-		'summary' => "Etablissement public charge de l'evaluation environnementale et sociale des projets de developpement en RDC.",
-		'details' => "L'ACE examine les etudes d'impact environnemental et social, verifie les rapports des promoteurs et bureaux d'etudes agrees, formule des avis de conformite et peut demander des corrections ou des mesures d'attenuation. Dans le secteur minier, elle evalue notamment les risques lies aux rejets, aux dechets, a la consommation d'eau, aux deplacements de populations et a la fermeture des sites.",
+		'summary' => "Etablissement public chargé de l'évaluation environnementale et sociale des projets de développement en RDC.",
+		'details' => "L'ACE examine les etudes d'impact environnemental et social, vérifie les rapports des promoteurs et bureaux d'études agrees, formule des avis de conformité et peut demander des corrections ou des mesures d'atténuation. Dans le secteur minier, elle évalue notamment les risques liés aux rejets, aux dechets, a la consommation d'eau, aux deplacements de populations et a la fermeture des sites.",
 		'website' => 'https://medd.gouv.cd/ace/',
 		'website_label' => 'medd.gouv.cd/ace',
 	],
 	'egc' => [
-		'name' => "Entreprise Generale du Cobalt - EGC",
+		'name' => "Entreprise Générale du Cobalt - EGC",
 		'sector' => "Autres",
-		'summary' => "Filiale de la Gecamines chargee d'encadrer l'achat, le traitement et la commercialisation du cobalt artisanal.",
-		'details' => "L'EGC a ete creee pour integrer la production artisanale de cobalt dans une chaine d'approvisionnement officielle, controlee et transparente. Elle collabore avec les cooperatives, les services publics, les acheteurs et les partenaires techniques, et vise a reduire le travail des enfants, les violations des droits humains, les circuits clandestins et les pertes de recettes publiques.",
+		'summary' => "Filiale de la Gecamines chargée d'encadrer l'achat, le traitement et la commercialisation du cobalt artisanal.",
+		'details' => "L'EGC a été crééee pour intègrer la production artisanale de cobalt dans une chaîne d'approvisionnement officielle, contrôlee et transparente. Elle collabore avec les cooperatives, les services publics, les acheteurs et les partenaires techniques, et vise a réduire le travail des enfants, les violations des droits humains, les circuits clandestins et les pertes de recettes publiques.",
 		'website' => 'https://egcobalt.cd/',
 		'website_label' => 'egcobalt.cd',
 	],
 	'itie-rdc' => [
 		'name' => "Initiative pour la Transparence dans les Industries Extractives - ITIE-RDC",
 		'sector' => "Autres",
-		'summary' => "Mecanisme national de mise en oeuvre de l'Initiative pour la Transparence dans les Industries Extractives.",
-		'details' => "L'ITIE-RDC reunit des representants de l'Etat, des entreprises extractives et de la societe civile pour promouvoir la transparence et la bonne gouvernance des revenus des secteurs minier, petrolier et gazier. Elle collecte, analyse et publie des donnees sur la production, les exportations, les paiements des entreprises et les recettes percues par l'Etat, ce qui nourrit le debat public et oriente les reformes.",
+		'summary' => "Mécanisme national de mise en œuvre de l'Initiative pour la Transparence dans les Industries Extractives.",
+		'details' => "L'ITIE-RDC réunit des représentants de l'Etat, des entreprises extractives et de la société civile pour promouvoir la transparence et la bonne gouvernance des revenus des secteurs minier, pétrolier et gazier. Elle collecte, analyse et publie des données sur la production, les exportations, les paiements des entreprises et les recettes perçues par l'Etat, ce qui nourrit le débat public et oriente les réformes.",
 		'website' => 'https://www.itierdc.net/',
 		'website_label' => 'itierdc.net',
 	],
 ];
 
 $sectorNotes = [
-	'Mines' => "Cette famille d'institutions couvre l'acces aux titres, le controle, la certification, la tracabilite et l'encadrement du secteur. Leur lecture dans le RARSM aide a comprendre toute la chaine administrative et technique de l'activite miniere.",
-	'Finances' => "Ces institutions structurent la collecte des recettes publiques, la fiscalite et le controle des flux financiers lies aux activites minieres. Elles sont essentielles pour comprendre comment les revenus du secteur sont transformes en ressources publiques.",
-	'Transports' => "Le secteur des transports et de la logistique est determinant pour les couts, les delais et la competitivite des exportations miniere. Il relie les sites de production aux corridors, ports et points de sortie du pays.",
-	'Recherche' => "Les institutions de recherche et d'innovation fournissent l'appui scientifique, technique et analytique utile a la geologie, aux materiaux, a la radioprotection et a la connaissance du sous-sol.",
-	'Commerce' => "Ce bloc relie le secteur minier aux flux d'import-export, aux controles de qualite et a la competitivite des produits sur les marches nationaux et internationaux.",
-	'Environnement' => "Ces institutions interviennent dans l'evaluation des impacts, la prevention des pollutions et la protection des ecosystemes et des communautes autour des projets extractifs.",
-	'Autres' => "Ces organismes jouent un role transversal dans la formalisation, la transparence et la gouvernance des chaines de valeur extractives, en particulier pour le cobalt artisanal et la publication des donnees sectorielles.",
+	'Mines' => "Cette famille d'institutions couvre l'accès aux titres, le contrôle, la certification, la traçabilité et l'encadrement du secteur. Leur lecture dans le RARSM aide à comprendre toute la chaîne administrative et technique de l'activité minière.",
+	'Finances' => "Ces institutions structurent la collecte des recettes publiques, la fiscalité et le contrôle des flux financiers liés aux activités minières. Elles sont essentielles pour comprendre comment les revenus du secteur sont transformés en ressources publiques.",
+	'Transports' => "Le secteur des transports et de la logistique est déterminant pour les coûts, les délais et la compétitivité des exportations minière. Il relie les sites de production aux corridors, ports et points de sortie du pays.",
+	'Recherche' => "Les institutions de recherche et d'innovation fournissent l'appui scientifique, technique et analytique utile a la géologie, aux matériaux, a la radioprotection et a la connaissance du sous-sol.",
+	'Commerce' => "Ce bloc relie le secteur minier aux flux d'import-export, aux contrôles de qualité et a la compétitivité des produits sur les marches nationaux et internationaux.",
+	'Environnement' => "Ces institutions interviennent dans l'évaluation des impacts, la prévention des pollutions et la protection des écosystèmes et des communautés autour des projets extractifs.",
+	'Autres' => "Ces organismes jouent un rôle transversal dans la formalisation, la transparence et la gouvernance des chaînes de valeur extractives, en particulier pour le cobalt artisanal et la publication des données sectorielles.",
 ];
 
 $requestedSlug = isset($_GET['institution']) ? strtolower(preg_replace('/[^a-z0-9\-]/', '', (string) $_GET['institution'])) : 'igm';
 $notFound = !isset($institutions[$requestedSlug]);
 $selectedSlug = $notFound ? 'igm' : $requestedSlug;
 $selected = $institutions[$selectedSlug];
-$selectedSectorNote = isset($sectorNotes[$selected['sector']]) ? $sectorNotes[$selected['sector']] : "Cette institution participe a la lecture pratique de l'ecosysteme minier, administratif et reglementaire couvert par le recueil.";
+$selectedSectorNote = isset($sectorNotes[$selected['sector']]) ? $sectorNotes[$selected['sector']] : "Cette institution participe a la lecture pratique de l'écosystème minier, administratif et réglementaire couvert par le recueil.";
 $pageTitle = 'RARSM | ' . $selected['name'];
 
 $suggestions = [];
@@ -320,8 +320,8 @@ foreach ($institutions as $slug => $institution) {
 		<div class="preloader_image pulse"></div>
 	</div>
 
-	<div class="modal fade popupLogin" id="popupLogin" tabindex="-1" role="dialog" aria-hidden="true">
-		<div class="modal-dialog modal-dialog-centered" role="document">
+	<div class="modal fade popupLogin" id="popupLogin" tabindex="-1" rôle="dialog" aria-hidden="true">
+		<div class="modal-dialog modal-dialog-centered" rôle="document">
 			<div class="modal-content ls border-r-def overflow-visible s-overlay s-mobile-overlay">
 				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 					<span aria-hidden="true">&times;</span>
@@ -359,8 +359,8 @@ foreach ($institutions as $slug => $institution) {
 		</div>
 	</div>
 
-	<div class="modal fade popupRegistr" id="popupRegistr" tabindex="-1" role="dialog" aria-hidden="true">
-		<div class="modal-dialog modal-dialog-centered" role="document">
+	<div class="modal fade popupRegistr" id="popupRegistr" tabindex="-1" rôle="dialog" aria-hidden="true">
+		<div class="modal-dialog modal-dialog-centered" rôle="document">
 			<div class="modal-content ls border-r-def overflow-visible s-overlay s-mobile-overlay">
 				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 					<span aria-hidden="true">&times;</span>
@@ -401,7 +401,7 @@ foreach ($institutions as $slug => $institution) {
 									</div>
 									<div class="modal-form-actions">
 										<button type="button" class="btn btn-outline-maincolor" data-dismiss="modal">Annuler</button>
-										<button type="submit" class="btn btn-maincolor">Creer un compte</button>
+										<button type="submit" class="btn btn-maincolor">Créer un compte</button>
 									</div>
 								</form>
 							</div>
@@ -430,7 +430,7 @@ foreach ($institutions as $slug => $institution) {
 									<li><a href="author.html">Auteur</a></li>
 									<li><a href="pricing.html">Shop</a></li>
 									<li class="active"><a href="institutions.php">Institutions</a></li>
-									<li><a href="activites.html">Activités</a></li>
+									<li><a href="activités.html">Activités</a></li>
 									<li><a href="contact.html">Contact</a></li>
 									<li class="menu-auth-item menu-auth-login">
 										<a data-toggle="modal" href="#popupLogin">Se connecter</a>
@@ -444,7 +444,7 @@ foreach ($institutions as $slug => $institution) {
 						<div class="col-xl-2 col-lg-3 text-right d-none d-lg-block">
 							<div class="header-utilities">
 								<div class="dropdown">
-									<a class="dropdown-toggle dropdown-shopping-cart" href="#" role="button" id="dropdown-shopping-cart" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" aria-label="Ouvrir le panier">
+									<a class="dropdown-toggle dropdown-shopping-cart" href="#" rôle="button" id="dropdown-shopping-cart" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" aria-label="Ouvrir le panier">
 										<i class="fa fa-shopping-basket" aria-hidden="true"></i>
 										<span class="badge bg-maincolor">0</span>
 										<span class="cart-total">$0.00</span>
@@ -474,7 +474,7 @@ foreach ($institutions as $slug => $institution) {
 												</p>
 												<p class="woocommerce-mini-cart__buttons buttons">
 													<a href="shop-cart.php" class="button wc-forward">Voir le panier</a>
-													<a href="shop-checkout.php" class="button checkout wc-forward">Passer a la commande</a>
+													<a href="shop-checkout.php" class="button checkout wc-forward">Passer à la commande</a>
 												</p>
 											</div>
 										</div>
@@ -484,7 +484,7 @@ foreach ($institutions as $slug => $institution) {
 						</div>
 					</div>
 				</div>
-				<span class="toggle_menu" aria-label="Ouvrir le menu mobile" role="button" tabindex="0"><span></span></span>
+				<span class="toggle_menu" aria-label="Ouvrir le menu mobile" rôle="button" tabindex="0"><span></span></span>
 			</header>
 
 			<section class="page_title ds s-parallax s-py-110">
@@ -506,7 +506,7 @@ foreach ($institutions as $slug => $institution) {
 				<div class="container">
 					<?php if ($notFound): ?>
 						<div class="institution-detail-alert">
-							L'institution demandee n'a pas ete trouvee. La premiere fiche disponible a ete affichee par defaut.
+							L'institution demandee n'a pas ete trouvee. La premiere fiche disponible a été affichee par defaut.
 						</div>
 					<?php endif; ?>
 					<div class="row c-gutter-30">
@@ -524,7 +524,7 @@ foreach ($institutions as $slug => $institution) {
 								</div>
 								<div class="institution-detail-body">
 									<div class="institution-detail-section">
-										<h4>Role et perimetre d'action</h4>
+										<h4>Role et perimêtre d'action</h4>
 										<p><?php echo rarsm_e($selected['details']); ?></p>
 									</div>
 									<div class="institution-detail-section">
@@ -548,7 +548,7 @@ foreach ($institutions as $slug => $institution) {
 							<aside class="institution-sidebar-stack">
                                 <div class="institution-side-card">
 									<span class="activities-eyebrow">AUTRES INSTITUTIONS</span>
-									<h4>Suggestions a consulter</h4>
+									<h4>Suggestions à consulter</h4>
 									<ul class="institution-suggestion-list list-unstyled">
 										<?php foreach ($suggestions as $slug => $institution): ?>
 											<li>
@@ -565,11 +565,11 @@ foreach ($institutions as $slug => $institution) {
 								</div>
 								<div class="institution-side-card">
 									<span class="activities-eyebrow">ACTIONS RAPIDES</span>
-									<h4>Acces utiles</h4>
+									<h4>Accès utiles</h4>
 									<div class="institution-quick-actions">
 										<a href="institutions.php" class="btn btn-maincolor">Retour au panorama</a>
 										<a href="shop-cart.php" class="btn btn-outline-maincolor">Commander le livre</a>
-										<a href="contact.html" class="btn btn-outline-maincolor">Contacter l'equipe</a>
+										<a href="contact.html" class="btn btn-outline-maincolor">Contacter l'équipe</a>
 										<?php if ($selected['website'] !== ''): ?>
 											<a href="<?php echo rarsm_e($selected['website']); ?>" class="btn btn-outline-maincolor" target="_blank" rel="noopener">Site officiel</a>
 										<?php endif; ?>
@@ -597,7 +597,7 @@ foreach ($institutions as $slug => $institution) {
 									<li class="menu-item"><a href="author.html">Auteur</a></li>
 									<li class="menu-item"><a href="pricing.html">Shop</a></li>
 									<li class="menu-item"><a href="institutions.php">Institutions</a></li>
-									<li class="menu-item"><a href="activites.html">Activités</a></li>
+									<li class="menu-item"><a href="activités.html">Activités</a></li>
 									<li class="menu-item"><a href="contact.html">Contact</a></li>
 									<li class="menu-item"><a href="faq.html">FAQ</a></li>
 								</ul>
@@ -611,7 +611,7 @@ foreach ($institutions as $slug => $institution) {
 				<div class="container">
 					<div class="row align-items-center">
 						<div class="col-md-12 text-center color-dark">
-							<p>&copy; <span class="copyright_year">2026</span> RARSM - Recueil des Actes Reglementaires du Secteur Minier. Tous droits reserves.</p>
+							<p>&copy; <span class="copyright_year">2026</span> RARSM - Recueil des Actes Réglementaires du Secteur Minier. Tous droits réservés.</p>
 						</div>
 					</div>
 				</div>

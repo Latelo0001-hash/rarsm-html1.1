@@ -1994,18 +1994,75 @@ function windowLoadInit() {
 	//Update shop card
 		(function () {
 		let updateCard = () => {
-			let shopTable = $('.shop_table');
-			shopTable.find('.quantity input[type="number"]').on('change', function () {
-				/// Fro HTML start
-				let self = $(this);
-				let priceValue = parseFloat(self.closest('.cart_item').find('.product-price .amount').text().trim().slice(1));
-				let currency = self.closest('.cart_item').find('.product-price .amount').text().trim()[0];
-				let inputValue = parseFloat(self.val()) < 1 ? 1 : parseFloat(self.val());
-				self.closest('.cart_item').find('.product-subtotal .amount').html(`<span>${currency}</span>${priceValue*inputValue}`);
-				/// Fro HTML end
+			let $cartTable = $('.rarsm-cart-table');
+			let $shopTable = $('.shop_table');
+
+			if (!$cartTable.length) {
+				$shopTable.find('.quantity input[type="number"]').off('change.rarsmCartAutoSubmit').on('change.rarsmCartAutoSubmit', function () {
+					setTimeout(function () {
+						$shopTable.find('[name="update_cart"]').trigger('click');
+					}, 300);
+				});
+				return;
+			}
+
+			let normalizeQty = (value) => {
+				let qty = parseInt(value, 10);
+				if (isNaN(qty) || qty < 1) {
+					return 1;
+				}
+
+				if (qty > 99) {
+					return 99;
+				}
+
+				return qty;
+			};
+
+			let formatMoney = (amount, currency) => {
+				let normalizedAmount = Number(amount || 0);
+				let prefix = currency === 'USD' ? '$' : `${currency} `;
+				return `${prefix}${normalizedAmount.toFixed(2)}`;
+			};
+
+			let syncCartSummary = () => {
+				let subtotal = 0;
+				let payableTotal = 0;
+				let itemCount = 0;
+				let defaultCurrency = 'USD';
+
+				$cartTable.find('[data-cart-item]').each(function () {
+					let $row = $(this);
+					let unitPrice = parseFloat($row.attr('data-unit-price')) || 0;
+					let quoteOnly = $row.attr('data-quote-only') === '1';
+					let currency = $row.attr('data-currency') || defaultCurrency;
+					let $qtyInput = $row.find('[data-cart-qty-input]');
+					let quantity = normalizeQty($qtyInput.val());
+					let lineTotal = unitPrice * quantity;
+
+					defaultCurrency = currency;
+					itemCount += quantity;
+					subtotal += lineTotal;
+
+					if (!quoteOnly) {
+						payableTotal += lineTotal;
+						$row.find('[data-line-total]').text(formatMoney(lineTotal, currency));
+					}
+
+					$qtyInput.val(quantity);
+					$row.attr('data-subtotal', lineTotal.toFixed(2));
+				});
+
+				$('[data-cart-item-count]').text(itemCount);
+				$('[data-cart-summary-subtotal]').text(formatMoney(subtotal, defaultCurrency));
+				$('[data-cart-summary-payable]').text(formatMoney(payableTotal, defaultCurrency));
+			};
+
+			$cartTable.find('.quantity input[type="number"]').off('change.rarsmCartAutoSubmit').on('change.rarsmCartAutoSubmit', function () {
+				syncCartSummary();
 				setTimeout(function () {
-					shopTable.find('button[name="update_cart"]').trigger('click');
-				},300)
+					$cartTable.find('[name="update_cart"]').trigger('click');
+				}, 300);
 			});
 		};
 

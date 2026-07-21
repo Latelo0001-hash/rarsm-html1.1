@@ -22,8 +22,8 @@ rarsm_render_page_title('Panier', [
                 <?php if ($totals['is_empty']) : ?>
                     <div class="rarsm-status-card text-center">
                         <p class="rarsm-status-kicker">Panier vide</p>
-                        <h3>Aucun article n’a encore ete ajoute</h3>
-                        <p>Selectionnez un format du livre RARSM pour commencer votre commande et passer au checkout ensuite.</p>
+                        <h3>Aucun article n’a encore été ajouté</h3>
+                        <p>Sélectionnez un format du livre RARSM pour commencer votre commande et passer au checkout ensuite.</p>
                         <div class="rarsm-gateway-actions justify-content-center">
                             <a class="btn btn-maincolor" href="pricing.html#formats">Voir les formats</a>
                         </div>
@@ -31,26 +31,34 @@ rarsm_render_page_title('Panier', [
                 <?php else : ?>
                     <div class="woocommerce-notices-wrapper">
                         <div class="woocommerce-message">
-                            <a href="shop-checkout.php" class="button wc-forward">Passer a la commande</a>
-                            Votre panier contient <?php echo rarsm_e((string) $totals['item_count']); ?> article(s).
+                            <a href="shop-checkout.php" class="button wc-forward">Passer à la commande</a>
+                            Votre panier contient <span data-cart-item-count><?php echo rarsm_e((string) $totals['item_count']); ?></span> article(s).
                         </div>
                     </div>
 
                     <form class="woocommerce-cart-form" action="actions/update-cart.php" method="post">
-                        <table class="shop_table shop_table_responsive cart">
+                        <table class="shop_table shop_table_responsive cart rarsm-cart-table">
                             <thead>
                                 <tr>
                                     <th class="product-remove">&nbsp;</th>
                                     <th class="product-thumbnail">&nbsp;</th>
                                     <th class="product-name">Produit</th>
                                     <th class="product-price">Prix</th>
-                                    <th class="product-quantity">Quantite</th>
+                                    <th class="product-quantity">Quantité</th>
                                     <th class="product-subtotal">Total</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <?php foreach ($items as $item) : ?>
-                                    <tr class="cart_item">
+                                    <tr
+                                        class="cart_item"
+                                        data-cart-item
+                                        data-product-id="<?php echo rarsm_e((string) $item['id']); ?>"
+                                        data-unit-price="<?php echo rarsm_e(number_format((float) $item['price'], 2, '.', '')); ?>"
+                                        data-subtotal="<?php echo rarsm_e(number_format((float) $item['subtotal'], 2, '.', '')); ?>"
+                                        data-quote-only="<?php echo (bool) $item['quote_only'] ? '1' : '0'; ?>"
+                                        data-currency="<?php echo rarsm_e((string) $item['currency']); ?>"
+                                    >
                                         <td class="product-remove">
                                             <button class="remove" name="remove_id" type="submit" value="<?php echo rarsm_e((string) $item['id']); ?>" aria-label="Retirer cet article">×</button>
                                         </td>
@@ -68,23 +76,23 @@ rarsm_render_page_title('Panier', [
                                                 <span class="amount"><?php echo rarsm_e(rarsm_format_money((float) $item['price'], (string) $item['currency'])); ?></span>
                                             <?php endif; ?>
                                         </td>
-                                        <td class="product-quantity" data-title="Quantite">
+                                        <td class="product-quantity" data-title="Quantité">
                                             <div class="quantity">
-                                                <input class="input-text qty text" max="99" min="1" name="quantities[<?php echo rarsm_e((string) $item['id']); ?>]" size="4" step="1" type="number" value="<?php echo rarsm_e((string) $item['quantity']); ?>">
+                                                <input class="input-text qty text" max="99" min="1" name="quantities[<?php echo rarsm_e((string) $item['id']); ?>]" size="4" step="1" type="number" value="<?php echo rarsm_e((string) $item['quantity']); ?>" data-cart-qty-input>
                                             </div>
                                         </td>
                                         <td class="product-subtotal" data-title="Total">
                                             <?php if ((bool) $item['quote_only']) : ?>
                                                 <span class="amount">A confirmer</span>
                                             <?php else : ?>
-                                                <span class="amount"><?php echo rarsm_e(rarsm_format_money((float) $item['subtotal'], (string) $item['currency'])); ?></span>
+                                                <span class="amount" data-line-total><?php echo rarsm_e(rarsm_format_money((float) $item['subtotal'], (string) $item['currency'])); ?></span>
                                             <?php endif; ?>
                                         </td>
                                     </tr>
                                 <?php endforeach; ?>
                                 <tr>
                                     <td class="actions" colspan="6">
-                                        <input class="button" name="update_cart" type="submit" value="Mettre a jour">
+                                        <input class="button" name="update_cart" type="submit" value="Mettre à jour">
                                     </td>
                                 </tr>
                             </tbody>
@@ -93,27 +101,27 @@ rarsm_render_page_title('Panier', [
 
                     <div class="cart-collaterals">
                         <div class="cart_totals">
-                            <h2>Recapitulatif</h2>
+                            <h2>Récapitulatif</h2>
                             <table class="shop_table shop_table_responsive">
                                 <tbody>
                                     <tr class="cart-subtotal">
                                         <th>Sous-total</th>
-                                        <td data-title="Sous-total"><?php echo rarsm_e(rarsm_format_money((float) $totals['subtotal'], (string) $totals['currency'])); ?></td>
+                                        <td data-title="Sous-total" data-cart-summary-subtotal><?php echo rarsm_e(rarsm_format_money((float) $totals['subtotal'], (string) $totals['currency'])); ?></td>
                                     </tr>
                                     <tr>
-                                        <th>Paiement immediat</th>
-                                        <td data-title="Paiement immediat"><?php echo rarsm_e(rarsm_format_money((float) $totals['payable_total'], (string) $totals['currency'])); ?></td>
+                                        <th>Paiement immédiat</th>
+                                        <td data-title="Paiement immédiat" data-cart-summary-payable><?php echo rarsm_e(rarsm_format_money((float) $totals['payable_total'], (string) $totals['currency'])); ?></td>
                                     </tr>
                                     <tr>
                                         <th>Livraison</th>
-                                        <td data-title="Livraison"><?php echo $totals['contains_physical'] ? 'Confirmee au checkout selon la destination' : 'Aucune livraison physique'; ?></td>
+                                        <td data-title="Livraison"><?php echo $totals['contains_physical'] ? 'Confirmée au checkout selon la destination' : 'Aucune livraison physique'; ?></td>
                                     </tr>
                                 </tbody>
                             </table>
                             <div class="wc-proceed-to-checkout">
-                                <a class="checkout-button button alt wc-forward" href="shop-checkout.php">Passer a la commande</a>
+                                <a class="checkout-button button alt wc-forward" href="shop-checkout.php">Passer à la commande</a>
                             </div>
-                            <p class="rarsm-shop-note mb-0">Le compte client sera demande au checkout afin de suivre les paiements, les annulations et les futures ventes d’articles sur le site.</p>
+                            <p class="rarsm-shop-note mb-0">Le compte client sera demandé au checkout afin de suivre les paiements, les annulations et les futures ventes d’articles sur le site.</p>
                         </div>
                     </div>
                 <?php endif; ?>

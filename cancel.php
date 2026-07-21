@@ -11,12 +11,12 @@ if ($order === null) {
     rarsm_redirect('shop-account-orders.php');
 }
 
-rarsm_page_head('RARSM | Paiement annule', 'Annulation de paiement pour une commande RARSM.');
+rarsm_page_head('RARSM | Paiement annulé', 'Annulation de paiement pour une commande RARSM.');
 rarsm_render_header('acheter');
-rarsm_render_page_title('Paiement annule', [
+rarsm_render_page_title('Paiement annulé', [
     ['label' => 'Accueil', 'href' => 'index.html'],
     ['label' => 'Acheter', 'href' => 'pricing.html'],
-    ['label' => 'Annule'],
+    ['label' => 'Annulé'],
 ]);
 ?>
 <section class="ls s-py-90 s-py-xl-160">
@@ -24,11 +24,11 @@ rarsm_render_page_title('Paiement annule', [
         <div class="row justify-content-center">
             <div class="col-lg-8">
                 <div class="rarsm-status-card">
-                    <p class="rarsm-status-kicker">Paiement annule</p>
-                    <h2 class="special-heading"><span>Votre commande n’a pas ete finalisee</span></h2>
-                    <p>La commande <strong><?php echo rarsm_e((string) $order['order_number']); ?></strong> a ete marquee comme annulee. Vous pouvez reprendre le paiement plus tard.</p>
+                    <p class="rarsm-status-kicker">Paiement annulé</p>
+                    <h2 class="special-heading"><span>Votre commande n’a pas été finalisée</span></h2>
+                    <p>La commande <strong><?php echo rarsm_e((string) $order['order_number']); ?></strong> a été marquée comme annulée. Vous pouvez reprendre le paiement plus tard.</p>
                     <div class="rarsm-gateway-actions">
-                        <a class="btn btn-maincolor" href="payment-redirect.php?order=<?php echo rawurlencode((string) $order['id']); ?>">Reessayer le paiement</a>
+                        <a class="btn btn-maincolor" href="payment-redirect.php?order=<?php echo rawurlencode((string) $order['id']); ?>">Réessayer le paiement</a>
                         <a class="btn btn-outline-maincolor" href="shop-account-orders.php">Mes commandes</a>
                     </div>
                 </div>

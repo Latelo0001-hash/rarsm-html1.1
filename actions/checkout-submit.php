@@ -43,9 +43,9 @@ if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
 $order = rarsm_create_order($_POST);
 
 if ((bool) $order['contains_quote_only'] || (float) $order['payable_total'] <= 0) {
-    rarsm_set_flash('success', 'Votre demande a ete enregistree. Notre equipe reviendra vers vous pour finaliser le devis.');
+    rarsm_set_flash('succèss', 'Votre demande a été enregistree. Notre équipe reviendra vers vous pour finaliser le devis.');
     rarsm_redirect('../pending.php?order=' . rawurlencode((string) $order['id']) . '&mode=quote');
 }
 
-rarsm_set_flash('success', 'Commande creee. Vous pouvez maintenant poursuivre le paiement via la passerelle partenaire.');
+rarsm_set_flash('succèss', 'Commande créée. Vous pouvez maintenant poursuivre le paiement via la passerelle partenaire.');
 rarsm_redirect('../payment-redirect.php?order=' . rawurlencode((string) $order['id']));

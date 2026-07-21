@@ -126,7 +126,7 @@ function rarsm_auth_redirect_target(?string $requestPath = null): string
     $parsedPath = parse_url($path, PHP_URL_PATH);
     $basename = strtolower(basename(is_string($parsedPath) && $parsedPath !== '' ? $parsedPath : $path));
     $shopLikePages = [
-        'success.php',
+        'succèss.php',
         'cancel.php',
         'pending.php',
         'payment-redirect.php',
@@ -227,7 +227,7 @@ function rarsm_render_auth_modals(): void
                                 </div>
                                 <div class="modal-form-actions">
                                     <button type="button" class="btn btn-outline-maincolor" data-dismiss="modal">Annuler</button>
-                                    <button type="submit" class="btn btn-maincolor">Creer un compte</button>
+                                    <button type="submit" class="btn btn-maincolor">Créer un compte</button>
                                 </div>
                             </form>
                         </div>
@@ -318,13 +318,43 @@ function rarsm_render_header(string $active = 'acheter'): void
         echo '</button>';
         echo '<div class="rarsm-user-menu-panel rarsm-user-menu-panel-mobile" hidden>';
         echo '<a class="rarsm-user-menu-action" href="shop-account-orders.php"><span class="rarsm-user-menu-action-icon"><i class="fa fa-user-o" aria-hidden="true"></i></span><span>Compte</span></a>';
-        echo '<a class="rarsm-user-menu-action rarsm-user-menu-action-danger" href="logout.php"><span class="rarsm-user-menu-action-icon"><i class="fa fa-sign-out" aria-hidden="true"></i></span><span>Se deconnecter</span></a>';
+        echo '<a class="rarsm-user-menu-action rarsm-user-menu-action-danger" href="logout.php"><span class="rarsm-user-menu-action-icon"><i class="fa fa-sign-out" aria-hidden="true"></i></span><span>Se déconnecter</span></a>';
         echo '</div>';
         echo '</div>';
         echo '</li>';
     }
 
-    echo '<li class="menu-auth-item d-lg-none"><a href="shop-cart.php">Panier (' . rarsm_e($cartCount) . ')</a></li>';
+    echo '<li class="menu-cart-mobile dropdown d-lg-none">';
+    echo '<button class="dropdown-toggle dropdown-shopping-cart" id="dropdown-shopping-cart-mobile" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" aria-label="Ouvrir le panier" type="button">';
+    echo '<i class="fa fa-shopping-basket" aria-hidden="true"></i>';
+    echo '<span class="badge bg-maincolor">' . rarsm_e($cartCount) . '</span>';
+    echo '<span class="cart-total">' . rarsm_e($cartTotal) . '</span>';
+    echo '</button>';
+    echo '<div class="dropdown-menu ls" aria-labelledby="dropdown-shopping-cart-mobile">';
+    echo '<div class="widget woocommerce widget_shopping_cart">';
+    echo '<div class="widget_shopping_cart_content">';
+    echo '<ul class="woocommerce-mini-cart cart_list product_list_widget"></ul>';
+    echo '<p class="woocommerce-mini-cart__total total">';
+    echo '<strong>Sous-total :</strong>';
+    echo '<span class="woocommerce-Price-amount amount">' . rarsm_e($cartTotal) . '</span>';
+    echo '</p>';
+    echo '<p class="woocommerce-mini-cart__buttons buttons">';
+    echo '<a class="button wc-forward" href="shop-cart.php">Voir le panier</a>';
+    echo '<a class="button checkout wc-forward" href="shop-checkout.php">Passer à la commande</a>';
+    echo '</p>';
+    echo '</div>';
+    echo '</div>';
+    echo '</div>';
+    echo '</li>';
+    echo '<li class="menu-language-mobile d-lg-none">';
+    echo '<div class="language-switcher js-language-switcher">';
+    echo '<button class="language-toggle js-language-toggle" type="button" aria-label="Choix de la langue actuelle" aria-expanded="false">Fr</button>';
+    echo '<div class="language-menu" role="menu" aria-label="Choix de la langue">';
+    echo '<button class="language-option js-language-option is-active" type="button" role="menuitem" data-language="fr">Fr</button>';
+    echo '<button class="language-option js-language-option" type="button" role="menuitem" data-language="en">En</button>';
+    echo '</div>';
+    echo '</div>';
+    echo '</li>';
     echo '</ul></nav></div>';
     echo '<div class="col-xl-2 col-lg-3 text-right d-none d-lg-block"><div class="header-utilities">';
 
@@ -342,7 +372,7 @@ function rarsm_render_header(string $active = 'acheter'): void
         echo '</button>';
         echo '<div class="rarsm-user-menu-panel" hidden>';
         echo '<a class="rarsm-user-menu-action" href="shop-account-orders.php"><span class="rarsm-user-menu-action-icon"><i class="fa fa-user-o" aria-hidden="true"></i></span><span>Compte</span></a>';
-        echo '<a class="rarsm-user-menu-action rarsm-user-menu-action-danger" href="logout.php"><span class="rarsm-user-menu-action-icon"><i class="fa fa-sign-out" aria-hidden="true"></i></span><span>Se deconnecter</span></a>';
+        echo '<a class="rarsm-user-menu-action rarsm-user-menu-action-danger" href="logout.php"><span class="rarsm-user-menu-action-icon"><i class="fa fa-sign-out" aria-hidden="true"></i></span><span>Se déconnecter</span></a>';
         echo '</div>';
         echo '</div>';
     }
@@ -386,7 +416,7 @@ function rarsm_render_flash(): void
     }
 
     $class = 'woocommerce-info';
-    if (($flash['type'] ?? '') === 'success') {
+    if (($flash['type'] ?? '') === 'succèss') {
         $class = 'woocommerce-message';
     } elseif (($flash['type'] ?? '') === 'error') {
         $class = 'woocommerce-error';
@@ -428,7 +458,7 @@ function rarsm_render_footer(): void
     <div class="container">
         <div class="row align-items-center">
             <div class="col-md-12 text-center color-dark">
-                <p>&copy; <span class="copyright_year">{$year}</span> RARSM - Recueil des Actes Reglementaires du Secteur Minier. Tous droits reserves.</p>
+                <p>&copy; <span class="copyright_year">{$year}</span> RARSM - Recueil des Actes Reglementaires du Secteur Minier. Tous droits réservés.</p>
             </div>
         </div>
     </div>

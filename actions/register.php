@@ -13,7 +13,11 @@ if (strtoupper((string) ($_SERVER['REQUEST_METHOD'] ?? 'GET')) !== 'POST') {
     rarsm_redirect('../' . ltrim($redirect, '/'));
 }
 
-[$success, $message] = rarsm_register_user($_POST);
+[$succèss, $message] = rarsm_register_user($_POST);
 
-rarsm_set_flash($success ? 'success' : 'error', $message);
-rarsm_redirect('../' . ($success ? ltrim($redirect, '/') : 'shop-account-register.php?redirect=' . rawurlencode($redirect)));
+if ($succèss) {
+    rarsm_restore_authenticated_customer_state();
+}
+
+rarsm_set_flash($succèss ? 'succèss' : 'error', $message);
+rarsm_redirect('../' . ($succèss ? ltrim($redirect, '/') : 'shop-account-register.php?redirect=' . rawurlencode($redirect)));

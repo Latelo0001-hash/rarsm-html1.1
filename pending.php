@@ -40,7 +40,7 @@ rarsm_render_page_title($title, [
                     </div>
                     <div class="rarsm-gateway-actions">
                         <a class="btn btn-maincolor" href="shop-account-orders.php">Voir mes commandes</a>
-                        <a class="btn btn-outline-maincolor" href="contact.html">Contacter l’equipe</a>
+                        <a class="btn btn-outline-maincolor" href="contact.html">Contacter l’équipe</a>
                     </div>
                 </div>
             </div>

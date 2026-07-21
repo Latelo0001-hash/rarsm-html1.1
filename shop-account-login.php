@@ -37,10 +37,10 @@ rarsm_render_page_title('Se connecter', [
             <div class="col-lg-5">
                 <div class="rarsm-status-card h-100">
                     <p class="rarsm-status-kicker">Nouveau client</p>
-                    <h4>Creer un compte pour suivre vos achats</h4>
+                    <h4>Créer un compte pour suivre vos achats</h4>
                     <p>Le compte permettra de lier le panier, la commande, le checkout et l’historique en attendant la connexion definitive a la base MySQL.</p>
                     <div class="rarsm-gateway-actions">
-                        <a class="btn btn-outline-maincolor" href="shop-account-register.php?redirect=<?php echo rawurlencode($redirect); ?>">Creer un compte</a>
+                        <a class="btn btn-outline-maincolor" href="shop-account-register.php?redirect=<?php echo rawurlencode($redirect); ?>">Créer un compte</a>
                         <a class="btn btn-outline-darkgrey" href="shop-cart.php">Retour au panier</a>
                     </div>
                 </div>

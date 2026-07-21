@@ -11,12 +11,12 @@ if ($order === null) {
     rarsm_redirect('shop-account-orders.php');
 }
 
-rarsm_page_head('RARSM | Paiement reussi', 'Confirmation de paiement pour une commande RARSM.');
+rarsm_page_head('RARSM | Paiement réussi', 'Confirmation de paiement pour une commande RARSM.');
 rarsm_render_header('acheter');
-rarsm_render_page_title('Paiement confirme', [
+rarsm_render_page_title('Paiement confirmé', [
     ['label' => 'Accueil', 'href' => 'index.html'],
     ['label' => 'Acheter', 'href' => 'pricing.html'],
-    ['label' => 'Succes'],
+    ['label' => 'Succès'],
 ]);
 ?>
 <section class="ls s-py-90 s-py-xl-160">
@@ -24,9 +24,9 @@ rarsm_render_page_title('Paiement confirme', [
         <div class="row justify-content-center">
             <div class="col-lg-8">
                 <div class="rarsm-status-card rarsm-status-card-success">
-                    <p class="rarsm-status-kicker">Paiement reussi</p>
-                    <h2 class="special-heading"><span>Commande confirmee</span></h2>
-                    <p>Merci. Votre paiement a ete enregistre pour la commande <strong><?php echo rarsm_e((string) $order['order_number']); ?></strong>.</p>
+                    <p class="rarsm-status-kicker">Paiement réussi</p>
+                    <h2 class="special-heading"><span>Commande confirmée</span></h2>
+                    <p>Merci. Votre paiement a été enregistré pour la commande <strong><?php echo rarsm_e((string) $order['order_number']); ?></strong>.</p>
                     <div class="rarsm-status-meta">
                         <span>Montant : <?php echo rarsm_e(rarsm_format_money((float) $order['payable_total'], (string) $order['currency'])); ?></span>
                         <span>Statut : <?php echo rarsm_e((string) $order['status']); ?></span>

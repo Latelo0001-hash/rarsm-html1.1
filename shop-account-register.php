@@ -7,7 +7,7 @@ $redirect = trim((string) ($_GET['redirect'] ?? 'shop-cart.php'));
 
 rarsm_page_head('RARSM | Inscription', 'Creation de compte client RARSM.');
 rarsm_render_header('acheter');
-rarsm_render_page_title('Creer un compte', [
+rarsm_render_page_title('Créer un compte', [
     ['label' => 'Accueil', 'href' => 'index.html'],
     ['label' => 'Compte'],
     ['label' => 'Inscription'],
