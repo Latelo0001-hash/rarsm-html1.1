@@ -9,174 +9,299 @@
 	var eventList = document.getElementById("activities-event-list");
 	var navButtons = document.querySelectorAll("[data-calendar-nav]");
 
-	if (!calendarDays || !calendarWeekdays || !monthSelect || !yearSelect || !detailContainer || !eventList) {
+	if (!calendarDays || !calendarWeekdays || !monthSelect || !yearSelect || !currentTitle) {
 		return;
 	}
 
-	var monthNames = [
-		"Janvier",
-		"Fevrier",
-		"Mars",
-		"Avril",
-		"Mai",
-		"Juin",
-		"Juillet",
-		"Aout",
-		"Septembre",
-		"Octobre",
-		"Novembre",
-		"Decembre"
-	];
+	function getLanguage() {
+		if (window.RARSM_I18N && typeof window.RARSM_I18N.getLanguage === "function") {
+			return window.RARSM_I18N.getLanguage();
+		}
 
-	var weekdayNames = ["Lun", "Mar", "Mer", "Jeu", "Ven", "Sam", "Dim"];
+		return "fr";
+	}
+
+	var monthNamesByLanguage = {
+		fr: [
+			"Janvier",
+			"Février",
+			"Mars",
+			"Avril",
+			"Mai",
+			"Juin",
+			"Juillet",
+			"Août",
+			"Septembre",
+			"Octobre",
+			"Novembre",
+			"Décembre"
+		],
+		en: [
+			"January",
+			"February",
+			"March",
+			"April",
+			"May",
+			"June",
+			"July",
+			"August",
+			"September",
+			"October",
+			"November",
+			"December"
+		]
+	};
+
+	var weekdayNamesByLanguage = {
+		fr: ["Lun", "Mar", "Mer", "Jeu", "Ven", "Sam", "Dim"],
+		en: ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"]
+	};
 
 	var categoryMeta = {
-		launch: { label: "Lancement", className: "event-launch" },
-		institution: { label: "Institutions", className: "event-institution" },
-		signing: { label: "Dedicace", className: "event-signing" },
-		media: { label: "Media", className: "event-media" }
+		launch: { className: "event-launch" },
+		institution: { className: "event-institution" },
+		signing: { className: "event-signing" },
+		media: { className: "event-media" }
 	};
+
+	var categoryLabels = {
+		fr: {
+			launch: "Forum",
+			institution: "Institution",
+			signing: "Terrain",
+			media: "Média"
+		},
+		en: {
+			launch: "Forum",
+			institution: "Institution",
+			signing: "Field",
+			media: "Media"
+		}
+	};
+
+	var uiLabels = {
+		fr: {
+			clickHint: "Cliquez pour afficher les détails",
+			noActivityTitle: "Aucune activité",
+			noActivityBody: "Aucune activité n'est programmée pour ce mois pour l'instant. Utilisez les boutons du calendrier pour naviguer vers un autre mois ou consultez la liste annuelle des activités.",
+			viewDetails: "Voir le détail",
+			eventWord: "activité(s)"
+		},
+		en: {
+			clickHint: "Click to view details",
+			noActivityTitle: "No activity",
+			noActivityBody: "No activity is scheduled for this month yet. Use the calendar buttons to move to another month or browse the annual list of activities.",
+			viewDetails: "View details",
+			eventWord: "event(s)"
+		}
+	};
+
+	function getMonthNames() {
+		return monthNamesByLanguage[getLanguage()] || monthNamesByLanguage.fr;
+	}
+
+	function getWeekdayNames() {
+		return weekdayNamesByLanguage[getLanguage()] || weekdayNamesByLanguage.fr;
+	}
+
+	function getUiLabel(key) {
+		var language = getLanguage();
+		var dictionary = uiLabels[language] || uiLabels.fr;
+		return dictionary[key] || "";
+	}
+
+	function getCategoryMeta(category) {
+		var language = getLanguage();
+		return {
+			label: (categoryLabels[language] && categoryLabels[language][category]) || (categoryLabels.fr[category] || ""),
+			className: categoryMeta[category].className
+		};
+	}
+
+	function eventTitle(event) {
+		return getLanguage() === "en" && event.titleEn ? event.titleEn : event.title;
+	}
 
 	var events = [
 		{
-			id: "conference-presse-rarsm-2026-07-04",
-			title: "Conference de presse de lancement",
-			date: "2026-07-04",
+			id: "forum-annuel-secteur-minier-2026-01-22",
+			title: "Forum annuel de rentrée du secteur minier",
+			titleEn: "Annual mining sector opening forum",
+			date: "2026-01-22",
+			time: "09:30",
+			location: "Kinshasa",
+			category: "launch",
+			summary: "Ouverture de l'année avec une lecture partagée des priorités, réformes et grands rendez-vous du secteur minier.",
+			description: "Ce forum réunit les acteurs institutionnels, techniques et économiques afin de poser les principaux axes de travail de l'année et de coordonner les temps forts à venir.",
+			primaryHref: "institutions.php",
+			primaryLabel: "Voir les institutions",
+			secondaryHref: "contact.html",
+			secondaryLabel: "Proposer une activité"
+		},
+		{
+			id: "atelier-cadastre-titres-2026-02-12",
+			title: "Atelier institutionnel sur le cadastre et les titres",
+			titleEn: "Institutional workshop on cadastre and titles",
+			date: "2026-02-12",
 			time: "10:00",
 			location: "Kinshasa",
-			category: "launch",
-			summary: "Presentation officielle du RARSM devant la presse, les partenaires et les premiers lecteurs.",
-			description: "Cette activite lance publiquement le recueil avec une presentation de sa valeur pratique, un temps d'echange et un point de presse.",
-			primaryHref: "contact.html",
-			primaryLabel: "Demander une invitation",
-			secondaryHref: "pricing.html",
-			secondaryLabel: "Commander le livre"
-		},
-		{
-			id: "rencontre-institutions-2026-07-09",
-			title: "Rencontre technique avec les institutions",
-			date: "2026-07-09",
-			time: "14:30",
-			location: "Kinshasa",
 			category: "institution",
-			summary: "Session dediee aux usages du recueil dans les administrations et structures du secteur minier.",
-			description: "L'auteur presente les textes cles, la logique du classement et les apports concrets du RARSM pour les equipes juridiques et techniques.",
-			primaryHref: "contact.html",
-			primaryLabel: "Prendre contact",
-			secondaryHref: "pricing.html#institutions",
-			secondaryLabel: "Offre institutions"
-		},
-		{
-			id: "dedicace-lecteurs-2026-07-16",
-			title: "Seance de dedicace avec les lecteurs",
-			date: "2026-07-16",
-			time: "16:00",
-			location: "Kinshasa",
-			category: "signing",
-			summary: "Rencontre directe avec les lecteurs pour signature, presentation et achat sur place.",
-			description: "Un moment de proximite pour echanger autour du contenu du livre, prendre des photos et reserver plusieurs exemplaires.",
-			primaryHref: "pricing.html",
-			primaryLabel: "Voir les formats",
-			secondaryHref: "contact.html",
-			secondaryLabel: "Poser une question"
-		},
-		{
-			id: "interview-speciale-2026-07-23",
-			title: "Interview speciale sur le secteur minier",
-			date: "2026-07-23",
-			time: "11:00",
-			location: "Studio media - Kinshasa",
-			category: "media",
-			summary: "Entretien consacre aux enjeux reglementaires et a la place du recueil dans la pratique professionnelle.",
-			description: "Cette prise de parole revient sur les grandes familles d'actes reglementaires et sur les besoins de clarte du terrain.",
-			primaryHref: "contact.html",
-			primaryLabel: "Soliciter une interview",
-			secondaryHref: "pricing.html",
-			secondaryLabel: "Acheter le livre"
-		},
-		{
-			id: "table-ronde-rarsm-2026-07-28",
-			title: "Table ronde professionnelle",
-			date: "2026-07-28",
-			time: "15:00",
-			location: "Kinshasa",
-			category: "institution",
-			summary: "Dialogue entre institutions, operateurs et lecteurs autour de l'actualite reglementaire.",
-			description: "La table ronde met en perspective les besoins de conformite, de traçabilite et de bonne gouvernance dans le secteur minier.",
-			primaryHref: "contact.html",
-			primaryLabel: "Participer",
-			secondaryHref: "pricing.html#institutions",
-			secondaryLabel: "Commande institutionnelle"
-		},
-		{
-			id: "conference-universitaire-2026-08-05",
-			title: "Conference universitaire",
-			date: "2026-08-05",
-			time: "09:30",
-			location: "Lubumbashi",
-			category: "launch",
-			summary: "Presentation du RARSM devant un public academique et professionnel.",
-			description: "Cette conference insiste sur les usages pedagogiques du recueil pour les etudiants, enseignants et chercheurs en droit minier.",
-			primaryHref: "contact.html",
-			primaryLabel: "Inviter l'auteur",
-			secondaryHref: "pricing.html",
-			secondaryLabel: "Commander"
-		},
-		{
-			id: "rencontre-partenaires-2026-08-19",
-			title: "Rencontre avec partenaires et investisseurs",
-			date: "2026-08-19",
-			time: "13:00",
-			location: "Kinshasa",
-			category: "institution",
-			summary: "Echange sur la securisation reglementaire et la valeur du recueil pour la decision.",
-			description: "Une session plus strategique consacree a la lecture des obligations, des procedures et des enjeux de gouvernance sectorielle.",
-			primaryHref: "pricing.html#institutions",
-			primaryLabel: "Commander pour une equipe",
+			summary: "Séance de travail consacrée au suivi des titres, à la coordination administrative et aux obligations documentaires.",
+			description: "L'atelier met l'accent sur la bonne circulation de l'information entre institutions concernées, sur la fiabilité des procédures et sur la lisibilité des dossiers pour les opérateurs.",
+			primaryHref: "institutions.php",
+			primaryLabel: "Identifier les acteurs",
 			secondaryHref: "contact.html",
 			secondaryLabel: "Demander un rendez-vous"
 		},
 		{
-			id: "presentation-lubumbashi-2026-09-03",
-			title: "Presentation publique a Lubumbashi",
-			date: "2026-09-03",
-			time: "17:00",
-			location: "Lubumbashi",
+			id: "mission-tracabilite-flux-2026-03-19",
+			title: "Mission de terrain sur la traçabilité des flux miniers",
+			titleEn: "Field mission on mining flow traceability",
+			date: "2026-03-19",
+			time: "08:30",
+			location: "Kolwezi",
 			category: "signing",
-			summary: "Presentation suivie d'une vente directe et d'une signature d'exemplaires.",
-			description: "Cette activite rapproche le livre des praticiens locaux et permet de repondre aux questions sur son contenu et son usage.",
-			primaryHref: "pricing.html",
-			primaryLabel: "Voir les prix",
-			secondaryHref: "contact.html",
-			secondaryLabel: "Recevoir les details"
-		},
-		{
-			id: "masterclass-conformite-2026-09-24",
-			title: "Masterclass conformite miniere",
-			date: "2026-09-24",
-			time: "10:30",
-			location: "Kinshasa",
-			category: "media",
-			summary: "Session approfondie sur la lecture pratique des actes reglementaires du secteur minier.",
-			description: "La masterclass donne des reperes pour mieux utiliser le recueil dans l'analyse, la conformite et la preparation des dossiers.",
+			summary: "Déplacement opérationnel consacré au suivi des circuits, au contrôle des remontées d'information et à l'observation des pratiques de terrain.",
+			description: "Cette mission vise à documenter les réalités locales, à renforcer la traçabilité des substances minérales et à alimenter les échanges entre les structures techniques et les décideurs.",
 			primaryHref: "contact.html",
-			primaryLabel: "Reserver une place",
-			secondaryHref: "pricing.html",
-			secondaryLabel: "Acheter un exemplaire"
+			primaryLabel: "Signaler un besoin terrain",
+			secondaryHref: "institutions.php",
+			secondaryLabel: "Voir les institutions"
 		},
 		{
-			id: "forum-rarsm-2027-01-15",
-			title: "Forum de debut d'annee autour du RARSM",
-			date: "2027-01-15",
+			id: "briefing-media-reglementation-2026-04-09",
+			title: "Briefing média sur la réglementation minière",
+			titleEn: "Media briefing on mining regulations",
+			date: "2026-04-09",
+			time: "11:00",
+			location: "Studio média - Kinshasa",
+			category: "media",
+			summary: "Point d'information destiné au grand public et aux professionnels sur les sujets réglementaires qui structurent l'actualité minière.",
+			description: "Le briefing permet de restituer de manière claire les enjeux de gouvernance, les évolutions réglementaires et les questions qui appellent une meilleure pédagogie sectorielle.",
+			primaryHref: "contact.html",
+			primaryLabel: "Contacter l'équipe",
+			secondaryHref: "institutions.php",
+			secondaryLabel: "Consulter les institutions"
+		},
+		{
+			id: "dialogue-operateurs-services-2026-05-21",
+			title: "Dialogue entre opérateurs et services techniques",
+			titleEn: "Dialogue between operators and technical services",
+			date: "2026-05-21",
+			time: "14:00",
+			location: "Kinshasa",
+			category: "institution",
+			summary: "Rencontre de coordination autour des procédures, de la conformité et des difficultés opérationnelles observées sur le terrain.",
+			description: "Le dialogue vise à rapprocher les attentes des opérateurs et les exigences des structures techniques pour améliorer la fluidité des échanges et la compréhension des obligations.",
+			primaryHref: "institutions.php",
+			primaryLabel: "Voir les institutions",
+			secondaryHref: "contact.html",
+			secondaryLabel: "Demander une rencontre"
+		},
+		{
+			id: "journee-technique-artisanale-2026-06-18",
+			title: "Journée technique sur l'exploitation artisanale",
+			titleEn: "Technical day on artisanal mining",
+			date: "2026-06-18",
 			time: "09:00",
+			location: "Lubumbashi",
+			category: "launch",
+			summary: "Temps fort consacré à l'encadrement, aux bonnes pratiques et aux besoins d'accompagnement des acteurs de l'exploitation artisanale.",
+			description: "La journée rassemble experts, encadreurs et représentants institutionnels afin de partager des repères concrets sur la sécurité, la conformité et l'organisation des filières artisanales.",
+			primaryHref: "contact.html",
+			primaryLabel: "Demander les détails",
+			secondaryHref: "institutions.php",
+			secondaryLabel: "Voir les institutions"
+		},
+		{
+			id: "rencontre-conformite-provinciale-2026-07-24",
+			title: "Rencontre provinciale sur la conformité minière",
+			titleEn: "Provincial meeting on mining compliance",
+			date: "2026-07-24",
+			time: "10:30",
+			location: "Likasi",
+			category: "institution",
+			summary: "Échanges ciblés sur le respect des obligations, la qualité des dossiers et la coordination entre acteurs locaux du secteur.",
+			description: "Cette rencontre permet d'identifier les points de vigilance en province, de partager les attentes des institutions et d'orienter les opérateurs vers de meilleures pratiques de conformité.",
+			primaryHref: "contact.html",
+			primaryLabel: "Recevoir les détails",
+			secondaryHref: "institutions.php",
+			secondaryLabel: "Voir les institutions"
+		},
+		{
+			id: "mission-approvisionnement-responsable-2026-08-14",
+			title: "Mission sur l'approvisionnement responsable",
+			titleEn: "Mission on responsible sourcing",
+			date: "2026-08-14",
+			time: "08:00",
+			location: "Goma",
+			category: "signing",
+			summary: "Déploiement terrain autour de la chaîne d'approvisionnement, de la remontée d'informations et des mécanismes de suivi.",
+			description: "La mission documente les exigences d'approvisionnement responsable, la circulation des données utiles et les enjeux de coordination entre les structures impliquées.",
+			primaryHref: "contact.html",
+			primaryLabel: "Proposer une mission",
+			secondaryHref: "institutions.php",
+			secondaryLabel: "Consulter les institutions"
+		},
+		{
+			id: "forum-investisseurs-gouvernance-2026-09-11",
+			title: "Forum investisseurs et gouvernance minière",
+			titleEn: "Investors and mining governance forum",
+			date: "2026-09-11",
+			time: "09:30",
 			location: "Kinshasa",
 			category: "launch",
-			summary: "Rencontre de debut d'annee pour faire le point sur les activites et l'usage du recueil.",
-			description: "Le forum ouvre la nouvelle annee de communication du projet avec un agenda de rencontres, presentations et partenariats.",
+			summary: "Temps d'échange sur l'environnement réglementaire, la sécurité juridique et les attentes des partenaires publics et privés.",
+			description: "Ce forum propose une lecture croisée des enjeux d'investissement, de gouvernance et de conformité afin de favoriser des décisions mieux informées dans le secteur minier.",
 			primaryHref: "contact.html",
-			primaryLabel: "Ecrire a l'equipe",
-			secondaryHref: "pricing.html#institutions",
-			secondaryLabel: "Voir les commandes groupees"
+			primaryLabel: "Demander une invitation",
+			secondaryHref: "institutions.php",
+			secondaryLabel: "Voir les institutions"
+		},
+		{
+			id: "point-presse-certification-exportation-2026-10-16",
+			title: "Point presse sur la certification et l'exportation",
+			titleEn: "Press briefing on certification and exports",
+			date: "2026-10-16",
+			time: "11:30",
+			location: "Kinshasa",
+			category: "media",
+			summary: "Prise de parole publique sur les mécanismes de certification, de traçabilité et de contrôle des flux à l'export.",
+			description: "Le point presse éclaire les professionnels et le public sur les exigences de certification, les enjeux de transparence et les bonnes pratiques attendues à l'exportation.",
+			primaryHref: "contact.html",
+			primaryLabel: "Contacter l'équipe",
+			secondaryHref: "institutions.php",
+			secondaryLabel: "Consulter les institutions"
+		},
+		{
+			id: "atelier-controle-fiscalite-2026-11-20",
+			title: "Atelier interinstitutionnel sur le contrôle et la fiscalité",
+			titleEn: "Inter-institutional workshop on oversight and taxation",
+			date: "2026-11-20",
+			time: "09:45",
+			location: "Kinshasa",
+			category: "institution",
+			summary: "Session de travail sur le suivi des obligations, les mécanismes de contrôle et la lisibilité des procédures fiscales.",
+			description: "L'atelier réunit plusieurs structures concernées pour renforcer la coordination, réduire les zones d'interprétation et améliorer la qualité des échanges avec les opérateurs.",
+			primaryHref: "institutions.php",
+			primaryLabel: "Voir les institutions",
+			secondaryHref: "contact.html",
+			secondaryLabel: "Proposer une collaboration"
+		},
+		{
+			id: "bilan-annuel-secteur-minier-2026-12-10",
+			title: "Bilan annuel et perspectives du secteur minier",
+			titleEn: "Annual review and outlook for the mining sector",
+			date: "2026-12-10",
+			time: "10:00",
+			location: "Kinshasa",
+			category: "launch",
+			summary: "Clôture de l'année avec un retour sur les activités réalisées, les enjeux persistants et les priorités à venir.",
+			description: "Ce rendez-vous de fin d'année permet de faire la synthèse des temps forts du calendrier, de partager les enseignements utiles et de préparer les orientations de l'année suivante.",
+			primaryHref: "contact.html",
+			primaryLabel: "Partager une activité",
+			secondaryHref: "institutions.php",
+			secondaryLabel: "Voir les institutions"
 		}
 	];
 
@@ -195,7 +320,7 @@
 
 	function formatHumanDate(dateString) {
 		var date = parseLocalDate(dateString);
-		return date.toLocaleDateString("fr-FR", {
+		return date.toLocaleDateString(getLanguage() === "en" ? "en-US" : "fr-FR", {
 			weekday: "long",
 			day: "numeric",
 			month: "long",
@@ -208,6 +333,10 @@
 			return "";
 		}
 		return value.charAt(0).toUpperCase() + value.slice(1);
+	}
+
+	function getEventDetailUrl(eventId) {
+		return "activites-details.php?event=" + encodeURIComponent(eventId);
 	}
 
 	function sortEvents(a, b) {
@@ -257,10 +386,11 @@
 	var currentDate = canUseToday ? today : parseLocalDate(fallbackEvent.date);
 	var currentYear = currentDate.getFullYear();
 	var currentMonth = currentDate.getMonth();
-	var selectedDateKey = hashEvent ? hashEvent.date : (canUseToday ? todayKey : fallbackEvent.date);
+	var selectedDateKey = hashEvent ? hashEvent.date : (canUseToday && eventsByDate[todayKey] && eventsByDate[todayKey].length ? todayKey : fallbackEvent.date);
 	var selectedEventId = hashEvent ? hashEvent.id : (eventsByDate[selectedDateKey] && eventsByDate[selectedDateKey][0] ? eventsByDate[selectedDateKey][0].id : null);
 
 	function renderWeekdays() {
+		var weekdayNames = getWeekdayNames();
 		calendarWeekdays.innerHTML = "";
 		weekdayNames.forEach(function (weekday) {
 			var item = document.createElement("div");
@@ -271,6 +401,7 @@
 	}
 
 	function renderSelectOptions() {
+		var monthNames = getMonthNames();
 		monthSelect.innerHTML = "";
 		yearSelect.innerHTML = "";
 
@@ -290,6 +421,7 @@
 	}
 
 	function syncSelectors() {
+		var monthNames = getMonthNames();
 		monthSelect.value = String(currentMonth);
 		yearSelect.value = String(currentYear);
 		currentTitle.textContent = monthNames[currentMonth] + " " + currentYear;
@@ -317,9 +449,13 @@
 			}
 		}
 
-		renderCalendar();
-		renderDetail();
-		renderEventList();
+			renderCalendar();
+			if (detailContainer && detailTitle) {
+				renderDetail();
+			}
+			if (eventList) {
+				renderEventList();
+			}
 	}
 
 	function updateHash(eventId) {
@@ -344,8 +480,12 @@
 		}
 
 		renderCalendar();
-		renderDetail();
-		renderEventList();
+		if (detailContainer && detailTitle) {
+			renderDetail();
+		}
+		if (eventList) {
+			renderEventList();
+		}
 		updateHash(selectedEventId);
 	}
 
@@ -371,7 +511,7 @@
 			return cell;
 		}
 
-		var primaryCategory = categoryMeta[eventsForDay[0].category];
+		var primaryCategory = getCategoryMeta(eventsForDay[0].category);
 		cell.className += " has-event " + primaryCategory.className;
 		cell.className += rowIndex >= 4 ? " tooltip-up" : " tooltip-down";
 
@@ -390,7 +530,7 @@
 		var button = document.createElement("button");
 		button.type = "button";
 		button.className = "activities-day-button";
-		button.setAttribute("aria-label", sentenceCase(formatHumanDate(dateKey)) + ", " + eventsForDay.length + " activite(s)");
+		button.setAttribute("aria-label", sentenceCase(formatHumanDate(dateKey)) + ", " + eventsForDay.length + " " + getUiLabel("eventWord"));
 
 		var top = document.createElement("span");
 		top.className = "activities-day-top";
@@ -424,19 +564,19 @@
 		eventsForDay.forEach(function (event) {
 			var title = document.createElement("span");
 			title.className = "activities-day-tooltip-title";
-			title.textContent = event.title;
+			title.textContent = eventTitle(event);
 			tooltip.appendChild(title);
 		});
 
 		var hint = document.createElement("span");
 		hint.className = "activities-day-tooltip-hint";
-		hint.textContent = "Cliquez pour afficher les details";
+		hint.textContent = getUiLabel("clickHint");
 		tooltip.appendChild(hint);
 
 		button.appendChild(tooltip);
 
 		button.addEventListener("click", function () {
-			selectDate(dateKey, eventsForDay[0].id, true);
+			window.location.href = getEventDetailUrl(eventsForDay[0].id);
 		});
 
 		cell.appendChild(button);
@@ -486,18 +626,23 @@
 	}
 
 	function renderDetail() {
+		if (!detailContainer || !detailTitle) {
+			return;
+		}
+
 		detailContainer.innerHTML = "";
 
 		if (!selectedDateKey || !eventsByDate[selectedDateKey] || !eventsByDate[selectedDateKey].length) {
-			detailTitle.textContent = "Aucune activité";
-			detailContainer.innerHTML = '<div class="activities-event-empty"><p>Aucune activite n\'est programmee pour ce mois pour l\'instant. Utilisez les boutons du calendrier pour naviguer vers un autre mois ou consultez la liste des prochaines activites.</p></div>';
+			detailTitle.textContent = getUiLabel("noActivityTitle");
+			detailContainer.innerHTML = '<div class="activities-event-empty"><p>' + getUiLabel("noActivityBody") + '</p></div>';
 			return;
 		}
 
 		detailTitle.textContent = sentenceCase(formatHumanDate(selectedDateKey));
 
 		eventsByDate[selectedDateKey].forEach(function (event) {
-			var meta = categoryMeta[event.category];
+			var meta = getCategoryMeta(event.category);
+			var detailUrl = getEventDetailUrl(event.id);
 			var card = document.createElement("article");
 			card.className = "activities-detail-card";
 
@@ -509,7 +654,7 @@
 			header.className = "activities-detail-header";
 
 			var title = document.createElement("h4");
-			title.textContent = event.title;
+			title.innerHTML = '<a href="' + detailUrl + '">' + eventTitle(event) + '</a>';
 			header.appendChild(title);
 
 			var pill = document.createElement("span");
@@ -531,7 +676,10 @@
 
 			var actions = document.createElement("div");
 			actions.className = "activities-detail-actions";
-			actions.innerHTML = '<a href="' + event.primaryHref + '" class="btn btn-maincolor">' + event.primaryLabel + '</a><a href="' + event.secondaryHref + '" class="btn btn-outline-maincolor">' + event.secondaryLabel + "</a>";
+			actions.innerHTML =
+				'<a href="' + detailUrl + '" class="btn btn-maincolor">' + getUiLabel("viewDetails") + '</a>' +
+				'<a href="' + event.primaryHref + '" class="btn btn-outline-maincolor">' + event.primaryLabel + '</a>' +
+				'<a href="' + event.secondaryHref + '" class="btn btn-outline-maincolor">' + event.secondaryLabel + "</a>";
 
 			card.appendChild(header);
 			card.appendChild(summary);
@@ -543,10 +691,14 @@
 	}
 
 	function renderEventList() {
+		if (!eventList) {
+			return;
+		}
+
 		eventList.innerHTML = "";
 
 		sortedEvents.forEach(function (event) {
-			var meta = categoryMeta[event.category];
+			var meta = getCategoryMeta(event.category);
 			var item = document.createElement("button");
 			item.type = "button";
 			item.className = "activities-event-list-button";
@@ -560,7 +712,7 @@
 				sentenceCase(formatHumanDate(event.date)) +
 				"</span>" +
 				'<strong class="activities-event-list-title">' +
-				event.title +
+				eventTitle(event) +
 				"</strong>" +
 				'<span class="activities-event-list-meta">' +
 				event.time +
@@ -571,7 +723,7 @@
 				"</span>";
 
 			item.addEventListener("click", function () {
-				selectDate(event.date, event.id, false);
+				window.location.href = getEventDetailUrl(event.id);
 			});
 
 			eventList.appendChild(item);
@@ -615,9 +767,21 @@
 		});
 	});
 
-	renderWeekdays();
-	renderSelectOptions();
-	renderCalendar();
-	renderDetail();
-	renderEventList();
+	function renderAll() {
+		renderWeekdays();
+		renderSelectOptions();
+		renderCalendar();
+		if (detailContainer && detailTitle) {
+			renderDetail();
+		}
+		if (eventList) {
+			renderEventList();
+		}
+	}
+
+	window.addEventListener("rarsm:languagechange", function () {
+		renderAll();
+	});
+
+	renderAll();
 })();

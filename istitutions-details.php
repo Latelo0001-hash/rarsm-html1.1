@@ -40,6 +40,128 @@ function rarsm_initials($label)
 	return $initials;
 }
 
+function rarsm_public_file_exists($relativePath)
+{
+	return $relativePath !== '' && is_file(__DIR__ . '/' . ltrim((string) $relativePath, '/'));
+}
+
+function rarsm_string_length($value)
+{
+	return function_exists('mb_strlen') ? mb_strlen((string) $value) : strlen((string) $value);
+}
+
+function rarsm_render_paragraphs($text, $targetLength = 420)
+{
+	$normalized = trim((string) $text);
+
+	if ($normalized === '') {
+		return '';
+	}
+
+	$normalized = preg_replace('/\R{3,}/u', "\n\n", $normalized);
+	$blocks = preg_split('/\n\s*\n/u', (string) $normalized) ?: [];
+	$paragraphs = [];
+
+	foreach ($blocks as $block) {
+		$block = trim(preg_replace('/\s+/u', ' ', (string) $block));
+
+		if ($block === '') {
+			continue;
+		}
+
+		if (rarsm_string_length($block) <= $targetLength + 80) {
+			$paragraphs[] = $block;
+			continue;
+		}
+
+		$sentences = preg_split('/(?<=[\.\!\?])\s+(?=[A-ZÀ-ÖØ-Ý])/u', $block) ?: [$block];
+		$currentParagraph = '';
+
+		foreach ($sentences as $sentence) {
+			$sentence = trim((string) $sentence);
+
+			if ($sentence === '') {
+				continue;
+			}
+
+			$nextParagraph = $currentParagraph === '' ? $sentence : $currentParagraph . ' ' . $sentence;
+
+			if ($currentParagraph !== '' && rarsm_string_length($nextParagraph) > $targetLength) {
+				$paragraphs[] = $currentParagraph;
+				$currentParagraph = $sentence;
+				continue;
+			}
+
+			$currentParagraph = $nextParagraph;
+		}
+
+		if ($currentParagraph !== '') {
+			$paragraphs[] = $currentParagraph;
+		}
+	}
+
+	if (empty($paragraphs)) {
+		return '<p>' . rarsm_e($normalized) . '</p>';
+	}
+
+	$html = '';
+
+	foreach ($paragraphs as $paragraph) {
+		$html .= '<p>' . rarsm_e($paragraph) . '</p>';
+	}
+
+	return $html;
+}
+
+function rarsm_quote_source_url($slug, array $institution)
+{
+	if (!empty($institution['quote_source_url'])) {
+		return (string) $institution['quote_source_url'];
+	}
+
+	$articleUrls = [
+		'igm' => 'https://depeche.cd/2025/04/04/rdc-linspecteur-general-des-mines-et-sa-delegation-en-formation-a-fribourg-une-immersion-enrichissante/',
+		'ctcpm' => 'https://acp.cd/business/mines-la-nouvelle-equipe-dirigeante-dun-service-technique-determinee-a-relever-les-defis/',
+		'fomin' => 'https://www.forumdesas.cd/fomin-le-duo-motemona-kalaa-mpinga-promet-une-gestion-orientee-vers-linteret-des-generations',
+		'ceec' => 'https://acp.cd/economie/lualaba-inauguration-du-laboratoire-chimique-du-centre-dexpertise-des-substances-minerales/',
+		'sgnc' => 'https://acp.cd/economie/service-geologique-national-en-rdc-lapprobation-dun-financement-pour-intensifier-la-recherche-saluee/',
+		'cami' => 'https://acp.cd/economie/cadastre-minier-la-conference-budgetaire-un-indicateur-pour-la-gestion-miniere-en-rdc-directeur-general/',
+		'cnlfm' => 'https://zoom-eco.net/autres-actualites/rdc-le-ministre-des-mines-installe-le-nouveau-comite-anti-fraude-miniere/',
+		'arecoms' => 'https://acp.cd/economie/mines-lexportation-du-cobalt-suspendue-temporairement-durant-quatre-mois-en-rdc/',
+		'ministere-finances' => 'https://actualite.cd/2026/07/22/senat-le-ministre-des-finances-doudou-fwamba-defend-une-reforme-fiscale-pour-renforcer',
+		'dgi' => 'https://acp.cd/economie/direction-generale-des-impots-la-formation-parmi-les-secrets-de-laccroissement-des-recettes-2/',
+		'dgda' => 'https://acp.cd/economie/la-mise-en-oeuvre-du-statut-doperateur-economique-au-centre-dune-matinee-dinformation/',
+		'dgrad' => 'https://acp.cd/economie/direction-generale-des-recettes-administratives-les-agents-encourages-a-accroitre-les-recettes-financieres/',
+		'ministere-transports' => 'https://acp.cd/economie/aerogare-moderne-de-boende-le-vice-premier-ministre-bemba-evalue-lavancement-des-travaux-photo-darchive/',
+		'ogefrem' => 'https://hautespersonnalites.cd/ucca-logefrem-sollicite-le-report-du-forum-international-de-kinshasa/',
+		'lmc' => 'https://hautespersonnalites.cd/',
+		'ministere-recherche' => 'https://acp.cd/nation/la-rdc-a-lere-de-la-professionnalisation-de-la-valorisation-scientifique-ministre-de-lenseignement-superieur/',
+		'ministere-commerce-exterieur' => 'https://acp.cd/nation/commerce-exterieur-en-rdc-les-services-sous-tutelle-appeles-a-innover-davantage-julien-paluku/',
+		'ministere-environnement' => 'https://acp.cd/',
+		'egc' => 'https://www.business-humanrights.org/en/latest-news/rdc-pour-la-premi%C3%A8re-fois-le-pays-produit-du-cobalt-artisanal-%C3%A9quitable/',
+		'itie-rdc' => 'https://mines.cd/lubumbashi-la-gouvernance-miniere-au-coeur-dun-atelier-de-haut-niveau-de-la-tripartite-itie-rdc-idak-et-chambre-des-mines-fec/',
+	];
+
+	if (isset($articleUrls[$slug])) {
+		return $articleUrls[$slug];
+	}
+
+	$sourceHomepages = [
+		'ACP' => 'https://acp.cd/',
+		'Actualite.cd' => 'https://actualite.cd/',
+		'Business & Human Rights Resource Centre' => 'https://www.business-humanrights.org/',
+		'Dépêche.cd' => 'https://depeche.cd/',
+		'Forum des As' => 'https://www.forumdesas.cd/',
+		'Hautes Personnalités' => 'https://hautespersonnalites.cd/',
+		'Mines.cd' => 'https://mines.cd/',
+		'Zoom Eco' => 'https://zoom-eco.net/',
+	];
+
+	$source = isset($institution['quote_source']) ? trim((string) $institution['quote_source']) : '';
+
+	return isset($sourceHomepages[$source]) ? $sourceHomepages[$source] : '';
+}
+
 $institutions = [
 	'igm' => [
 		'name' => "Inspection Générale des Mines - IGM",
@@ -259,13 +381,31 @@ $institutions = [
 	],
 ];
 
+$institutionContent = require __DIR__ . '/includes/institutions-content.php';
+
+foreach ($institutionContent['profiles'] as $slug => $profile) {
+	if (!isset($institutions[$slug])) {
+		continue;
+	}
+
+	$institutions[$slug] = array_merge($institutions[$slug], $profile);
+}
+
+foreach ($institutionContent['updates'] as $slug => $update) {
+	if (!isset($institutions[$slug])) {
+		continue;
+	}
+
+	$institutions[$slug] = array_merge($institutions[$slug], $update);
+}
+
 $sectorNotes = [
-	'Mines' => "Cette famille d'institutions couvre l'accès aux titres, le contrôle, la certification, la traçabilité et l'encadrement du secteur. Leur lecture dans le RARSM aide à comprendre toute la chaîne administrative et technique de l'activité minière.",
+	'Mines' => "Cette famille d’institutions couvre l’accès aux titres, le contrôle, la certification, la traçabilité et l’encadrement du secteur. Leur lecture dans le RARSM aide à comprendre toute la chaîne administrative et technique de l’activité minière.",
 	'Finances' => "Ces institutions structurent la collecte des recettes publiques, la fiscalité et le contrôle des flux financiers liés aux activités minières. Elles sont essentielles pour comprendre comment les revenus du secteur sont transformés en ressources publiques.",
-	'Transports' => "Le secteur des transports et de la logistique est déterminant pour les coûts, les délais et la compétitivité des exportations minière. Il relie les sites de production aux corridors, ports et points de sortie du pays.",
-	'Recherche' => "Les institutions de recherche et d'innovation fournissent l'appui scientifique, technique et analytique utile a la géologie, aux matériaux, a la radioprotection et a la connaissance du sous-sol.",
-	'Commerce' => "Ce bloc relie le secteur minier aux flux d'import-export, aux contrôles de qualité et a la compétitivité des produits sur les marches nationaux et internationaux.",
-	'Environnement' => "Ces institutions interviennent dans l'évaluation des impacts, la prévention des pollutions et la protection des écosystèmes et des communautés autour des projets extractifs.",
+	'Transports' => "Le secteur des transports et de la logistique est déterminant pour les coûts, les délais et la compétitivité des exportations minières. Il relie les sites de production aux corridors, ports et points de sortie du pays.",
+	'Recherche' => "Les institutions de recherche et d’innovation fournissent l’appui scientifique, technique et analytique utile à la géologie, aux matériaux, à la radioprotection et à la connaissance du sous-sol.",
+	'Commerce' => "Ce bloc relie le secteur minier aux flux d’import-export, aux contrôles de qualité et à la compétitivité des produits sur les marchés nationaux et internationaux.",
+	'Environnement' => "Ces institutions interviennent dans l’évaluation des impacts, la prévention des pollutions et la protection des écosystèmes et des communautés autour des projets extractifs.",
 	'Autres' => "Ces organismes jouent un rôle transversal dans la formalisation, la transparence et la gouvernance des chaînes de valeur extractives, en particulier pour le cobalt artisanal et la publication des données sectorielles.",
 ];
 
@@ -273,7 +413,10 @@ $requestedSlug = isset($_GET['institution']) ? strtolower(preg_replace('/[^a-z0-
 $notFound = !isset($institutions[$requestedSlug]);
 $selectedSlug = $notFound ? 'igm' : $requestedSlug;
 $selected = $institutions[$selectedSlug];
-$selectedSectorNote = isset($sectorNotes[$selected['sector']]) ? $sectorNotes[$selected['sector']] : "Cette institution participe a la lecture pratique de l'écosystème minier, administratif et réglementaire couvert par le recueil.";
+$selectedSectorNote = isset($sectorNotes[$selected['sector']]) ? $sectorNotes[$selected['sector']] : "Cette institution participe à la lecture pratique de l’écosystème minier, administratif et réglementaire couvert par le recueil.";
+$selectedLogoPath = isset($selected['logo_path']) && rarsm_public_file_exists($selected['logo_path']) ? $selected['logo_path'] : '';
+$selectedLeaderPhoto = isset($selected['leader_photo']) && rarsm_public_file_exists($selected['leader_photo']) ? $selected['leader_photo'] : '';
+$selectedQuoteSourceUrl = rarsm_quote_source_url($selectedSlug, $selected);
 $pageTitle = 'RARSM | ' . $selected['name'];
 
 $suggestions = [];
@@ -312,7 +455,7 @@ foreach ($institutions as $slug => $institution) {
 	<link rel="icon" href="favicon.png?v=20260702-favicon" type="image/png">
 	<link rel="shortcut icon" href="favicon.png?v=20260702-favicon" type="image/png">
 	<link rel="apple-touch-icon" href="favicon.png?v=20260702-favicon">
-	<link rel="stylesheet" href="css/site.css">
+	<link rel="stylesheet" href="css/site.css?v=20260724-institutions-detail-v3">
 	<script src="js/vendor/modernizr-2.6.2.min.js"></script>
 </head>
 <body>
@@ -320,8 +463,8 @@ foreach ($institutions as $slug => $institution) {
 		<div class="preloader_image pulse"></div>
 	</div>
 
-	<div class="modal fade popupLogin" id="popupLogin" tabindex="-1" rôle="dialog" aria-hidden="true">
-		<div class="modal-dialog modal-dialog-centered" rôle="document">
+	<div class="modal fade popupLogin" id="popupLogin" tabindex="-1" role="dialog" aria-hidden="true">
+		<div class="modal-dialog modal-dialog-centered" role="document">
 			<div class="modal-content ls border-r-def overflow-visible s-overlay s-mobile-overlay">
 				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 					<span aria-hidden="true">&times;</span>
@@ -359,8 +502,8 @@ foreach ($institutions as $slug => $institution) {
 		</div>
 	</div>
 
-	<div class="modal fade popupRegistr" id="popupRegistr" tabindex="-1" rôle="dialog" aria-hidden="true">
-		<div class="modal-dialog modal-dialog-centered" rôle="document">
+	<div class="modal fade popupRegistr" id="popupRegistr" tabindex="-1" role="dialog" aria-hidden="true">
+		<div class="modal-dialog modal-dialog-centered" role="document">
 			<div class="modal-content ls border-r-def overflow-visible s-overlay s-mobile-overlay">
 				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 					<span aria-hidden="true">&times;</span>
@@ -430,7 +573,7 @@ foreach ($institutions as $slug => $institution) {
 									<li><a href="author.html">Auteur</a></li>
 									<li><a href="pricing.html">Shop</a></li>
 									<li class="active"><a href="institutions.php">Institutions</a></li>
-									<li><a href="activités.html">Activités</a></li>
+									<li><a href="activites.html">Activités</a></li>
 									<li><a href="contact.html">Contact</a></li>
 									<li class="menu-auth-item menu-auth-login">
 										<a data-toggle="modal" href="#popupLogin">Se connecter</a>
@@ -438,13 +581,59 @@ foreach ($institutions as $slug => $institution) {
 									<li class="menu-auth-item menu-auth-register">
 										<a data-toggle="modal" href="#popupRegistr">S'inscrire</a>
 									</li>
+									<li class="menu-cart-mobile dropdown d-lg-none">
+										<button aria-expanded="false" aria-haspopup="true" aria-label="Ouvrir le panier" class="dropdown-toggle dropdown-shopping-cart" data-toggle="dropdown" id="dropdown-shopping-cart-mobile" type="button">
+											<i aria-hidden="true" class="fa fa-shopping-basket"></i>
+											<span class="badge bg-maincolor">0</span>
+											<span class="cart-total">$0.00</span>
+										</button>
+										<div aria-labelledby="dropdown-shopping-cart-mobile" class="dropdown-menu ls">
+											<div class="widget woocommerce widget_shopping_cart">
+												<div class="widget_shopping_cart_content">
+													<ul class="woocommerce-mini-cart cart_list product_list_widget">
+														<li class="woocommerce-mini-cart-item mini_cart_item">
+															<a aria-label="Retirer cet article" class="remove" data-product_id="rarsm-book" data-product_sku="RARSM-PRINT" href="#">×</a>
+															<a href="shop-cart.php"><img alt="Livre RARSM" src="images/view-rarsm.JPG"></a>
+															<a href="shop-cart.php">RARSM - Edition papier</a>
+															<span class="quantity">0 ×
+																<span class="woocommerce-Price-amount amount">
+																	<span class="woocommerce-Price-currencySymbol">$</span>
+																	0.00
+																</span>
+															</span>
+														</li>
+													</ul>
+													<p class="woocommerce-mini-cart__total total">
+														<strong>Sous-total :</strong>
+														<span class="woocommerce-Price-amount amount">
+															<span class="woocommerce-Price-currencySymbol">$</span>
+															0.00
+														</span>
+													</p>
+													<p class="woocommerce-mini-cart__buttons buttons">
+														<a class="button wc-forward" href="shop-cart.php">Voir le panier</a>
+														<a class="button checkout wc-forward" href="shop-checkout.php">Passer à la commande</a>
+													</p>
+												</div>
+											</div>
+										</div>
+									</li>
+									<li class="menu-language-mobile d-lg-none">
+										<div class="language-switcher js-language-switcher">
+											<button type="button" class="language-toggle js-language-toggle" aria-expanded="false" aria-label="Choix de la langue actuelle">Fr</button>
+											<div class="language-menu" role="menu" aria-label="Choix de la langue">
+												<button type="button" class="language-option js-language-option is-active" data-language="fr" role="menuitem">Fr</button>
+												<button type="button" class="language-option js-language-option" data-language="en" role="menuitem">En</button>
+											</div>
+										</div>
+									</li>
 								</ul>
 							</nav>
 						</div>
 						<div class="col-xl-2 col-lg-3 text-right d-none d-lg-block">
 							<div class="header-utilities">
 								<div class="dropdown">
-									<a class="dropdown-toggle dropdown-shopping-cart" href="#" rôle="button" id="dropdown-shopping-cart" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" aria-label="Ouvrir le panier">
+									<a class="dropdown-toggle dropdown-shopping-cart" href="#" role="button" id="dropdown-shopping-cart" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" aria-label="Ouvrir le panier">
 										<i class="fa fa-shopping-basket" aria-hidden="true"></i>
 										<span class="badge bg-maincolor">0</span>
 										<span class="cart-total">$0.00</span>
@@ -480,14 +669,23 @@ foreach ($institutions as $slug => $institution) {
 										</div>
 									</div>
 								</div>
+								<div class="header-language-control">
+									<div class="language-switcher js-language-switcher">
+										<button type="button" class="language-toggle js-language-toggle" aria-expanded="false" aria-label="Choix de la langue actuelle">Fr</button>
+										<div class="language-menu" role="menu" aria-label="Choix de la langue">
+											<button type="button" class="language-option js-language-option is-active" data-language="fr" role="menuitem">Fr</button>
+											<button type="button" class="language-option js-language-option" data-language="en" role="menuitem">En</button>
+										</div>
+									</div>
+								</div>
 							</div>
 						</div>
 					</div>
 				</div>
-				<span class="toggle_menu" aria-label="Ouvrir le menu mobile" rôle="button" tabindex="0"><span></span></span>
+				<span class="toggle_menu" aria-label="Ouvrir le menu mobile" role="button" tabindex="0"><span></span></span>
 			</header>
 
-			<section class="page_title ds s-parallax s-py-110">
+			<section class="page_title ds s-parallax s-py-110" style="background: linear-gradient(135deg, rgba(7, 17, 63, 0.74) 0%, rgba(13, 30, 92, 0.64) 42%, rgba(32, 42, 82, 0.58) 58%, rgba(239, 59, 35, 0.30) 100%), url('images/rarsm-generated/page-title-rarsm-hero.png') no-repeat center/cover;">
 				<div class="container">
 					<div class="row">
 						<div class="col-md-12 text-center">
@@ -495,7 +693,7 @@ foreach ($institutions as $slug => $institution) {
 							<ol class="breadcrumb">
 								<li class="breadcrumb-item"><a href="index.html">Accueil</a></li>
 								<li class="breadcrumb-item"><a href="institutions.php">Institutions</a></li>
-								<li class="breadcrumb-item active">Fiche detail</li>
+								<li class="breadcrumb-item active">Fiche détail</li>
 							</ol>
 						</div>
 					</div>
@@ -506,17 +704,24 @@ foreach ($institutions as $slug => $institution) {
 				<div class="container">
 					<?php if ($notFound): ?>
 						<div class="institution-detail-alert">
-							L'institution demandee n'a pas ete trouvee. La premiere fiche disponible a été affichee par defaut.
+							L’institution demandée n’a pas été trouvée. La première fiche disponible a été affichée par défaut.
 						</div>
 					<?php endif; ?>
 					<div class="row c-gutter-30">
 						<div class="col-lg-8">
 							<article class="institution-detail-card">
 								<div class="institution-detail-header">
-									<div class="institution-detail-logo"><?php echo rarsm_e(rarsm_initials($selected['name'])); ?></div>
+									<div class="institution-detail-logo">
+										<?php if ($selectedLogoPath !== ''): ?>
+											<img src="<?php echo rarsm_e($selectedLogoPath); ?>" alt="Logo <?php echo rarsm_e($selected['name']); ?>">
+										<?php else: ?>
+											<?php echo rarsm_e(rarsm_initials($selected['name'])); ?>
+										<?php endif; ?>
+									</div>
 									<div class="institution-detail-heading">
 										<div class="institution-detail-meta">
 											<span class="institution-detail-sector text-danger"><?php echo rarsm_e($selected['sector']); ?></span>
+											
 										</div>
 										<h2><?php echo rarsm_e($selected['name']); ?></h2>
 										<p class="institution-detail-lead"><?php echo rarsm_e($selected['summary']); ?></p>
@@ -524,9 +729,44 @@ foreach ($institutions as $slug => $institution) {
 								</div>
 								<div class="institution-detail-body">
 									<div class="institution-detail-section">
-										<h4>Role et perimêtre d'action</h4>
-										<p><?php echo rarsm_e($selected['details']); ?></p>
+										<h4>Rôle et périmètre d’action</h4>
+										<div class="institution-detail-paragraphs"><?php echo rarsm_render_paragraphs($selected['details']); ?></div>
 									</div>
+									<?php if (!empty($selected['leader_name']) || !empty($selectedLeaderPhoto)): ?>
+										<div class="institution-detail-section">
+											<h4>Responsable mis en avant</h4>
+											<div class="institution-profile-card">
+												<div class="institution-profile-media">
+													<?php if ($selectedLeaderPhoto !== ''): ?>
+														<img class="institution-profile-photo" src="<?php echo rarsm_e($selectedLeaderPhoto); ?>" alt="<?php echo rarsm_e($selected['leader_name']); ?>">
+													<?php else: ?>
+														<span class="institution-profile-placeholder"><?php echo rarsm_e(rarsm_initials(!empty($selected['leader_name']) ? $selected['leader_name'] : $selected['name'])); ?></span>
+													<?php endif; ?>
+												</div>
+												<div class="institution-profile-copy">
+													<strong><?php echo rarsm_e($selected['leader_name']); ?></strong>
+													<?php if (!empty($selected['leader_role'])): ?>
+														<span class="institution-profile-role"><?php echo rarsm_e($selected['leader_role']); ?></span>
+													<?php endif; ?>
+													<?php if (!empty($selected['quote'])): ?>
+														<p class="institution-profile-note">
+															<?php echo rarsm_e($selected['quote']); ?>
+															<?php if (!empty($selected['quote_source'])): ?>
+																<span>
+																	Source :
+																	<?php if ($selectedQuoteSourceUrl !== ''): ?>
+																		<a href="<?php echo rarsm_e($selectedQuoteSourceUrl); ?>" target="_blank" rel="noopener"><?php echo rarsm_e($selected['quote_source']); ?></a>
+																	<?php else: ?>
+																		<?php echo rarsm_e($selected['quote_source']); ?>
+																	<?php endif; ?>
+																</span>
+															<?php endif; ?>
+														</p>
+													<?php endif; ?>
+												</div>
+											</div>
+										</div>
+									<?php endif; ?>
 									<div class="institution-detail-section">
 										<h4>Pourquoi cette institution compte dans le RARSM</h4>
 										<p><?php echo rarsm_e($selectedSectorNote); ?></p>
@@ -553,7 +793,14 @@ foreach ($institutions as $slug => $institution) {
 										<?php foreach ($suggestions as $slug => $institution): ?>
 											<li>
 												<a class="institution-suggestion-item" href="istitutions-details.php?institution=<?php echo rarsm_e($slug); ?>">
-													<span class="institution-suggestion-logo"><?php echo rarsm_e(rarsm_initials($institution['name'])); ?></span>
+													<?php $suggestionLogoPath = isset($institution['logo_path']) && rarsm_public_file_exists($institution['logo_path']) ? $institution['logo_path'] : ''; ?>
+													<span class="institution-suggestion-logo">
+														<?php if ($suggestionLogoPath !== ''): ?>
+															<img src="<?php echo rarsm_e($suggestionLogoPath); ?>" alt="Logo <?php echo rarsm_e($institution['name']); ?>">
+														<?php else: ?>
+															<?php echo rarsm_e(rarsm_initials($institution['name'])); ?>
+														<?php endif; ?>
+													</span>
 													<span class="institution-suggestion-copy">
 														<strong><?php echo rarsm_e($institution['name']); ?></strong>
 														<small><?php echo rarsm_e($institution['sector']); ?></small>
@@ -570,9 +817,7 @@ foreach ($institutions as $slug => $institution) {
 										<a href="institutions.php" class="btn btn-maincolor">Retour au panorama</a>
 										<a href="shop-cart.php" class="btn btn-outline-maincolor">Commander le livre</a>
 										<a href="contact.html" class="btn btn-outline-maincolor">Contacter l'équipe</a>
-										<?php if ($selected['website'] !== ''): ?>
-											<a href="<?php echo rarsm_e($selected['website']); ?>" class="btn btn-outline-maincolor" target="_blank" rel="noopener">Site officiel</a>
-										<?php endif; ?>
+										
 									</div>
 								</div>
 								
@@ -597,7 +842,7 @@ foreach ($institutions as $slug => $institution) {
 									<li class="menu-item"><a href="author.html">Auteur</a></li>
 									<li class="menu-item"><a href="pricing.html">Shop</a></li>
 									<li class="menu-item"><a href="institutions.php">Institutions</a></li>
-									<li class="menu-item"><a href="activités.html">Activités</a></li>
+									<li class="menu-item"><a href="activites.html">Activités</a></li>
 									<li class="menu-item"><a href="contact.html">Contact</a></li>
 									<li class="menu-item"><a href="faq.html">FAQ</a></li>
 								</ul>
@@ -620,6 +865,7 @@ foreach ($institutions as $slug => $institution) {
 	</div>
 
 	<script src="js/compressed.js"></script>
-	<script src="js/rarsm-ui.js"></script>
+	<script src="js/rarsm-i18n.js?v=20260721-en"></script>
+	<script src="js/rarsm-ui.js?v=20260723-page-title-banner-v3"></script>
 </body>
 </html>

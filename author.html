@@ -19,7 +19,64 @@
 	<link rel="icon" href="favicon.png?v=20260702-favicon" type="image/png">
 	<link rel="shortcut icon" href="favicon.png?v=20260702-favicon" type="image/png">
 	<link rel="apple-touch-icon" href="favicon.png?v=20260702-favicon">
-	<link rel="stylesheet" href="css/site.css">
+	<link rel="stylesheet" href="css/site.css?v=20260723-author-photo-mobile-v8">
+	<style>
+		@media (max-width: 767.98px) {
+			.author-intro-section {
+				padding-top: 36px !important;
+				padding-bottom: 28px !important;
+			}
+
+			.author-intro-mobile-photo {
+				display: block;
+				margin-bottom: 8px;
+			}
+
+			.author-intro-mobile-photo-frame {
+				display: flex;
+				justify-content: center;
+				padding: 0 8px;
+			}
+
+			.author-intro-mobile-photo-frame .author-photo {
+				display: block !important;
+				height: auto !important;
+				margin: 0 auto 10px !important;
+				max-height: none !important;
+				max-width: 390px !important;
+				object-fit: contain !important;
+				width: min(84vw, 390px) !important;
+			}
+
+			.author-intro-photo-col {
+				display: none !important;
+			}
+
+			.author-intro-section .author-intro-copy-col,
+			.author-intro-section .author-hero-copy {
+				text-align: center !important;
+			}
+
+			.author-intro-section .author-hero-copy .special-heading,
+			.author-intro-section .author-hero-copy-simple .excerpt {
+				margin-left: auto !important;
+				margin-right: auto !important;
+			}
+		}
+
+		@media (max-width: 575.98px) {
+			.author-intro-mobile-photo-frame .author-photo {
+				max-width: 410px !important;
+				width: min(88vw, 410px) !important;
+			}
+		}
+
+		@media (min-width: 768px) {
+			.author-intro-mobile-photo {
+				display: none !important;
+			}
+		}
+	</style>
 <script src="js/vendor/modernizr-2.6.2.min.js"></script>
 
 	<!--[if lt IE 9]>
@@ -176,7 +233,7 @@
 								<img src="logo/rarsm-logo-wordmark-color.png" alt="RARSM">
 							</a>
 						</div>
-						<div class="col-xl-8 col-lg-5 col-1">
+						<div class="col-xl-8 col-lg-6 col-1">
 							<!-- main nav start -->
 							<nav class="top-nav">
 								<ul class="nav sf-menu">
@@ -244,6 +301,15 @@
 											</div>
 										</div>
 									</li>
+									<li class="menu-language-mobile d-lg-none">
+										<div class="language-switcher js-language-switcher">
+											<button type="button" class="language-toggle js-language-toggle" aria-expanded="false" aria-label="Choix de la langue actuelle">Fr</button>
+											<div class="language-menu" role="menu" aria-label="Choix de la langue">
+												<button type="button" class="language-option js-language-option is-active" data-language="fr" role="menuitem">Fr</button>
+												<button type="button" class="language-option js-language-option" data-language="en" role="menuitem">En</button>
+											</div>
+										</div>
+									</li>
 								</ul>
 							</nav>
 							<!-- eof main nav -->
@@ -286,6 +352,15 @@
 											</div>
 										</div>
 									</div>
+									<div class="header-language-control">
+										<div class="language-switcher js-language-switcher">
+											<button type="button" class="language-toggle js-language-toggle" aria-expanded="false" aria-label="Choix de la langue actuelle">Fr</button>
+											<div class="language-menu" role="menu" aria-label="Choix de la langue">
+												<button type="button" class="language-option js-language-option is-active" data-language="fr" role="menuitem">Fr</button>
+												<button type="button" class="language-option js-language-option" data-language="en" role="menuitem">En</button>
+											</div>
+										</div>
+									</div>
 								</div>
 							</div>
 						</div>
@@ -295,7 +370,7 @@
 				<span class="toggle_menu"><span></span></span>
 			</header>
 
-			<section class="page_title ds s-parallax s-py-110">
+			<section class="page_title ds s-parallax s-py-110" style="background: linear-gradient(135deg, rgba(7, 17, 63, 0.74) 0%, rgba(13, 30, 92, 0.64) 42%, rgba(32, 42, 82, 0.58) 58%, rgba(239, 59, 35, 0.30) 100%), url('images/rarsm-generated/page-title-rarsm-hero.png') no-repeat center/cover;">
 				<div class="container">
 					<div class="row">
 
@@ -315,10 +390,15 @@
 				</div>
 			</section>
 
-			<section class="ls ms s-py-90 s-py-xl-150 c">
+			<section class="ls ms s-py-90 s-py-xl-150 c author-intro-section">
 				<div class="container">
 					<div class="row align-items-center c-gutter-50">
-						<div class="col-lg-6">
+						<div class="col-12 author-intro-mobile-photo">
+							<div class="author-intro-mobile-photo-frame">
+								<img alt="Maître Jean-Baptiste Otshudi Disashi Kalonda" class="author-photo" src="images/avatar-jbo.jpg"/>
+							</div>
+						</div>
+						<div class="col-lg-6 author-intro-copy-col">
 							<div class="author-hero-copy author-hero-copy-simple">
 								<p class="mb-2 text-dark">Auteur du recueil</p>
 								<h2 class="special-heading">
@@ -330,8 +410,8 @@
 								<p class="excerpt text-dark">Fort de plus de vingt ans d'expérience en droit, en gouvernance publique et dans le secteur minier en RDC, il porte avec le RARSM un travail rigoureux de structuration, de clarification et de mise à disposition des textes réglementaires.</p>
 							</div>
 						</div>
-						<div class="col-lg-6 d-flex align-items-center justify-content-center">
-							<div class="author-placeholder-square" aria-label="Initiales de Maître Jean-Baptiste Otshudi Disashi Kalonda">JBO</div>
+						<div class="col-lg-6 d-flex align-items-center justify-content-center author-intro-photo-col">
+							<img alt="Maître Jean-Baptiste Otshudi Disashi Kalonda" class="author-photo" src="images/avatar-jbo.jpg"/>
 						</div>
 					</div>
 				</div>
@@ -509,7 +589,8 @@
 
 
 	<script src="js/compressed.js"></script>
-	<script src="js/rarsm-ui.js"></script>
+	<script src="js/rarsm-i18n.js?v=20260721-en"></script>
+	<script src="js/rarsm-ui.js?v=20260723-page-title-banner-v3"></script>
 
 
 </body>

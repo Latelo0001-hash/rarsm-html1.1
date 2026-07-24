@@ -23,9 +23,9 @@ rarsm_render_page_title('Panier', [
                     <div class="rarsm-status-card text-center">
                         <p class="rarsm-status-kicker">Panier vide</p>
                         <h3>Aucun article n’a encore été ajouté</h3>
-                        <p>Sélectionnez un format du livre RARSM pour commencer votre commande et passer au checkout ensuite.</p>
+                        <p>Sélectionnez un produit de la boutique RARSM pour commencer votre commande et passer au checkout ensuite.</p>
                         <div class="rarsm-gateway-actions justify-content-center">
-                            <a class="btn btn-maincolor" href="pricing.html#formats">Voir les formats</a>
+                            <a class="btn btn-maincolor" href="pricing.html#formats">Voir la boutique</a>
                         </div>
                     </div>
                 <?php else : ?>

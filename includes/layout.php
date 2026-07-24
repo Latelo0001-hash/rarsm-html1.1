@@ -259,7 +259,7 @@ function rarsm_page_head(string $title, string $description = '', string $bodyCl
     <link rel="icon" href="favicon.png?v=20260702-favicon" type="image/png">
     <link rel="shortcut icon" href="favicon.png?v=20260702-favicon" type="image/png">
     <link rel="apple-touch-icon" href="favicon.png?v=20260702-favicon">
-    <link rel="stylesheet" href="css/site.css">
+    <link rel="stylesheet" href="css/site.css?v=20260722-page-title-hero">
     <script src="js/vendor/modernizr-2.6.2.min.js"></script>
 </head>
 <body class="{$safeBodyClass}">
@@ -304,8 +304,8 @@ function rarsm_render_header(string $active = 'acheter'): void
     }
 
     if ($user === null) {
-        echo '<li class="menu-auth-item menu-auth-login d-lg-none"><a data-toggle="modal" href="#popupLogin">Se connecter</a></li>';
-        echo '<li class="menu-auth-item menu-auth-register d-lg-none"><a data-toggle="modal" href="#popupRegistr">S\'inscrire</a></li>';
+        echo '<li class="menu-auth-item menu-auth-login"><a data-toggle="modal" href="#popupLogin">Se connecter</a></li>';
+        echo '<li class="menu-auth-item menu-auth-register"><a data-toggle="modal" href="#popupRegistr">S\'inscrire</a></li>';
     } else {
         $displayName = rarsm_user_display_name($user);
         $initials = rarsm_user_initials($user);
@@ -358,10 +358,7 @@ function rarsm_render_header(string $active = 'acheter'): void
     echo '</ul></nav></div>';
     echo '<div class="col-xl-2 col-lg-3 text-right d-none d-lg-block"><div class="header-utilities">';
 
-    if ($user === null) {
-        echo '<a class="btn btn-outline-maincolor" data-toggle="modal" href="#popupLogin">Se connecter</a>';
-        echo '<a class="btn btn-maincolor" data-toggle="modal" href="#popupRegistr">S\'inscrire</a>';
-    } else {
+    if ($user !== null) {
         $displayName = rarsm_user_display_name($user);
         $initials = rarsm_user_initials($user);
         echo '<div class="rarsm-user-menu">';
@@ -377,11 +374,37 @@ function rarsm_render_header(string $active = 'acheter'): void
         echo '</div>';
     }
 
-    echo '<a class="dropdown-shopping-cart" href="shop-cart.php" aria-label="Ouvrir le panier">';
+    echo '<div class="dropdown">';
+    echo '<a class="dropdown-toggle dropdown-shopping-cart" href="#" role="button" id="dropdown-shopping-cart" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" aria-label="Ouvrir le panier">';
     echo '<i class="fa fa-shopping-basket" aria-hidden="true"></i>';
     echo '<span class="badge bg-maincolor">' . rarsm_e($cartCount) . '</span>';
     echo '<span class="cart-total">' . rarsm_e($cartTotal) . '</span>';
     echo '</a>';
+    echo '<div class="dropdown-menu dropdown-menu-right ls" aria-labelledby="dropdown-shopping-cart">';
+    echo '<div class="widget woocommerce widget_shopping_cart">';
+    echo '<div class="widget_shopping_cart_content">';
+    echo '<ul class="woocommerce-mini-cart cart_list product_list_widget"></ul>';
+    echo '<p class="woocommerce-mini-cart__total total">';
+    echo '<strong>Sous-total :</strong>';
+    echo '<span class="woocommerce-Price-amount amount">' . rarsm_e($cartTotal) . '</span>';
+    echo '</p>';
+    echo '<p class="woocommerce-mini-cart__buttons buttons">';
+    echo '<a class="button wc-forward" href="shop-cart.php">Voir le panier</a>';
+    echo '<a class="button checkout wc-forward" href="shop-checkout.php">Passer à la commande</a>';
+    echo '</p>';
+    echo '</div>';
+    echo '</div>';
+    echo '</div>';
+    echo '</div>';
+    echo '<div class="header-language-control">';
+    echo '<div class="language-switcher js-language-switcher">';
+    echo '<button class="language-toggle js-language-toggle" type="button" aria-label="Choix de la langue actuelle" aria-expanded="false">Fr</button>';
+    echo '<div class="language-menu" role="menu" aria-label="Choix de la langue">';
+    echo '<button class="language-option js-language-option is-active" type="button" role="menuitem" data-language="fr">Fr</button>';
+    echo '<button class="language-option js-language-option" type="button" role="menuitem" data-language="en">En</button>';
+    echo '</div>';
+    echo '</div>';
+    echo '</div>';
     echo '</div></div></div></div>';
     echo '<span class="toggle_menu"><span></span></span>';
     echo '</header>';
@@ -389,7 +412,7 @@ function rarsm_render_header(string $active = 'acheter'): void
 
 function rarsm_render_page_title(string $title, array $crumbs): void
 {
-    echo '<section class="page_title ds s-parallax s-py-110"><div class="container"><div class="row"><div class="col-md-12 text-center">';
+    echo '<section class="page_title ds s-parallax s-py-110" style="background: linear-gradient(135deg, rgba(7, 17, 63, 0.74) 0%, rgba(13, 30, 92, 0.64) 42%, rgba(32, 42, 82, 0.58) 58%, rgba(239, 59, 35, 0.30) 100%), url(\'images/rarsm-generated/page-title-rarsm-hero.png\') no-repeat center/cover;"><div class="container"><div class="row"><div class="col-md-12 text-center">';
     echo '<h1 class="small-title">' . rarsm_e($title) . '</h1>';
     echo '<ol class="breadcrumb">';
 
@@ -466,7 +489,8 @@ function rarsm_render_footer(): void
 </div>
 </div>
 <script src="js/compressed.js"></script>
-<script src="js/rarsm-ui.js"></script>
+<script src="js/rarsm-i18n.js?v=20260721-en"></script>
+<script src="js/rarsm-ui.js?v=20260723-page-title-banner-v3"></script>
 </body>
 </html>
 HTML;

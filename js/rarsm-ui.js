@@ -4,6 +4,66 @@
 
 var $body = $('body');
 var $window = $(window);
+var rarsmI18n = window.RARSM_I18N || null;
+
+	function rarsmTranslate(key, fallback) {
+		if (rarsmI18n && typeof rarsmI18n.t === 'function') {
+			return rarsmI18n.t(key, fallback);
+		}
+
+		return fallback || '';
+	}
+
+	function rarsmGetLanguage() {
+		if (rarsmI18n && typeof rarsmI18n.getLanguage === 'function') {
+			return rarsmI18n.getLanguage();
+		}
+
+		return 'fr';
+	}
+
+	function rarsmRefreshTranslations() {
+		if (rarsmI18n && typeof rarsmI18n.refresh === 'function') {
+			rarsmI18n.refresh();
+		}
+	}
+
+	function rarsmGetPageTitleHeroPath() {
+		var pathname = window.location.pathname || '';
+		var desktopPath = 'images/rarsm-generated/page-title-rarsm-hero-v2.png';
+		var mobilePath = 'images/rarsm-generated/page-title-rarsm-hero-v2.png';
+
+		if (/\/Shop\//i.test(pathname)) {
+			desktopPath = '../images/rarsm-generated/page-title-rarsm-hero-v2.png';
+			mobilePath = '../images/rarsm-generated/page-title-rarsm-hero-v2.png';
+		}
+
+		return window.matchMedia('(max-width: 767.98px)').matches ? mobilePath : desktopPath;
+	}
+
+	function initRarsmPageTitleHero() {
+		var $pageTitles = $('.page_title');
+
+		if (!$pageTitles.length) {
+			return;
+		}
+
+		var heroPath = rarsmGetPageTitleHeroPath();
+		var isMobileViewport = window.matchMedia('(max-width: 767.98px)').matches;
+		var backgroundPosition = isMobileViewport ? 'center center' : 'center 76%';
+		var overlay = isMobileViewport
+			? 'linear-gradient(110deg, rgba(7, 17, 63, 0.46) 0%, rgba(13, 30, 92, 0.28) 44%, rgba(239, 59, 35, 0.14) 100%)'
+			: 'linear-gradient(110deg, rgba(7, 17, 63, 0.52) 0%, rgba(13, 30, 92, 0.34) 44%, rgba(239, 59, 35, 0.16) 100%)';
+
+		$pageTitles.each(function () {
+			$(this).css({
+				'background-image': overlay + ', url("' + heroPath + '")',
+				'background-repeat': 'no-repeat',
+				'background-size': 'cover',
+				'background-position': backgroundPosition
+			});
+		});
+	}
 
 	function putPlaceholdersToInputs() {
 		$('select').wrap('<div class="select-wrap"></div>');
@@ -121,6 +181,8 @@ function initRarsmLanguageSwitchers() {
 			var $options = $switcher.find('.js-language-option');
 
 			$toggle.text(language === 'en' ? 'En' : 'Fr');
+			$toggle.attr('aria-label', rarsmTranslate('language.current', 'Choix de la langue actuelle'));
+			$switcher.find('.language-menu').attr('aria-label', rarsmTranslate('language.menu', 'Choix de la langue'));
 			$options.removeClass('is-active');
 			$options.filter('[data-language="' + language + '"]').addClass('is-active');
 		});
@@ -155,13 +217,10 @@ function initRarsmLanguageSwitchers() {
 			event.stopPropagation();
 			closeAllLanguageMenus();
 
-			if (selectedLanguage === 'en') {
-				window.alert('La version anglaise sera bientot disponible.');
-				syncLanguageState('fr');
-				return;
-			}
-
 			syncLanguageState(selectedLanguage);
+			if (rarsmI18n && typeof rarsmI18n.setLanguage === 'function') {
+				rarsmI18n.setLanguage(selectedLanguage);
+			}
 		});
 	});
 
@@ -174,8 +233,7 @@ function initRarsmLanguageSwitchers() {
 			closeAllLanguageMenus();
 		}
 	});
-
-	syncLanguageState('fr');
+	syncLanguageState(rarsmGetLanguage());
 }
 
 function initRarsmSessionState() {
@@ -214,15 +272,15 @@ function initRarsmSessionState() {
 		var items = cart && Array.isArray(cart.items) ? cart.items : [];
 
 		if (!items.length) {
-			return '<li class="woocommerce-mini-cart-item mini_cart_item rarsm-mini-cart-empty">Votre panier est vide.</li>';
+			return '<li class="woocommerce-mini-cart-item mini_cart_item rarsm-mini-cart-empty">' + escapeHtml(rarsmTranslate('cart.empty', 'Votre panier est vide.')) + '</li>';
 		}
 
 		return items.map(function (item) {
 			return ''
 				+ '<li class="woocommerce-mini-cart-item mini_cart_item">'
-				+ '<a href="#" class="remove" data-remove-id="' + escapeHtml(item.id || '') + '" aria-label="Retirer cet article">×</a>'
-				+ '<a href="shop-cart.php"><img src="' + escapeHtml(item.image || 'images/view-rarsm.JPG') + '" alt="' + escapeHtml(item.name || 'Produit RARSM') + '"></a>'
-				+ '<a href="shop-cart.php">' + escapeHtml(item.name || 'Produit RARSM') + '</a>'
+				+ '<a href="#" class="remove" data-remove-id="' + escapeHtml(item.id || '') + '" aria-label="' + escapeHtml(rarsmTranslate('cart.remove', 'Retirer cet article')) + '">×</a>'
+				+ '<a href="shop-cart.php"><img src="' + escapeHtml(item.image || 'images/view-rarsm.JPG') + '" alt="' + escapeHtml(item.name || rarsmTranslate('cart.product', 'Produit RARSM')) + '"></a>'
+				+ '<a href="shop-cart.php">' + escapeHtml(item.name || rarsmTranslate('cart.product', 'Produit RARSM')) + '</a>'
 				+ '<span class="quantity">' + escapeHtml(item.quantity || 0) + ' ×'
 				+ '<span class="woocommerce-Price-amount amount">' + renderAmountHtml(item.display_subtotal || '$0.00') + '</span>'
 				+ '</span>'
@@ -248,8 +306,13 @@ function initRarsmSessionState() {
 		$('.widget_shopping_cart_content').each(function () {
 			var $content = $(this);
 			$content.find('.woocommerce-mini-cart').html(renderMiniCartItems(safeCart));
+			$content.find('.woocommerce-mini-cart__total strong').text(rarsmTranslate('cart.subtotal', 'Sous-total :'));
 			$content.find('.woocommerce-mini-cart__total .amount').html(renderAmountHtml(displayTotal));
+			$content.find('.woocommerce-mini-cart__buttons .button').eq(0).text(rarsmTranslate('cart.view', 'Voir le panier'));
+			$content.find('.woocommerce-mini-cart__buttons .button').eq(1).text(rarsmTranslate('cart.checkout', 'Passer à la commande'));
 		});
+
+		rarsmRefreshTranslations();
 	}
 
 	function requestSessionState() {
@@ -298,7 +361,7 @@ function initRarsmSessionState() {
 		});
 		$text.append($('<span/>', {
 			'class': 'rarsm-session-name',
-			text: user.display_name || 'Utilisateur'
+			text: user.display_name || rarsmTranslate('user.name', 'Utilisateur')
 		}));
 
 		return [$avatar, $text];
@@ -322,7 +385,7 @@ function initRarsmSessionState() {
 			type: 'button',
 			'aria-haspopup': 'true',
 			'aria-expanded': 'false',
-			'aria-label': 'Options du compte'
+			'aria-label': rarsmTranslate('user.options', 'Options du compte')
 		});
 		var parts = buildSessionParts(user);
 		var $menu = $('<div/>', {
@@ -351,7 +414,7 @@ function initRarsmSessionState() {
 				'aria-hidden': 'true'
 			})),
 			$('<span/>', {
-				text: 'Compte'
+				text: rarsmTranslate('user.account', 'Compte')
 			})
 		);
 
@@ -363,7 +426,7 @@ function initRarsmSessionState() {
 				'aria-hidden': 'true'
 			})),
 			$('<span/>', {
-				text: 'Se deconnecter'
+				text: rarsmTranslate('user.logout', 'Se deconnecter')
 			})
 		);
 
@@ -426,6 +489,7 @@ function initRarsmSessionState() {
 
 		menuHideExtraElements();
 		initMegaMenu(1);
+		rarsmRefreshTranslations();
 	}
 
 	$(document)
@@ -588,13 +652,14 @@ function initRarsmAuthForms() {
 		var $textInput = $form.find('input[type="text"]').first();
 		if ($textInput.length) {
 			$textInput.attr('name', 'login');
-			$textInput.attr('placeholder', 'Email ou identifiant');
+			$textInput.attr('placeholder', rarsmTranslate('auth.login.placeholder', 'Email ou identifiant'));
 			$textInput.attr('autocomplete', 'username');
 		}
 
 		var $passwordInput = $form.find('input[type="password"]').first();
 		if ($passwordInput.length) {
 			$passwordInput.attr('name', 'password');
+			$passwordInput.attr('placeholder', rarsmTranslate('auth.password.placeholder', 'Mot de passe'));
 			$passwordInput.attr('autocomplete', 'current-password');
 		}
 	});
@@ -609,22 +674,29 @@ function initRarsmAuthForms() {
 		var $textInput = $form.find('input[type="text"]').first();
 		if ($textInput.length) {
 			$textInput.attr('name', 'name');
-			$textInput.attr('placeholder', 'Nom ou identifiant');
+			$textInput.attr('placeholder', rarsmTranslate('auth.register.name', 'Nom ou identifiant'));
 			$textInput.attr('autocomplete', 'nickname');
 		}
 
 		var $emailInput = $form.find('input[type="email"]').first();
 		if ($emailInput.length) {
 			$emailInput.attr('name', 'email');
+			$emailInput.attr('placeholder', rarsmTranslate('auth.register.email', 'Email'));
 			$emailInput.attr('autocomplete', 'email');
 		}
 
 		var $passwordInputs = $form.find('input[type="password"]');
 		if ($passwordInputs.length) {
-			$passwordInputs.eq(0).attr('name', 'password').attr('autocomplete', 'new-password');
+			$passwordInputs.eq(0)
+				.attr('name', 'password')
+				.attr('placeholder', rarsmTranslate('auth.password.placeholder', 'Mot de passe'))
+				.attr('autocomplete', 'new-password');
 		}
 		if ($passwordInputs.length > 1) {
-			$passwordInputs.eq(1).attr('name', 'password_confirm').attr('autocomplete', 'new-password');
+			$passwordInputs.eq(1)
+				.attr('name', 'password_confirm')
+				.attr('placeholder', rarsmTranslate('auth.register.passwordConfirm', 'Confirmer le mot de passe'))
+				.attr('autocomplete', 'new-password');
 		}
 	});
 }
@@ -1283,9 +1355,14 @@ function documentReadyInit() {
 		$().UItoTop({ easingType: 'easeInOutQuart' });
 	}
 
+	initRarsmPageTitleHero();
+	$window.off('resize.rarsmPageTitleHero orientationchange.rarsmPageTitleHero').on('resize.rarsmPageTitleHero orientationchange.rarsmPageTitleHero', function () {
+		initRarsmPageTitleHero();
+	});
+
 	//parallax
 	if ($().parallax) {
-		$('.s-parallax').parallax("50%", 0.01);
+		$('.s-parallax').not('.page_title').parallax("50%", 0.01);
 	}
 
 	//prettyPhoto
@@ -2129,7 +2206,7 @@ function windowLoadInit() {
 
 
 		//flexslider - only for HTML
-		$('.images').flexslider({
+		$('.images').not('.rarsm-shop-gallery').flexslider({
 			animation: "slide",
 			controlNav: "thumbnails",
 			selector: "figure > div",

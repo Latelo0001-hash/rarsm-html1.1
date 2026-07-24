@@ -24,9 +24,9 @@ rarsm_render_page_title('Validation', [
                     <div class="rarsm-status-card text-center">
                         <p class="rarsm-status-kicker">Panier vide</p>
                         <h3>Ajoutez d’abord un produit</h3>
-                        <p>Le checkout devient disponible une fois le livre ajouté au panier.</p>
+                        <p>Le checkout devient disponible une fois un article de la boutique ajouté au panier.</p>
                         <div class="rarsm-gateway-actions justify-content-center">
-                            <a class="btn btn-maincolor" href="pricing.html#formats">Voir les formats</a>
+                            <a class="btn btn-maincolor" href="pricing.html#formats">Voir la boutique</a>
                         </div>
                     </div>
                 </div>
