@@ -121,7 +121,8 @@ rarsm_render_page_title('Panier', [
                             <div class="wc-proceed-to-checkout">
                                 <a class="checkout-button button alt wc-forward" href="shop-checkout.php">Passer à la commande</a>
                             </div>
-                            <p class="rarsm-shop-note mb-0">Le compte client sera demandé au checkout afin de suivre les paiements, les annulations et les futures ventes d’articles sur le site.</p>
+                            <br>
+                            <p class="rarsm-shop-note mb-0 border-danger">Le compte client sera demandé au checkout afin de suivre les paiements, les annulations et les futures ventes d’articles sur le site.</p>
                         </div>
                     </div>
                 <?php endif; ?>

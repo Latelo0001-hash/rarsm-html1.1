@@ -286,10 +286,29 @@ td .media-body {
 
 .alert-success{
   border-color: #a0ce4e;
+  background-color: rgba(59, 191, 49, 0.12);
+  color: #1f5f2b;
 }
 
 .alert-info{
-  border-color: #009cbe;
+  border-color: #2f9e44;
+  background-color: rgba(59, 191, 49, 0.12);
+  color: #1f5f2b;
+}
+
+.alert-success,
+.alert-info{
+  p,
+  li,
+  strong,
+  span{
+    color: inherit;
+  }
+  a{
+    color: #166534;
+    font-weight: 700;
+    text-decoration: underline;
+  }
 }
 
 .alert-warning{
@@ -312,9 +331,27 @@ td .media-body {
   }
   .fw-flash-type-success{
     border-color: #3bbf31;
+    background-color: rgba(59, 191, 49, 0.12);
+    color: #1f5f2b;
   }
   .fw-flash-type-info{
-    border-color: #2394fd;
+    border-color: #2f9e44;
+    background-color: rgba(59, 191, 49, 0.12);
+    color: #1f5f2b;
+  }
+  .fw-flash-type-success,
+  .fw-flash-type-info{
+    font-weight: 500;
+    li,
+    p,
+    strong{
+      color: inherit;
+    }
+    a{
+      color: #166534;
+      font-weight: 700;
+      text-decoration: underline;
+    }
   }
   .fw-flash-type-warning{
     border-color: #fdd123;
