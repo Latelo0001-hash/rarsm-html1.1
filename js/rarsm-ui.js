@@ -288,6 +288,16 @@ function initRarsmSessionState() {
 		}).join('');
 	}
 
+	function updateCartIndicatorState(itemCount) {
+		var numericCount = parseInt(itemCount, 10);
+		var hasItems = !isNaN(numericCount) && numericCount > 0;
+		var $toggles = $('.dropdown-shopping-cart');
+
+		$toggles.toggleClass('has-items', hasItems);
+		$toggles.toggleClass('is-empty', !hasItems);
+		$toggles.attr('data-cart-state', hasItems ? 'filled' : 'empty');
+	}
+
 	function applyCartState(cart) {
 		var safeCart = cart || {};
 		var itemCount = typeof safeCart.item_count === 'number' ? safeCart.item_count : 0;
@@ -295,6 +305,7 @@ function initRarsmSessionState() {
 
 		$('.dropdown-shopping-cart .badge').text(itemCount);
 		$('.dropdown-shopping-cart .cart-total').text(displayTotal);
+		updateCartIndicatorState(itemCount);
 
 		$('.menu-auth-item > a[href="shop-cart.php"]').each(function () {
 			var $link = $(this);
@@ -527,6 +538,8 @@ function initRarsmSessionState() {
 		.catch(function () {
 			// Keep existing navigation when PHP session data is unavailable.
 		});
+
+	updateCartIndicatorState($('.dropdown-shopping-cart .badge').first().text());
 }
 
 function initRarsmUserMenus() {

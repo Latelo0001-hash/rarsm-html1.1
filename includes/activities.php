@@ -4,79 +4,88 @@ declare(strict_types=1);
 function rarsm_activity_categories(): array
 {
     return [
-        'launch' => ['label' => 'Forum', 'class' => 'event-launch'],
-        'institution' => ['label' => 'Institution', 'class' => 'event-institution'],
-        'signing' => ['label' => 'Terrain', 'class' => 'event-signing'],
-        'media' => ['label' => 'Média', 'class' => 'event-media'],
+        'launch' => ['label' => 'Grand forum', 'class' => 'event-launch'],
+        'institution' => ['label' => 'Investissement', 'class' => 'event-institution'],
+        'signing' => ['label' => 'Leadership', 'class' => 'event-signing'],
+        'media' => ['label' => 'Développement', 'class' => 'event-media'],
     ];
+}
+
+function rarsm_activity_range(string $start, string $end): array
+{
+    $dates = [];
+    $cursor = DateTimeImmutable::createFromFormat('!Y-m-d', $start);
+    $last = DateTimeImmutable::createFromFormat('!Y-m-d', $end);
+
+    if (!$cursor instanceof DateTimeImmutable || !$last instanceof DateTimeImmutable || $cursor > $last) {
+        return [$start];
+    }
+
+    while ($cursor <= $last) {
+        $dates[] = $cursor->format('Y-m-d');
+        $cursor = $cursor->modify('+1 day');
+    }
+
+    return $dates;
 }
 
 function rarsm_activity_institutions(): array
 {
     return [
-        'ctcpm' => [
-            'slug' => 'ctcpm',
-            'name' => 'CTCPM',
-            'full_name' => 'Cellule Technique de Coordination et de Planification Minière - CTCPM',
-            'summary' => "Organe technique de conseil, d'études et de planification rattaché au ministère des Mines.",
-            'details_href' => 'istitutions-details.php?institution=ctcpm',
-            'directory_href' => 'institutions.php#institutions-mines',
-            'website' => 'https://www.ctcpm.cd/',
+        'drc-mining-week' => [
+            'slug' => 'drc-mining-week',
+            'name' => 'DRC Mining Week',
+            'full_name' => 'DRC Mining Week · organisé par VUKA Group',
+            'summary' => "Grande conférence et exposition minière de la RDC, la DRC Mining Week réunit chaque année opérateurs, décideurs publics, investisseurs, fournisseurs et partenaires techniques à Lubumbashi.",
+            'details_href' => 'https://wearevuka.com/mining/drc-mining-week/',
+            'directory_href' => 'activites.html',
+            'website' => 'https://wearevuka.com/mining/drc-mining-week/',
             'socials' => [
-                ['label' => 'LinkedIn', 'href' => 'https://www.linkedin.com/company/ctcpm-mines-rdc', 'icon' => 'fa-linkedin'],
-                ['label' => 'Site officiel', 'href' => 'https://www.ctcpm.cd/', 'icon' => 'fa-globe'],
+                ['label' => 'Site officiel', 'href' => 'https://wearevuka.com/mining/drc-mining-week/', 'icon' => 'fa-globe'],
+                ['label' => 'Programme', 'href' => 'https://wearevuka.com/mining/drc-mining-week/', 'icon' => 'fa-calendar'],
+                ['label' => 'Contact', 'href' => 'contact.html', 'icon' => 'fa-envelope'],
             ],
         ],
-        'cami' => [
-            'slug' => 'cami',
-            'name' => 'CAMI',
-            'full_name' => 'Cadastre Minier - CAMI',
-            'summary' => "Établissement public chargé de la gestion du domaine minier et des titres miniers en RDC.",
-            'details_href' => 'istitutions-details.php?institution=cami',
-            'directory_href' => 'institutions.php#institutions-mines',
-            'website' => 'https://cami.cd/',
+        'kbm' => [
+            'slug' => 'kbm',
+            'name' => 'KBM',
+            'full_name' => 'Katanga Business Meeting',
+            'summary' => "Le Katanga Business Meeting est un forum économique annuel de Kolwezi qui accorde une place importante aux mines, à l’énergie, aux infrastructures et à la sous-traitance.",
+            'details_href' => 'https://www.kbm-rdc.com/en',
+            'directory_href' => 'activites.html',
+            'website' => 'https://www.kbm-rdc.com/en',
             'socials' => [
-                ['label' => 'LinkedIn', 'href' => 'https://www.linkedin.com/company/cadastre-minier-cami-rdc/?viewAsMember=true', 'icon' => 'fa-linkedin'],
-                ['label' => 'Site officiel', 'href' => 'https://cami.cd/', 'icon' => 'fa-globe'],
+                ['label' => 'Site officiel', 'href' => 'https://www.kbm-rdc.com/en', 'icon' => 'fa-globe'],
+                ['label' => 'Programme', 'href' => 'https://www.kbm-rdc.com/en', 'icon' => 'fa-calendar'],
+                ['label' => 'Contact', 'href' => 'contact.html', 'icon' => 'fa-envelope'],
             ],
         ],
-        'ceec' => [
-            'slug' => 'ceec',
-            'name' => 'CEEC',
-            'full_name' => "Centre d'Expertise, d'Évaluation et de Certification - CEEC",
-            'summary' => "Autorité technique de certification, d'évaluation et de traçabilité des substances minérales concernées.",
-            'details_href' => 'istitutions-details.php?institution=ceec',
-            'directory_href' => 'institutions.php#institutions-mines',
-            'website' => 'https://ceec.cd/',
+        'critical-minerals-forum' => [
+            'slug' => 'critical-minerals-forum',
+            'name' => 'Critical Minerals Forum',
+            'full_name' => 'DRC Critical Minerals & Industrialisation Forum',
+            'summary' => "Ce forum annuel de Kolwezi est consacré au cobalt, au cuivre, au lithium, aux métaux pour batteries et à l’industrialisation locale autour des chaînes de valeur minières.",
+            'details_href' => 'https://wearevuka.com/critical-minerals-forum-our-purpose/',
+            'directory_href' => 'activites.html',
+            'website' => 'https://wearevuka.com/critical-minerals-forum-our-purpose/',
             'socials' => [
-                ['label' => 'LinkedIn', 'href' => 'https://www.linkedin.com/company/ceec-rdc', 'icon' => 'fa-linkedin'],
-                ['label' => 'Site officiel', 'href' => 'https://ceec.cd/', 'icon' => 'fa-globe'],
+                ['label' => 'Site officiel', 'href' => 'https://wearevuka.com/critical-minerals-forum-our-purpose/', 'icon' => 'fa-globe'],
+                ['label' => 'Programme', 'href' => 'https://wearevuka.com/critical-minerals-forum-our-purpose/', 'icon' => 'fa-calendar'],
+                ['label' => 'Contact', 'href' => 'contact.html', 'icon' => 'fa-envelope'],
             ],
         ],
-        'saemape' => [
-            'slug' => 'saemape',
-            'name' => 'SAEMAPE',
-            'full_name' => "Service d'Assistance et d'Encadrement de l'Exploitation Minière Artisanale et à Petite Échelle - SAEMAPE",
-            'summary' => "Service public chargé de l'encadrement et de la professionnalisation de l'exploitation artisanale.",
-            'details_href' => 'istitutions-details.php?institution=saemape',
-            'directory_href' => 'institutions.php#institutions-mines',
-            'website' => 'https://saemape.cd/',
+        'makutano' => [
+            'slug' => 'makutano',
+            'name' => 'Makutano',
+            'full_name' => 'Makutano Forum',
+            'summary' => "Le Makutano Forum est un rendez-vous économique annuel. En 2026, l’édition Makutano Mining est consacrée aux minerais critiques et à la souveraineté minière.",
+            'details_href' => 'https://www.makutano.cd/en/agenda-2026',
+            'directory_href' => 'activites.html',
+            'website' => 'https://www.makutano.cd/en/agenda-2026',
             'socials' => [
-                ['label' => 'LinkedIn', 'href' => 'https://cd.linkedin.com/company/saemape', 'icon' => 'fa-linkedin'],
-                ['label' => 'Site officiel', 'href' => 'https://saemape.cd/', 'icon' => 'fa-globe'],
-            ],
-        ],
-        'sgnc' => [
-            'slug' => 'sgnc',
-            'name' => 'SGNC',
-            'full_name' => 'Service Géologique National du Congo - SGNC',
-            'summary' => "Service spécialisé chargé de la connaissance géologique, scientifique et cartographique du sous-sol congolais.",
-            'details_href' => 'istitutions-details.php?institution=sgnc',
-            'directory_href' => 'institutions.php#institutions-mines',
-            'website' => 'https://sgnc.cd/',
-            'socials' => [
-                ['label' => 'LinkedIn', 'href' => 'https://www.linkedin.com/company/sgncrdcongo', 'icon' => 'fa-linkedin'],
-                ['label' => 'Site officiel', 'href' => 'https://sgnc.cd/', 'icon' => 'fa-globe'],
+                ['label' => 'Site officiel', 'href' => 'https://www.makutano.cd/en/agenda-2026', 'icon' => 'fa-globe'],
+                ['label' => 'Agenda 2026', 'href' => 'https://www.makutano.cd/en/agenda-2026', 'icon' => 'fa-calendar'],
+                ['label' => 'Contact', 'href' => 'contact.html', 'icon' => 'fa-envelope'],
             ],
         ],
     ];
@@ -87,233 +96,193 @@ function rarsm_activity_records(): array
     $institutions = rarsm_activity_institutions();
 
     return [
-        'forum-annuel-secteur-minier-2026-01-22' => [
-            'id' => 'forum-annuel-secteur-minier-2026-01-22',
-            'title' => 'Forum annuel de rentrée du secteur minier',
-            'date' => '2026-01-22',
-            'time' => '09:30',
-            'location' => 'Kinshasa',
-            'category' => 'launch',
-            'summary' => "Ouverture de l'année avec une lecture partagée des priorités, réformes et grands rendez-vous du secteur minier.",
-            'description' => "Ce forum réunit les acteurs institutionnels, techniques et économiques afin de poser les principaux axes de travail de l'année et de coordonner les temps forts à venir.",
-            'image' => 'images/rarsm-generated/cadre-institutionnel.png',
-            'image_alt' => 'Forum annuel du secteur minier',
-            'institution' => $institutions['ctcpm'],
-            'institution_role' => "La CTCPM accompagne cette activité par son rôle de coordination, d'analyse et de planification sectorielle.",
-            'highlights' => [
-                "Présentation des grands enjeux de l'année minière.",
-                'Lecture des priorités institutionnelles et techniques.',
-                'Coordination des prochains rendez-vous sectoriels.',
-            ],
-        ],
-        'atelier-cadastre-titres-2026-02-12' => [
-            'id' => 'atelier-cadastre-titres-2026-02-12',
-            'title' => 'Atelier institutionnel sur le cadastre et les titres',
-            'date' => '2026-02-12',
-            'time' => '10:00',
-            'location' => 'Kinshasa',
-            'category' => 'institution',
-            'summary' => "Séance de travail consacrée au suivi des titres, à la coordination administrative et aux obligations documentaires.",
-            'description' => "L'atelier met l'accent sur la bonne circulation de l'information entre institutions concernées, sur la fiabilité des procédures et sur la lisibilité des dossiers pour les opérateurs.",
-            'image' => 'images/rarsm-generated/cadre-institutionnel.png',
-            'image_alt' => 'Atelier sur le cadastre minier',
-            'institution' => $institutions['cami'],
-            'institution_role' => "Le CAMI est directement concerné par la gestion des droits miniers, l'enregistrement des demandes et la prévention des chevauchements.",
-            'highlights' => [
-                'Clarification des circuits de traitement des dossiers.',
-                'Rappel des exigences documentaires liées aux titres.',
-                'Mise en cohérence entre données cadastrales et pratiques de terrain.',
-            ],
-        ],
-        'mission-tracabilite-flux-2026-03-19' => [
-            'id' => 'mission-tracabilite-flux-2026-03-19',
-            'title' => 'Mission de terrain sur la traçabilité des flux miniers',
-            'date' => '2026-03-19',
-            'time' => '08:30',
-            'location' => 'Kolwezi',
-            'category' => 'signing',
-            'summary' => "Déplacement opérationnel consacré au suivi des circuits, au contrôle des remontées d'information et à l'observation des pratiques de terrain.",
-            'description' => "Cette mission vise à documenter les réalités locales, à renforcer la traçabilité des substances minérales et à alimenter les échanges entre les structures techniques et les décideurs.",
-            'image' => 'images/rarsm-generated/tracabilite-certification.png',
-            'image_alt' => 'Mission de terrain sur la traçabilité',
-            'institution' => $institutions['ceec'],
-            'institution_role' => "Le CEEC intervient ici par sa mission de certification, d'évaluation et de sécurisation des informations liées aux substances minérales.",
-            'highlights' => [
-                'Observation des circuits de collecte et de suivi.',
-                'Analyse des besoins en fiabilité documentaire.',
-                'Restitution des constats aux structures concernées.',
-            ],
-        ],
-        'briefing-media-reglementation-2026-04-09' => [
-            'id' => 'briefing-media-reglementation-2026-04-09',
-            'title' => 'Briefing média sur la réglementation minière',
-            'date' => '2026-04-09',
-            'time' => '11:00',
-            'location' => 'Studio média - Kinshasa',
-            'category' => 'media',
-            'summary' => "Point d'information destiné au grand public et aux professionnels sur les sujets réglementaires qui structurent l'actualité minière.",
-            'description' => "Le briefing permet de restituer de manière claire les enjeux de gouvernance, les évolutions réglementaires et les questions qui appellent une meilleure pédagogie sectorielle.",
-            'image' => 'images/rarsm-generated/about-rarsm.png',
-            'image_alt' => 'Briefing média du secteur minier',
-            'institution' => $institutions['sgnc'],
-            'institution_role' => "Le SGNC contribue à la diffusion d'une information technique claire lorsque les sujets touchent à la connaissance géologique et à la lecture du sous-sol.",
-            'highlights' => [
-                'Explication pédagogique des sujets réglementaires.',
-                'Mise en contexte des enjeux sectoriels pour le public.',
-                'Valorisation des données et repères utiles à la compréhension.',
-            ],
-        ],
-        'dialogue-operateurs-services-2026-05-21' => [
-            'id' => 'dialogue-operateurs-services-2026-05-21',
-            'title' => 'Dialogue entre opérateurs et services techniques',
+        'kbm-2026' => [
+            'id' => 'kbm-2026',
+            'title' => 'Katanga Business Meeting 2026',
             'date' => '2026-05-21',
-            'time' => '14:00',
-            'location' => 'Kinshasa',
-            'category' => 'institution',
-            'summary' => "Rencontre de coordination autour des procédures, de la conformité et des difficultés opérationnelles observées sur le terrain.",
-            'description' => "Le dialogue vise à rapprocher les attentes des opérateurs et les exigences des structures techniques pour améliorer la fluidité des échanges et la compréhension des obligations.",
-            'image' => 'images/rarsm-generated/suivi-droits-filieres.png',
-            'image_alt' => 'Dialogue entre opérateurs et services techniques',
-            'institution' => $institutions['ctcpm'],
-            'institution_role' => "La CTCPM apporte sa capacité d'analyse transversale pour transformer les constats opérationnels en pistes d'amélioration sectorielle.",
-            'highlights' => [
-                'Remontée des difficultés rencontrées par les opérateurs.',
-                'Clarification des attentes des services techniques.',
-                'Identification de solutions pratiques à court terme.',
-            ],
-        ],
-        'journee-technique-artisanale-2026-06-18' => [
-            'id' => 'journee-technique-artisanale-2026-06-18',
-            'title' => "Journée technique sur l'exploitation artisanale",
-            'date' => '2026-06-18',
-            'time' => '09:00',
-            'location' => 'Lubumbashi',
+            'date_label' => '21 au 22 mai 2026',
+            'calendar_dates' => rarsm_activity_range('2026-05-21', '2026-05-22'),
+            'time' => 'Forum sur deux jours',
+            'location' => 'Kolwezi',
             'category' => 'launch',
-            'summary' => "Temps fort consacré à l'encadrement, aux bonnes pratiques et aux besoins d'accompagnement des acteurs de l'exploitation artisanale.",
-            'description' => "La journée rassemble experts, encadreurs et représentants institutionnels afin de partager des repères concrets sur la sécurité, la conformité et l'organisation des filières artisanales.",
-            'image' => 'images/rarsm-generated/section-book-introduction-contexte.png',
-            'image_alt' => "Journée technique sur l'exploitation artisanale",
-            'institution' => $institutions['saemape'],
-            'institution_role' => "Le SAEMAPE est au cœur de cette activité grâce à son mandat d'encadrement et de professionnalisation de l'exploitation artisanale.",
-            'highlights' => [
-                'Sensibilisation aux bonnes pratiques et à la sécurité.',
-                'Mise en avant des exigences de formalisation.',
-                'Échanges avec les encadreurs et coopératives concernées.',
-            ],
-        ],
-        'rencontre-conformite-provinciale-2026-07-24' => [
-            'id' => 'rencontre-conformite-provinciale-2026-07-24',
-            'title' => 'Rencontre provinciale sur la conformité minière',
-            'date' => '2026-07-24',
-            'time' => '10:30',
-            'location' => 'Likasi',
-            'category' => 'institution',
-            'summary' => "Échanges ciblés sur le respect des obligations, la qualité des dossiers et la coordination entre acteurs locaux du secteur.",
-            'description' => "Cette rencontre permet d'identifier les points de vigilance en province, de partager les attentes des institutions et d'orienter les opérateurs vers de meilleures pratiques de conformité.",
-            'image' => 'images/rarsm-generated/tracabilite-certification.png',
-            'image_alt' => 'Rencontre provinciale sur la conformité minière',
-            'institution' => $institutions['ceec'],
-            'institution_role' => "Le CEEC y apporte son regard sur la conformité documentaire, la certification et la fiabilité des chaînes de valeur minières.",
-            'highlights' => [
-                'Analyse des points de conformité les plus sensibles.',
-                'Dialogue direct avec les acteurs provinciaux.',
-                'Diffusion de repères pratiques pour améliorer les dossiers.',
-            ],
-        ],
-        'mission-approvisionnement-responsable-2026-08-14' => [
-            'id' => 'mission-approvisionnement-responsable-2026-08-14',
-            'title' => "Mission sur l'approvisionnement responsable",
-            'date' => '2026-08-14',
-            'time' => '08:00',
-            'location' => 'Goma',
-            'category' => 'signing',
-            'summary' => "Déploiement terrain autour de la chaîne d'approvisionnement, de la remontée d'informations et des mécanismes de suivi.",
-            'description' => "La mission documente les exigences d'approvisionnement responsable, la circulation des données utiles et les enjeux de coordination entre les structures impliquées.",
-            'image' => 'images/rarsm-generated/approvisionnement-responsable.png',
-            'image_alt' => "Mission sur l'approvisionnement responsable",
-            'institution' => $institutions['ceec'],
-            'institution_role' => "Le CEEC est particulièrement concerné lorsqu'il s'agit de certification, de diligence documentaire et de suivi des flux.",
-            'highlights' => [
-                "Lecture des exigences d'approvisionnement responsable.",
-                'Vérification de la qualité des informations remontées.',
-                'Coordination entre terrain, contrôle et certification.',
-            ],
-        ],
-        'forum-investisseurs-gouvernance-2026-09-11' => [
-            'id' => 'forum-investisseurs-gouvernance-2026-09-11',
-            'title' => 'Forum investisseurs et gouvernance minière',
-            'date' => '2026-09-11',
-            'time' => '09:30',
-            'location' => 'Kinshasa',
-            'category' => 'launch',
-            'summary' => "Temps d'échange sur l'environnement réglementaire, la sécurité juridique et les attentes des partenaires publics et privés.",
-            'description' => "Ce forum propose une lecture croisée des enjeux d'investissement, de gouvernance et de conformité afin de favoriser des décisions mieux informées dans le secteur minier.",
+            'summary' => "Le Katanga Business Meeting est l’un des rendez-vous annuels du sud de la RDC pour les investisseurs, les décideurs publics et les entreprises actives dans les mines, l’énergie et les infrastructures.",
+            'description' => "Le KBM 2026 met en relation les acteurs économiques de Kolwezi et du Lualaba avec les opérateurs miniers, les financeurs et les partenaires de sous-traitance. Il se distingue par son ancrage régional et par la place accordée aux opportunités d’affaires autour du secteur extractif.",
             'image' => 'images/rarsm-generated/cadre-institutionnel.png',
-            'image_alt' => 'Forum investisseurs et gouvernance minière',
-            'institution' => $institutions['ctcpm'],
-            'institution_role' => "La CTCPM joue ici un rôle clé d'information stratégique et de mise en perspective des orientations sectorielles.",
+            'image_alt' => 'Katanga Business Meeting à Kolwezi',
+            'institution' => $institutions['kbm'],
+            'institution_role' => "Le KBM agit ici comme plateforme annuelle de rencontres économiques, avec un fort ancrage minier dans le sud de la RDC.",
             'highlights' => [
-                'Lecture stratégique du cadre réglementaire.',
-                'Dialogue entre acteurs publics et investisseurs.',
-                'Focus sur la sécurité juridique et la gouvernance.',
+                'Forum économique annuel organisé à Kolwezi.',
+                'Forte place accordée aux mines, à l’énergie et aux infrastructures.',
+                'L’édition 2027 est déjà annoncée du 19 au 21 mai 2027.',
             ],
+            'reference' => 'KBM RDC',
+            'reference_url' => 'https://www.kbm-rdc.com/en',
+            'recurrence_note' => 'Événement annuel. Le site officiel annonce déjà son retour du 19 au 21 mai 2027 à Kolwezi.',
         ],
-        'point-presse-certification-exportation-2026-10-16' => [
-            'id' => 'point-presse-certification-exportation-2026-10-16',
-            'title' => "Point presse sur la certification et l'exportation",
-            'date' => '2026-10-16',
-            'time' => '11:30',
-            'location' => 'Kinshasa',
-            'category' => 'media',
-            'summary' => "Prise de parole publique sur les mécanismes de certification, de traçabilité et de contrôle des flux à l'export.",
-            'description' => "Le point presse éclaire les professionnels et le public sur les exigences de certification, les enjeux de transparence et les bonnes pratiques attendues à l'exportation.",
-            'image' => 'images/rarsm-generated/exportation-fraude.png',
-            'image_alt' => "Point presse sur la certification et l'exportation",
-            'institution' => $institutions['ceec'],
-            'institution_role' => "Le CEEC intervient directement sur les problématiques de certification, d'origine et de conformité liées aux exportations.",
-            'highlights' => [
-                'Décryptage des mécanismes de certification.',
-                'Rappel des exigences de traçabilité à l’export.',
-                'Information publique sur les attentes de conformité.',
-            ],
-        ],
-        'atelier-controle-fiscalite-2026-11-20' => [
-            'id' => 'atelier-controle-fiscalite-2026-11-20',
-            'title' => 'Atelier interinstitutionnel sur le contrôle et la fiscalité',
-            'date' => '2026-11-20',
-            'time' => '09:45',
-            'location' => 'Kinshasa',
-            'category' => 'institution',
-            'summary' => "Session de travail sur le suivi des obligations, les mécanismes de contrôle et la lisibilité des procédures fiscales.",
-            'description' => "L'atelier réunit plusieurs structures concernées pour renforcer la coordination, réduire les zones d'interprétation et améliorer la qualité des échanges avec les opérateurs.",
-            'image' => 'images/rarsm-generated/suivi-droits-filieres.png',
-            'image_alt' => 'Atelier sur le contrôle et la fiscalité',
-            'institution' => $institutions['ctcpm'],
-            'institution_role' => "La CTCPM intervient ici comme structure d'appui analytique et de coordination entre plusieurs administrations concernées.",
-            'highlights' => [
-                'Lecture commune des obligations sectorielles.',
-                'Réduction des divergences d’interprétation.',
-                'Renforcement de la coordination entre services concernés.',
-            ],
-        ],
-        'bilan-annuel-secteur-minier-2026-12-10' => [
-            'id' => 'bilan-annuel-secteur-minier-2026-12-10',
-            'title' => 'Bilan annuel et perspectives du secteur minier',
-            'date' => '2026-12-10',
-            'time' => '10:00',
-            'location' => 'Kinshasa',
+        'drc-mining-week-2026' => [
+            'id' => 'drc-mining-week-2026',
+            'title' => 'DRC Mining Week 2026',
+            'date' => '2026-06-17',
+            'date_label' => '17 au 19 juin 2026',
+            'calendar_dates' => rarsm_activity_range('2026-06-17', '2026-06-19'),
+            'time' => 'Conférence, exposition et ateliers',
+            'location' => 'Pullman Lubumbashi Grand Karavia',
             'category' => 'launch',
-            'summary' => "Clôture de l'année avec un retour sur les activités réalisées, les enjeux persistants et les priorités à venir.",
-            'description' => "Ce rendez-vous de fin d'année permet de faire la synthèse des temps forts du calendrier, de partager les enseignements utiles et de préparer les orientations de l'année suivante.",
+            'summary' => "La DRC Mining Week est le grand rendez-vous annuel du secteur minier congolais, combinant conférence, exposition, ateliers techniques et rencontres d’affaires.",
+            'description' => "Cette manifestation réunit chaque année à Lubumbashi les autorités, compagnies minières, investisseurs, fournisseurs, EPC et partenaires techniques. Elle structure une part importante de l’agenda minier congolais en offrant un espace de visibilité, de négociation et de mise en réseau à l’échelle nationale et régionale.",
             'image' => 'images/rarsm-generated/hero-presentation-rarsm.png',
-            'image_alt' => 'Bilan annuel du secteur minier',
-            'institution' => $institutions['ctcpm'],
-            'institution_role' => "La CTCPM est naturellement associée à ce bilan par sa capacité à consolider les tendances, constats et perspectives sectorielles.",
+            'image_alt' => 'DRC Mining Week à Lubumbashi',
+            'institution' => $institutions['drc-mining-week'],
+            'institution_role' => "La DRC Mining Week sert de cadre annuel de référence pour plusieurs sous-événements spécialisés dédiés au leadership, aux investissements et au développement régional.",
             'highlights' => [
-                "Synthèse des grandes activités de l'année.",
-                'Retour sur les leçons utiles pour les acteurs du secteur.',
-                'Préparation des priorités pour le prochain calendrier annuel.',
+                'Grande conférence et exposition minière de la RDC.',
+                'Rendez-vous majeur pour opérateurs, pouvoirs publics et investisseurs.',
+                'L’édition 2027 est annoncée du 16 au 18 juin 2027 à Lubumbashi.',
             ],
+            'reference' => 'VUKA Group',
+            'reference_url' => 'https://wearevuka.com/mining/drc-mining-week/',
+            'recurrence_note' => 'Événement annuel. Le site officiel annonce déjà l’édition suivante du 16 au 18 juin 2027 au Pullman Lubumbashi Grand Karavia.',
+        ],
+        'women-mines-leadership-2026' => [
+            'id' => 'women-mines-leadership-2026',
+            'title' => 'Women Mines & Leadership Forum',
+            'date' => '2026-06-17',
+            'date_label' => 'Juin 2026 (dans la DRC Mining Week)',
+            'time' => 'Programme thématique',
+            'location' => 'Lubumbashi',
+            'category' => 'signing',
+            'summary' => "Ce rendez-vous annuel, intégré à la DRC Mining Week, met en avant les femmes dirigeantes, entrepreneures et professionnelles de l’industrie extractive.",
+            'description' => "Le Women Mines & Leadership Forum donne de la visibilité aux parcours féminins dans le secteur minier et crée un espace d’échanges sur le leadership, la représentation, l’entrepreneuriat et les dynamiques d’inclusion dans l’écosystème extractif.",
+            'image' => 'images/rarsm-generated/approvisionnement-responsable.png',
+            'image_alt' => 'Women Mines and Leadership Forum',
+            'institution' => $institutions['drc-mining-week'],
+            'institution_role' => "Ce forum s’inscrit dans le programme annuel de la DRC Mining Week comme espace de valorisation du leadership féminin dans l’industrie minière.",
+            'highlights' => [
+                'Rencontres dédiées aux femmes dirigeantes et professionnelles du secteur.',
+                'Cadre de discussion sur le leadership et l’inclusion dans l’extractif.',
+                'Sous-événement annuel intégré à la DRC Mining Week.',
+            ],
+            'reference' => 'VUKA Group',
+            'reference_url' => 'https://wearevuka.com/mining/drc-mining-week/',
+            'recurrence_note' => 'Rendez-vous annuel organisé dans le cadre de la DRC Mining Week.',
+        ],
+        'ceo-roundtable-2026' => [
+            'id' => 'ceo-roundtable-2026',
+            'title' => 'CEO Roundtable de la DRC Mining Week',
+            'date' => '2026-06-17',
+            'date_label' => 'Juin 2026 (sur invitation, dans la DRC Mining Week)',
+            'time' => 'Session sur invitation',
+            'location' => 'Lubumbashi',
+            'category' => 'signing',
+            'summary' => "La CEO Roundtable est la table ronde annuelle de la DRC Mining Week réservée aux dirigeants des entreprises minières, aux investisseurs et aux décideurs publics.",
+            'description' => "Cette session fermée met l’accent sur la confiance des investisseurs, la lecture du risque et les arbitrages stratégiques des grands décideurs de l’industrie. Elle fait partie des temps forts annuels les plus sélectifs de la DRC Mining Week.",
+            'image' => 'images/rarsm-generated/cadre-institutionnel.png',
+            'image_alt' => 'CEO Roundtable de la DRC Mining Week',
+            'institution' => $institutions['drc-mining-week'],
+            'institution_role' => "La CEO Roundtable est portée par la DRC Mining Week comme espace annuel de dialogue stratégique entre décideurs de haut niveau.",
+            'highlights' => [
+                'Table ronde annuelle réservée aux dirigeants.',
+                'Accent sur l’investissement, le risque et la confiance du marché.',
+                'Accès sur invitation uniquement.',
+            ],
+            'reference' => 'VUKA Group',
+            'reference_url' => 'https://wearevuka.com/mining/drc-mining-week/',
+            'recurrence_note' => 'Rendez-vous annuel organisé dans le cadre de la DRC Mining Week.',
+        ],
+        'regional-development-forum-2026' => [
+            'id' => 'regional-development-forum-2026',
+            'title' => 'Regional Development Forum',
+            'date' => '2026-06-18',
+            'date_label' => 'Juin 2026 (dans la DRC Mining Week)',
+            'time' => 'Forum thématique',
+            'location' => 'Lubumbashi',
+            'category' => 'media',
+            'summary' => "Le Regional Development Forum fait partie des rendez-vous récurrents de la DRC Mining Week consacrés aux infrastructures, à l’énergie, à la logistique et au développement des régions minières.",
+            'description' => "Ce forum examine les conditions de développement des zones minières au-delà de la seule production minérale. Il aborde les infrastructures, l’énergie, la mobilité, la logistique et les effets territoriaux des projets extractifs.",
+            'image' => 'images/rarsm-generated/section-book-introduction-contexte.png',
+            'image_alt' => 'Regional Development Forum',
+            'institution' => $institutions['drc-mining-week'],
+            'institution_role' => "Ce forum complète la DRC Mining Week par une lecture annuelle des besoins de développement des régions minières.",
+            'highlights' => [
+                'Discussion sur les infrastructures et l’énergie des zones minières.',
+                'Vision territoriale du développement régional.',
+                'Sous-événement annuel intégré à la DRC Mining Week.',
+            ],
+            'reference' => 'VUKA Group',
+            'reference_url' => 'https://wearevuka.com/mining/drc-mining-week/',
+            'recurrence_note' => 'Rendez-vous annuel organisé dans le cadre de la DRC Mining Week.',
+        ],
+        'value-chain-investment-forum-2026' => [
+            'id' => 'value-chain-investment-forum-2026',
+            'title' => 'Value-Chain Investment Forum',
+            'date' => '2026-06-18',
+            'date_label' => 'Juin 2026 (dans la DRC Mining Week)',
+            'time' => 'Forum d’investissement',
+            'location' => 'Lubumbashi',
+            'category' => 'institution',
+            'summary' => "Le Value-Chain Investment Forum rassemble chaque année, dans le cadre de la DRC Mining Week, les acteurs intéressés par les investissements et la chaîne de valeur minière congolaise.",
+            'description' => "Ce rendez-vous met l’accent sur les projets de transformation, de financement, de sous-traitance, de logistique et de valorisation locale. Il sert de point de rencontre pour les investisseurs qui suivent l’évolution de la chaîne de valeur minière en RDC.",
+            'image' => 'images/rarsm-generated/tracabilite-certification.png',
+            'image_alt' => 'Value-Chain Investment Forum',
+            'institution' => $institutions['drc-mining-week'],
+            'institution_role' => "Ce forum représente la dimension annuelle d’investissement et de chaîne de valeur de la DRC Mining Week.",
+            'highlights' => [
+                'Rencontres consacrées aux investissements dans la chaîne de valeur minière.',
+                'Focus sur la transformation locale et les partenariats industriels.',
+                'Sous-événement annuel intégré à la DRC Mining Week.',
+            ],
+            'reference' => 'VUKA Group',
+            'reference_url' => 'https://wearevuka.com/mining/drc-mining-week/',
+            'recurrence_note' => 'Rendez-vous annuel organisé dans le cadre de la DRC Mining Week.',
+        ],
+        'critical-minerals-forum-2026' => [
+            'id' => 'critical-minerals-forum-2026',
+            'title' => 'DRC Critical Minerals & Industrialisation Forum 2026',
+            'date' => '2026-10-07',
+            'date_label' => '7 au 9 octobre 2026',
+            'calendar_dates' => rarsm_activity_range('2026-10-07', '2026-10-09'),
+            'time' => 'Forum sur trois jours',
+            'location' => 'Kolwezi',
+            'category' => 'institution',
+            'summary' => "Ce forum annuel, anciennement connu sous le nom de DRC-Africa Battery Metals Forum, est consacré aux métaux critiques, à l’industrialisation et aux investissements en aval.",
+            'description' => "Le DRC Critical Minerals & Industrialisation Forum réunit à Kolwezi les acteurs publics et privés qui travaillent sur le cobalt, le cuivre, le lithium, les métaux pour batteries, les zones économiques, la transformation locale et les infrastructures industrielles. Il s’affirme comme un rendez-vous récurrent de la stratégie d’industrialisation minière congolaise.",
+            'image' => 'images/rarsm-generated/approvisionnement-responsable.png',
+            'image_alt' => 'DRC Critical Minerals and Industrialisation Forum',
+            'institution' => $institutions['critical-minerals-forum'],
+            'institution_role' => "Ce forum constitue un cadre annuel de rencontres autour des minerais critiques, de la transformation locale et de l’industrialisation minière.",
+            'highlights' => [
+                'Forum annuel dédié au cobalt, au cuivre, au lithium et aux métaux pour batteries.',
+                'Accent sur l’industrialisation locale et les investissements de chaîne de valeur.',
+                'Organisation prévue à Kolwezi du 7 au 9 octobre 2026.',
+            ],
+            'reference' => 'VUKA Group',
+            'reference_url' => 'https://wearevuka.com/critical-minerals-forum-our-purpose/',
+            'recurrence_note' => 'Rendez-vous annuel spécialisé sur les minerais critiques et l’industrialisation locale.',
+        ],
+        'makutano-mining-2026' => [
+            'id' => 'makutano-mining-2026',
+            'title' => 'Makutano Mining 2026',
+            'date' => '2026-11-22',
+            'date_label' => '22 au 25 novembre 2026',
+            'calendar_dates' => rarsm_activity_range('2026-11-22', '2026-11-25'),
+            'time' => 'Forum sur quatre jours',
+            'location' => 'Kinshasa · Fleuve Congo Hôtel & Pullman',
+            'category' => 'launch',
+            'summary' => "Le Makutano Forum est un rendez-vous économique annuel. En 2026, son édition Makutano Mining est dédiée aux minerais critiques et à la souveraineté minière.",
+            'description' => "Makutano Mining 2026 correspond à la 12e édition du forum. Le programme annoncé à Kinshasa comprend des plénières, panels, rencontres bilatérales et signatures, avec un focus particulier sur les minerais critiques. L’événement reste économique dans son ADN, mais l’édition 2026 adopte un prisme minier affirmé.",
+            'image' => 'images/rarsm-generated/hero-presentation-rarsm.png',
+            'image_alt' => 'Makutano Mining 2026 à Kinshasa',
+            'institution' => $institutions['makutano'],
+            'institution_role' => "Makutano apporte ici un cadre annuel de haut niveau, à l’interface entre économie, investissement et souveraineté minière.",
+            'highlights' => [
+                'Forum économique annuel avec édition 2026 consacrée aux minerais critiques.',
+                'Quatre jours de plénières, panels et signatures bilatérales.',
+                'Événement prévu à Kinshasa du 22 au 25 novembre 2026.',
+            ],
+            'reference' => 'Makutano',
+            'reference_url' => 'https://www.makutano.cd/en/agenda-2026',
+            'recurrence_note' => "Makutano est un forum annuel. L’édition 2026 est spécialement centrée sur les enjeux miniers et les minerais critiques.",
         ],
     ];
 }
@@ -368,8 +337,8 @@ function rarsm_related_activities(string $currentId, int $limit = 4): array
 
 function rarsm_compare_activity_dates(array $left, array $right): int
 {
-    $leftKey = $left['date'] . ' ' . $left['time'];
-    $rightKey = $right['date'] . ' ' . $right['time'];
+    $leftKey = $left['date'] . '|' . ($left['time'] ?? '') . '|' . $left['id'];
+    $rightKey = $right['date'] . '|' . ($right['time'] ?? '') . '|' . $right['id'];
 
     return strcmp($leftKey, $rightKey);
 }
@@ -412,6 +381,15 @@ function rarsm_activity_date_label(string $date): string
     return $weekday . ' ' . $dateObject->format('j') . ' ' . $month . ' ' . $dateObject->format('Y');
 }
 
+function rarsm_activity_display_date(array $activity): string
+{
+    if (!empty($activity['date_label'])) {
+        return (string) $activity['date_label'];
+    }
+
+    return rarsm_activity_date_label((string) $activity['date']);
+}
+
 function rarsm_activity_initials(string $label): string
 {
     $clean = preg_replace('/[^A-Za-z0-9 ]+/', ' ', $label) ?? $label;
@@ -435,5 +413,9 @@ function rarsm_activity_initials(string $label): string
         }
     }
 
-    return $initials !== '' ? $initials : strtoupper(substr(str_replace(' ', '', $clean), 0, 3));
+    if ($initials === '') {
+        $initials = strtoupper(substr(preg_replace('/\s+/', '', (string) $clean), 0, 3));
+    }
+
+    return $initials;
 }

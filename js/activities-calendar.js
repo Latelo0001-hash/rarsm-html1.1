@@ -66,31 +66,31 @@
 
 	var categoryLabels = {
 		fr: {
-			launch: "Forum",
-			institution: "Institution",
-			signing: "Terrain",
-			media: "Média"
+			launch: "Grand forum",
+			institution: "Investissement",
+			signing: "Leadership",
+			media: "Développement"
 		},
 		en: {
-			launch: "Forum",
-			institution: "Institution",
-			signing: "Field",
-			media: "Media"
+			launch: "Major forum",
+			institution: "Investment",
+			signing: "Leadership",
+			media: "Development"
 		}
 	};
 
 	var uiLabels = {
 		fr: {
 			clickHint: "Cliquez pour afficher les détails",
-			noActivityTitle: "Aucune activité",
-			noActivityBody: "Aucune activité n'est programmée pour ce mois pour l'instant. Utilisez les boutons du calendrier pour naviguer vers un autre mois ou consultez la liste annuelle des activités.",
+			noActivityTitle: "Aucun événement",
+			noActivityBody: "Aucun rendez-vous annuel n'est programmé pour ce mois pour l'instant. Utilisez les boutons du calendrier pour naviguer vers un autre mois.",
 			viewDetails: "Voir le détail",
-			eventWord: "activité(s)"
+			eventWord: "événement(s)"
 		},
 		en: {
 			clickHint: "Click to view details",
-			noActivityTitle: "No activity",
-			noActivityBody: "No activity is scheduled for this month yet. Use the calendar buttons to move to another month or browse the annual list of activities.",
+			noActivityTitle: "No event",
+			noActivityBody: "No annual mining event is scheduled for this month yet. Use the calendar buttons to move to another month.",
 			viewDetails: "View details",
 			eventWord: "event(s)"
 		}
@@ -122,189 +122,6 @@
 		return getLanguage() === "en" && event.titleEn ? event.titleEn : event.title;
 	}
 
-	var events = [
-		{
-			id: "forum-annuel-secteur-minier-2026-01-22",
-			title: "Forum annuel de rentrée du secteur minier",
-			titleEn: "Annual mining sector opening forum",
-			date: "2026-01-22",
-			time: "09:30",
-			location: "Kinshasa",
-			category: "launch",
-			summary: "Ouverture de l'année avec une lecture partagée des priorités, réformes et grands rendez-vous du secteur minier.",
-			description: "Ce forum réunit les acteurs institutionnels, techniques et économiques afin de poser les principaux axes de travail de l'année et de coordonner les temps forts à venir.",
-			primaryHref: "institutions.php",
-			primaryLabel: "Voir les institutions",
-			secondaryHref: "contact.html",
-			secondaryLabel: "Proposer une activité"
-		},
-		{
-			id: "atelier-cadastre-titres-2026-02-12",
-			title: "Atelier institutionnel sur le cadastre et les titres",
-			titleEn: "Institutional workshop on cadastre and titles",
-			date: "2026-02-12",
-			time: "10:00",
-			location: "Kinshasa",
-			category: "institution",
-			summary: "Séance de travail consacrée au suivi des titres, à la coordination administrative et aux obligations documentaires.",
-			description: "L'atelier met l'accent sur la bonne circulation de l'information entre institutions concernées, sur la fiabilité des procédures et sur la lisibilité des dossiers pour les opérateurs.",
-			primaryHref: "institutions.php",
-			primaryLabel: "Identifier les acteurs",
-			secondaryHref: "contact.html",
-			secondaryLabel: "Demander un rendez-vous"
-		},
-		{
-			id: "mission-tracabilite-flux-2026-03-19",
-			title: "Mission de terrain sur la traçabilité des flux miniers",
-			titleEn: "Field mission on mining flow traceability",
-			date: "2026-03-19",
-			time: "08:30",
-			location: "Kolwezi",
-			category: "signing",
-			summary: "Déplacement opérationnel consacré au suivi des circuits, au contrôle des remontées d'information et à l'observation des pratiques de terrain.",
-			description: "Cette mission vise à documenter les réalités locales, à renforcer la traçabilité des substances minérales et à alimenter les échanges entre les structures techniques et les décideurs.",
-			primaryHref: "contact.html",
-			primaryLabel: "Signaler un besoin terrain",
-			secondaryHref: "institutions.php",
-			secondaryLabel: "Voir les institutions"
-		},
-		{
-			id: "briefing-media-reglementation-2026-04-09",
-			title: "Briefing média sur la réglementation minière",
-			titleEn: "Media briefing on mining regulations",
-			date: "2026-04-09",
-			time: "11:00",
-			location: "Studio média - Kinshasa",
-			category: "media",
-			summary: "Point d'information destiné au grand public et aux professionnels sur les sujets réglementaires qui structurent l'actualité minière.",
-			description: "Le briefing permet de restituer de manière claire les enjeux de gouvernance, les évolutions réglementaires et les questions qui appellent une meilleure pédagogie sectorielle.",
-			primaryHref: "contact.html",
-			primaryLabel: "Contacter l'équipe",
-			secondaryHref: "institutions.php",
-			secondaryLabel: "Consulter les institutions"
-		},
-		{
-			id: "dialogue-operateurs-services-2026-05-21",
-			title: "Dialogue entre opérateurs et services techniques",
-			titleEn: "Dialogue between operators and technical services",
-			date: "2026-05-21",
-			time: "14:00",
-			location: "Kinshasa",
-			category: "institution",
-			summary: "Rencontre de coordination autour des procédures, de la conformité et des difficultés opérationnelles observées sur le terrain.",
-			description: "Le dialogue vise à rapprocher les attentes des opérateurs et les exigences des structures techniques pour améliorer la fluidité des échanges et la compréhension des obligations.",
-			primaryHref: "institutions.php",
-			primaryLabel: "Voir les institutions",
-			secondaryHref: "contact.html",
-			secondaryLabel: "Demander une rencontre"
-		},
-		{
-			id: "journee-technique-artisanale-2026-06-18",
-			title: "Journée technique sur l'exploitation artisanale",
-			titleEn: "Technical day on artisanal mining",
-			date: "2026-06-18",
-			time: "09:00",
-			location: "Lubumbashi",
-			category: "launch",
-			summary: "Temps fort consacré à l'encadrement, aux bonnes pratiques et aux besoins d'accompagnement des acteurs de l'exploitation artisanale.",
-			description: "La journée rassemble experts, encadreurs et représentants institutionnels afin de partager des repères concrets sur la sécurité, la conformité et l'organisation des filières artisanales.",
-			primaryHref: "contact.html",
-			primaryLabel: "Demander les détails",
-			secondaryHref: "institutions.php",
-			secondaryLabel: "Voir les institutions"
-		},
-		{
-			id: "rencontre-conformite-provinciale-2026-07-24",
-			title: "Rencontre provinciale sur la conformité minière",
-			titleEn: "Provincial meeting on mining compliance",
-			date: "2026-07-24",
-			time: "10:30",
-			location: "Likasi",
-			category: "institution",
-			summary: "Échanges ciblés sur le respect des obligations, la qualité des dossiers et la coordination entre acteurs locaux du secteur.",
-			description: "Cette rencontre permet d'identifier les points de vigilance en province, de partager les attentes des institutions et d'orienter les opérateurs vers de meilleures pratiques de conformité.",
-			primaryHref: "contact.html",
-			primaryLabel: "Recevoir les détails",
-			secondaryHref: "institutions.php",
-			secondaryLabel: "Voir les institutions"
-		},
-		{
-			id: "mission-approvisionnement-responsable-2026-08-14",
-			title: "Mission sur l'approvisionnement responsable",
-			titleEn: "Mission on responsible sourcing",
-			date: "2026-08-14",
-			time: "08:00",
-			location: "Goma",
-			category: "signing",
-			summary: "Déploiement terrain autour de la chaîne d'approvisionnement, de la remontée d'informations et des mécanismes de suivi.",
-			description: "La mission documente les exigences d'approvisionnement responsable, la circulation des données utiles et les enjeux de coordination entre les structures impliquées.",
-			primaryHref: "contact.html",
-			primaryLabel: "Proposer une mission",
-			secondaryHref: "institutions.php",
-			secondaryLabel: "Consulter les institutions"
-		},
-		{
-			id: "forum-investisseurs-gouvernance-2026-09-11",
-			title: "Forum investisseurs et gouvernance minière",
-			titleEn: "Investors and mining governance forum",
-			date: "2026-09-11",
-			time: "09:30",
-			location: "Kinshasa",
-			category: "launch",
-			summary: "Temps d'échange sur l'environnement réglementaire, la sécurité juridique et les attentes des partenaires publics et privés.",
-			description: "Ce forum propose une lecture croisée des enjeux d'investissement, de gouvernance et de conformité afin de favoriser des décisions mieux informées dans le secteur minier.",
-			primaryHref: "contact.html",
-			primaryLabel: "Demander une invitation",
-			secondaryHref: "institutions.php",
-			secondaryLabel: "Voir les institutions"
-		},
-		{
-			id: "point-presse-certification-exportation-2026-10-16",
-			title: "Point presse sur la certification et l'exportation",
-			titleEn: "Press briefing on certification and exports",
-			date: "2026-10-16",
-			time: "11:30",
-			location: "Kinshasa",
-			category: "media",
-			summary: "Prise de parole publique sur les mécanismes de certification, de traçabilité et de contrôle des flux à l'export.",
-			description: "Le point presse éclaire les professionnels et le public sur les exigences de certification, les enjeux de transparence et les bonnes pratiques attendues à l'exportation.",
-			primaryHref: "contact.html",
-			primaryLabel: "Contacter l'équipe",
-			secondaryHref: "institutions.php",
-			secondaryLabel: "Consulter les institutions"
-		},
-		{
-			id: "atelier-controle-fiscalite-2026-11-20",
-			title: "Atelier interinstitutionnel sur le contrôle et la fiscalité",
-			titleEn: "Inter-institutional workshop on oversight and taxation",
-			date: "2026-11-20",
-			time: "09:45",
-			location: "Kinshasa",
-			category: "institution",
-			summary: "Session de travail sur le suivi des obligations, les mécanismes de contrôle et la lisibilité des procédures fiscales.",
-			description: "L'atelier réunit plusieurs structures concernées pour renforcer la coordination, réduire les zones d'interprétation et améliorer la qualité des échanges avec les opérateurs.",
-			primaryHref: "institutions.php",
-			primaryLabel: "Voir les institutions",
-			secondaryHref: "contact.html",
-			secondaryLabel: "Proposer une collaboration"
-		},
-		{
-			id: "bilan-annuel-secteur-minier-2026-12-10",
-			title: "Bilan annuel et perspectives du secteur minier",
-			titleEn: "Annual review and outlook for the mining sector",
-			date: "2026-12-10",
-			time: "10:00",
-			location: "Kinshasa",
-			category: "launch",
-			summary: "Clôture de l'année avec un retour sur les activités réalisées, les enjeux persistants et les priorités à venir.",
-			description: "Ce rendez-vous de fin d'année permet de faire la synthèse des temps forts du calendrier, de partager les enseignements utiles et de préparer les orientations de l'année suivante.",
-			primaryHref: "contact.html",
-			primaryLabel: "Partager une activité",
-			secondaryHref: "institutions.php",
-			secondaryLabel: "Voir les institutions"
-		}
-	];
-
 	function parseLocalDate(dateString) {
 		var parts = dateString.split("-");
 		return new Date(Number(parts[0]), Number(parts[1]) - 1, Number(parts[2]), 12, 0, 0, 0);
@@ -335,25 +152,220 @@
 		return value.charAt(0).toUpperCase() + value.slice(1);
 	}
 
+	function expandDateRange(startDate, endDate) {
+		var dates = [];
+		var cursor = parseLocalDate(startDate);
+		var last = parseLocalDate(endDate);
+
+		while (cursor <= last) {
+			dates.push(dateKeyFromParts(cursor.getFullYear(), cursor.getMonth(), cursor.getDate()));
+			cursor.setDate(cursor.getDate() + 1);
+		}
+
+		return dates;
+	}
+
+	function getEventCalendarDates(event) {
+		if (Array.isArray(event.calendarDates) && event.calendarDates.length) {
+			return event.calendarDates.slice();
+		}
+
+		return [event.date];
+	}
+
+	function getEventPrimaryDate(event) {
+		return getEventCalendarDates(event)[0];
+	}
+
+	function formatEventDisplayDate(event) {
+		if (getLanguage() === "en" && event.dateLabelEn) {
+			return event.dateLabelEn;
+		}
+
+		if (event.dateLabel) {
+			return event.dateLabel;
+		}
+
+		return sentenceCase(formatHumanDate(event.date));
+	}
+
 	function getEventDetailUrl(eventId) {
 		return "activites-details.php?event=" + encodeURIComponent(eventId);
 	}
 
-	function sortEvents(a, b) {
-		if (a.date !== b.date) {
-			return a.date.localeCompare(b.date);
+	var links = {
+		contact: "contact.html",
+		drcMiningWeek: "https://wearevuka.com/mining/drc-mining-week/",
+		kbm: "https://www.kbm-rdc.com/en",
+		criticalMinerals: "https://wearevuka.com/critical-minerals-forum-our-purpose/",
+		makutano: "https://www.makutano.cd/en/agenda-2026"
+	};
+
+	var events = [
+		{
+			id: "kbm-2026",
+			title: "Katanga Business Meeting 2026",
+			titleEn: "Katanga Business Meeting 2026",
+			date: "2026-05-21",
+			dateLabel: "21 au 22 mai 2026",
+			dateLabelEn: "May 21-22, 2026",
+			calendarDates: expandDateRange("2026-05-21", "2026-05-22"),
+			time: "Forum sur deux jours",
+			location: "Kolwezi",
+			category: "launch",
+			summary: "Forum économique annuel de Kolwezi avec une forte composante minière, énergétique et infrastructurelle.",
+			description: "Le Katanga Business Meeting connecte les acteurs économiques du Lualaba avec les investisseurs et les entreprises actives dans les mines et les services liés.",
+			primaryHref: links.kbm,
+			primaryLabel: "Voir la source officielle",
+			secondaryHref: links.contact,
+			secondaryLabel: "Contacter l'équipe"
+		},
+		{
+			id: "drc-mining-week-2026",
+			title: "DRC Mining Week 2026",
+			titleEn: "DRC Mining Week 2026",
+			date: "2026-06-17",
+			dateLabel: "17 au 19 juin 2026",
+			dateLabelEn: "June 17-19, 2026",
+			calendarDates: expandDateRange("2026-06-17", "2026-06-19"),
+			time: "Conférence, exposition et ateliers",
+			location: "Pullman Lubumbashi Grand Karavia",
+			category: "launch",
+			summary: "Grand rendez-vous annuel du secteur minier congolais, réunissant opérateurs, pouvoirs publics, investisseurs et fournisseurs.",
+			description: "La DRC Mining Week combine exposition, panels, réseautage et forums spécialisés autour de la chaîne de valeur minière en RDC.",
+			primaryHref: links.drcMiningWeek,
+			primaryLabel: "Voir la source officielle",
+			secondaryHref: links.contact,
+			secondaryLabel: "Contacter l'équipe"
+		},
+		{
+			id: "women-mines-leadership-2026",
+			title: "Women Mines & Leadership Forum",
+			titleEn: "Women Mines & Leadership Forum",
+			date: "2026-06-17",
+			dateLabel: "Juin 2026 (dans la DRC Mining Week)",
+			dateLabelEn: "June 2026 (within DRC Mining Week)",
+			time: "Programme thématique",
+			location: "Lubumbashi",
+			category: "signing",
+			summary: "Rencontre annuelle consacrée aux femmes dirigeantes, entrepreneures et professionnelles du secteur extractif.",
+			description: "Ce temps fort met en avant le leadership féminin, l'inclusion et les réseaux de décision dans l'industrie minière.",
+			primaryHref: links.drcMiningWeek,
+			primaryLabel: "Voir la source officielle",
+			secondaryHref: links.contact,
+			secondaryLabel: "Contacter l'équipe"
+		},
+		{
+			id: "ceo-roundtable-2026",
+			title: "CEO Roundtable de la DRC Mining Week",
+			titleEn: "DRC Mining Week CEO Roundtable",
+			date: "2026-06-17",
+			dateLabel: "Juin 2026 (sur invitation, dans la DRC Mining Week)",
+			dateLabelEn: "June 2026 (invitation only, within DRC Mining Week)",
+			time: "Session sur invitation",
+			location: "Lubumbashi",
+			category: "signing",
+			summary: "Table ronde annuelle réservée aux dirigeants miniers, investisseurs et décideurs publics.",
+			description: "La CEO Roundtable concentre les échanges de haut niveau sur les arbitrages stratégiques, l'investissement et la gouvernance du secteur.",
+			primaryHref: links.drcMiningWeek,
+			primaryLabel: "Voir la source officielle",
+			secondaryHref: links.contact,
+			secondaryLabel: "Contacter l'équipe"
+		},
+		{
+			id: "regional-development-forum-2026",
+			title: "Regional Development Forum",
+			titleEn: "Regional Development Forum",
+			date: "2026-06-18",
+			dateLabel: "Juin 2026 (dans la DRC Mining Week)",
+			dateLabelEn: "June 2026 (within DRC Mining Week)",
+			time: "Forum thématique",
+			location: "Lubumbashi",
+			category: "media",
+			summary: "Forum annuel sur l'énergie, la logistique, les infrastructures et le développement des régions minières.",
+			description: "Ce forum met en débat les conditions de développement durable et territorial autour des projets miniers.",
+			primaryHref: links.drcMiningWeek,
+			primaryLabel: "Voir la source officielle",
+			secondaryHref: links.contact,
+			secondaryLabel: "Contacter l'équipe"
+		},
+		{
+			id: "value-chain-investment-forum-2026",
+			title: "Value-Chain Investment Forum",
+			titleEn: "Value-Chain Investment Forum",
+			date: "2026-06-18",
+			dateLabel: "Juin 2026 (dans la DRC Mining Week)",
+			dateLabelEn: "June 2026 (within DRC Mining Week)",
+			time: "Forum d'investissement",
+			location: "Lubumbashi",
+			category: "institution",
+			summary: "Rencontre annuelle consacrée aux investissements et à la chaîne de valeur minière congolaise.",
+			description: "Ce forum connecte les investisseurs aux opportunités de transformation, de sous-traitance et de valorisation locale.",
+			primaryHref: links.drcMiningWeek,
+			primaryLabel: "Voir la source officielle",
+			secondaryHref: links.contact,
+			secondaryLabel: "Contacter l'équipe"
+		},
+		{
+			id: "critical-minerals-forum-2026",
+			title: "DRC Critical Minerals & Industrialisation Forum 2026",
+			titleEn: "DRC Critical Minerals & Industrialisation Forum 2026",
+			date: "2026-10-07",
+			dateLabel: "7 au 9 octobre 2026",
+			dateLabelEn: "October 7-9, 2026",
+			calendarDates: expandDateRange("2026-10-07", "2026-10-09"),
+			time: "Forum sur trois jours",
+			location: "Kolwezi",
+			category: "institution",
+			summary: "Forum annuel consacré aux minerais critiques, aux métaux pour batteries et à l'industrialisation locale.",
+			description: "Ce rendez-vous met l'accent sur le cobalt, le cuivre, le lithium et sur les investissements en transformation locale.",
+			primaryHref: links.criticalMinerals,
+			primaryLabel: "Voir la source officielle",
+			secondaryHref: links.contact,
+			secondaryLabel: "Contacter l'équipe"
+		},
+		{
+			id: "makutano-mining-2026",
+			title: "Makutano Mining 2026",
+			titleEn: "Makutano Mining 2026",
+			date: "2026-11-22",
+			dateLabel: "22 au 25 novembre 2026",
+			dateLabelEn: "November 22-25, 2026",
+			calendarDates: expandDateRange("2026-11-22", "2026-11-25"),
+			time: "Forum sur quatre jours",
+			location: "Kinshasa",
+			category: "launch",
+			summary: "Édition annuelle du Makutano Forum orientée en 2026 vers les minerais critiques et la souveraineté minière.",
+			description: "Makutano Mining 2026 porte un focus sectoriel fort sur les enjeux miniers dans le cadre d'un forum économique annuel de haut niveau.",
+			primaryHref: links.makutano,
+			primaryLabel: "Voir la source officielle",
+			secondaryHref: links.contact,
+			secondaryLabel: "Contacter l'équipe"
 		}
-		return a.time.localeCompare(b.time);
+	];
+
+	function sortEvents(left, right) {
+		if (left.date !== right.date) {
+			return left.date.localeCompare(right.date);
+		}
+
+		if (left.time !== right.time) {
+			return String(left.time).localeCompare(String(right.time));
+		}
+
+		return left.id.localeCompare(right.id);
 	}
 
 	var sortedEvents = events.slice().sort(sortEvents);
 	var eventsByDate = {};
 
 	sortedEvents.forEach(function (event) {
-		if (!eventsByDate[event.date]) {
-			eventsByDate[event.date] = [];
-		}
-		eventsByDate[event.date].push(event);
+		getEventCalendarDates(event).forEach(function (dateKey) {
+			if (!eventsByDate[dateKey]) {
+				eventsByDate[dateKey] = [];
+			}
+			eventsByDate[dateKey].push(event);
+		});
 	});
 
 	var minYear = parseLocalDate(sortedEvents[0].date).getFullYear();
@@ -361,15 +373,6 @@
 	var today = new Date();
 	today.setHours(12, 0, 0, 0);
 	var todayKey = dateKeyFromParts(today.getFullYear(), today.getMonth(), today.getDate());
-
-	function getUpcomingEvent() {
-		for (var i = 0; i < sortedEvents.length; i += 1) {
-			if (parseLocalDate(sortedEvents[i].date) >= today) {
-				return sortedEvents[i];
-			}
-		}
-		return sortedEvents[0];
-	}
 
 	function getEventById(eventId) {
 		for (var i = 0; i < sortedEvents.length; i += 1) {
@@ -380,14 +383,48 @@
 		return null;
 	}
 
+	function eventOccursInMonth(event, year, monthIndex) {
+		return getEventCalendarDates(event).some(function (dateKey) {
+			var eventDate = parseLocalDate(dateKey);
+			return eventDate.getFullYear() === year && eventDate.getMonth() === monthIndex;
+		});
+	}
+
+	function getMonthEventsFor(year, monthIndex) {
+		return sortedEvents.filter(function (event) {
+			return eventOccursInMonth(event, year, monthIndex);
+		});
+	}
+
+	function getUpcomingEvent() {
+		for (var i = 0; i < sortedEvents.length; i += 1) {
+			if (parseLocalDate(getEventPrimaryDate(sortedEvents[i])) >= today) {
+				return sortedEvents[i];
+			}
+		}
+		return sortedEvents[0];
+	}
+
 	var hashEvent = getEventById(window.location.hash.replace("#", ""));
 	var fallbackEvent = hashEvent || getUpcomingEvent();
-	var canUseToday = today.getFullYear() >= minYear && today.getFullYear() <= maxYear;
-	var currentDate = canUseToday ? today : parseLocalDate(fallbackEvent.date);
+	var todayMonthEvents = getMonthEventsFor(today.getFullYear(), today.getMonth());
+	var currentDate = hashEvent
+		? parseLocalDate(getEventPrimaryDate(hashEvent))
+		: (todayMonthEvents.length ? today : parseLocalDate(getEventPrimaryDate(fallbackEvent)));
 	var currentYear = currentDate.getFullYear();
 	var currentMonth = currentDate.getMonth();
-	var selectedDateKey = hashEvent ? hashEvent.date : (canUseToday && eventsByDate[todayKey] && eventsByDate[todayKey].length ? todayKey : fallbackEvent.date);
-	var selectedEventId = hashEvent ? hashEvent.id : (eventsByDate[selectedDateKey] && eventsByDate[selectedDateKey][0] ? eventsByDate[selectedDateKey][0].id : null);
+	var currentMonthEvents = getMonthEventsFor(currentYear, currentMonth);
+	var fallbackDateKey = getEventPrimaryDate(fallbackEvent);
+	var selectedDateKey = hashEvent
+		? getEventPrimaryDate(hashEvent)
+		: (eventsByDate[todayKey] && eventsByDate[todayKey].length
+			? todayKey
+			: (currentMonthEvents.length ? getEventPrimaryDate(currentMonthEvents[0]) : fallbackDateKey));
+	var selectedEventId = hashEvent
+		? hashEvent.id
+		: (eventsByDate[selectedDateKey] && eventsByDate[selectedDateKey][0]
+			? eventsByDate[selectedDateKey][0].id
+			: fallbackEvent.id);
 
 	function renderWeekdays() {
 		var weekdayNames = getWeekdayNames();
@@ -427,21 +464,14 @@
 		currentTitle.textContent = monthNames[currentMonth] + " " + currentYear;
 	}
 
-	function getMonthEvents(year, monthIndex) {
-		return sortedEvents.filter(function (event) {
-			var eventDate = parseLocalDate(event.date);
-			return eventDate.getFullYear() === year && eventDate.getMonth() === monthIndex;
-		});
-	}
-
 	function setView(year, monthIndex, autoSelect) {
 		currentYear = year;
 		currentMonth = monthIndex;
 
 		if (autoSelect) {
-			var monthEvents = getMonthEvents(year, monthIndex);
+			var monthEvents = getMonthEventsFor(year, monthIndex);
 			if (monthEvents.length) {
-				selectedDateKey = monthEvents[0].date;
+				selectedDateKey = getEventPrimaryDate(monthEvents[0]);
 				selectedEventId = monthEvents[0].id;
 			} else {
 				selectedDateKey = null;
@@ -449,13 +479,13 @@
 			}
 		}
 
-			renderCalendar();
-			if (detailContainer && detailTitle) {
-				renderDetail();
-			}
-			if (eventList) {
-				renderEventList();
-			}
+		renderCalendar();
+		if (detailContainer && detailTitle) {
+			renderDetail();
+		}
+		if (eventList) {
+			renderEventList();
+		}
 	}
 
 	function updateHash(eventId) {
@@ -668,7 +698,7 @@
 
 			var metaRow = document.createElement("div");
 			metaRow.className = "activities-detail-meta";
-			metaRow.innerHTML = "<span>" + sentenceCase(formatHumanDate(event.date)) + "</span><span>" + event.time + "</span><span>" + event.location + "</span>";
+			metaRow.innerHTML = "<span>" + formatEventDisplayDate(event) + "</span><span>" + event.time + "</span><span>" + event.location + "</span>";
 
 			var description = document.createElement("p");
 			description.className = "activities-detail-description";
@@ -709,7 +739,7 @@
 
 			item.innerHTML =
 				'<span class="activities-event-list-date">' +
-				sentenceCase(formatHumanDate(event.date)) +
+				formatEventDisplayDate(event) +
 				"</span>" +
 				'<strong class="activities-event-list-title">' +
 				eventTitle(event) +

@@ -22,7 +22,7 @@ rarsm_page_head(
     'activities-detail-page'
 );
 rarsm_render_header('activites');
-rarsm_render_page_title('Détail activité', [
+rarsm_render_page_title('Détail événement', [
     ['label' => 'Accueil', 'href' => 'index.html'],
     ['label' => 'Activités', 'href' => 'activites.html'],
     ['label' => $selected['title']],
@@ -40,7 +40,7 @@ rarsm_render_page_title('Détail activité', [
         <div class="row c-gutter-30">
             <div class="col-lg-8">
                 <article class="activities-detail-main-card">
-                    <span class="activities-calendar-label">Activité sélectionnée</span>
+                    <span class="activities-calendar-label">Événement sélectionné</span>
                     <div class="activities-detail-hero">
                         <div class="activities-detail-copy">
                             <span class="activities-detail-pill <?php echo rarsm_e($category['class']); ?>">
@@ -49,7 +49,7 @@ rarsm_render_page_title('Détail activité', [
                             <h2><?php echo rarsm_e($selected['title']); ?></h2>
                             <p class="activities-detail-lead"><?php echo rarsm_e($selected['summary']); ?></p>
                             <div class="activities-detail-meta-row">
-                                <span><?php echo rarsm_e(ucfirst(rarsm_activity_date_label($selected['date']))); ?></span>
+                                <span><?php echo rarsm_e(ucfirst(rarsm_activity_display_date($selected))); ?></span>
                                 <span><?php echo rarsm_e($selected['time']); ?></span>
                                 <span><?php echo rarsm_e($selected['location']); ?></span>
                                 <span><?php echo rarsm_e($selected['institution']['name']); ?></span>
@@ -61,14 +61,36 @@ rarsm_render_page_title('Détail activité', [
                     </div>
 
                     <div class="activities-detail-section">
-                        <h4>À propos de cette activité</h4>
+                        <h4>À propos de cet événement</h4>
                         <p><?php echo rarsm_e($selected['description']); ?></p>
                     </div>
 
                     <div class="activities-detail-section">
-                        <h4>Institution concernée</h4>
+                        <h4>Organisateur ou cadre de référence</h4>
                         <p><?php echo rarsm_e($selected['institution_role']); ?></p>
                     </div>
+
+                    <?php if (!empty($selected['recurrence_note'])): ?>
+                        <div class="activities-detail-section">
+                            <h4>Récurrence annuelle</h4>
+                            <p><?php echo rarsm_e($selected['recurrence_note']); ?></p>
+                        </div>
+                    <?php endif; ?>
+
+                    <?php if (!empty($selected['reference'])): ?>
+                        <div class="activities-detail-section">
+                            <h4>Source officielle</h4>
+                            <p>
+                                <?php if (!empty($selected['reference_url'])): ?>
+                                    <a href="<?php echo rarsm_e($selected['reference_url']); ?>" target="_blank" rel="noopener">
+                                        <?php echo rarsm_e($selected['reference']); ?>
+                                    </a>
+                                <?php else: ?>
+                                    <?php echo rarsm_e($selected['reference']); ?>
+                                <?php endif; ?>
+                            </p>
+                        </div>
+                    <?php endif; ?>
 
                     <div class="activities-detail-section">
                         <h4>Points clés</h4>
@@ -89,7 +111,7 @@ rarsm_render_page_title('Détail activité', [
             <div class="col-lg-4">
                 <aside class="activities-detail-sidebar">
                     <div class="activities-detail-side-card activities-institution-card">
-                        <span class="activities-calendar-label">Institution concernée</span>
+                        <span class="activities-calendar-label">Organisateur</span>
                         <div class="activities-institution-head">
                             <div class="activities-institution-logo">
                                 <?php echo rarsm_e(rarsm_activity_initials($selected['institution']['name'])); ?>
@@ -110,20 +132,20 @@ rarsm_render_page_title('Détail activité', [
                         </div>
 
                         <div class="activities-institution-actions">
-                            <a href="<?php echo rarsm_e($selected['institution']['details_href']); ?>" class="btn btn-outline-maincolor">Voir l'institution</a>
-                            <a href="<?php echo rarsm_e($selected['institution']['directory_href']); ?>" class="btn btn-outline-maincolor">Retour aux institutions</a>
+                            <a href="<?php echo rarsm_e($selected['institution']['details_href']); ?>" class="btn btn-outline-maincolor">Voir l'organisateur</a>
+                            <a href="<?php echo rarsm_e($selected['institution']['directory_href']); ?>" class="btn btn-outline-maincolor">Retour au calendrier</a>
                         </div>
                     </div>
 
                     <div class="activities-detail-side-card">
-                        <span class="activities-calendar-label">Autres activités</span>
+                        <span class="activities-calendar-label">Autres événements</span>
                         <h4>À suivre aussi</h4>
                         <ul class="activities-related-list list-unstyled">
                             <?php foreach ($relatedActivities as $activity): ?>
                                 <li>
                                     <a class="activities-related-item" href="activites-details.php?event=<?php echo rarsm_e($activity['id']); ?>">
                                         <strong><?php echo rarsm_e($activity['title']); ?></strong>
-                                        <span><?php echo rarsm_e(ucfirst(rarsm_activity_date_label($activity['date']))); ?> · <?php echo rarsm_e($activity['location']); ?></span>
+                                        <span><?php echo rarsm_e(ucfirst(rarsm_activity_display_date($activity))); ?> · <?php echo rarsm_e($activity['location']); ?></span>
                                     </a>
                                 </li>
                             <?php endforeach; ?>

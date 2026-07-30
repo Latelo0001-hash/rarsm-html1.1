@@ -13,7 +13,7 @@
 		"institutions.html": "RARSM | Institutions",
 		"institutions.php": "RARSM | Institutions",
 		"activites.html": "RARSM | Activities",
-		"activites-details.php": "RARSM | Activity Details",
+		"activites-details.php": "RARSM | Event Details",
 		"contact.html": "RARSM | Contact",
 		"faq.html": "RARSM | FAQ",
 		"shop-cart.php": "RARSM | Cart",
@@ -39,6 +39,22 @@
 		"Commerce": "Trade",
 		"Environnement": "Environment",
 		"Autres": "Other"
+	};
+
+	var institutionLeaderRolesEn = {
+		"Inspecteur général des Mines": "Inspector General of Mines",
+		"Coordonnateur": "Coordinator",
+		"Directeur général": "Director General",
+		"Président du Conseil d’administration": "Chairman of the Board",
+		"Coordonnateur national": "National Coordinator",
+		"Ministre des Finances": "Minister of Finance",
+		"Vice-Premier ministre, ministre des Transports": "Deputy Prime Minister, Minister of Transport",
+		"Directrice générale ad intérim": "Acting Director General",
+		"Ministre de l’ESURSI": "Minister in charge of Higher Education, University Education, Scientific Research and Innovation",
+		"Président": "President",
+		"Commissaire général à l’Énergie atomique": "Commissioner General for Atomic Energy",
+		"Ministre du Commerce extérieur": "Minister of Foreign Trade",
+		"Ministre de l’Environnement": "Minister of the Environment"
 	};
 
 	var institutionSectorNotesEn = {
@@ -205,15 +221,154 @@
 		},
 		"egc": {
 			name: "General Cobalt Company - EGC",
-			sector: "Autres",
+			sector: "Mines",
 			summary: "Gécamines subsidiary responsible for supervising the purchase, processing and marketing of artisanal cobalt.",
 			details: "EGC was created to integrate artisanal cobalt production into an official, controlled and transparent supply chain. It works with cooperatives, public services, buyers and technical partners, and aims to reduce child labor, human rights violations, clandestine circuits and losses of public revenue."
 		},
 		"itie-rdc": {
 			name: "Extractive Industries Transparency Initiative - EITI-DRC",
-			sector: "Autres",
+			sector: "Mines",
 			summary: "National mechanism responsible for implementing the Extractive Industries Transparency Initiative.",
 			details: "EITI-DRC brings together representatives of the State, extractive companies and civil society to promote transparency and sound governance of mining, oil and gas revenues. It collects, analyzes and publishes data on production, exports, company payments and state revenues, thereby informing public debate and supporting reform."
+		}
+	};
+
+	var activityDetailDictionary = {
+		"kbm-2026": {
+			title: "Katanga Business Meeting 2026",
+			summary: "Annual business forum in Kolwezi with a strong mining, energy and infrastructure focus.",
+			description: "The Katanga Business Meeting connects economic stakeholders in Lualaba with investors and companies active in mining and mining-related services. It is one of the recurring annual business platforms in southern DRC.",
+			date: "May 21-22, 2026",
+			time: "Two-day forum",
+			location: "Kolwezi",
+			organizerName: "Katanga Business Meeting",
+			organizerSummary: "Katanga Business Meeting is an annual business forum in Kolwezi that gives major attention to mining, energy, infrastructure and subcontracting opportunities.",
+			organizerRole: "KBM acts here as an annual business platform with a strong mining footprint in southern DRC.",
+			recurrenceNote: "Annual event. The official website already announces its return from May 19 to 21, 2027 in Kolwezi.",
+			highlights: [
+				"Annual business forum held in Kolwezi.",
+				"Strong focus on mining, energy and infrastructure.",
+				"The 2027 edition is already announced for May 19-21, 2027."
+			]
+		},
+		"drc-mining-week-2026": {
+			title: "DRC Mining Week 2026",
+			summary: "The main annual mining event in the DRC, bringing together operators, public authorities, investors and suppliers.",
+			description: "DRC Mining Week combines an exhibition, conference sessions, networking and specialist forums dedicated to the Congolese mining value chain. It remains the flagship annual gathering of the sector in Lubumbashi.",
+			date: "June 17-19, 2026",
+			time: "Conference, exhibition and workshops",
+			location: "Pullman Lubumbashi Grand Karavia",
+			organizerName: "DRC Mining Week · organized by VUKA Group",
+			organizerSummary: "The annual mining conference and exhibition of the DRC, DRC Mining Week gathers operators, public decision-makers, investors, suppliers and technical partners in Lubumbashi every year.",
+			organizerRole: "DRC Mining Week serves as the annual umbrella event for several specialized sessions dedicated to leadership, investment and regional development.",
+			recurrenceNote: "Annual event. The official website already announces the next edition from June 16 to 18, 2027 in Lubumbashi.",
+			highlights: [
+				"The DRC's leading annual mining conference and exhibition.",
+				"Key meeting point for operators, public authorities and investors.",
+				"The 2027 edition is announced for June 16-18, 2027 in Lubumbashi."
+			]
+		},
+		"women-mines-leadership-2026": {
+			title: "Women Mines & Leadership Forum",
+			summary: "Annual gathering dedicated to women leaders, entrepreneurs and professionals in the extractive sector.",
+			description: "This recurring session highlights female leadership, inclusion and decision-making networks within the mining industry. It is part of the annual DRC Mining Week program.",
+			date: "June 2026 (within DRC Mining Week)",
+			time: "Thematic program",
+			location: "Lubumbashi",
+			organizerName: "DRC Mining Week · organized by VUKA Group",
+			organizerSummary: "The annual mining conference and exhibition of the DRC, DRC Mining Week gathers operators, public decision-makers, investors, suppliers and technical partners in Lubumbashi every year.",
+			organizerRole: "This forum is included in the annual DRC Mining Week program as a platform showcasing women’s leadership in the mining industry.",
+			recurrenceNote: "Annual event held within DRC Mining Week.",
+			highlights: [
+				"Meetings dedicated to women leaders and professionals in the sector.",
+				"Focus on leadership and inclusion in the extractive industry.",
+				"Annual side event hosted within DRC Mining Week."
+			]
+		},
+		"ceo-roundtable-2026": {
+			title: "DRC Mining Week CEO Roundtable",
+			summary: "Annual closed-door roundtable for mining executives, investors and public decision-makers.",
+			description: "The CEO Roundtable focuses on strategic priorities, investor confidence and high-level decision-making. It is one of the most selective recurring sessions of DRC Mining Week.",
+			date: "June 2026 (invitation only, within DRC Mining Week)",
+			time: "Invitation-only session",
+			location: "Lubumbashi",
+			organizerName: "DRC Mining Week · organized by VUKA Group",
+			organizerSummary: "The annual mining conference and exhibition of the DRC, DRC Mining Week gathers operators, public decision-makers, investors, suppliers and technical partners in Lubumbashi every year.",
+			organizerRole: "The CEO Roundtable is hosted by DRC Mining Week as an annual strategic dialogue space for high-level decision-makers.",
+			recurrenceNote: "Annual event held within DRC Mining Week.",
+			highlights: [
+				"Annual roundtable reserved for top executives.",
+				"Focus on investment, risk and market confidence.",
+				"Access by invitation only."
+			]
+		},
+		"regional-development-forum-2026": {
+			title: "Regional Development Forum",
+			summary: "Annual forum on energy, logistics, infrastructure and the development of mining regions.",
+			description: "This recurring forum examines the conditions for sustainable territorial development around mining projects. It broadens the sector conversation beyond extraction alone.",
+			date: "June 2026 (within DRC Mining Week)",
+			time: "Thematic forum",
+			location: "Lubumbashi",
+			organizerName: "DRC Mining Week · organized by VUKA Group",
+			organizerSummary: "The annual mining conference and exhibition of the DRC, DRC Mining Week gathers operators, public decision-makers, investors, suppliers and technical partners in Lubumbashi every year.",
+			organizerRole: "This forum complements DRC Mining Week with an annual focus on the development needs of mining regions.",
+			recurrenceNote: "Annual event held within DRC Mining Week.",
+			highlights: [
+				"Discussion on infrastructure and energy in mining regions.",
+				"Territorial view of regional development.",
+				"Annual side event hosted within DRC Mining Week."
+			]
+		},
+		"value-chain-investment-forum-2026": {
+			title: "Value-Chain Investment Forum",
+			summary: "Annual meeting dedicated to investment and the Congolese mining value chain.",
+			description: "This recurring forum connects investors with transformation, subcontracting and local value-add opportunities across the mining chain.",
+			date: "June 2026 (within DRC Mining Week)",
+			time: "Investment forum",
+			location: "Lubumbashi",
+			organizerName: "DRC Mining Week · organized by VUKA Group",
+			organizerSummary: "The annual mining conference and exhibition of the DRC, DRC Mining Week gathers operators, public decision-makers, investors, suppliers and technical partners in Lubumbashi every year.",
+			organizerRole: "This forum represents the annual investment and value-chain pillar of DRC Mining Week.",
+			recurrenceNote: "Annual event held within DRC Mining Week.",
+			highlights: [
+				"Meetings dedicated to investment across the mining value chain.",
+				"Focus on local transformation and industrial partnerships.",
+				"Annual side event hosted within DRC Mining Week."
+			]
+		},
+		"critical-minerals-forum-2026": {
+			title: "DRC Critical Minerals & Industrialisation Forum 2026",
+			summary: "Annual forum dedicated to critical minerals, battery metals and local industrialization.",
+			description: "This recurring event in Kolwezi focuses on cobalt, copper, lithium and downstream investment. It has become one of the annual milestones of the DRC's industrial mining agenda.",
+			date: "October 7-9, 2026",
+			time: "Three-day forum",
+			location: "Kolwezi",
+			organizerName: "DRC Critical Minerals & Industrialisation Forum",
+			organizerSummary: "This annual Kolwezi forum is dedicated to cobalt, copper, lithium, battery metals and local industrialization across mining value chains.",
+			organizerRole: "This forum provides an annual meeting point around critical minerals, local processing and mining industrialization.",
+			recurrenceNote: "Annual specialized event focused on critical minerals and local industrialization.",
+			highlights: [
+				"Annual forum dedicated to cobalt, copper, lithium and battery metals.",
+				"Focus on local industrialization and downstream investment.",
+				"Scheduled in Kolwezi from October 7 to 9, 2026."
+			]
+		},
+		"makutano-mining-2026": {
+			title: "Makutano Mining 2026",
+			summary: "Annual Makutano edition focused in 2026 on critical minerals and mining sovereignty.",
+			description: "Makutano Mining 2026 is the 12th edition of the Makutano Forum. The announced program in Kinshasa includes plenary sessions, panels, bilateral meetings and signings, with a strong focus on critical minerals.",
+			date: "November 22-25, 2026",
+			time: "Four-day forum",
+			location: "Kinshasa",
+			organizerName: "Makutano Forum",
+			organizerSummary: "Makutano Forum is an annual economic gathering. In 2026, the Makutano Mining edition is specifically devoted to critical minerals and mining sovereignty.",
+			organizerRole: "Makutano brings an annual high-level framework at the intersection of economics, investment and mining sovereignty.",
+			recurrenceNote: "Makutano is an annual forum. The 2026 edition is specifically focused on mining issues and critical minerals.",
+			highlights: [
+				"Annual economic forum with a 2026 edition focused on critical minerals.",
+				"Four days of plenaries, panels and bilateral signings.",
+				"Scheduled in Kinshasa from November 22 to 25, 2026."
+			]
 		}
 	};
 
@@ -360,18 +515,26 @@
 			{ selector: "#acheter .row.text-center h2 span", text: "Buy the RARSM book" },
 			{ selector: "#acheter .row.text-center .excerpt", text: "Choose the format that fits your needs: print edition, digital version or institutional order." },
 			{ selector: "#acheter .pricing-plan:eq(0) .plan-name h3", text: "Print edition" },
+			{ selector: "#acheter .pricing-plan:eq(0) .plan-sign", text: "$" },
+			{ selector: "#acheter .pricing-plan:eq(0) .plan-price", text: "400" },
+			{ selector: "#acheter .pricing-plan:eq(0) .plan-decimals", text: "" },
 			{ selector: "#acheter .pricing-plan:eq(0) .plan-description", text: "Order the printed volume for your professional library, office, company or institution." },
 			{ selector: "#acheter .pricing-plan:eq(0) .plan-features li:eq(0)", text: "Physical format" },
 			{ selector: "#acheter .pricing-plan:eq(0) .plan-features li:eq(1)", text: "Professional use" },
 			{ selector: "#acheter .pricing-plan:eq(0) .plan-features li:eq(2)", text: "Delivery on request" },
 			{ selector: "#acheter .pricing-plan:eq(0) .plan-button .btn", text: "Order" },
 			{ selector: "#acheter .pricing-plan:eq(1) .plan-name h3", text: "Digital version" },
+			{ selector: "#acheter .pricing-plan:eq(1) .plan-sign", text: "$" },
+			{ selector: "#acheter .pricing-plan:eq(1) .plan-price", text: "380" },
+			{ selector: "#acheter .pricing-plan:eq(1) .plan-decimals", text: "" },
 			{ selector: "#acheter .pricing-plan:eq(1) .plan-description", text: "Request the PDF or eBook format for fast consultation on desktop, tablet or mobile." },
 			{ selector: "#acheter .pricing-plan:eq(1) .plan-features li:eq(0)", text: "Easy access" },
 			{ selector: "#acheter .pricing-plan:eq(1) .plan-features li:eq(1)", text: "Mobile reading" },
 			{ selector: "#acheter .pricing-plan:eq(1) .plan-features li:eq(2)", text: "Delivery by email" },
 			{ selector: "#acheter .pricing-plan:eq(1) .plan-button .btn", text: "Request the format" },
 			{ selector: "#acheter .pricing-plan:eq(2) .plan-name h3", text: "Institutional order" },
+			{ selector: "#acheter .pricing-plan:eq(2) .plan-price", text: "Quote" },
+			{ selector: "#acheter .pricing-plan:eq(2) .plan-decimals", text: "custom" },
 			{ selector: "#acheter .pricing-plan:eq(2) .plan-description", text: "For administrations, firms, companies, universities or partners wishing to purchase several copies." },
 			{ selector: "#acheter .pricing-plan:eq(2) .plan-features li:eq(0)", text: "Bulk request" },
 			{ selector: "#acheter .pricing-plan:eq(2) .plan-features li:eq(1)", text: "Dedicated presentation" },
@@ -414,47 +577,83 @@
 			{ selector: ".book-overview-benefit:eq(1) span:last-child", text: "Clearer reading of the applicable legal framework" },
 			{ selector: ".book-overview-benefit:eq(2) span:last-child", text: "Useful support for compliance and governance" },
 			{ selector: ".book-overview-benefit:eq(3) span:last-child", text: "Time saved in legal and documentary research" },
+			{ selector: ".book-overview-media__badge", text: "Mining sector legal reference" },
 			{ selector: ".book-overview-card:eq(0) .book-overview-card__eyebrow", text: "Who is it for?" },
 			{ selector: ".book-overview-card:eq(0) h5", text: "Target audience" },
-			{ selector: ".book-overview-card:eq(0) li:eq(0)", text: "Mining operators and investors" },
-			{ selector: ".book-overview-card:eq(0) li:eq(1)", text: "Lawyers, attorneys and advisory firms" },
-			{ selector: ".book-overview-card:eq(0) li:eq(2)", text: "Administrations and technical services" },
-			{ selector: ".book-overview-card:eq(0) li:eq(3)", text: "Universities, researchers and students" },
+			{ selector: ".book-target-card:eq(0) figcaption", text: "Mining operators and investors" },
+			{ selector: ".book-target-card:eq(1) figcaption", text: "Lawyers, attorneys and advisory firms" },
+			{ selector: ".book-target-card:eq(2) figcaption", text: "Administrations and technical services" },
+			{ selector: ".book-target-card:eq(3) figcaption", text: "Universities, researchers and students" },
 			{ selector: ".book-overview-card:eq(1) .book-overview-card__eyebrow", text: "What it brings" },
 			{ selector: ".book-overview-card:eq(1) h5", text: "Benefits of the compendium" },
-			{ selector: ".book-overview-card:eq(1) li:eq(0)", text: "Better command of legal obligations" },
-			{ selector: ".book-overview-card:eq(1) li:eq(1)", text: "Cross-cutting view of control mechanisms" },
-			{ selector: ".book-overview-card:eq(1) li:eq(2)", text: "Support for transparency and traceability" },
-			{ selector: ".book-overview-card:eq(1) li:eq(3)", text: "A practical reference for public and private action" },
+			{ selector: ".book-benefit-card:eq(0) strong", text: "Legal obligations" },
+			{ selector: ".book-benefit-card:eq(0) p", text: "A clearer reading to apply the requirements of the mining sector without ambiguity." },
+			{ selector: ".book-benefit-card:eq(1) strong", text: "Cross-cutting view" },
+			{ selector: ".book-benefit-card:eq(1) p", text: "A structured understanding of institutions, controls and supervisory mechanisms." },
+			{ selector: ".book-benefit-card:eq(2) strong", text: "Stronger traceability" },
+			{ selector: ".book-benefit-card:eq(2) p", text: "Useful support for following standards on transparency, certification and compliance." },
+			{ selector: ".book-benefit-card:eq(3) strong", text: "Practical use" },
+			{ selector: ".book-benefit-card:eq(3) p", text: "A working support that can be used directly by both public and private stakeholders." },
 			{ selector: "#faqs .col-12 h2 span", text: "Overall structure of the book" },
 			{ selector: "#faqs .col-12 .excerpt", text: "The compendium is pedagogically organized around three major parts: the institutional framework, the monitoring of mining activities, and the mechanisms of transparency, traceability and certification." },
 			{ selector: "#collapse01_header a", text: "Part 1: Institutional framework and supervision of activities" },
+			{ selector: "#collapse01 .card-body h6:eq(0)", text: "Title 1: Administration and technical services" },
+			{ selector: "#collapse01 .card-body li:eq(0)", text: "Chapter 1: Administration and technical services of the Ministry of Mines" },
+			{ selector: "#collapse01 .card-body li:eq(1)", text: "Chapter 2: Collaboration" },
+			{ selector: "#collapse01 .card-body li:eq(2)", text: "Chapter 3: Auxiliary services" },
+			{ selector: "#collapse01 .card-body h6:eq(1)", text: "Title 2: Supervision of mining activities" },
+			{ selector: "#collapse01 .card-body li:eq(3)", text: "Chapter 1: Supervision of industrial mining" },
+			{ selector: "#collapse01 .card-body li:eq(4)", text: "Chapter 2: Supervision of artisanal mining" },
 			{ selector: "#collapse02_header a", text: "Part 2: Monitoring mining activities" },
+			{ selector: "#collapse02 .card-body h6:eq(0)", text: "Title 1: Monitoring right holders and permit holders" },
+			{ selector: "#collapse02 .card-body li:eq(0)", text: "Chapter 1: Holders of mining rights" },
+			{ selector: "#collapse02 .card-body li:eq(1)", text: "Chapter 2: Holders of quarry rights" },
+			{ selector: "#collapse02 .card-body li:eq(2)", text: "Chapter 3: Holders of processing-entity approvals" },
+			{ selector: "#collapse02 .card-body h6:eq(1)", text: "Title 2: Monitoring operators in the artisanal mining sector" },
+			{ selector: "#collapse02 .card-body li:eq(3)", text: "Chapter 1: Mining cooperatives" },
+			{ selector: "#collapse02 .card-body li:eq(4)", text: "Chapter 2: Traders, buying houses, exchanges and trading centers" },
+			{ selector: "#collapse02 .card-body li:eq(5)", text: "Chapter 3: Taxation" },
+			{ selector: "#collapse02 .card-body h6:eq(2)", text: "Titles 3 and 4: Auxiliary services and exports" },
+			{ selector: "#collapse02 .card-body li:eq(6)", text: "Monitoring laboratories and other auxiliary services" },
+			{ selector: "#collapse02 .card-body li:eq(7)", text: "Export mechanisms" },
 			{ selector: "#collapse07_header a", text: "Part 3: Transparency, traceability and certification" },
+			{ selector: "#collapse07 .card-body li:eq(0)", text: "3.1 Transparency: EITI" },
+			{ selector: "#collapse07 .card-body li:eq(1)", text: "3.2.2 Kimberley Process" },
+			{ selector: "#collapse07 .card-body li:eq(2)", text: "3.2.3 ICGLR" },
+			{ selector: "#collapse07 .card-body li:eq(3)", text: "3.2.4 and 3.2.5 Dodd-Frank / EU Regulation" },
+			{ selector: "#collapse07 .card-body li:eq(4)", text: "3.2.6 OECD Due Diligence" },
+			{ selector: "#collapse07 .card-body li:eq(5)", text: "3.2.7 CTC certification manual" },
+			{ selector: "#collapse07 .card-body li:eq(6)", text: "3.2.8 Traceability procedures manual" },
 			{ selector: "#collapse08_header a", text: "Educational purpose of the book" },
+			{ selector: "#collapse08 .card-body p", text: "RARSM was designed to gather, organize and make accessible in a single document the main regulatory texts governing mining activities, in order to strengthen legal certainty and promote more effective mining governance." },
 			{ selector: "#formats .mb-2", text: "Formats and acquisition" },
 			{ selector: "#formats h2 span", text: "Choose the option that fits your needs" },
-			{ selector: "#formats .excerpt", text: "This page gathers the available formats, payment channels, information required to place an order and the delivery terms for the book." },
-			{ selector: "#formats .rarsm-pricing-flow-note p", text: "Choose a format, add the product to your cart and proceed to payment." },
+			{ selector: "#formats .excerpt", text: "Choose a format, add the product to your cart and proceed to payment." },
 			{ selector: "#formats .pricing-plan:eq(0) .plan-name h3", text: "Print edition" },
+			{ selector: "#formats .pricing-plan:eq(0) .plan-sign", text: "$" },
+			{ selector: "#formats .pricing-plan:eq(0) .plan-price", text: "400" },
+			{ selector: "#formats .pricing-plan:eq(0) .plan-decimals", text: "" },
 			{ selector: "#formats .pricing-plan:eq(0) .plan-description", text: "Recommended for lawyers, administrations, firms, libraries and readers who need a reliable physical reference." },
 			{ selector: "#formats .pricing-plan:eq(0) .plan-features li:eq(0)", text: "Single-copy or bulk orders" },
 			{ selector: "#formats .pricing-plan:eq(0) .plan-features li:eq(1)", text: "Availability confirmed before payment" },
 			{ selector: "#formats .pricing-plan:eq(0) .plan-features li:eq(2)", text: "Local pickup or shipping depending on destination" },
 			{ selector: "#formats .pricing-plan:eq(0) button", text: "Add to cart" },
 			{ selector: "#formats .pricing-plan:eq(1) .plan-name h3", text: "Digital version" },
+			{ selector: "#formats .pricing-plan:eq(1) .plan-sign", text: "$" },
+			{ selector: "#formats .pricing-plan:eq(1) .plan-price", text: "380" },
+			{ selector: "#formats .pricing-plan:eq(1) .plan-decimals", text: "" },
 			{ selector: "#formats .pricing-plan:eq(1) .plan-description", text: "Designed for quick consultation on desktop, tablet or smartphone, with digital delivery after validation." },
 			{ selector: "#formats .pricing-plan:eq(1) .plan-features li:eq(0)", text: "Sent by email after confirmation" },
 			{ selector: "#formats .pricing-plan:eq(1) .plan-features li:eq(1)", text: "Easy access for personal or professional reading" },
 			{ selector: "#formats .pricing-plan:eq(1) .plan-features li:eq(2)", text: "Edition and availability confirmed on order" },
 			{ selector: "#formats .pricing-plan:eq(1) button", text: "Add to cart" },
 			{ selector: "#formats .pricing-plan:eq(2) .plan-name h3", text: "Institutional order" },
-			{ selector: "#formats .pricing-plan:eq(2) .plan-price", text: "Quotation" },
-			{ selector: "#formats .pricing-plan:eq(2) .plan-decimals", text: "tailored" },
-			{ selector: "#formats .pricing-plan:eq(2) .plan-description", text: "For institutions, companies, universities or libraries seeking several copies or specific administrative treatment." },
-			{ selector: "#formats .pricing-plan:eq(2) .plan-features li:eq(0)", text: "Tailored quotation" },
-			{ selector: "#formats .pricing-plan:eq(2) .plan-features li:eq(1)", text: "Dedicated follow-up" },
-			{ selector: "#formats .pricing-plan:eq(2) .plan-features li:eq(2)", text: "Public or private procurement support" },
+			{ selector: "#formats .pricing-plan:eq(2) .plan-price", text: "Quote" },
+			{ selector: "#formats .pricing-plan:eq(2) .plan-decimals", text: "custom" },
+			{ selector: "#formats .pricing-plan:eq(2) .plan-description", text: "A dedicated option for companies, universities, administrations and organizations seeking several copies, an invoice or specific handling." },
+			{ selector: "#formats .pricing-plan:eq(2) .plan-features li:eq(0)", text: "Pricing based on quantity and destination" },
+			{ selector: "#formats .pricing-plan:eq(2) .plan-features li:eq(1)", text: "Invoice, pro forma or purchase order available" },
+			{ selector: "#formats .pricing-plan:eq(2) .plan-features li:eq(2)", text: "Logistics follow-up tailored to the organization's needs" },
 			{ selector: "#formats .pricing-plan:eq(2) button", text: "Request a quote" }
 		],
 		"author.html": [
@@ -537,22 +736,77 @@
 			{ selector: "#tab-usage .rarsm-shop-checklist li:eq(2)", text: "presentations, training sessions and exchanges on mining governance" },
 			{ selector: "#formats .rarsm-shop-related-head h2", text: "More shop items" },
 			{ selector: "#formats .rarsm-shop-related-intro", text: "Browse the other formats and branded items in a clear, easy-to-order carousel." },
-			{ selector: "#formats .rarsm-shop-related-carousel .product:eq(0) .woocommerce-loop-product__title", text: "RARSM - Digital version" },
-			{ selector: "#formats .rarsm-shop-related-carousel .product:eq(0) p", text: "A convenient format for desktop, tablet and smartphone." },
-			{ selector: "#formats .rarsm-shop-related-carousel .product:eq(0) button", text: "Add to cart" },
-			{ selector: "#formats .rarsm-shop-related-carousel .product:eq(1) .woocommerce-loop-product__title", text: "Institutional order" },
-			{ selector: "#formats .rarsm-shop-related-carousel .product:eq(1) p", text: "For administrations, firms, companies or libraries seeking several copies." },
-			{ selector: "#formats .rarsm-shop-related-carousel .product:eq(1) .woocommerce-Price-amount", text: "Quote on request" },
-			{ selector: "#formats .rarsm-shop-related-carousel .product:eq(1) button", text: "Request a quote" },
-			{ selector: "#formats .rarsm-shop-related-carousel .product:eq(2) .woocommerce-loop-product__title", text: "RARSM T-shirt" },
-			{ selector: "#formats .rarsm-shop-related-carousel .product:eq(2) p", text: "A textile item for public events and project visibility." },
-			{ selector: "#formats .rarsm-shop-related-carousel .product:eq(2) button", text: "Add to cart" },
-			{ selector: "#formats .rarsm-shop-related-carousel .product:eq(3) .woocommerce-loop-product__title", text: "RARSM Cap" },
-			{ selector: "#formats .rarsm-shop-related-carousel .product:eq(3) p", text: "A lightweight cap for field visits and outdoor events." },
-			{ selector: "#formats .rarsm-shop-related-carousel .product:eq(3) button", text: "Add to cart" },
-			{ selector: "#formats .rarsm-shop-related-carousel .product:eq(4) .woocommerce-loop-product__title", text: "RARSM Tote Bag" },
-			{ selector: "#formats .rarsm-shop-related-carousel .product:eq(4) p", text: "A practical bag for carrying the book and working documents." },
-			{ selector: "#formats .rarsm-shop-related-carousel .product:eq(4) button", text: "Add to cart" },
+			{ selector: "#formats .rarsm-inline-related-carousel .product:eq(0) .woocommerce-loop-product__title", text: "RARSM - Digital version" },
+			{ selector: "#formats .rarsm-inline-related-carousel .product:eq(0) p", text: "A convenient format for desktop, tablet and smartphone." },
+			{ selector: "#formats .rarsm-inline-related-carousel .product:eq(0) button", text: "Add to cart" },
+			{ selector: "#formats .rarsm-inline-related-carousel .product:eq(1) .woocommerce-loop-product__title", text: "Institutional order" },
+			{ selector: "#formats .rarsm-inline-related-carousel .product:eq(1) p", text: "For administrations, firms, companies or libraries seeking several copies." },
+			{ selector: "#formats .rarsm-inline-related-carousel .product:eq(1) .woocommerce-Price-amount", text: "Quote on request" },
+			{ selector: "#formats .rarsm-inline-related-carousel .product:eq(1) button", text: "Request a quote" },
+			{ selector: "#formats .rarsm-inline-related-carousel .product:eq(2) .woocommerce-loop-product__title", text: "RARSM T-shirt" },
+			{ selector: "#formats .rarsm-inline-related-carousel .product:eq(2) p", text: "A textile item for public events and project visibility." },
+			{ selector: "#formats .rarsm-inline-related-carousel .product:eq(2) button", text: "Add to cart" },
+			{ selector: "#formats .rarsm-inline-related-carousel .product:eq(3) .woocommerce-loop-product__title", text: "RARSM Cap" },
+			{ selector: "#formats .rarsm-inline-related-carousel .product:eq(3) p", text: "A lightweight cap for field visits and outdoor events." },
+			{ selector: "#formats .rarsm-inline-related-carousel .product:eq(3) button", text: "Add to cart" },
+			{ selector: "#formats .rarsm-inline-related-carousel .product:eq(4) .woocommerce-loop-product__title", text: "RARSM Tote Bag" },
+			{ selector: "#formats .rarsm-inline-related-carousel .product:eq(4) p", text: "A practical bag for carrying the book and working documents." },
+			{ selector: "#formats .rarsm-inline-related-carousel .product:eq(4) button", text: "Add to cart" },
+			{ selector: "#formats .rarsm-inline-related-carousel .product:eq(5) .woocommerce-loop-product__title", text: "RARSM Notebook" },
+			{ selector: "#formats .rarsm-inline-related-carousel .product:eq(5) p", text: "A compact notebook for meetings, field notes and working sessions." },
+			{ selector: "#formats .rarsm-inline-related-carousel .product:eq(5) button", text: "Add to cart" },
+			{ selector: "#selection-rapide .rarsm-shop-quick-kicker", text: "Quick selection" },
+			{ selector: "#selection-rapide h3", text: "Products sorted by use" },
+			{ selector: "#selection-rapide .rarsm-shop-quick-intro", text: "Quickly spot the right format or branded item for your needs: reading, distribution, fieldwork, communication or institutional allocation." },
+			{ selector: "#selection-rapide .rarsm-shop-quick-filters span:eq(0)", text: "Book" },
+			{ selector: "#selection-rapide .rarsm-shop-quick-filters span:eq(1)", text: "Digital" },
+			{ selector: "#selection-rapide .rarsm-shop-quick-filters span:eq(2)", text: "Institution" },
+			{ selector: "#selection-rapide .rarsm-shop-quick-filters span:eq(3)", text: "Textile" },
+			{ selector: "#selection-rapide .rarsm-shop-quick-filters span:eq(4)", text: "Accessories" },
+			{ selector: "#selection-rapide .rarsm-shop-quick-filters span:eq(5)", text: "Stationery" },
+			{ selector: "#selection-rapide .rarsm-shop-mini-card:eq(0) .rarsm-shop-card-badge", text: "Book" },
+			{ selector: "#selection-rapide .rarsm-shop-mini-card:eq(0) .rarsm-shop-stock", text: "Available" },
+			{ selector: "#selection-rapide .rarsm-shop-mini-card:eq(0) .woocommerce-loop-product__title", text: "RARSM - Print edition" },
+			{ selector: "#selection-rapide .rarsm-shop-mini-card:eq(0) .rarsm-shop-product-copy", text: "The reference format for firms, libraries and decision-makers seeking durable consultation." },
+			{ selector: "#selection-rapide .rarsm-shop-mini-card:eq(0) .rarsm-shop-card-note", text: "Physical format • in-depth reading" },
+			{ selector: "#selection-rapide .rarsm-shop-mini-card:eq(0) button", text: "Add to cart" },
+			{ selector: "#selection-rapide .rarsm-shop-mini-card:eq(1) .rarsm-shop-card-badge", text: "Digital" },
+			{ selector: "#selection-rapide .rarsm-shop-mini-card:eq(1) .rarsm-shop-stock", text: "Instant access" },
+			{ selector: "#selection-rapide .rarsm-shop-mini-card:eq(1) .woocommerce-loop-product__title", text: "RARSM - Digital version" },
+			{ selector: "#selection-rapide .rarsm-shop-mini-card:eq(1) .rarsm-shop-product-copy", text: "A flexible version for quickly consulting the compendium on desktop, tablet or smartphone." },
+			{ selector: "#selection-rapide .rarsm-shop-mini-card:eq(1) .rarsm-shop-card-note", text: "Secure PDF • multi-device reading" },
+			{ selector: "#selection-rapide .rarsm-shop-mini-card:eq(1) button", text: "Add to cart" },
+			{ selector: "#selection-rapide .rarsm-shop-mini-card:eq(2) .rarsm-shop-card-badge", text: "Institution" },
+			{ selector: "#selection-rapide .rarsm-shop-mini-card:eq(2) .rarsm-shop-stock", text: "Quote" },
+			{ selector: "#selection-rapide .rarsm-shop-mini-card:eq(2) .woocommerce-loop-product__title", text: "Institutional order" },
+			{ selector: "#selection-rapide .rarsm-shop-mini-card:eq(2) .rarsm-shop-product-copy", text: "The right option for administrations, companies, universities and libraries ordering multiple copies." },
+			{ selector: "#selection-rapide .rarsm-shop-mini-card:eq(2) .rarsm-shop-card-note", text: "Volume • quote • dedicated follow-up" },
+			{ selector: "#selection-rapide .rarsm-shop-mini-card:eq(2) .woocommerce-Price-amount", text: "Quote on request" },
+			{ selector: "#selection-rapide .rarsm-shop-mini-card:eq(2) button", text: "Request a quote" },
+			{ selector: "#selection-rapide .rarsm-shop-mini-card:eq(3) .rarsm-shop-card-badge", text: "Textile" },
+			{ selector: "#selection-rapide .rarsm-shop-mini-card:eq(3) .rarsm-shop-stock", text: "Available" },
+			{ selector: "#selection-rapide .rarsm-shop-mini-card:eq(3) .woocommerce-loop-product__title", text: "RARSM T-shirt" },
+			{ selector: "#selection-rapide .rarsm-shop-mini-card:eq(3) .rarsm-shop-product-copy", text: "A textile item for fairs, conferences and visibility actions around the project." },
+			{ selector: "#selection-rapide .rarsm-shop-mini-card:eq(3) .rarsm-shop-card-note", text: "Events • visual identity" },
+			{ selector: "#selection-rapide .rarsm-shop-mini-card:eq(3) button", text: "Add to cart" },
+			{ selector: "#selection-rapide .rarsm-shop-mini-card:eq(4) .rarsm-shop-card-badge", text: "Accessory" },
+			{ selector: "#selection-rapide .rarsm-shop-mini-card:eq(4) .rarsm-shop-stock", text: "Available" },
+			{ selector: "#selection-rapide .rarsm-shop-mini-card:eq(4) .woocommerce-loop-product__title", text: "RARSM Cap" },
+			{ selector: "#selection-rapide .rarsm-shop-mini-card:eq(4) .rarsm-shop-product-copy", text: "A lightweight accessory for field activities, travel and outdoor meetings." },
+			{ selector: "#selection-rapide .rarsm-shop-mini-card:eq(4) .rarsm-shop-card-note", text: "Fieldwork • mobility • comfort" },
+			{ selector: "#selection-rapide .rarsm-shop-mini-card:eq(4) button", text: "Add to cart" },
+			{ selector: "#selection-rapide .rarsm-shop-mini-card:eq(5) .rarsm-shop-card-badge", text: "Accessory" },
+			{ selector: "#selection-rapide .rarsm-shop-mini-card:eq(5) .rarsm-shop-stock", text: "Available" },
+			{ selector: "#selection-rapide .rarsm-shop-mini-card:eq(5) .woocommerce-loop-product__title", text: "RARSM Tote Bag" },
+			{ selector: "#selection-rapide .rarsm-shop-mini-card:eq(5) .rarsm-shop-product-copy", text: "A practical bag for carrying the book, working files and event materials." },
+			{ selector: "#selection-rapide .rarsm-shop-mini-card:eq(5) .rarsm-shop-card-note", text: "Transport • documents • daily use" },
+			{ selector: "#selection-rapide .rarsm-shop-mini-card:eq(5) button", text: "Add to cart" },
+			{ selector: "#selection-rapide .rarsm-shop-mini-card:eq(6) .rarsm-shop-card-badge", text: "Stationery" },
+			{ selector: "#selection-rapide .rarsm-shop-mini-card:eq(6) .rarsm-shop-stock", text: "Available" },
+			{ selector: "#selection-rapide .rarsm-shop-mini-card:eq(6) .woocommerce-loop-product__title", text: "RARSM Notebook" },
+			{ selector: "#selection-rapide .rarsm-shop-mini-card:eq(6) .rarsm-shop-product-copy", text: "A compact notebook for meetings, field notes and sector-focused work sessions." },
+			{ selector: "#selection-rapide .rarsm-shop-mini-card:eq(6) .rarsm-shop-card-note", text: "Meetings • notes • workshops" },
+			{ selector: "#selection-rapide .rarsm-shop-mini-card:eq(6) button", text: "Add to cart" },
 			{ selector: "#payment .rarsm-payment-kicker", text: "Payment confirmation" },
 			{ selector: "#payment h2 span", text: "A simple order and payment flow" },
 			{ selector: "#payment .excerpt", text: "Follow the steps below to complete the purchase of a book or any shop item with ease." },
@@ -579,7 +833,7 @@
 			{ selector: ".section-institutions-intro .activities-eyebrow", text: "INSTITUTIONAL OFFER" },
 			{ selector: ".section-institutions-intro h2", text: "A solution tailored to administrations, companies, universities and libraries" },
 			{ selector: ".section-institutions-intro .institutions-lead", text: "RARSM can be purchased and distributed within professional or institutional settings, with dedicated handling for bulk orders, invoicing, libraries, training or documentary reference needs." },
-			{ selector: ".section-institutions-intro p:not(.institutions-lead)", text: "This page is designed for organizations that want to equip their teams with a clear, centralized and immediately usable legal working tool focused on the Congolese mining sector." },
+			{ selector: ".institutions-hero-copy > p:not(.institutions-lead)", text: "This page is designed for organizations that want to equip their teams with a clear, centralized and immediately usable legal working tool focused on the Congolese mining sector." },
 			{ selector: ".institutions-checklist li:eq(0)", text: "single-copy or multi-copy ordering" },
 			{ selector: ".institutions-checklist li:eq(1)", text: "dedicated invoicing and follow-up for organizations" },
 			{ selector: ".institutions-checklist li:eq(2)", text: "support for libraries, firms and legal departments" },
@@ -591,13 +845,12 @@
 			{ selector: ".section-institutions-targets .activities-eyebrow", text: "INSTITUTIONAL LANDSCAPE" },
 			{ selector: ".section-institutions-targets h2", text: "Institutions and services to know across the mining sector" },
 			{ selector: ".section-institutions-targets .institutions-split-header > p", text: "Here is a sector-based reading of the main institutions referenced in the compendium. The tabs help you browse public services, technical bodies, financial agencies and control structures involved in the Congolese mining ecosystem." },
-			{ selector: ".institutions-directory-nav .nav-item:eq(0) .nav-link", html: "Mining <span class='institutions-tab-count'>9</span>" },
-			{ selector: ".institutions-directory-nav .nav-item:eq(1) .nav-link", html: "Finance <span class='institutions-tab-count'>5</span>" },
-			{ selector: ".institutions-directory-nav .nav-item:eq(2) .nav-link", html: "Transport <span class='institutions-tab-count'>3</span>" },
-			{ selector: ".institutions-directory-nav .nav-item:eq(3) .nav-link", html: "Research <span class='institutions-tab-count'>4</span>" },
-			{ selector: ".institutions-directory-nav .nav-item:eq(4) .nav-link", html: "Trade <span class='institutions-tab-count'>2</span>" },
+			{ selector: ".institutions-directory-nav .nav-item:eq(0) .nav-link", html: "Mining <span class='institutions-tab-count'>11</span>" },
+			{ selector: ".institutions-directory-nav .nav-item:eq(1) .nav-link", html: "Finance and public revenue <span class='institutions-tab-count'>5</span>" },
+			{ selector: ".institutions-directory-nav .nav-item:eq(2) .nav-link", html: "Transport and logistics <span class='institutions-tab-count'>3</span>" },
+			{ selector: ".institutions-directory-nav .nav-item:eq(3) .nav-link", html: "Scientific research <span class='institutions-tab-count'>4</span>" },
+			{ selector: ".institutions-directory-nav .nav-item:eq(4) .nav-link", html: "Foreign trade <span class='institutions-tab-count'>2</span>" },
 			{ selector: ".institutions-directory-nav .nav-item:eq(5) .nav-link", html: "Environment <span class='institutions-tab-count'>2</span>" },
-			{ selector: ".institutions-directory-nav .nav-item:eq(6) .nav-link", html: "Other <span class='institutions-tab-count'>2</span>" },
 			{ selector: ".institutions-card-actions a[href*='istitutions-details.php']", text: "See more" },
 			{ selector: "#institutions-mines .institutions-service-card:eq(0) h4 a", text: "General Inspectorate of Mines - IGM" },
 			{ selector: "#institutions-mines .institutions-service-card:eq(0) p", text: "Public service in charge of inspection, oversight and audit of mining and quarrying activities. It ensures compliance with the Mining Code, fights fraud and strengthens mineral traceability." },
@@ -610,6 +863,9 @@
 			{ selector: "#institutions-mines .institutions-service-card:eq(7) p", text: "Regulatory and oversight authority for markets involving strategic mineral substances. It acts on the organization, stability and transparency of critical mineral markets." },
 			{ selector: "#institutions-mines .institutions-service-card:eq(8) p", text: "Coordination mechanism between public services to fight mining fraud and smuggling. It organizes cooperation, joint controls and information sharing." },
 			{ selector: "#institutions-mines .institutions-service-card:eq(8) .institutions-card-actions a:last-child", text: "More information" },
+			{ selector: "#institutions-mines .institutions-service-card:eq(9) p", text: "Gécamines subsidiary responsible for supervising the purchase, processing and marketing of artisanal cobalt." },
+			{ selector: "#institutions-mines .institutions-service-card:eq(10) h4 a", text: "EITI-DRC" },
+			{ selector: "#institutions-mines .institutions-service-card:eq(10) p", text: "National mechanism responsible for implementing the Extractive Industries Transparency Initiative." },
 			{ selector: "#institutions-finances .institutions-service-card:eq(0) h4 a", text: "Ministry of Finance" },
 			{ selector: "#institutions-finances .institutions-service-card:eq(0) p", text: "It leads the State's tax, financial and budgetary policy. In the mining sector, it ensures that mining revenues are mobilized and transformed into public resources." },
 			{ selector: "#institutions-finances .institutions-service-card:eq(1) p", text: "Agency responsible for assessing, auditing and collecting taxes due to the central government. It notably monitors the tax obligations of mining companies and their partners." },
@@ -649,9 +905,24 @@
 			{ selector: ".page_title .breadcrumb-item.active", text: "Activities" },
 			{ selector: ".section-activities-intro .activities-eyebrow", text: "SECTOR AGENDA" },
 			{ selector: ".section-activities-intro .activities-highlight-card h1", text: "Follow the annual activities of the mining sector" },
-			{ selector: ".section-activities-intro .activities-highlight-card h5", text: "This page brings together the conferences, workshops, institutional consultations, field missions and public interventions that shape the annual life of the mining sector and its key institutions." },
+			{ selector: ".section-activities-intro .activities-highlight-card h5", text: "This page brings together the major annual and recurring events of the mining sector: forums, conferences, roundtables, investment meetings and leadership highlights." },
+			{ selector: ".activities-hero-carousel .activities-carousel-card:eq(0) .activities-slide-tag", text: "Highlight 01" },
+			{ selector: ".activities-hero-carousel .activities-carousel-card:eq(0) h3", text: "DRC Mining Week" },
+			{ selector: ".activities-hero-carousel .activities-carousel-card:eq(0) p", text: "The leading annual gathering of the Congolese mining sector in Lubumbashi." },
+			{ selector: ".activities-hero-carousel .activities-carousel-card:eq(1) .activities-slide-tag", text: "Highlight 02" },
+			{ selector: ".activities-hero-carousel .activities-carousel-card:eq(1) h3", text: "Katanga Business Meeting" },
+			{ selector: ".activities-hero-carousel .activities-carousel-card:eq(1) p", text: "An annual forum in Kolwezi focused on mining, energy and business opportunities." },
+			{ selector: ".activities-hero-carousel .activities-carousel-card:eq(2) .activities-slide-tag", text: "Highlight 03" },
+			{ selector: ".activities-hero-carousel .activities-carousel-card:eq(2) h3", text: "Critical Minerals Forum" },
+			{ selector: ".activities-hero-carousel .activities-carousel-card:eq(2) p", text: "A recurring event dedicated to critical minerals and local industrialization." },
+			{ selector: ".activities-hero-carousel .activities-carousel-card:eq(3) .activities-slide-tag", text: "Highlight 04" },
+			{ selector: ".activities-hero-carousel .activities-carousel-card:eq(3) h3", text: "Makutano Mining" },
+			{ selector: ".activities-hero-carousel .activities-carousel-card:eq(3) p", text: "The 2026 Kinshasa edition focuses on critical minerals and mining sovereignty." },
+			{ selector: ".activities-hero-carousel .activities-carousel-card:eq(4) .activities-slide-tag", text: "Highlight 05" },
+			{ selector: ".activities-hero-carousel .activities-carousel-card:eq(4) h3", text: "Leadership and investment" },
+			{ selector: ".activities-hero-carousel .activities-carousel-card:eq(4) p", text: "Women Mines & Leadership, the CEO Roundtable and thematic forums also shape the annual agenda." },
 			{ selector: ".section-activities-calendar-block .activities-calendar-label", text: "Annual calendar" },
-			{ selector: ".section-activities-calendar-block .activities-calendar-intro", text: "Browse the annual mining sector agenda month by month. Marked dates open the details of institutional, technical, field and communication activities." },
+			{ selector: ".section-activities-calendar-block .activities-calendar-intro", text: "Browse the annual and recurring mining-sector events month by month. Marked dates open the details of each forum, conference or strategic meeting." },
 			{ selector: ".section-activities-calendar-block .activities-nav-btn[data-calendar-nav='prev-year']", text: "Previous year" },
 			{ selector: ".section-activities-calendar-block .activities-nav-btn[data-calendar-nav='prev-month']", text: "Previous month" },
 			{ selector: ".section-activities-calendar-block .activities-nav-btn[data-calendar-nav='next-month']", text: "Next month" },
@@ -659,10 +930,10 @@
 			{ selector: ".section-activities-calendar-block label[for='activities-month-select']", text: "Choose month" },
 			{ selector: ".section-activities-calendar-block label[for='activities-year-select']", text: "Choose year" },
 			{ selector: ".section-activities-calendar-block .activities-calendar-toolbar", attr: { "aria-label": "Calendar navigation" } },
-			{ selector: ".section-activities-calendar-block .activities-legend-item:eq(0)", html: "<span class='activities-legend-dot event-launch'></span>Forum" },
-			{ selector: ".section-activities-calendar-block .activities-legend-item:eq(1)", html: "<span class='activities-legend-dot event-institution'></span>Institutions" },
-			{ selector: ".section-activities-calendar-block .activities-legend-item:eq(2)", html: "<span class='activities-legend-dot event-signing'></span>Field" },
-			{ selector: ".section-activities-calendar-block .activities-legend-item:eq(3)", html: "<span class='activities-legend-dot event-media'></span>Media" }
+			{ selector: ".section-activities-calendar-block .activities-legend-item:eq(0)", html: "<span class='activities-legend-dot event-launch'></span>Major forum" },
+			{ selector: ".section-activities-calendar-block .activities-legend-item:eq(1)", html: "<span class='activities-legend-dot event-institution'></span>Investment" },
+			{ selector: ".section-activities-calendar-block .activities-legend-item:eq(2)", html: "<span class='activities-legend-dot event-signing'></span>Leadership" },
+			{ selector: ".section-activities-calendar-block .activities-legend-item:eq(3)", html: "<span class='activities-legend-dot event-media'></span>Development" }
 		],
 		"contact.html": [
 			{ selector: ".page_title .small-title", text: "Contact" },
@@ -849,27 +1120,34 @@
 			{ selector: ".rarsm-gateway-actions .btn-outline-maincolor", text: "Contact the team" }
 		],
 		"activites-details.php": [
-			{ selector: ".page_title .small-title", text: "Activity details" },
+			{ selector: ".page_title .small-title", text: "Event details" },
 			{ selector: ".page_title .breadcrumb-item:eq(1) a", text: "Activities" },
-			{ selector: ".activities-detail-alert", text: "The requested activity could not be found. The next available activity has been displayed by default." },
-			{ selector: ".activities-detail-main-card .activities-calendar-label", text: "Selected activity" },
-			{ selector: ".activities-detail-section:eq(0) h4", text: "About this activity" },
-			{ selector: ".activities-detail-section:eq(1) h4", text: "Institution involved" },
-			{ selector: ".activities-detail-section:eq(2) h4", text: "Key points" },
+			{ selector: ".activities-detail-alert", text: "The requested event could not be found. The next available event has been displayed by default." },
+			{ selector: ".activities-detail-main-card .activities-calendar-label", text: "Selected event" },
+			{ selector: ".activities-detail-section:eq(0) h4", text: "About this event" },
+			{ selector: ".activities-detail-section:eq(1) h4", text: "Organizer or reference framework" },
+			{ selector: ".activities-detail-section:eq(2) h4", text: "Annual recurrence" },
+			{ selector: ".activities-detail-section:eq(3) h4", text: "Official source" },
+			{ selector: ".activities-detail-section:eq(4) h4", text: "Key points" },
 			{ selector: ".activities-detail-cta .btn-outline-maincolor", text: "Back to calendar" },
 			{ selector: ".activities-detail-cta .btn-maincolor", text: "Contact the team" },
-			{ selector: ".activities-institution-card .activities-calendar-label", text: "Institution involved" },
-			{ selector: ".activities-institution-actions .btn:eq(0)", text: "View institution" },
-			{ selector: ".activities-institution-actions .btn:eq(1)", text: "Back to institutions" },
-			{ selector: ".activities-detail-side-card:last .activities-calendar-label", text: "Other activities" },
-			{ selector: ".activities-detail-side-card:last h4", text: "Also coming up" }
+			{ selector: ".activities-institution-card .activities-calendar-label", text: "Organizer" },
+			{ selector: ".activities-social-link:eq(0) span", text: "Official website" },
+			{ selector: ".activities-social-link:eq(1) span", text: "Program" },
+			{ selector: ".activities-social-link:eq(2) span", text: "Contact" },
+			{ selector: ".activities-institution-actions .btn:eq(0)", text: "View organizer" },
+			{ selector: ".activities-institution-actions .btn:eq(1)", text: "Back to calendar" },
+			{ selector: ".activities-detail-side-card:last .activities-calendar-label", text: "Other events" },
+			{ selector: ".activities-detail-side-card:last h4", text: "Also worth following" }
 		],
 		"istitutions-details.php": [
 			{ selector: ".page_title .breadcrumb-item.active", text: "Details" },
 			{ selector: ".page_title .breadcrumb-item:eq(1) a", text: "Institutions" },
 			{ selector: ".institution-detail-alert", text: "The requested institution could not be found. The first available record has been displayed by default." },
-			{ selector: ".institution-detail-section:eq(0) h4", text: "Role and scope of action" },
-			{ selector: ".institution-detail-section:eq(1) h4", text: "Why this institution matters in RARSM" },
+			{ selector: ".institution-detail-role-title", text: "Role and scope of action" },
+			{ selector: ".institution-detail-leader-title", text: "Featured leader" },
+			{ selector: ".institution-detail-rarsm-title", text: "Why this institution matters in RARSM" },
+			{ selector: ".institution-profile-source-label", text: "Source:" },
 			{ selector: ".institution-detail-main-actions .btn-maincolor", text: "Visit official website" },
 			{ selector: ".institution-detail-main-actions .btn-outline-maincolor", text: "Back to institutions" },
 			{ selector: ".institution-side-card:eq(0) .activities-eyebrow", text: "OTHER INSTITUTIONS" },
@@ -919,6 +1197,23 @@
 		});
 	}
 
+	function escapeHtml(value) {
+		return $("<div>").text(value == null ? "" : String(value)).html();
+	}
+
+	function buildParagraphHtml(value) {
+		return String(value || "")
+			.split(/\n\s*\n/)
+			.map(function (paragraph) {
+				return paragraph.replace(/\s+/g, " ").trim();
+			})
+			.filter(Boolean)
+			.map(function (paragraph) {
+				return "<p>" + escapeHtml(paragraph) + "</p>";
+			})
+			.join("");
+	}
+
 	function applyInstitutionDetailTranslation(language) {
 		if (!$ || getPageKey() !== "istitutions-details.php") {
 			return;
@@ -932,8 +1227,12 @@
 		applyStoredText($(".page_title .small-title"), "InstitutionDetailHeroTitle", entry.name, language);
 		applyStoredText($(".institution-detail-heading h2"), "InstitutionDetailHeading", entry.name, language);
 		applyStoredText($(".institution-detail-lead"), "InstitutionDetailLead", entry.summary, language);
-		applyStoredText($(".institution-detail-section:eq(0) p"), "InstitutionDetailBody", entry.details, language);
-		applyStoredText($(".institution-detail-section:eq(1) p"), "InstitutionDetailSectorNote", sectorNote, language);
+		$(".institution-detail-paragraphs").each(function () {
+			var $element = $(this);
+			cacheOriginal($element, "InstitutionDetailBodyHtml", $element.html());
+			$element.html(language === "en" ? buildParagraphHtml(entry.details) : restoreOriginal($element, "InstitutionDetailBodyHtml"));
+		});
+		applyStoredText($(".institution-detail-rarsm-note"), "InstitutionDetailSectorNote", sectorNote, language);
 		applyStoredAttribute($("meta[name='description']"), "InstitutionMetaDescription", "content", entry.summary, language);
 
 		$(".institution-detail-sector").each(function () {
@@ -964,7 +1263,66 @@
 			});
 		});
 
+		$(".institution-profile-role").each(function () {
+			var $element = $(this);
+			cacheOriginal($element, "InstitutionLeaderRole", $element.text());
+			var originalRole = restoreOriginal($element, "InstitutionLeaderRole");
+			$element.text(language === "en" ? (institutionLeaderRolesEn[originalRole] || originalRole) : originalRole);
+		});
+
 		document.title = language === "en" ? "RARSM | " + entry.name : originalTitle;
+	}
+
+	function applyActivityDetailTranslation(language) {
+		if (!$ || getPageKey() !== "activites-details.php") {
+			return;
+		}
+
+		var eventSlug = sanitizeSlug(getQueryParameter("event")) || "critical-minerals-forum-2026";
+		var entry = activityDetailDictionary[eventSlug] || activityDetailDictionary["critical-minerals-forum-2026"];
+		var originalTitle = document.documentElement.getAttribute("data-rarsm-original-title") || document.title;
+
+		applyStoredText($(".page_title .small-title"), "ActivityDetailHeroTitle", "Event details", language);
+		applyStoredText($(".page_title .breadcrumb-item.active"), "ActivityDetailBreadcrumbCurrent", entry.title, language);
+		applyStoredText($(".activities-detail-copy h2"), "ActivityDetailTitle", entry.title, language);
+		applyStoredText($(".activities-detail-lead"), "ActivityDetailLead", entry.summary, language);
+		applyStoredText($(".activities-detail-meta-row span:eq(0)"), "ActivityDetailDate", entry.date, language);
+		applyStoredText($(".activities-detail-meta-row span:eq(1)"), "ActivityDetailTime", entry.time, language);
+		applyStoredText($(".activities-detail-meta-row span:eq(2)"), "ActivityDetailLocation", entry.location, language);
+		applyStoredText($(".activities-detail-section:eq(0) p"), "ActivityDetailDescription", entry.description, language);
+		applyStoredText($(".activities-detail-section:eq(1) p"), "ActivityDetailOrganizerRole", entry.organizerRole, language);
+		applyStoredText($(".activities-detail-section:eq(2) p"), "ActivityDetailRecurrence", entry.recurrenceNote, language);
+		applyStoredText($(".activities-institution-copy h4"), "ActivityOrganizerName", entry.organizerName, language);
+		applyStoredText($(".activities-institution-copy p"), "ActivityOrganizerSummary", entry.organizerSummary, language);
+		applyStoredAttribute($("meta[name='description']"), "ActivityMetaDescription", "content", entry.summary, language);
+
+		$(".activities-detail-agenda-list li").each(function (index) {
+			var $item = $(this);
+			var translated = entry.highlights[index];
+
+			if (!translated) {
+				return;
+			}
+
+			applyStoredText($item, "ActivityHighlight" + index, translated, language);
+		});
+
+		$(".activities-related-item").each(function () {
+			var $item = $(this);
+			var href = $item.attr("href") || "";
+			var match = href.match(/event=([a-z0-9\-]+)/i);
+			var relatedSlug = match ? sanitizeSlug(match[1]) : "";
+			var relatedEntry = activityDetailDictionary[relatedSlug];
+
+			if (!relatedEntry) {
+				return;
+			}
+
+			applyStoredText($item.find("strong"), "ActivityRelatedName", relatedEntry.title, language);
+			applyStoredText($item.find("span"), "ActivityRelatedMeta", relatedEntry.date + " · " + relatedEntry.location, language);
+		});
+
+		document.title = language === "en" ? "RARSM | " + entry.title : originalTitle;
 	}
 
 	function resolveLanguage(language) {
@@ -1136,6 +1494,7 @@
 		applyTitle(language);
 		applyRules(language);
 		applyInstitutionDetailTranslation(language);
+		applyActivityDetailTranslation(language);
 	}
 
 	function setLanguage(language) {

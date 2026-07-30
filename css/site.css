@@ -2901,7 +2901,7 @@ Animation example, for spinners
   font-size: 2em;
 }
 .fa-inverse {
-  color: #ffffff;
+  color: #253691;
 }
 /* Font Awesome uses the Unicode Private Use Area (PUA) to ensure screen
    readers do not read off random characters that represent icons */
@@ -19367,6 +19367,24 @@ span.muted-bg {
 	font-size: 50px;
 }
 
+.pricing-plan.pricing-plan-quote .price-wrap {
+	align-items: center;
+	flex-direction: column;
+	gap: 10px;
+	line-height: 1;
+}
+
+.pricing-plan.pricing-plan-quote .price-wrap .plan-sign {
+	display: none;
+}
+
+.pricing-plan.pricing-plan-quote .price-wrap .plan-decimals {
+	display: block;
+	font-size: 18px;
+	font-weight: 500;
+	line-height: 1.2;
+}
+
 .pricing-plan .plan-name h3 {
 	font-family: "Heebo", sans-serif;
 	font-size: 14px;
@@ -28595,6 +28613,14 @@ body {
 	border-top: 6px solid var(--rarsm-red);
 }
 
+.pricing-plan.plan-featured.pricing-plan-digital {
+	border-top-color: #2ea44f;
+}
+
+.pricing-plan.pricing-plan-digital .plan-name h3::after {
+	background-color: #2ea44f;
+}
+
 .pricing-plan .plan-price {
 	color: var(--rarsm-blue-deep);
 }
@@ -28606,6 +28632,15 @@ body {
 
 .btn-maincolor:hover {
 	color: var(--rarsm-red);
+}
+
+.pricing-plan.pricing-plan-digital .btn-maincolor {
+	background-color: #2ea44f;
+	border-color: #2ea44f;
+}
+
+.pricing-plan.pricing-plan-digital .btn-maincolor:hover {
+	color: #2ea44f;
 }
 
 .btn-maincolor2 {
@@ -28705,11 +28740,11 @@ body {
 	display: block;
 	height: auto;
 	margin: 40px auto 0;
-	max-height: 840px;
-	max-width: 540px;
+	max-height: 640px;
+	max-width: 480px;
 	object-fit: contain;
 	object-position: center top;
-	width: min(33rem, 84vw);
+	width: min(29rem, 76vw);
 }
 
 @media (max-width: 1200px) {
@@ -32311,7 +32346,7 @@ button.btn:hover {
 
 .home-modern .rarsm-axes-intro {
 	background: rgba(255, 255, 255, 0.82);
-	border: 1px solid rgba(48, 71, 165, 0.12);
+	border: none;
 	border-radius: 28px;
 	box-shadow: 0 18px 40px rgba(11, 23, 76, 0.08);
 	padding: 28px 30px;
@@ -32607,6 +32642,84 @@ button.btn:hover {
 	height: 10px;
 	margin-top: 0.48em;
 	width: 10px;
+}
+
+.home-modern .book-target-grid {
+	display: grid;
+	gap: 16px;
+	grid-template-columns: repeat(2, minmax(0, 1fr));
+	margin-top: 8px;
+}
+
+.home-modern .book-target-card {
+	background: linear-gradient(180deg, rgba(248, 251, 255, 0.98) 0%, rgba(255, 255, 255, 1) 100%);
+	border: 1px solid rgba(48, 71, 165, 0.12);
+	border-radius: 22px;
+	box-shadow: 0 14px 28px rgba(28, 44, 122, 0.08);
+	margin: 0;
+	overflow: hidden;
+}
+
+.home-modern .book-target-card img {
+	aspect-ratio: 1 / 1;
+	display: block;
+	object-fit: cover;
+	width: 100%;
+}
+
+.home-modern .book-target-card figcaption {
+	color: var(--rarsm-blue-deep);
+	font-size: 0.94rem;
+	font-weight: 700;
+	line-height: 1.45;
+	margin: 0;
+	padding: 14px 14px 16px;
+}
+
+.home-modern .book-benefit-grid {
+	display: grid;
+	gap: 14px;
+	grid-template-columns: repeat(2, minmax(0, 1fr));
+	margin-top: 10px;
+}
+
+.home-modern .book-benefit-card {
+	background: linear-gradient(180deg, rgba(248, 251, 255, 0.98) 0%, rgba(255, 255, 255, 1) 100%);
+	border: 1px solid rgba(48, 71, 165, 0.12);
+	border-radius: 22px;
+	box-shadow: 0 14px 28px rgba(28, 44, 122, 0.08);
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+	min-height: 100%;
+	padding: 18px 18px 20px;
+}
+
+.home-modern .book-benefit-card__icon {
+	align-items: center;
+	background: rgba(239, 59, 35, 0.12);
+	border-radius: 14px;
+	color: var(--rarsm-red);
+	display: inline-flex;
+	font-size: 1rem;
+	height: 42px;
+	justify-content: center;
+	width: 42px;
+}
+
+.home-modern .book-benefit-card strong {
+	color: var(--rarsm-blue-deep);
+	display: block;
+	font-family: "Heebo", sans-serif;
+	font-size: 1.02rem;
+	line-height: 1.3;
+}
+
+.home-modern .book-benefit-card p {
+	color: #4d5b77;
+	font-size: 0.92rem;
+	line-height: 1.6;
+	margin-bottom: 0;
 }
 
 .home-modern .book-overview-card--cta .btn {
@@ -32947,6 +33060,14 @@ button.btn:hover {
 		padding: 24px 20px;
 	}
 
+	.home-modern .book-target-grid {
+		gap: 14px;
+	}
+
+	.home-modern .book-benefit-grid {
+		gap: 12px;
+	}
+
 	.page_footer .menu {
 		gap: 12px 16px;
 	}
@@ -33020,6 +33141,33 @@ button.btn:hover {
 
 	.home-modern .book-overview-card h5 {
 		font-size: 1.16rem;
+	}
+
+	.home-modern .book-target-card figcaption {
+		font-size: 0.88rem;
+		padding: 12px 12px 14px;
+	}
+
+	.home-modern .book-benefit-card {
+		padding: 16px;
+	}
+
+	.home-modern .book-benefit-card strong {
+		font-size: 0.94rem;
+	}
+
+	.home-modern .book-benefit-card p {
+		font-size: 0.86rem;
+	}
+}
+
+@media (max-width: 479px) {
+	.home-modern .book-target-grid {
+		grid-template-columns: 1fr;
+	}
+
+	.home-modern .book-benefit-grid {
+		grid-template-columns: 1fr;
 	}
 }
 
@@ -33213,12 +33361,14 @@ button.rarsm-session-indicator {
 .header-utilities .dropdown-shopping-cart i {
 	font-size: 1.4rem;
 	padding-right: 0;
+	transition: color 0.2s ease;
 }
 
 .header-utilities .dropdown-shopping-cart .badge {
 	left: 14px;
 	padding: 0.28em 0.5em 0.2em;
 	top: -10px;
+	transition: background-color 0.2s ease, border-color 0.2s ease;
 }
 
 .header-utilities .dropdown-shopping-cart .cart-total {
@@ -33234,6 +33384,18 @@ button.rarsm-session-indicator {
 .header-utilities .dropdown-shopping-cart:hover .cart-total,
 .header-utilities .dropdown-shopping-cart:focus .cart-total {
 	color: inherit;
+}
+
+.header-utilities .dropdown-shopping-cart.is-empty .badge,
+.page_header .menu-cart-mobile > .dropdown-toggle.dropdown-shopping-cart.is-empty .badge {
+	background-color: #ef3b23 !important;
+	border-color: #ef3b23 !important;
+}
+
+.header-utilities .dropdown-shopping-cart.has-items .badge,
+.page_header .menu-cart-mobile > .dropdown-toggle.dropdown-shopping-cart.has-items .badge {
+	background-color: #2ea44f !important;
+	border-color: #2ea44f !important;
 }
 
 .header-utilities .rarsm-session-indicator {
@@ -36422,6 +36584,7 @@ body,
 	gap: 12px;
 	justify-content: flex-end;
 	margin-left: auto;
+	width: auto;
 }
 
 .activities-nav-btn,
@@ -36435,6 +36598,15 @@ body,
 	min-height: 46px;
 	padding: 0 18px;
 	transition: border-color 0.2s ease, box-shadow 0.2s ease, color 0.2s ease;
+}
+
+.activities-nav-btn {
+	align-items: center;
+	display: inline-flex;
+	justify-content: center;
+	line-height: 1.25;
+	text-align: center;
+	white-space: normal;
 }
 
 .activities-nav-btn:hover,
@@ -37234,6 +37406,10 @@ body,
 		width: 100%;
 	}
 
+	.activities-current-period {
+		width: 100%;
+	}
+
 	.activities-period-select,
 	.activities-nav-btn {
 		flex: 1 1 calc(50% - 6px);
@@ -37820,6 +37996,38 @@ body,
 .rarsm-plan-action .btn,
 .rarsm-plan-action button.btn {
 	width: 100%;
+}
+
+/*
+   Hover vert pour les boutons des sections d'achat
+*/
+#acheter .btn:hover,
+#acheter .btn:focus,
+#acheter .btn:active,
+#formats .btn:hover,
+#formats .btn:focus,
+#formats .btn:active,
+#selection-rapide .btn:hover,
+#selection-rapide .btn:focus,
+#selection-rapide .btn:active,
+#formats .button:hover,
+#formats .button:focus,
+#formats .button:active,
+#selection-rapide .button:hover,
+#selection-rapide .button:focus,
+#selection-rapide .button:active,
+#formats .single_add_to_cart_button:hover,
+#formats .single_add_to_cart_button:focus,
+#formats .single_add_to_cart_button:active,
+#formats .add_to_cart_button:hover,
+#formats .add_to_cart_button:focus,
+#formats .add_to_cart_button:active,
+#selection-rapide .add_to_cart_button:hover,
+#selection-rapide .add_to_cart_button:focus,
+#selection-rapide .add_to_cart_button:active {
+	background-color: #2ea44f !important;
+	border-color: #2ea44f !important;
+	color: #ffffff !important;
 }
 
 .rarsm-pricing-flow-note {
@@ -38477,7 +38685,7 @@ body,
 .rarsm-shop-product-copy {
 	color: #5c6786;
 	margin: 0 0 12px;
-	min-height: 78px;
+	min-height: 72px;
 }
 
 .rarsm-shop-card-note {
@@ -38505,12 +38713,123 @@ body,
 	width: auto;
 }
 
+.rarsm-shop-quick-section {
+	position: relative;
+}
+
+.rarsm-shop-quick-picks {
+	background: transparent;
+	border: 0;
+	border-radius: 0;
+	padding: 0;
+}
+
+.rarsm-shop-quick-head {
+	display: grid;
+	gap: 18px;
+	margin-bottom: 24px;
+}
+
+.rarsm-shop-quick-intro {
+	color: #5c6786;
+	margin-bottom: 0;
+	max-width: 560px;
+}
+
+.rarsm-shop-quick-filters {
+	align-items: center;
+}
+
+.rarsm-shop-mini-grid {
+	display: grid;
+	gap: 24px;
+	grid-template-columns: repeat(3, minmax(0, 1fr));
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+.rarsm-shop-mini-grid > .product {
+	float: none !important;
+	margin: 0 !important;
+	width: auto !important;
+}
+
+.rarsm-shop-mini-card .product-inner {
+	border-radius: 24px;
+	box-shadow: 0 18px 40px rgba(37, 54, 145, 0.08);
+}
+
+.rarsm-shop-mini-card .product-inner img {
+	aspect-ratio: 1 / 1;
+	background: #f7f8ff;
+}
+
+.rarsm-shop-mini-card .product-wrap {
+	padding: 18px 18px 20px;
+}
+
+.rarsm-shop-mini-card .rarsm-shop-card-badge {
+	font-size: 0.68rem;
+	padding: 8px 11px;
+}
+
+.rarsm-shop-mini-card .rarsm-shop-card-head {
+	margin-bottom: 12px;
+}
+
+.rarsm-shop-mini-card .woocommerce-loop-product__title {
+	font-size: 1.05rem;
+	line-height: 1.25;
+	margin: 0 0 10px;
+	min-height: 0;
+}
+
+.rarsm-shop-mini-card .rarsm-shop-product-copy {
+	font-size: 0.92rem;
+	line-height: 1.48;
+	margin: 0 0 12px;
+	min-height: 0;
+}
+
+.rarsm-shop-mini-card .rarsm-shop-card-note {
+	font-size: 0.84rem;
+	margin: 0 0 16px;
+}
+
+.rarsm-shop-mini-card .price-wrap {
+	align-items: stretch;
+	flex-direction: column;
+	gap: 12px;
+}
+
+.rarsm-shop-mini-card .price {
+	color: #253691;
+	font-size: 1.02rem;
+	font-weight: 700;
+}
+
+.rarsm-shop-mini-card .rarsm-plan-action {
+	margin-left: 0;
+	width: 100%;
+}
+
+.rarsm-shop-mini-card .rarsm-plan-action .btn,
+.rarsm-shop-mini-card .rarsm-plan-action button.btn {
+	min-width: 0;
+	width: 100%;
+}
+
 @media (max-width: 1199px) {
 	.rarsm-shop-showcase {
 		grid-template-columns: 1fr;
 	}
 
 	.rarsm-shop-catalog-grid {
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+	}
+
+	.rarsm-shop-mini-grid {
 		grid-template-columns: repeat(2, minmax(0, 1fr));
 	}
 
@@ -38551,6 +38870,18 @@ body,
 	}
 
 	.rarsm-shop-catalog-grid {
+		grid-template-columns: 1fr;
+	}
+
+	.rarsm-shop-quick-picks {
+		padding: 0;
+	}
+
+	.rarsm-shop-quick-head {
+		margin-bottom: 24px;
+	}
+
+	.rarsm-shop-mini-grid {
 		grid-template-columns: 1fr;
 	}
 
@@ -38896,22 +39227,33 @@ body,
 .institutions-floating-card {
 	background: rgba(255, 255, 255, 0.96);
 	border: 1px solid rgba(37, 54, 145, 0.1);
-	border-radius: 24px;
-	bottom: -26px;
+	border-radius: 20px;
+	bottom: -18px;
 	box-shadow: 0 24px 48px rgba(37, 54, 145, 0.12);
-	max-width: 320px;
-	padding: 24px 24px 22px;
+	max-width: 270px;
+	padding: 18px 20px 16px;
 	position: absolute;
-	right: 24px;
+	right: 18px;
 }
 
 .institutions-floating-kicker {
 	color: #fc5230;
-	font-size: 0.78rem;
+	font-size: 0.72rem;
 	font-weight: 700;
 	letter-spacing: 0.08em;
-	margin-bottom: 10px;
+	margin-bottom: 8px;
 	text-transform: uppercase;
+}
+
+.institutions-floating-card h4 {
+	font-size: 1.05rem;
+	line-height: 1.3;
+	margin-bottom: 8px;
+}
+
+.institutions-floating-card p {
+	font-size: 0.92rem;
+	line-height: 1.5;
 }
 
 .institutions-card-grid,
@@ -39438,10 +39780,21 @@ body,
 	display: flex;
 	font-size: 1.5rem;
 	font-weight: 800;
-	height: 96px;
+	height: 84px;
 	justify-content: center;
 	letter-spacing: 0.08em;
-	width: 96px;
+	width:132px;
+}
+
+.institution-detail-logo--initials,
+.institution-suggestion-logo--initials {
+	background:
+		radial-gradient(circle at 18% 20%, rgba(255, 255, 255, 0.14), transparent 34%),
+		radial-gradient(circle at 88% 30%, rgba(255, 255, 255, 0.12), transparent 35%),
+		linear-gradient(135deg, rgba(20, 42, 125, 0.98), rgba(216, 75, 66, 0.92));
+	border: 0;
+	box-shadow: 0 10px 20px rgba(20, 32, 71, 0.12);
+	color: #ffffff;
 }
 
 .institution-detail-logo img,
@@ -39451,7 +39804,7 @@ body,
 	max-height: 100%;
 	max-width: 100%;
 	object-fit: contain;
-	width: 100%;
+	width: auto;
 }
 
 .institution-detail-meta {
@@ -39693,7 +40046,7 @@ body,
 	border-radius: 16px;
 	color: #253691;
 	display: flex;
-	flex: 0 0 48px;
+	flex: 0 0 68px;
 	font-size: 0.92rem;
 	font-weight: 800;
 	height: 48px;
@@ -39773,8 +40126,8 @@ body,
 	.institution-detail-logo {
 		border-radius: 20px;
 		font-size: 1.25rem;
-		height: 78px;
-		width: 78px;
+		height: 72px;
+		width:104px;
 	}
 
 	.institution-detail-meta {
@@ -39814,6 +40167,12 @@ body,
 	}
 
 	.author-intro-section .author-hero-copy-simple .excerpt,
+	.author-intro-section .author-hero-copy .special-heading {
+		margin-left: auto;
+		margin-right: auto;
+	}
+}
+xcerpt,
 	.author-intro-section .author-hero-copy .special-heading {
 		margin-left: auto;
 		margin-right: auto;

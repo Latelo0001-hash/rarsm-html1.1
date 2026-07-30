@@ -365,7 +365,7 @@ $institutions = [
 	],
 	'egc' => [
 		'name' => "Entreprise Générale du Cobalt - EGC",
-		'sector' => "Autres",
+		'sector' => "Mines",
 		'summary' => "Filiale de la Gecamines chargée d'encadrer l'achat, le traitement et la commercialisation du cobalt artisanal.",
 		'details' => "L'EGC a été crééee pour intègrer la production artisanale de cobalt dans une chaîne d'approvisionnement officielle, contrôlee et transparente. Elle collabore avec les cooperatives, les services publics, les acheteurs et les partenaires techniques, et vise a réduire le travail des enfants, les violations des droits humains, les circuits clandestins et les pertes de recettes publiques.",
 		'website' => 'https://egcobalt.cd/',
@@ -373,7 +373,7 @@ $institutions = [
 	],
 	'itie-rdc' => [
 		'name' => "Initiative pour la Transparence dans les Industries Extractives - ITIE-RDC",
-		'sector' => "Autres",
+		'sector' => "Mines",
 		'summary' => "Mécanisme national de mise en œuvre de l'Initiative pour la Transparence dans les Industries Extractives.",
 		'details' => "L'ITIE-RDC réunit des représentants de l'Etat, des entreprises extractives et de la société civile pour promouvoir la transparence et la bonne gouvernance des revenus des secteurs minier, pétrolier et gazier. Elle collecte, analyse et publie des données sur la production, les exportations, les paiements des entreprises et les recettes perçues par l'Etat, ce qui nourrit le débat public et oriente les réformes.",
 		'website' => 'https://www.itierdc.net/',
@@ -415,6 +415,9 @@ $selectedSlug = $notFound ? 'igm' : $requestedSlug;
 $selected = $institutions[$selectedSlug];
 $selectedSectorNote = isset($sectorNotes[$selected['sector']]) ? $sectorNotes[$selected['sector']] : "Cette institution participe à la lecture pratique de l’écosystème minier, administratif et réglementaire couvert par le recueil.";
 $selectedLogoPath = isset($selected['logo_path']) && rarsm_public_file_exists($selected['logo_path']) ? $selected['logo_path'] : '';
+$selectedLogoInitials = !empty($selected['logo_initials'])
+	? (string) $selected['logo_initials']
+	: rarsm_initials($selected['name']);
 $selectedLeaderPhoto = isset($selected['leader_photo']) && rarsm_public_file_exists($selected['leader_photo']) ? $selected['leader_photo'] : '';
 $selectedQuoteSourceUrl = rarsm_quote_source_url($selectedSlug, $selected);
 $pageTitle = 'RARSM | ' . $selected['name'];
@@ -711,11 +714,11 @@ foreach ($institutions as $slug => $institution) {
 						<div class="col-lg-8">
 							<article class="institution-detail-card">
 								<div class="institution-detail-header">
-									<div class="institution-detail-logo">
+									<div class="institution-detail-logo<?php echo $selectedLogoPath === '' ? ' institution-detail-logo--initials' : ''; ?>">
 										<?php if ($selectedLogoPath !== ''): ?>
 											<img src="<?php echo rarsm_e($selectedLogoPath); ?>" alt="Logo <?php echo rarsm_e($selected['name']); ?>">
 										<?php else: ?>
-											<?php echo rarsm_e(rarsm_initials($selected['name'])); ?>
+											<?php echo rarsm_e($selectedLogoInitials); ?>
 										<?php endif; ?>
 									</div>
 									<div class="institution-detail-heading">
@@ -729,12 +732,12 @@ foreach ($institutions as $slug => $institution) {
 								</div>
 								<div class="institution-detail-body">
 									<div class="institution-detail-section">
-										<h4>Rôle et périmètre d’action</h4>
+										<h4 class="institution-detail-role-title">Rôle et périmètre d’action</h4>
 										<div class="institution-detail-paragraphs"><?php echo rarsm_render_paragraphs($selected['details']); ?></div>
 									</div>
 									<?php if (!empty($selected['leader_name']) || !empty($selectedLeaderPhoto)): ?>
 										<div class="institution-detail-section">
-											<h4>Responsable mis en avant</h4>
+											<h4 class="institution-detail-leader-title">Responsable mis en avant</h4>
 											<div class="institution-profile-card">
 												<div class="institution-profile-media">
 													<?php if ($selectedLeaderPhoto !== ''): ?>
@@ -753,7 +756,7 @@ foreach ($institutions as $slug => $institution) {
 															<?php echo rarsm_e($selected['quote']); ?>
 															<?php if (!empty($selected['quote_source'])): ?>
 																<span>
-																	Source :
+																	<span class="institution-profile-source-label">Source :</span>
 																	<?php if ($selectedQuoteSourceUrl !== ''): ?>
 																		<a href="<?php echo rarsm_e($selectedQuoteSourceUrl); ?>" target="_blank" rel="noopener"><?php echo rarsm_e($selected['quote_source']); ?></a>
 																	<?php else: ?>
@@ -768,8 +771,8 @@ foreach ($institutions as $slug => $institution) {
 										</div>
 									<?php endif; ?>
 									<div class="institution-detail-section">
-										<h4>Pourquoi cette institution compte dans le RARSM</h4>
-										<p><?php echo rarsm_e($selectedSectorNote); ?></p>
+										<h4 class="institution-detail-rarsm-title">Pourquoi cette institution compte dans le RARSM</h4>
+										<p class="institution-detail-rarsm-note"><?php echo rarsm_e($selectedSectorNote); ?></p>
 									</div>
 									<?php if ($selected['website'] !== ''): ?>
 										<div class="institution-detail-main-actions">
@@ -794,11 +797,12 @@ foreach ($institutions as $slug => $institution) {
 											<li>
 												<a class="institution-suggestion-item" href="istitutions-details.php?institution=<?php echo rarsm_e($slug); ?>">
 													<?php $suggestionLogoPath = isset($institution['logo_path']) && rarsm_public_file_exists($institution['logo_path']) ? $institution['logo_path'] : ''; ?>
-													<span class="institution-suggestion-logo">
+													<?php $suggestionLogoInitials = !empty($institution['logo_initials']) ? (string) $institution['logo_initials'] : rarsm_initials($institution['name']); ?>
+													<span class="institution-suggestion-logo<?php echo $suggestionLogoPath === '' ? ' institution-suggestion-logo--initials' : ''; ?>">
 														<?php if ($suggestionLogoPath !== ''): ?>
 															<img src="<?php echo rarsm_e($suggestionLogoPath); ?>" alt="Logo <?php echo rarsm_e($institution['name']); ?>">
 														<?php else: ?>
-															<?php echo rarsm_e(rarsm_initials($institution['name'])); ?>
+															<?php echo rarsm_e($suggestionLogoInitials); ?>
 														<?php endif; ?>
 													</span>
 													<span class="institution-suggestion-copy">

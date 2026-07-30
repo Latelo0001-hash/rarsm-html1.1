@@ -279,6 +279,8 @@ function rarsm_render_header(string $active = 'acheter'): void
     $user = rarsm_current_user();
     $totals = rarsm_cart_totals();
     $cartCount = (string) max(0, (int) $totals['item_count']);
+    $cartHasItems = (int) $totals['item_count'] > 0;
+    $cartStateClass = $cartHasItems ? ' has-items' : ' is-empty';
     $cartTotal = $totals['contains_quote_only'] && $totals['payable_total'] <= 0
         ? 'Devis'
         : rarsm_format_money((float) $totals['payable_total'], (string) $totals['currency']);
@@ -325,7 +327,7 @@ function rarsm_render_header(string $active = 'acheter'): void
     }
 
     echo '<li class="menu-cart-mobile dropdown d-lg-none">';
-    echo '<button class="dropdown-toggle dropdown-shopping-cart" id="dropdown-shopping-cart-mobile" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" aria-label="Ouvrir le panier" type="button">';
+    echo '<button class="dropdown-toggle dropdown-shopping-cart' . $cartStateClass . '" id="dropdown-shopping-cart-mobile" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" aria-label="Ouvrir le panier" type="button">';
     echo '<i class="fa fa-shopping-basket" aria-hidden="true"></i>';
     echo '<span class="badge bg-maincolor">' . rarsm_e($cartCount) . '</span>';
     echo '<span class="cart-total">' . rarsm_e($cartTotal) . '</span>';
@@ -375,7 +377,7 @@ function rarsm_render_header(string $active = 'acheter'): void
     }
 
     echo '<div class="dropdown">';
-    echo '<a class="dropdown-toggle dropdown-shopping-cart" href="#" role="button" id="dropdown-shopping-cart" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" aria-label="Ouvrir le panier">';
+    echo '<a class="dropdown-toggle dropdown-shopping-cart' . $cartStateClass . '" href="#" role="button" id="dropdown-shopping-cart" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" aria-label="Ouvrir le panier">';
     echo '<i class="fa fa-shopping-basket" aria-hidden="true"></i>';
     echo '<span class="badge bg-maincolor">' . rarsm_e($cartCount) . '</span>';
     echo '<span class="cart-total">' . rarsm_e($cartTotal) . '</span>';

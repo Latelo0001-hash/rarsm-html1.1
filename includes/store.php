@@ -76,6 +76,18 @@ function rarsm_store_catalog(): array
             'image' => 'images/rarsm-generated/tracabilite-certification.png',
             'short_description' => 'Un sac textile pratique pour transporter le livre, vos notes et vos documents de travail.',
         ],
+        'rarsm-notebook' => [
+            'id' => 'rarsm-notebook',
+            'sku' => 'RARSM-NOTEBOOK',
+            'name' => 'Carnet RARSM',
+            'slug' => 'carnet-rarsm',
+            'price' => 14.00,
+            'currency' => 'USD',
+            'quote_only' => false,
+            'requires_shipping' => true,
+            'image' => 'images/rarsm-generated/shop-gallery/rarsm-gallery-book-open.png',
+            'short_description' => 'Un carnet compact pour les reunions, les notes de terrain et les sessions de travail autour du secteur minier.',
+        ],
     ];
 }
 
