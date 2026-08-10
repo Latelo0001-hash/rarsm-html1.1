@@ -21,6 +21,8 @@ $response = [
         'item_count' => (int) ($cartTotals['item_count'] ?? 0),
         'is_empty' => (bool) ($cartTotals['is_empty'] ?? true),
         'display_total' => $cartDisplayTotal,
+        'total_amount' => (float) ($cartTotals['payable_total'] ?? 0),
+        'currency' => (string) ($cartTotals['currency'] ?? 'USD'),
         'items' => [],
     ],
     'links' => [

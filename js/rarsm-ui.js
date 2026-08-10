@@ -289,6 +289,40 @@ function initRarsmSessionState() {
 		return escapeHtml(value);
 	}
 
+	function formatHeaderCartTotal(amount, currency, fallback) {
+		var numericAmount = Number(amount);
+		var normalizedCurrency = String(currency || 'USD').toUpperCase();
+		var language = rarsmGetLanguage() === 'en' ? 'en' : 'fr';
+		var absoluteAmount = Math.abs(numericAmount);
+		var divisor;
+		var unit;
+		var scaledAmount;
+		var formattedAmount;
+
+		if (!isFinite(numericAmount) || absoluteAmount < 10000000) {
+			return fallback;
+		}
+
+		divisor = absoluteAmount >= 1000000000 ? 1000000000 : 1000000;
+		unit = divisor === 1000000000 ? (language === 'en' ? 'B' : 'Md') : 'M';
+		scaledAmount = numericAmount / divisor;
+
+		try {
+			formattedAmount = scaledAmount.toLocaleString(language === 'en' ? 'en-US' : 'fr-FR', {
+				minimumFractionDigits: 0,
+				maximumFractionDigits: 1
+			});
+		} catch (error) {
+			formattedAmount = String(Math.round(scaledAmount * 10) / 10).replace('.', language === 'en' ? '.' : ',');
+		}
+
+		if (language === 'en') {
+			return (normalizedCurrency === 'USD' ? '$' : normalizedCurrency + '\u00A0') + formattedAmount + unit;
+		}
+
+		return formattedAmount + '\u00A0' + unit + '\u00A0' + (normalizedCurrency === 'USD' ? '$' : normalizedCurrency);
+	}
+
 	function renderMiniCartItems(cart) {
 		var items = cart && Array.isArray(cart.items) ? cart.items : [];
 
@@ -331,9 +365,23 @@ function initRarsmSessionState() {
 		var displayTotal = (safeCart.display_total === 'Devis' || safeCart.display_total === 'Quote')
 			? rarsmTranslate('cart.quote', 'Devis')
 			: (safeCart.display_total || '$0.00');
+		var numericTotal = Number(safeCart.total_amount);
+		var currency = String(safeCart.currency || 'USD').toUpperCase();
+		var isQuote = safeCart.display_total === 'Devis' || safeCart.display_total === 'Quote';
+		var headerTotal = isQuote
+			? displayTotal
+			: formatHeaderCartTotal(numericTotal, currency, displayTotal);
+		var $cartTotals = $('.dropdown-shopping-cart .cart-total');
 
 		$('.dropdown-shopping-cart .badge').text(itemCount);
-		$('.dropdown-shopping-cart .cart-total').text(displayTotal);
+		$cartTotals.text(headerTotal).attr('title', displayTotal);
+
+		if (!isQuote && isFinite(numericTotal)) {
+			$cartTotals.attr('data-rarsm-cart-amount', String(numericTotal));
+			$cartTotals.attr('data-rarsm-cart-currency', currency);
+		} else {
+			$cartTotals.removeAttr('data-rarsm-cart-amount data-rarsm-cart-currency');
+		}
 		updateCartIndicatorState(itemCount);
 
 		$('.menu-auth-item > a[href="shop-cart.php"]').each(function () {
@@ -520,8 +568,11 @@ function initRarsmSessionState() {
 		if ($headerUtilities.length && !$headerUtilities.find('.rarsm-user-menu, .rarsm-session-indicator').length) {
 			var $indicator = buildUserMenu(data.user, data.links.account, logoutHref, false);
 			var $cartToggle = $headerUtilities.find('.dropdown-shopping-cart').first();
+			var $cartContainer = $cartToggle.closest('.dropdown');
 
-			if ($cartToggle.length) {
+			if ($cartContainer.length) {
+				$indicator.insertBefore($cartContainer);
+			} else if ($cartToggle.length) {
 				$indicator.insertBefore($cartToggle);
 			} else {
 				$headerUtilities.prepend($indicator);

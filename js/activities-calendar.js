@@ -122,6 +122,10 @@
 		return getLanguage() === "en" && event.titleEn ? event.titleEn : event.title;
 	}
 
+	function eventStatusLabel(event) {
+		return getLanguage() === "en" && event.statusLabelEn ? event.statusLabelEn : event.statusLabel;
+	}
+
 	function parseLocalDate(dateString) {
 		var parts = dateString.split("-");
 		return new Date(Number(parts[0]), Number(parts[1]) - 1, Number(parts[2]), 12, 0, 0, 0);
@@ -330,8 +334,8 @@
 			title: "Value-Chain Investment Forum",
 			titleEn: "Value-Chain Investment Forum",
 			date: "2026-06-18",
-			dateLabel: "Juin 2026 (dans la DRC Mining Week)",
-			dateLabelEn: "June 2026 (within DRC Mining Week)",
+			dateLabel: "18 juin 2026 (dans la DRC Mining Week)",
+			dateLabelEn: "June 18, 2026 (within DRC Mining Week)",
 			time: "Forum d'investissement",
 			location: "Lubumbashi",
 			category: "institution",
@@ -390,6 +394,254 @@
 			description: "Makutano Mining 2026 porte un focus sectoriel fort sur les enjeux miniers dans le cadre d'un forum économique annuel de haut niveau.",
 			primaryHref: links.makutano,
 			primaryLabel: "Voir la source officielle",
+			secondaryHref: links.contact,
+			secondaryLabel: "Contacter l'équipe"
+		},
+		{
+			id: "energy-investment-forum-2026",
+			title: "Energy Investment Forum 2026",
+			titleEn: "Energy Investment Forum 2026",
+			date: "2026-06-16",
+			dateLabel: "16 juin 2026",
+			dateLabelEn: "June 16, 2026",
+			time: "Préconférence · 11h00 à 17h00",
+			location: "Lubumbashi Golf Club",
+			category: "institution",
+			verificationStatus: "confirmed",
+			statusLabel: "Récurrence confirmée",
+			statusLabelEn: "Confirmed recurrence",
+			image: "images/activities/energy-investment-forum-2026.jpg",
+			imageAlt: "Energy Investment Forum de la DRC Mining Week",
+			summary: "Préconférence consacrée à la sécurité énergétique, aux infrastructures et aux investissements nécessaires au secteur minier.",
+			description: "Le forum réunit sociétés minières, énergéticiens, investisseurs et pouvoirs publics autour de solutions pour alimenter durablement les mines et l'industrialisation.",
+			primaryHref: links.drcMiningWeekProgramme,
+			primaryLabel: "Voir le programme officiel",
+			secondaryHref: links.contact,
+			secondaryLabel: "Contacter l'équipe"
+		},
+		{
+			id: "alternative-mining-indaba-2025",
+			title: "DRC Alternative Mining Indaba",
+			titleEn: "DRC Alternative Mining Indaba",
+			date: "2025-10-29",
+			dateLabel: "29 au 31 octobre 2025 · dernière édition documentée",
+			dateLabelEn: "October 29-31, 2025 · latest documented edition",
+			calendarDates: expandDateRange("2025-10-29", "2025-10-31"),
+			time: "Forum sur trois jours",
+			location: "Pullman Grand Karavia · Lubumbashi",
+			category: "media",
+			verificationStatus: "confirmed",
+			statusLabel: "Récurrence confirmée",
+			statusLabelEn: "Confirmed recurrence",
+			image: "images/activities/alternative-mining-indaba-2025.jpg",
+			imageAlt: "Alternative Mining Indaba RDC",
+			summary: "Forum récurrent donnant une voix aux communautés minières et à la société civile congolaise.",
+			description: "La neuvième édition a traité des minerais stratégiques, des enjeux géopolitiques et des impacts socio-économiques locaux.",
+			primaryHref: links.alternativeIndaba,
+			primaryLabel: "Voir la dernière édition",
+			secondaryHref: links.contact,
+			secondaryLabel: "Contacter l'équipe"
+		},
+		{
+			id: "glencore-conference-2025",
+			title: "Conférence annuelle Glencore RDC",
+			titleEn: "Glencore DRC Annual Conference",
+			date: "2025-11-04",
+			dateLabel: "4 novembre 2025 · dernière édition documentée",
+			dateLabelEn: "November 4, 2025 · latest documented edition",
+			time: "Conférence annuelle",
+			location: "Hilton Kinshasa",
+			category: "institution",
+			verificationStatus: "confirmed",
+			statusLabel: "Récurrence confirmée",
+			statusLabelEn: "Confirmed recurrence",
+			image: "images/activities/glencore-conference-2025.jpg",
+			imageAlt: "Conférence annuelle Glencore RDC",
+			summary: "Conférence annuelle sur les opérations, les standards miniers et l'impact local de Glencore en RDC.",
+			description: "La septième édition a réuni autorités, responsables miniers, communautés et partenaires autour d'une exploitation responsable et durable.",
+			primaryHref: links.glencore,
+			primaryLabel: "Voir la source officielle",
+			secondaryHref: links.contact,
+			secondaryLabel: "Contacter l'équipe"
+		},
+		{
+			id: "idwim-2026",
+			title: "Journée internationale des femmes dans les mines",
+			titleEn: "International Day of Women in Mining",
+			date: "2026-06-15",
+			dateLabel: "15 juin 2026",
+			dateLabelEn: "June 15, 2026",
+			time: "Journée internationale",
+			location: "RDC · activités locales variables",
+			category: "signing",
+			verificationStatus: "confirmed",
+			statusLabel: "Récurrence confirmée",
+			statusLabelEn: "Confirmed recurrence",
+			image: "images/activities/idwim-2026.png",
+			imageAlt: "International Day of Women in Mining",
+			summary: "Célébration mondiale des contributions, des compétences et du leadership des femmes dans l'industrie minière.",
+			description: "Cette journée est observée chaque 15 juin ; les activités locales en RDC varient selon les réseaux et organisations participantes.",
+			primaryHref: links.idwim,
+			primaryLabel: "Voir la campagne officielle",
+			secondaryHref: links.contact,
+			secondaryLabel: "Contacter l'équipe"
+		},
+		{
+			id: "return-to-congo-2026",
+			title: "Return to Congo 2026",
+			titleEn: "Return to Congo 2026",
+			date: "2026-05-17",
+			dateLabel: "17 au 23 mai 2026",
+			dateLabelEn: "May 17-23, 2026",
+			calendarDates: expandDateRange("2026-05-17", "2026-05-23"),
+			time: "Mission d'immersion sur sept jours",
+			location: "Kolwezi et Lubumbashi",
+			category: "institution",
+			verificationStatus: "watch",
+			statusLabel: "Récurrence minière à confirmer",
+			statusLabelEn: "Mining recurrence to confirm",
+			image: "images/activities/return-to-congo-2026.jpg",
+			imageAlt: "Mission Return to Congo",
+			summary: "Mission reliant la diaspora aux acteurs du Grand Katanga avec un accent 2026 sur les mines et l'investissement.",
+			description: "Le programme aborde les minéraux critiques, les infrastructures, le financement, les talents et la géopolitique, en lien avec le Katanga Business Meeting.",
+			primaryHref: links.returnToCongo,
+			primaryLabel: "Voir le programme officiel",
+			secondaryHref: links.contact,
+			secondaryLabel: "Contacter l'équipe"
+		},
+		{
+			id: "mining-explore-2026",
+			title: "Mining Explore 2026",
+			titleEn: "Mining Explore 2026",
+			date: "2026-08-12",
+			dateLabel: "12 au 14 août 2026",
+			dateLabelEn: "August 12-14, 2026",
+			calendarDates: expandDateRange("2026-08-12", "2026-08-14"),
+			time: "Immersion et orientation sur trois jours",
+			location: "Centre de négoce de Musompo · Kolwezi",
+			category: "media",
+			verificationStatus: "watch",
+			statusLabel: "Première édition",
+			statusLabelEn: "First edition",
+			image: "images/activities/mining-explore-2026.webp",
+			imageAlt: "Mining Explore 2026",
+			summary: "Plateforme reliant étudiants, établissements, recruteurs et entreprises autour des métiers miniers.",
+			description: "Trois journées d'immersion et d'orientation destinées à rapprocher la formation académique des réalités de l'industrie extractive.",
+			primaryHref: links.miningExplore,
+			primaryLabel: "Voir le site officiel",
+			secondaryHref: links.contact,
+			secondaryLabel: "Contacter l'équipe"
+		},
+		{
+			id: "wim-haut-katanga-2026",
+			title: "Women in Mining Haut-Katanga",
+			titleEn: "Women in Mining Haut-Katanga",
+			date: "2026-05-13",
+			dateLabel: "13 mai 2026",
+			dateLabelEn: "May 13, 2026",
+			time: "Forum sur une journée",
+			location: "Pullman Grand Karavia · Lubumbashi",
+			category: "signing",
+			verificationStatus: "watch",
+			statusLabel: "Première édition",
+			statusLabelEn: "First edition",
+			image: "images/activities/wim-haut-katanga-2026.jpeg",
+			imageAlt: "Women in Mining Haut-Katanga",
+			summary: "Forum provincial consacré à la gouvernance transformationnelle et à l'inclusion des femmes dans l'extractif.",
+			description: "La première édition a rassemblé autorités, entreprises et société civile afin de renforcer le leadership féminin et l'accès aux postes de décision.",
+			primaryHref: links.wimHautKatanga,
+			primaryLabel: "Voir le compte rendu",
+			secondaryHref: links.contact,
+			secondaryLabel: "Contacter l'équipe"
+		},
+		{
+			id: "prix-leadership-minier-2026",
+			title: "Prix du Leadership Minier Responsable",
+			titleEn: "Responsible Mining Leadership Awards",
+			date: "2026-02-18",
+			dateLabel: "18 février 2026",
+			dateLabelEn: "February 18, 2026",
+			time: "Cérémonie de remise des prix",
+			location: "Fleuve Congo Hôtel · Kinshasa",
+			category: "signing",
+			verificationStatus: "watch",
+			statusLabel: "Première édition",
+			statusLabelEn: "First edition",
+			image: "images/activities/prix-leadership-minier-2026.jpeg",
+			imageAlt: "Lauréats du Prix du Leadership Minier Responsable",
+			summary: "Prix distinguant la bonne gouvernance, l'éthique et la responsabilité dans le secteur minier congolais.",
+			description: "La première cérémonie a notamment récompensé le CAMI, le CEEC et le FOMIN pour leurs contributions au secteur.",
+			primaryHref: links.leadershipPrize,
+			primaryLabel: "Voir le compte rendu",
+			secondaryHref: links.contact,
+			secondaryLabel: "Contacter l'équipe"
+		},
+		{
+			id: "salon-minier-lualaba-2023",
+			title: "Salon minier du Lualaba",
+			titleEn: "Lualaba Mining Fair",
+			date: "2023-10-05",
+			dateLabel: "5 au 6 octobre 2023 · dernière édition documentée",
+			dateLabelEn: "October 5-6, 2023 · latest documented edition",
+			calendarDates: expandDateRange("2023-10-05", "2023-10-06"),
+			time: "Salon sur deux jours",
+			location: "Centre de négoce de Musompo · Kolwezi",
+			category: "launch",
+			verificationStatus: "watch",
+			statusLabel: "Continuité à confirmer",
+			statusLabelEn: "Continuation to confirm",
+			image: "images/activities/salon-minier-lualaba-2023.jpeg",
+			imageAlt: "Salon minier du Lualaba 2023",
+			summary: "Salon réunissant opérateurs, institutions et exposants autour de l'exploitation responsable et du développement local.",
+			description: "La première édition documentée s'est tenue au Centre de négoce de Musompo ; aucune édition récente n'a encore été confirmée.",
+			primaryHref: links.salonLualaba,
+			primaryLabel: "Voir la dernière édition",
+			secondaryHref: links.contact,
+			secondaryLabel: "Contacter l'équipe"
+		},
+		{
+			id: "forum-cooperatives-minieres-2026",
+			title: "Forum national des coopératives minières",
+			titleEn: "National Mining Cooperatives Forum",
+			date: "2026-03-17",
+			dateLabel: "17 au 19 mars 2026 · date rapportée à revérifier",
+			dateLabelEn: "March 17-19, 2026 · reported date to recheck",
+			calendarDates: expandDateRange("2026-03-17", "2026-03-19"),
+			time: "Forum national sur trois jours",
+			location: "CEPAS · Kinshasa",
+			category: "media",
+			verificationStatus: "watch",
+			statusLabel: "Première édition",
+			statusLabelEn: "First edition",
+			image: "images/activities/forum-cooperatives-minieres-2026.jpg",
+			imageAlt: "Forum national des coopératives minières",
+			summary: "Cadre national de structuration, de formalisation et de professionnalisation des coopératives minières.",
+			description: "La première édition a débouché sur la création d'une confédération nationale et sur des recommandations pour l'exploitation artisanale.",
+			primaryHref: links.cooperativesForum,
+			primaryLabel: "Voir le compte rendu",
+			secondaryHref: links.contact,
+			secondaryLabel: "Contacter l'équipe"
+		},
+		{
+			id: "wim-alternatives-2024",
+			title: "Conférence nationale WIM sur les alternatives à l'artisanat minier",
+			titleEn: "WIM National Conference on Alternatives to Artisanal Mining",
+			date: "2024-04-03",
+			dateLabel: "3 au 5 avril 2024 · dernière édition documentée",
+			dateLabelEn: "April 3-5, 2024 · latest documented edition",
+			calendarDates: expandDateRange("2024-04-03", "2024-04-05"),
+			time: "Conférence nationale sur trois jours",
+			location: "Lubumbashi",
+			category: "media",
+			verificationStatus: "watch",
+			statusLabel: "Continuité à confirmer",
+			statusLabelEn: "Continuation to confirm",
+			image: "images/activities/wim-alternatives-2024.jpg",
+			imageAlt: "Conférence nationale Women in Mining DRC",
+			summary: "Conférence sur les alternatives socio-économiques à l'exploitation minière artisanale et à petite échelle.",
+			description: "Les échanges ont porté sur la diversification des revenus, la sécurité, l'inclusion et l'amélioration des conditions de vie des communautés minières.",
+			primaryHref: links.wimAlternatives,
+			primaryLabel: "Voir la dernière édition",
 			secondaryHref: links.contact,
 			secondaryLabel: "Contacter l'équipe"
 		}
@@ -783,12 +1035,24 @@
 			var item = document.createElement("button");
 			item.type = "button";
 			item.className = "activities-event-list-button";
+			item.setAttribute("aria-label", eventTitle(event) + " · " + formatEventDisplayDate(event));
 
 			if (selectedEventId === event.id) {
 				item.className += " is-active";
 			}
 
 			item.innerHTML =
+				'<span class="activities-event-list-media"><img src="' +
+				event.image +
+				'" alt="' +
+				event.imageAlt +
+				'" loading="lazy"></span>' +
+				'<span class="activities-event-list-copy">' +
+				'<span class="activities-event-list-status status-' +
+				event.verificationStatus +
+				'">' +
+				eventStatusLabel(event) +
+				"</span>" +
 				'<span class="activities-event-list-date">' +
 				formatEventDisplayDate(event) +
 				"</span>" +
@@ -801,7 +1065,7 @@
 				event.location +
 				" • " +
 				meta.label +
-				"</span>";
+				"</span></span>";
 
 			item.addEventListener("click", function () {
 				window.location.href = getEventDetailUrl(event.id);
