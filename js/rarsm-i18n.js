@@ -8,7 +8,7 @@
 	var titles = {
 		"index.html": "RARSM | Mining Sector Regulatory Compendium",
 		"book.html": "RARSM | The Book",
-		"author.html": "RARSM | The Author",
+		"author.html": "RARSM | Team",
 		"pricing.html": "RARSM | Shop",
 		"institutions.html": "RARSM | Institutions",
 		"institutions.php": "RARSM | Institutions",
@@ -21,6 +21,7 @@
 		"shop-account-login.php": "RARSM | Sign In",
 		"shop-account-register.php": "RARSM | Create Account",
 		"shop-account-orders.php": "RARSM | My Orders",
+		"payment-redirect.php": "RARSM | Payment",
 		"success.php": "RARSM | Payment Success",
 		"cancel.php": "RARSM | Payment Cancelled",
 		"pending.php": "RARSM | Pending Payment",
@@ -55,6 +56,93 @@
 		"Commissaire général à l’Énergie atomique": "Commissioner General for Atomic Energy",
 		"Ministre du Commerce extérieur": "Minister of Foreign Trade",
 		"Ministre de l’Environnement": "Minister of the Environment"
+	};
+
+	var activityCategoryLabelsEn = {
+		launch: "Major forum",
+		institution: "Investment",
+		signing: "Leadership",
+		media: "Development"
+	};
+
+	var institutionQuoteTranslationsEn = {
+		igm: "“Any initiative to create a new tax must be submitted to Parliament, thereby ensuring a strict and transparent framework.”",
+		ctcpm: "“We are determined to meet the challenges and earn the trust placed in us.”",
+		fomin: "“We must build on the legacy we have inherited for the benefit of future generations and turn it into a development opportunity that secures peace.”",
+		ceec: "“CEEC has provided the DRC with an effective instrument for the mining industry at every level.”",
+		sgnc: "“As long as we do not know what we have, we will not know how to manage it properly.”",
+		cami: "“Make CAMI an outstanding institution that contributes efficiently to State revenue.”",
+		saemape: "“Military personnel have no place at mining sites.”",
+		arecoms: "“Stabilizing the cobalt market requires a temporary suspension of exports.”",
+		cnlfm: "“We must do what is necessary, and even more than what is necessary.”",
+		"ministere-finances": "“We are no longer subjected to globalization; we are becoming an actor in it.”",
+		dgi: "“Training the staff of operational services is the greatest key to increasing DGI revenue.”",
+		dgda: "“A modern and effective customs administration fulfills three fundamental missions: fiscal, economic, and protection or security.”",
+		dgrad: "“We must mobilize more revenue to give the Government the resources it needs to confront this war of aggression.”",
+		"ministere-transports": "“I urge the company responsible for the work to meet the contractual deadline for delivering the project.”",
+		ogefrem: "“I am requesting that the event be postponed so that the governing bodies can consult and work in synergy with the government authority.”",
+		lmc: "“With trust, vision and shared determination, our countries can build sustainable solutions together.”",
+		"ministere-recherche": "“Together, we can build a more effective, more inclusive scientific system that is resolutely focused on the future.”",
+		"ministere-commerce-exterieur": "“Innovate further so that foreign trade becomes a genuine driver of economic growth in the Democratic Republic of the Congo.”",
+		"ministere-environnement": "“Investing in the DRC’s forests, biodiversity, peatlands and climate solutions means investing in the planet’s climate stability.”",
+		egc: "“We have put in place a solution to control our Congolese artisanal cobalt production.”",
+		"itie-rdc": "“This workshop will provide a rigorous assessment and build a shared vision of mining governance for the benefit of communities.”"
+	};
+
+	var productTranslationsEn = {
+		"rarsm-print": {
+			name: "RARSM - Print edition",
+			description: "The physical edition of the compendium for firms, institutions and libraries."
+		},
+		"rarsm-digital": {
+			name: "RARSM - Digital edition",
+			description: "The digital format for quick access on a computer, tablet or smartphone."
+		},
+		"rarsm-institutional": {
+			name: "RARSM - Institutional order",
+			description: "A group order with a quotation, pro forma invoice or purchase order."
+		},
+		"rarsm-tshirt": {
+			name: "RARSM T-shirt",
+			description: "A RARSM presentation T-shirt for conferences, trade fairs and public events."
+		},
+		"rarsm-cap": {
+			name: "RARSM cap",
+			description: "A RARSM-branded cap for readers, teams and field activities."
+		},
+		"rarsm-totebag": {
+			name: "RARSM tote bag",
+			description: "A practical fabric bag for carrying the book, notes and working documents."
+		},
+		"rarsm-notebook": {
+			name: "RARSM notebook",
+			description: "A compact notebook for meetings, field notes and mining-sector working sessions."
+		},
+		"rarsm-mug": {
+			name: "RARSM mug",
+			description: "A ceramic RARSM mug for the office, meetings and reading sessions."
+		},
+		"rarsm-pen": {
+			name: "RARSM pen",
+			description: "A practical RARSM pen for signatures, workshops, conferences and note-taking."
+		}
+	};
+
+	var orderStatusLabels = {
+		pending_payment: { fr: "Paiement en attente", en: "Payment pending" },
+		payment_pending: { fr: "Paiement en attente", en: "Payment pending" },
+		pending_quote: { fr: "Devis en attente", en: "Quotation pending" },
+		pending: { fr: "En attente", en: "Pending" },
+		paid: { fr: "Payée", en: "Paid" },
+		completed: { fr: "Terminée", en: "Completed" },
+		cancelled: { fr: "Annulée", en: "Cancelled" },
+		failed: { fr: "Échouée", en: "Failed" }
+	};
+
+	var paymentMethodLabels = {
+		partner_gateway: { fr: "Passerelle partenaire", en: "Partner gateway" },
+		mobile_money: { fr: "Mobile Money", en: "Mobile Money" },
+		bank_transfer: { fr: "Virement bancaire", en: "Bank transfer" }
 	};
 
 	var institutionSectorNotesEn = {
@@ -379,6 +467,7 @@
 		"cart.subtotal": { en: "Subtotal:" },
 		"cart.view": { en: "View cart" },
 		"cart.checkout": { en: "Checkout" },
+		"cart.quote": { en: "Quote" },
 		"cart.product": { en: "RARSM product" },
 		"cart.remove": { en: "Remove this item" },
 		"user.options": { en: "Account options" },
@@ -396,7 +485,16 @@
 		"auth.password.placeholder": { en: "Password" },
 		"auth.register.name": { en: "Name or username" },
 		"auth.register.email": { en: "Email" },
-		"auth.register.passwordConfirm": { en: "Confirm password" }
+		"auth.register.passwordConfirm": { en: "Confirm password" },
+		"product.rarsm-print.name": { en: "RARSM - Print edition" },
+		"product.rarsm-digital.name": { en: "RARSM - Digital edition" },
+		"product.rarsm-institutional.name": { en: "RARSM - Institutional order" },
+		"product.rarsm-tshirt.name": { en: "RARSM T-shirt" },
+		"product.rarsm-cap.name": { en: "RARSM cap" },
+		"product.rarsm-totebag.name": { en: "RARSM tote bag" },
+		"product.rarsm-notebook.name": { en: "RARSM notebook" },
+		"product.rarsm-mug.name": { en: "RARSM mug" },
+		"product.rarsm-pen.name": { en: "RARSM pen" }
 	};
 
 	var rules = {
@@ -405,13 +503,20 @@
 			{ selector: "#popupLogin .registerRedirect", text: "Not a member yet? Sign up" },
 			{ selector: "#popupLogin .modal-form-actions .btn-outline-maincolor", text: "Cancel" },
 			{ selector: "#popupLogin .modal-form-actions .btn-maincolor", text: "Log in" },
+			{ selector: "#popupLogin input[name='login']", placeholder: "Email or username" },
+			{ selector: "#popupLogin input[name='password']", placeholder: "Password" },
 			{ selector: "#popupRegistr h4", text: "Sign up" },
 			{ selector: "#popupRegistr .modal-form-actions .btn-outline-maincolor", text: "Cancel" },
 			{ selector: "#popupRegistr .modal-form-actions .btn-maincolor", text: "Create account" },
 			{ selector: "#popupRegistr label[for='popupRegistrTerms']", text: "I accept the terms of use" },
+			{ selector: "#popupRegistr input[name='name']", placeholder: "Name or username" },
+			{ selector: "#popupRegistr input[name='email']", placeholder: "Email" },
+			{ selector: "#popupRegistr input[name='password']", placeholder: "Password" },
+			{ selector: "#popupRegistr input[name='password_confirm']", placeholder: "Confirm password" },
+			{ selector: "#popupLogin .close, #popupRegistr .close", attr: { "aria-label": "Close" } },
 			{ selector: ".top-nav .sf-menu > li:nth-child(1) > a", text: "Home" },
 			{ selector: ".top-nav .sf-menu > li:nth-child(2) > a", text: "Book" },
-			{ selector: ".top-nav .sf-menu > li:nth-child(3) > a", text: "Author" },
+			{ selector: ".top-nav .sf-menu > li:nth-child(3) > a", text: "Team" },
 			{ selector: ".top-nav .sf-menu > li:nth-child(4) > a", text: "Shop" },
 			{ selector: ".top-nav .sf-menu > li:nth-child(5) > a", text: "Institutions" },
 			{ selector: ".top-nav .sf-menu > li:nth-child(6) > a", text: "Activities" },
@@ -422,7 +527,7 @@
 			{ selector: ".header-utilities > a.btn-maincolor[data-toggle][href='#popupRegistr']", text: "Sign up" },
 			{ selector: ".page_footer .menu-item:eq(0) a", text: "Home" },
 			{ selector: ".page_footer .menu-item:eq(1) a", text: "Book" },
-			{ selector: ".page_footer .menu-item:eq(2) a", text: "Author" },
+			{ selector: ".page_footer .menu-item:eq(2) a", text: "Team" },
 			{ selector: ".page_footer .menu-item:eq(3) a", text: "Shop" },
 			{ selector: ".page_footer .menu-item:eq(4) a", text: "Institutions" },
 			{ selector: ".page_footer .menu-item:eq(5) a", text: "Activities" },
@@ -431,7 +536,7 @@
 			{ selector: ".page_copyright p", html: "&copy; <span class='copyright_year'>2026</span> RARSM - Mining Sector Regulatory Compendium. All rights reserved." },
 			{ selector: ".breadcrumb-item a[href='index.html']", text: "Home" },
 			{ selector: ".breadcrumb-item a[href='book.html']", text: "Book" },
-			{ selector: ".breadcrumb-item a[href='author.html']", text: "Author" },
+			{ selector: ".breadcrumb-item a[href='author.html']", text: "Team" },
 			{ selector: ".breadcrumb-item a[href='pricing.html']", text: "Shop" },
 			{ selector: ".breadcrumb-item a[href='institutions.php']", text: "Institutions" },
 			{ selector: ".breadcrumb-item a[href='activites.html']", text: "Activities" },
@@ -439,6 +544,7 @@
 			{ selector: ".woocommerce-mini-cart__total strong", text: "Subtotal:" },
 			{ selector: ".woocommerce-mini-cart__buttons .button:eq(0)", text: "View cart" },
 			{ selector: ".woocommerce-mini-cart__buttons .button:eq(1)", text: "Checkout" },
+			{ selector: ".dropdown-shopping-cart", attr: { "aria-label": "Open cart" } },
 			{ selector: ".rarsm-user-menu-action:not(.rarsm-user-menu-action-danger) span:last-child", text: "Account" },
 			{ selector: ".rarsm-user-menu-action-danger span:last-child", text: "Sign out" }
 		],
@@ -516,7 +622,7 @@
 			{ selector: "#acheter .row.text-center .excerpt", text: "Choose the format that fits your needs: print edition, digital version or institutional order." },
 			{ selector: "#acheter .pricing-plan:eq(0) .plan-name h3", text: "Print edition" },
 			{ selector: "#acheter .pricing-plan:eq(0) .plan-sign", text: "$" },
-			{ selector: "#acheter .pricing-plan:eq(0) .plan-price", text: "400" },
+			{ selector: "#acheter .pricing-plan:eq(0) .plan-price", text: "400.00" },
 			{ selector: "#acheter .pricing-plan:eq(0) .plan-decimals", text: "" },
 			{ selector: "#acheter .pricing-plan:eq(0) .plan-description", text: "Order the printed volume for your professional library, office, company or institution." },
 			{ selector: "#acheter .pricing-plan:eq(0) .plan-features li:eq(0)", text: "Physical format" },
@@ -525,7 +631,7 @@
 			{ selector: "#acheter .pricing-plan:eq(0) .plan-button .btn", text: "Order" },
 			{ selector: "#acheter .pricing-plan:eq(1) .plan-name h3", text: "Digital version" },
 			{ selector: "#acheter .pricing-plan:eq(1) .plan-sign", text: "$" },
-			{ selector: "#acheter .pricing-plan:eq(1) .plan-price", text: "380" },
+			{ selector: "#acheter .pricing-plan:eq(1) .plan-price", text: "380.00" },
 			{ selector: "#acheter .pricing-plan:eq(1) .plan-decimals", text: "" },
 			{ selector: "#acheter .pricing-plan:eq(1) .plan-description", text: "Request the PDF or eBook format for fast consultation on desktop, tablet or mobile." },
 			{ selector: "#acheter .pricing-plan:eq(1) .plan-features li:eq(0)", text: "Easy access" },
@@ -631,7 +737,7 @@
 			{ selector: "#formats .excerpt", text: "Choose a format, add the product to your cart and proceed to payment." },
 			{ selector: "#formats .pricing-plan:eq(0) .plan-name h3", text: "Print edition" },
 			{ selector: "#formats .pricing-plan:eq(0) .plan-sign", text: "$" },
-			{ selector: "#formats .pricing-plan:eq(0) .plan-price", text: "400" },
+			{ selector: "#formats .pricing-plan:eq(0) .plan-price", text: "400.00" },
 			{ selector: "#formats .pricing-plan:eq(0) .plan-decimals", text: "" },
 			{ selector: "#formats .pricing-plan:eq(0) .plan-description", text: "Recommended for lawyers, administrations, firms, libraries and readers who need a reliable physical reference." },
 			{ selector: "#formats .pricing-plan:eq(0) .plan-features li:eq(0)", text: "Single-copy or bulk orders" },
@@ -640,7 +746,7 @@
 			{ selector: "#formats .pricing-plan:eq(0) button", text: "Add to cart" },
 			{ selector: "#formats .pricing-plan:eq(1) .plan-name h3", text: "Digital version" },
 			{ selector: "#formats .pricing-plan:eq(1) .plan-sign", text: "$" },
-			{ selector: "#formats .pricing-plan:eq(1) .plan-price", text: "380" },
+			{ selector: "#formats .pricing-plan:eq(1) .plan-price", text: "380.00" },
 			{ selector: "#formats .pricing-plan:eq(1) .plan-decimals", text: "" },
 			{ selector: "#formats .pricing-plan:eq(1) .plan-description", text: "Designed for quick consultation on desktop, tablet or smartphone, with digital delivery after validation." },
 			{ selector: "#formats .pricing-plan:eq(1) .plan-features li:eq(0)", text: "Sent by email after confirmation" },
@@ -657,8 +763,8 @@
 			{ selector: "#formats .pricing-plan:eq(2) button", text: "Request a quote" }
 		],
 		"author.html": [
-			{ selector: ".page_title .small-title", text: "About the author" },
-			{ selector: ".page_title .breadcrumb-item.active", text: "Author" },
+			{ selector: ".page_title .small-title", text: "RARSM Team" },
+			{ selector: ".page_title .breadcrumb-item.active", text: "Team" },
 			{ selector: ".author-hero-copy-simple p.mb-2", text: "Author of the compendium" },
 			{ selector: ".author-hero-copy-simple .excerpt:eq(0)", text: "Mining sector lawyer, public governance expert and current Legal Director in charge of fighting mining fraud at CEEC." },
 			{ selector: ".author-hero-copy-simple .excerpt:eq(1)", text: "With more than twenty years of experience in law, public governance and the mining sector in the DRC, he brings to RARSM a rigorous work of structure, clarification and legal accessibility." },
@@ -676,6 +782,17 @@
 			{ selector: ".author-expertise-list li:eq(2) p", text: "Compliance, traceability and control of the risks linked to operations and mineral flows." },
 			{ selector: ".author-expertise-list li:eq(3) strong", text: "Certification and regulation" },
 			{ selector: ".author-expertise-list li:eq(3) p", text: "Supervision of transparency, certification and legal security mechanisms." },
+			{ selector: ".rarsm-team-heading .author-section-kicker", text: "Our team" },
+			{ selector: ".rarsm-team-heading h2 span", text: "Meet the RARSM team" },
+			{ selector: ".rarsm-team-heading p", text: "The RARSM team brings together expertise in documentation, graphic design, communications and web development to make mining regulations clearer and more accessible." },
+			{ selector: ".rarsm-team-card:eq(0) .rarsm-team-role", text: "Documentation manager" },
+			{ selector: ".rarsm-team-card:eq(0) p", text: "He organizes the documentary sources and oversees the classification of references used in RARSM." },
+			{ selector: ".rarsm-team-card:eq(1) .rarsm-team-role", text: "Graphic designer" },
+			{ selector: ".rarsm-team-card:eq(1) p", text: "He designs the visual identity, layout and graphic materials associated with the project." },
+			{ selector: ".rarsm-team-card:eq(2) .rarsm-team-role", text: "Communications officer" },
+			{ selector: ".rarsm-team-card:eq(2) p", text: "He coordinates RARSM communications and supports its presentation to its various audiences." },
+			{ selector: ".rarsm-team-card:eq(3) .rarsm-team-role", text: "Webmaster" },
+			{ selector: ".rarsm-team-card:eq(3) p", text: "He manages the website’s technical operation, updates and digital access to RARSM content." },
 			{ selector: ".author-vision-section .author-section-kicker", text: "Contribution to RARSM" },
 			{ selector: ".author-vision-section h3 span", text: "Turning regulation into a decision-making tool" },
 			{ selector: ".author-vision-section p:eq(0)", text: "The compendium does more than compile texts. It proposes a logical organization of the institutional framework, the monitoring of activities, taxation, exports and certification mechanisms in order to support fairer and safer decisions." },
@@ -697,7 +814,7 @@
 			{ selector: ".page_title .breadcrumb-item.active", text: "Shop" },
 			{ selector: "#formats .product_title", text: "RARSM - Print edition" },
 			{ selector: "#formats .woocommerce-review-link", text: "(reference work)" },
-			{ selector: "#formats .summary > div p", text: "A practical legal reference for the mining sector in the DRC." },
+			{ selector: "#formats .summary > .price-wrap + div > p", text: "A practical legal reference for the mining sector in the DRC." },
 			{ selector: "#formats .variations label[for='rarsm_order_profile']", text: "Order profile" },
 			{ selector: "#formats #rarsm_order_profile option:eq(0)", text: "Individual" },
 			{ selector: "#formats #rarsm_order_profile option:eq(1)", text: "Firm / company" },
@@ -981,17 +1098,23 @@
 			{ selector: ".accordion .card-body p:eq(7)", text: "The Contact page centralizes the form, email, WhatsApp and social media so you can reach the team quickly before placing an order." }
 		],
 		"shop-cart.php": [
+			{ selector: "meta[name='description']", attr: { "content": "RARSM shopping cart." } },
 			{ selector: ".page_title .small-title", text: "Cart" },
 			{ selector: ".page_title .breadcrumb-item.active", text: "Cart" },
 			{ selector: ".rarsm-status-kicker", text: "Empty cart" },
 			{ selector: ".rarsm-status-card h3", text: "No item has been added yet" },
 			{ selector: ".rarsm-status-card p:last", text: "Choose a RARSM book format to start your order and then proceed to checkout." },
-			{ selector: ".rarsm-status-card .btn-maincolor", text: "View formats" },
+			{ selector: ".rarsm-status-card .btn-maincolor", text: "Back to shop" },
 			{ selector: ".woocommerce-message .button", text: "Checkout" },
 			{ selector: ".shop_table thead th.product-name", text: "Product" },
 			{ selector: ".shop_table thead th.product-price", text: "Price" },
 			{ selector: ".shop_table thead th.product-quantity", text: "Quantity" },
 			{ selector: ".shop_table thead th.product-subtotal", text: "Total" },
+			{ selector: ".rarsm-cart-table td.product-name", attr: { "data-title": "Product" } },
+			{ selector: ".rarsm-cart-table td.product-price", attr: { "data-title": "Price" } },
+			{ selector: ".rarsm-cart-table td.product-quantity", attr: { "data-title": "Quantity" } },
+			{ selector: ".rarsm-cart-table td.product-subtotal", attr: { "data-title": "Total" } },
+			{ selector: ".rarsm-cart-table .product-remove .remove", attr: { "aria-label": "Remove this item" } },
 			{ selector: ".product-price .amount:contains('Sur devis')", text: "Quote on request" },
 			{ selector: ".product-subtotal .amount:contains('A confirmer')", text: "To be confirmed" },
 			{ selector: ".actions .button[name='update_cart']", value: "Update cart" },
@@ -999,23 +1122,30 @@
 			{ selector: ".cart-subtotal th", text: "Subtotal" },
 			{ selector: ".cart_totals tr:eq(1) th", text: "Immediate payment" },
 			{ selector: ".cart_totals tr:eq(2) th", text: "Delivery" },
+			{ selector: ".cart_totals tr:eq(0) td", attr: { "data-title": "Subtotal" } },
+			{ selector: ".cart_totals tr:eq(1) td", attr: { "data-title": "Immediate payment" } },
+			{ selector: ".cart_totals tr:eq(2) td", attr: { "data-title": "Delivery" } },
+			{ selector: ".rarsm-cart-top-actions .rarsm-cart-back-shop", text: "Back to shop" },
 			{ selector: ".wc-proceed-to-checkout .checkout-button", text: "Proceed to checkout" },
 			{ selector: ".rarsm-shop-note", text: "A customer account is required at checkout so payments, cancellations and future product sales can be tracked in one place." }
 		],
 		"shop-checkout.php": [
+			{ selector: "meta[name='description']", attr: { "content": "RARSM order checkout." } },
 			{ selector: ".page_title .small-title", text: "Checkout" },
 			{ selector: ".page_title .breadcrumb-item.active", text: "Checkout" },
 			{ selector: ".rarsm-status-kicker", text: "Empty cart" },
 			{ selector: ".rarsm-status-card h3", text: "Add a product first" },
 			{ selector: ".rarsm-status-card p", text: "Checkout becomes available once the book has been added to the cart." },
 			{ selector: ".rarsm-status-card .btn-maincolor", text: "View formats" },
-			{ selector: ".hero-bg h3", text: "Login required" },
-			{ selector: ".hero-bg p", text: "To track orders and retrieve your payments, checkout is reserved for signed-in users." },
-			{ selector: ".hero-bg .btn-maincolor", text: "Log in" },
-			{ selector: ".hero-bg .btn-outline-darkgrey", text: "Back to cart" },
-			{ selector: ".rarsm-status-card .rarsm-status-kicker", text: "New account" },
-			{ selector: ".rarsm-status-card h4", text: "Create an account before paying" },
-			{ selector: ".rarsm-status-card .btn-outline-maincolor", text: "Sign up" },
+			{ selector: ".rarsm-checkout-login-card h3", text: "Login required" },
+			{ selector: ".rarsm-checkout-login-card > p", text: "To track orders and retrieve your payments, checkout is reserved for signed-in users." },
+			{ selector: ".rarsm-checkout-login-card .btn-maincolor", text: "Log in" },
+			{ selector: ".rarsm-checkout-login-card .btn-outline-darkgrey", text: "Back to cart" },
+			{ selector: ".rarsm-checkout-register-card .rarsm-status-kicker", text: "New account" },
+			{ selector: ".rarsm-checkout-register-card h4", text: "Create an account before paying" },
+			{ selector: ".rarsm-checkout-register-card > p:not(.rarsm-status-kicker)", text: "Enter a few details to track your cart, order history and future purchases. After signing in or registering, you will return directly to this checkout page." },
+			{ selector: ".rarsm-checkout-register-card .btn-outline-maincolor", text: "Sign up" },
+			{ selector: ".rarsm-checkout-register-card .btn-outline-darkgrey", text: "Back to cart" },
 			{ selector: ".woocommerce-info", text: "Your order will be created before you are redirected to the intermediary payment platform." },
 			{ selector: ".woocommerce-billing-fields h3", text: "Contact details" },
 			{ selector: "label[for='billing_first_name']", text: "First name *" },
@@ -1024,8 +1154,6 @@
 			{ selector: "label[for='billing_phone']", text: "Phone / WhatsApp *" },
 			{ selector: "label[for='billing_email']", text: "Email *" },
 			{ selector: "label[for='billing_country']", text: "Country *" },
-			{ selector: "label[for='billing_address_1']", text: "Address" },
-			{ selector: "label[for='billing_city']", text: "City" },
 			{ selector: "label[for='billing_state']", text: "Province / State" },
 			{ selector: "label[for='billing_postcode']", text: "Postal code" },
 			{ selector: ".woocommerce-additional-fields h3", text: "Delivery and payment" },
@@ -1040,8 +1168,8 @@
 			{ selector: "#payment_method option[value='bank_transfer']", text: "Bank transfer" },
 			{ selector: "label[for='order_comments']", text: "Order notes" },
 			{ selector: "#order_comments", placeholder: "Invoice, quotation, quantity, delivery notes..." },
-			{ selector: ".hero-bg h5", text: "Tracked account" },
-			{ selector: ".hero-bg p.mb-0", text: "Orders created here will appear in your order history." },
+			{ selector: ".rarsm-checkout-account-card h5", text: "Tracked account" },
+			{ selector: ".rarsm-checkout-account-card p.mb-0", text: "Orders created here will appear in your order history." },
 			{ selector: "#order_review_heading", text: "Your order" },
 			{ selector: ".woocommerce-checkout-review-order-table th.product-name", text: "Product" },
 			{ selector: ".woocommerce-checkout-review-order-table th.product-total", text: "Total" },
@@ -1049,38 +1177,42 @@
 			{ selector: ".woocommerce-checkout-review-order-table tfoot tr:eq(0) th", text: "Subtotal" },
 			{ selector: ".woocommerce-checkout-review-order-table tfoot tr:eq(1) th", text: "Amount due" },
 			{ selector: ".woocommerce-checkout-review-order-table tfoot tr:eq(2) th", text: "Delivery" },
-			{ selector: ".place-order .button", text: "Back to cart" },
-			{ selector: "#place_order", value: "Continue to payment" }
+			{ selector: ".place-order a.button", text: "Back to cart" }
 		],
 		"shop-account-login.php": [
+			{ selector: "meta[name='description']", attr: { "content": "Sign in to your RARSM customer account." } },
 			{ selector: ".page_title .small-title", text: "Sign in" },
-			{ selector: ".page_title .breadcrumb-item.active", text: "Sign in" },
+			{ selector: ".page_title .breadcrumb-item.active", text: "Account" },
 			{ selector: ".rarsm-account-form-card h3", text: "Sign in" },
 			{ selector: ".rarsm-account-form-card > p", text: "Sign in to track your orders, resume a payment and retrieve your information later." },
-			{ selector: "label[for='login_email']", text: "Email" },
-			{ selector: "label[for='login_password']", text: "Password" },
-			{ selector: ".rarsm-form-actions .btn-maincolor", text: "Log in" },
+			{ selector: "label[for='login-email']", text: "Email" },
+			{ selector: "label[for='login-password']", text: "Password" },
+			{ selector: ".rarsm-account-form-card button[type='submit']", text: "Log in" },
 			{ selector: ".rarsm-account-side-card .rarsm-status-kicker", text: "New customer" },
 			{ selector: ".rarsm-account-side-card h4", text: "Create an account to track your purchases" },
-			{ selector: ".rarsm-account-side-card p", text: "Your account links the cart, checkout, order flow and history so that future items sold on the site remain connected to the same customer profile." },
+			{ selector: ".rarsm-account-side-card > p:not(.rarsm-status-kicker)", text: "Your account links the cart, checkout, order tracking and history to the same customer profile." },
 			{ selector: ".rarsm-account-side-card .btn-outline-maincolor", text: "Create account" },
 			{ selector: ".rarsm-account-side-card .btn-outline-darkgrey", text: "Back to cart" }
 		],
 		"shop-account-register.php": [
+			{ selector: "meta[name='description']", attr: { "content": "Create a RARSM customer account." } },
 			{ selector: ".page_title .small-title", text: "Create account" },
+			{ selector: ".page_title .breadcrumb-item:eq(1)", text: "Account" },
 			{ selector: ".page_title .breadcrumb-item.active", text: "Register" },
 			{ selector: ".rarsm-account-form-card h3", text: "Customer registration" },
 			{ selector: ".rarsm-account-form-card > p", text: "This account will be used to track payments, orders and future product sales on the site." },
-			{ selector: "label[for='register_first_name']", text: "First name" },
-			{ selector: "label[for='register_last_name']", text: "Last name" },
-			{ selector: "label[for='register_email']", text: "Email" },
-			{ selector: "label[for='register_phone']", text: "Phone / WhatsApp" },
-			{ selector: "label[for='register_password']", text: "Password" },
-			{ selector: "label[for='register_password_confirm']", text: "Confirm password" },
+			{ selector: "label[for='register-first-name']", text: "First name" },
+			{ selector: "label[for='register-last-name']", text: "Last name" },
+			{ selector: "label[for='register-email']", text: "Email" },
+			{ selector: "label[for='register-phone']", text: "Phone / WhatsApp" },
+			{ selector: "label[for='register-password']", text: "Password" },
+			{ selector: "label[for='register-password-confirm']", text: "Confirm password" },
 			{ selector: ".rarsm-account-form-card .btn-maincolor", text: "Create my account" }
 		],
 		"shop-account-orders.php": [
+			{ selector: "meta[name='description']", attr: { "content": "RARSM order history and tracking." } },
 			{ selector: ".page_title .small-title", text: "My orders" },
+			{ selector: ".page_title .breadcrumb-item:eq(1)", text: "Account" },
 			{ selector: ".page_title .breadcrumb-item.active", text: "Orders" },
 			{ selector: ".rarsm-status-kicker", text: "No orders yet" },
 			{ selector: ".rarsm-status-card h3", text: "Your history is still empty" },
@@ -1091,44 +1223,74 @@
 			{ selector: "table th:eq(2)", text: "Status" },
 			{ selector: "table th:eq(3)", text: "Amount" },
 			{ selector: "table th:eq(4)", text: "Action" },
+			{ selector: "table tbody td:nth-child(1)", attr: { "data-title": "Reference" } },
+			{ selector: "table tbody td:nth-child(2)", attr: { "data-title": "Date" } },
+			{ selector: "table tbody td:nth-child(3)", attr: { "data-title": "Status" } },
+			{ selector: "table tbody td:nth-child(4)", attr: { "data-title": "Amount" } },
+			{ selector: "table tbody td:nth-child(5)", attr: { "data-title": "Action" } },
 			{ selector: "a.btn:contains('Payer')", text: "Pay" },
 			{ selector: "a.btn:contains('Relancer')", text: "Retry" },
 			{ selector: "a.btn:contains('Assistance')", text: "Support" }
 		],
 		"success.php": [
+			{ selector: "meta[name='description']", attr: { "content": "Payment confirmation for a RARSM order." } },
+			{ selector: ".page_title .small-title", text: "Payment confirmed" },
+			{ selector: ".page_title .breadcrumb-item.active", text: "Success" },
 			{ selector: ".rarsm-status-kicker", text: "Payment successful" },
-			{ selector: ".rarsm-status-card h2", text: "Order confirmed" },
-			{ selector: ".rarsm-status-card p", text: "Thank you. Your payment has been recorded for this order." },
-			{ selector: ".rarsm-status-metadata span:eq(0)", text: "Amount:" },
-			{ selector: ".rarsm-status-metadata span:eq(1)", text: "Status:" },
+			{ selector: ".rarsm-status-card h2 span", text: "Order confirmed" },
+			{ selector: ".rarsm-status-message", text: "Thank you. Your payment has been recorded for order" },
+			{ selector: ".rarsm-status-meta > span:eq(0) .rarsm-status-label", text: "Amount:" },
+			{ selector: ".rarsm-status-meta > span:eq(1) .rarsm-status-label", text: "Status:" },
 			{ selector: ".rarsm-gateway-actions .btn-maincolor", text: "View my orders" },
 			{ selector: ".rarsm-gateway-actions .btn-outline-maincolor", text: "Continue shopping" }
 		],
 		"cancel.php": [
+			{ selector: "meta[name='description']", attr: { "content": "Payment cancellation for a RARSM order." } },
+			{ selector: ".page_title .small-title", text: "Payment cancelled" },
+			{ selector: ".page_title .breadcrumb-item.active", text: "Cancelled" },
 			{ selector: ".rarsm-status-kicker", text: "Payment cancelled" },
-			{ selector: ".rarsm-status-card h2", text: "Your order was not completed" },
-			{ selector: ".rarsm-status-card p", text: "The order has been marked as cancelled. You can resume the payment later." },
+			{ selector: ".rarsm-status-card h2 span", text: "Your order was not completed" },
+			{ selector: ".rarsm-status-message-prefix", text: "Order" },
+			{ selector: ".rarsm-status-message-suffix", text: "has been marked as cancelled. You can resume the payment later." },
 			{ selector: ".rarsm-gateway-actions .btn-maincolor", text: "Retry payment" },
 			{ selector: ".rarsm-gateway-actions .btn-outline-maincolor", text: "My orders" }
 		],
 		"pending.php": [
 			{ selector: ".rarsm-status-kicker", text: "Order tracking" },
-			{ selector: ".rarsm-status-card p:eq(0)", text: "Reference:" },
-			{ selector: ".rarsm-status-metadata span:eq(0)", text: "Status:" },
-			{ selector: ".rarsm-status-metadata span:eq(1)", text: "Amount due:" },
+			{ selector: ".rarsm-reference-label", text: "Reference:" },
+			{ selector: ".rarsm-status-label", text: "Status:" },
+			{ selector: ".rarsm-amount-label", text: "Amount due:" },
 			{ selector: ".rarsm-gateway-actions .btn-maincolor", text: "View my orders" },
 			{ selector: ".rarsm-gateway-actions .btn-outline-maincolor", text: "Contact the team" }
+		],
+		"payment-redirect.php": [
+			{ selector: "meta[name='description']", attr: { "content": "Intermediary payment gateway for RARSM orders." } },
+			{ selector: ".page_title .small-title", text: "Redirecting to payment" },
+			{ selector: ".page_title .breadcrumb-item.active", text: "Payment" },
+			{ selector: ".hero-bg > .row > .col-lg-7 > .color-main", text: "Partner gateway" },
+			{ selector: ".hero-bg > .row > .col-lg-7 h2 span", text: "Intermediary payment step" },
+			{ selector: ".hero-bg > .row > .col-lg-7 .excerpt", text: "This page is the transition screen displayed before the external payment platform opens. Once the provider has been selected, its API or payment URL will be connected here." },
+			{ selector: ".rarsm-payment-reference-label", text: "Order reference:" },
+			{ selector: ".rarsm-payment-amount-label", text: "Amount due:" },
+			{ selector: ".rarsm-payment-method-label", text: "Selected method:" },
+			{ selector: ".rarsm-status-card .rarsm-status-kicker", text: "Payment simulation" },
+			{ selector: ".rarsm-status-card h4", text: "Choose the gateway return result" },
+			{ selector: ".rarsm-status-card > p.mb-0", text: "These three buttons let you test the complete flow until the intermediary platform is connected." },
+			{ selector: ".rarsm-gateway-actions .btn-maincolor", text: "Payment successful" },
+			{ selector: ".rarsm-gateway-actions .btn-outline-maincolor", text: "Pending" },
+			{ selector: ".rarsm-gateway-actions .btn-outline-darkgrey", text: "Cancel" },
+			{ selector: ".rarsm-shop-note", text: "When the real platform is connected, keep this flow: create the order in the database, redirect to the provider, return the user to success.php, cancel.php or pending.php, then apply the final update through a webhook." }
 		],
 		"activites-details.php": [
 			{ selector: ".page_title .small-title", text: "Event details" },
 			{ selector: ".page_title .breadcrumb-item:eq(1) a", text: "Activities" },
 			{ selector: ".activities-detail-alert", text: "The requested event could not be found. The next available event has been displayed by default." },
 			{ selector: ".activities-detail-main-card .activities-calendar-label", text: "Selected event" },
-			{ selector: ".activities-detail-section:eq(0) h4", text: "About this event" },
-			{ selector: ".activities-detail-section:eq(1) h4", text: "Organizer or reference framework" },
-			{ selector: ".activities-detail-section:eq(2) h4", text: "Annual recurrence" },
-			{ selector: ".activities-detail-section:eq(3) h4", text: "Official source" },
-			{ selector: ".activities-detail-section:eq(4) h4", text: "Key points" },
+			{ selector: ".activities-detail-section--about h4", text: "About this event" },
+			{ selector: ".activities-detail-section--organizer h4", text: "Organizer or reference framework" },
+			{ selector: ".activities-detail-section--recurrence h4", text: "Annual recurrence" },
+			{ selector: ".activities-detail-section--source h4", text: "Official source" },
+			{ selector: ".activities-detail-section--highlights h4", text: "Key points" },
 			{ selector: ".activities-detail-cta .btn-outline-maincolor", text: "Back to calendar" },
 			{ selector: ".activities-detail-cta .btn-maincolor", text: "Contact the team" },
 			{ selector: ".activities-institution-card .activities-calendar-label", text: "Organizer" },
@@ -1234,6 +1396,9 @@
 		});
 		applyStoredText($(".institution-detail-rarsm-note"), "InstitutionDetailSectorNote", sectorNote, language);
 		applyStoredAttribute($("meta[name='description']"), "InstitutionMetaDescription", "content", entry.summary, language);
+		if (institutionQuoteTranslationsEn[slug]) {
+			applyStoredText($(".institution-profile-quote"), "InstitutionQuote", institutionQuoteTranslationsEn[slug], language);
+		}
 
 		$(".institution-detail-sector").each(function () {
 			var $element = $(this);
@@ -1289,12 +1454,20 @@
 		applyStoredText($(".activities-detail-meta-row span:eq(0)"), "ActivityDetailDate", entry.date, language);
 		applyStoredText($(".activities-detail-meta-row span:eq(1)"), "ActivityDetailTime", entry.time, language);
 		applyStoredText($(".activities-detail-meta-row span:eq(2)"), "ActivityDetailLocation", entry.location, language);
-		applyStoredText($(".activities-detail-section:eq(0) p"), "ActivityDetailDescription", entry.description, language);
-		applyStoredText($(".activities-detail-section:eq(1) p"), "ActivityDetailOrganizerRole", entry.organizerRole, language);
-		applyStoredText($(".activities-detail-section:eq(2) p"), "ActivityDetailRecurrence", entry.recurrenceNote, language);
+		applyStoredText($(".activities-detail-section--about p"), "ActivityDetailDescription", entry.description, language);
+		applyStoredText($(".activities-detail-section--organizer p"), "ActivityDetailOrganizerRole", entry.organizerRole, language);
+		applyStoredText($(".activities-detail-section--recurrence p"), "ActivityDetailRecurrence", entry.recurrenceNote, language);
 		applyStoredText($(".activities-institution-copy h4"), "ActivityOrganizerName", entry.organizerName, language);
 		applyStoredText($(".activities-institution-copy p"), "ActivityOrganizerSummary", entry.organizerSummary, language);
 		applyStoredAttribute($("meta[name='description']"), "ActivityMetaDescription", "content", entry.summary, language);
+		applyStoredAttribute($(".activities-detail-media img"), "ActivityImageAlt", "alt", "Illustration for " + entry.title, language);
+
+		$(".activities-detail-pill[data-activity-category]").each(function () {
+			var $element = $(this);
+			var category = String($element.attr("data-activity-category") || "");
+			cacheOriginal($element, "ActivityCategory", $element.text());
+			$element.text(language === "en" ? (activityCategoryLabelsEn[category] || restoreOriginal($element, "ActivityCategory")) : restoreOriginal($element, "ActivityCategory"));
+		});
 
 		$(".activities-detail-agenda-list li").each(function (index) {
 			var $item = $(this);
@@ -1325,8 +1498,197 @@
 		document.title = language === "en" ? "RARSM | " + entry.title : originalTitle;
 	}
 
+	function applyCommerceDynamicTranslation(language) {
+		if (!$) {
+			return;
+		}
+
+		$(".cart_item[data-product-id]").each(function () {
+			var $item = $(this);
+			var productId = String($item.attr("data-product-id") || "");
+			var translation = productTranslationsEn[productId];
+
+			if (!translation) {
+				return;
+			}
+
+			applyStoredText($item.find(".rarsm-product-name").first(), "ProductName", translation.name, language);
+			applyStoredText($item.find(".rarsm-product-description").first(), "ProductDescription", translation.description, language);
+			applyStoredAttribute($item.find(".product-thumbnail img").first(), "ProductImageAlt", "alt", translation.name, language);
+		});
+
+		$(".rarsm-cart-count-message").each(function () {
+			var $element = $(this);
+			var count = $.trim($element.find("[data-cart-item-count]").text());
+			cacheOriginal($element, "CartCountMessage", $element.html());
+			$element.html(language === "en"
+				? "Your cart contains <span data-cart-item-count>" + escapeHtml(count) + "</span> item(s)."
+				: restoreOriginal($element, "CartCountMessage"));
+		});
+
+		$(".rarsm-delivery-summary").each(function () {
+			var $element = $(this);
+			var containsPhysical = $element.attr("data-contains-physical") === "1";
+			var translated = containsPhysical
+				? "Calculated at checkout based on the destination"
+				: "No physical delivery";
+			applyStoredText($element, "DeliverySummary", translated, language);
+		});
+
+		[{
+			selector: "label[for='billing_address_1']",
+			text: "Address"
+		}, {
+			selector: "label[for='billing_city']",
+			text: "City"
+		}].forEach(function (field) {
+			$(field.selector).each(function () {
+				var $element = $(this);
+				cacheOriginal($element, "CheckoutField", $element.text());
+				var original = String(restoreOriginal($element, "CheckoutField") || "");
+				var required = original.indexOf("*") !== -1 ? " *" : "";
+				$element.text(language === "en" ? field.text + required : original);
+			});
+		});
+
+		$("#place_order[data-contains-quote]").each(function () {
+			var $element = $(this);
+			cacheOriginal($element, "CheckoutSubmitValue", $element.val());
+			var translated = $element.attr("data-contains-quote") === "1"
+				? "Submit request"
+				: "Continue to payment";
+			$element.val(language === "en" ? translated : restoreOriginal($element, "CheckoutSubmitValue"));
+		});
+
+		$(".rarsm-order-status[data-order-status]").each(function () {
+			var $element = $(this);
+			var status = String($element.attr("data-order-status") || "").toLowerCase();
+			var labels = orderStatusLabels[status];
+			if (labels) {
+				$element.text(labels[language] || labels.fr);
+			}
+		});
+
+		$(".rarsm-payment-method[data-payment-method]").each(function () {
+			var $element = $(this);
+			var method = String($element.attr("data-payment-method") || "").toLowerCase();
+			var labels = paymentMethodLabels[method];
+			if (labels) {
+				$element.text(labels[language] || labels.fr);
+			}
+		});
+
+		if (getPageKey() === "pending.php") {
+			var $card = $(".rarsm-status-card[data-pending-mode]").first();
+			var isQuote = $card.attr("data-pending-mode") === "quote";
+			var translatedTitle = isQuote ? "Request pending" : "Payment pending";
+			var translatedDescription = isQuote
+				? "Your institutional or quotation-based order is awaiting processing."
+				: "Your payment is awaiting confirmation.";
+
+			applyStoredText($(".page_title .small-title"), "PendingHeroTitle", translatedTitle, language);
+			applyStoredText($(".page_title .breadcrumb-item.active"), "PendingBreadcrumb", "Pending", language);
+			applyStoredText($(".rarsm-status-card h2 span"), "PendingCardTitle", translatedTitle, language);
+			applyStoredText($(".rarsm-pending-description"), "PendingDescription", translatedDescription, language);
+			applyStoredAttribute($("meta[name='description']"), "PendingMetaDescription", "content", translatedDescription, language);
+			document.title = language === "en" ? "RARSM | " + translatedTitle : (document.documentElement.getAttribute("data-rarsm-original-title") || document.title);
+		}
+	}
+
 	function resolveLanguage(language) {
 		return language === "en" ? "en" : "fr";
+	}
+
+	function formatMoney(amount, currency, language) {
+		var numericAmount = Number(amount);
+		var normalizedCurrency = String(currency || "USD").toUpperCase();
+		var normalizedLanguage = resolveLanguage(language || getLanguage());
+		var locale = normalizedLanguage === "en" ? "en-US" : "fr-FR";
+		var formattedAmount;
+
+		if (!isFinite(numericAmount)) {
+			return "";
+		}
+
+		try {
+			formattedAmount = numericAmount.toLocaleString(locale, {
+				minimumFractionDigits: 2,
+				maximumFractionDigits: 2
+			});
+		} catch (error) {
+			formattedAmount = numericAmount.toFixed(2);
+			if (normalizedLanguage === "fr") {
+				formattedAmount = formattedAmount.replace(".", ",");
+			}
+		}
+
+		if (normalizedLanguage === "en") {
+			return normalizedCurrency === "USD"
+				? "$" + formattedAmount
+				: normalizedCurrency + "\u00A0" + formattedAmount;
+		}
+
+		return formattedAmount + "\u00A0" + (normalizedCurrency === "USD" ? "$" : normalizedCurrency);
+	}
+
+	function parseMoney(value) {
+		var source = String(value || "");
+		var currencyMatch = source.match(/\b[A-Z]{3}\b/);
+		var currency = source.indexOf("$") !== -1 ? "USD" : (currencyMatch ? currencyMatch[0] : "USD");
+		var numeric = source.replace(/[^0-9,.-]/g, "");
+		var commaIndex;
+		var dotIndex;
+		var decimalSeparator = "";
+		var separatorIndex;
+
+		if (!/[0-9]/.test(numeric)) {
+			return null;
+		}
+
+		commaIndex = numeric.lastIndexOf(",");
+		dotIndex = numeric.lastIndexOf(".");
+
+		if (commaIndex !== -1 && dotIndex !== -1) {
+			decimalSeparator = commaIndex > dotIndex ? "," : ".";
+		} else {
+			separatorIndex = Math.max(commaIndex, dotIndex);
+			if (separatorIndex !== -1 && numeric.length - separatorIndex - 1 === 2) {
+				decimalSeparator = numeric.charAt(separatorIndex);
+			}
+		}
+
+		if (decimalSeparator) {
+			separatorIndex = numeric.lastIndexOf(decimalSeparator);
+			numeric = numeric.slice(0, separatorIndex).replace(/[.,]/g, "")
+				+ "."
+				+ numeric.slice(separatorIndex + 1).replace(/[.,]/g, "");
+		} else {
+			numeric = numeric.replace(/[.,]/g, "");
+		}
+
+		if (!isFinite(Number(numeric))) {
+			return null;
+		}
+
+		return {
+			amount: Number(numeric),
+			currency: currency
+		};
+	}
+
+	function applyMoneyLocalization(language) {
+		if (!$) {
+			return;
+		}
+
+		$(".cart-total, .woocommerce-Price-amount.amount, .rarsm-money, [data-cart-summary-subtotal], [data-cart-summary-payable], #formats .summary .price > span").each(function () {
+			var $element = $(this);
+			var money = parseMoney($element.text());
+
+			if (money) {
+				$element.text(formatMoney(money.amount, money.currency, language));
+			}
+		});
 	}
 
 	function getPageKey() {
@@ -1345,6 +1707,7 @@
 		}
 
 		if (query === "en" || query === "fr") {
+			rememberLanguage(query);
 			return query;
 		}
 
@@ -1355,6 +1718,14 @@
 			}
 		} catch (error2) {
 			// Ignore storage access errors.
+		}
+
+		var cookieMatch = document.cookie.match(new RegExp("(?:^|;\\s*)" + COOKIE_NAME + "=([^;]+)"));
+		if (cookieMatch) {
+			var cookieLanguage = decodeURIComponent(cookieMatch[1]);
+			if (cookieLanguage === "en" || cookieLanguage === "fr") {
+				return cookieLanguage;
+			}
 		}
 
 		return "fr";
@@ -1495,6 +1866,8 @@
 		applyRules(language);
 		applyInstitutionDetailTranslation(language);
 		applyActivityDetailTranslation(language);
+		applyCommerceDynamicTranslation(language);
+		applyMoneyLocalization(language);
 	}
 
 	function setLanguage(language) {
@@ -1524,6 +1897,9 @@
 		getLanguage: getLanguage,
 		setLanguage: setLanguage,
 		refresh: refreshLanguage,
+		formatMoney: function (amount, currency) {
+			return formatMoney(amount, currency, getLanguage());
+		},
 		t: translate,
 		onChange: function (listener) {
 			if (typeof listener === "function") {

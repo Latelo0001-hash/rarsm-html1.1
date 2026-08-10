@@ -7,7 +7,7 @@ $orderId = trim((string) ($_GET['order'] ?? ''));
 $order = rarsm_find_order($orderId);
 
 if ($order === null) {
-    rarsm_set_flash('error', 'Commande introuvable pour la redirection de paiement.');
+    rarsm_set_flash('error', rarsm_localized_text('Commande introuvable pour la redirection de paiement.', 'Order not found for payment redirection.'));
     rarsm_redirect('shop-account-orders.php');
 }
 
@@ -31,10 +31,10 @@ rarsm_render_page_title('Redirection vers le paiement', [
                             <h2 class="special-heading"><span>Étape de paiement intermédiaire</span></h2>
                             <div class="divider-30"></div>
                             <p class="excerpt">Cette page représente l’écran de transition avant l’ouverture de la plateforme de paiement externe. Quand le prestataire sera choisi, c’est ici que l’API ou l’URL de paiement sera branchée.</p>
-                            <ul class="list-unstyled rarsm-shop-checklist">
-                                <li>Référence de commande : <?php echo rarsm_e((string) $order['order_number']); ?></li>
-                                <li>Montant à payer : <?php echo rarsm_e(rarsm_format_money((float) $order['payable_total'], (string) $order['currency'])); ?></li>
-                                <li>Méthode choisie : <?php echo rarsm_e((string) $order['payment_method']); ?></li>
+							<ul class="list-unstyled rarsm-shop-checklist">
+								<li><span class="rarsm-payment-reference-label">Référence de commande :</span> <?php echo rarsm_e((string) $order['order_number']); ?></li>
+								<li><span class="rarsm-payment-amount-label">Montant à payer :</span> <span class="rarsm-money"><?php echo rarsm_e(rarsm_format_money((float) $order['payable_total'], (string) $order['currency'])); ?></span></li>
+								<li><span class="rarsm-payment-method-label">Méthode choisie :</span> <span class="rarsm-payment-method" data-payment-method="<?php echo rarsm_e((string) $order['payment_method']); ?>"><?php echo rarsm_e((string) $order['payment_method']); ?></span></li>
                             </ul>
                         </div>
                         <div class="col-lg-5">

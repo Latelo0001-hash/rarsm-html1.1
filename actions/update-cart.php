@@ -6,14 +6,14 @@ require_once __DIR__ . '/../includes/bootstrap.php';
 $removeId = trim((string) ($_POST['remove_id'] ?? ''));
 if ($removeId !== '') {
     rarsm_cart_remove($removeId);
-    rarsm_set_flash('success', 'L’article a ete retire du panier.');
+    rarsm_set_flash('success', rarsm_localized_text('L’article a été retiré du panier.', 'The item has been removed from your cart.'));
     rarsm_redirect('../shop-cart.php');
 }
 
 $quantities = $_POST['quantities'] ?? [];
 if (is_array($quantities)) {
     rarsm_cart_update($quantities);
-    rarsm_set_flash('success', 'Le panier a ete mis a jour.');
+    rarsm_set_flash('success', rarsm_localized_text('Le panier a été mis à jour.', 'Your cart has been updated.'));
 }
 
 rarsm_redirect('../shop-cart.php');

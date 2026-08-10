@@ -6,6 +6,8 @@ if (session_status() !== PHP_SESSION_ACTIVE) {
 }
 
 require_once __DIR__ . '/db.php';
+require_once __DIR__ . '/i18n.php';
+rarsm_current_language();
 require_once __DIR__ . '/auth.php';
 require_once __DIR__ . '/store.php';
 require_once __DIR__ . '/layout.php';

@@ -9,7 +9,7 @@ $status = $mode === 'quote' ? 'pending_quote' : 'payment_pending';
 $order = rarsm_update_order_status($orderId, $status, 'pending');
 
 if ($order === null) {
-    rarsm_set_flash('error', 'Commande introuvable.');
+    rarsm_set_flash('error', rarsm_localized_text('Commande introuvable.', 'Order not found.'));
     rarsm_redirect('shop-account-orders.php');
 }
 
@@ -30,13 +30,13 @@ rarsm_render_page_title($title, [
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-lg-8">
-                <div class="rarsm-status-card">
+				<div class="rarsm-status-card" data-pending-mode="<?php echo $mode === 'quote' ? 'quote' : 'payment'; ?>">
                     <p class="rarsm-status-kicker">Suivi de commande</p>
                     <h2 class="special-heading"><span><?php echo rarsm_e($title); ?></span></h2>
-                    <p><?php echo rarsm_e($description); ?> Reference : <strong><?php echo rarsm_e((string) $order['order_number']); ?></strong>.</p>
-                    <div class="rarsm-status-meta">
-                        <span>Statut : <?php echo rarsm_e((string) $order['status']); ?></span>
-                        <span>Montant payable : <?php echo rarsm_e(rarsm_format_money((float) $order['payable_total'], (string) $order['currency'])); ?></span>
+					<p><span class="rarsm-pending-description"><?php echo rarsm_e($description); ?></span> <span class="rarsm-reference-label">Référence :</span> <strong><?php echo rarsm_e((string) $order['order_number']); ?></strong>.</p>
+					<div class="rarsm-status-meta">
+						<span><span class="rarsm-status-label">Statut :</span> <span class="rarsm-order-status" data-order-status="<?php echo rarsm_e((string) $order['status']); ?>"><?php echo rarsm_e((string) $order['status']); ?></span></span>
+						<span><span class="rarsm-amount-label">Montant payable :</span> <span class="rarsm-money"><?php echo rarsm_e(rarsm_format_money((float) $order['payable_total'], (string) $order['currency'])); ?></span></span>
                     </div>
                     <div class="rarsm-gateway-actions">
                         <a class="btn btn-maincolor" href="shop-account-orders.php">Voir mes commandes</a>

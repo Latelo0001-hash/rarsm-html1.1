@@ -22,9 +22,9 @@ rarsm_render_page_title('Mes commandes', [
                     <div class="rarsm-status-card text-center">
                         <p class="rarsm-status-kicker">Aucune commande</p>
                         <h3>Votre historique est encore vide</h3>
-                        <p>Commencez par ajouter le livre RARSM au panier, puis validez votre checkout pour voir apparaitre vos commandes ici.</p>
+						<p>Commencez par ajouter l’ouvrage RARSM au panier, puis validez votre commande pour la voir apparaître ici.</p>
                         <div class="rarsm-gateway-actions justify-content-center">
-                            <a class="btn btn-maincolor" href="pricing.html#formats">Acheter le livre</a>
+                            <a class="btn btn-maincolor" href="pricing.html#formats">Acheter l’ouvrage</a>
                         </div>
                     </div>
                 <?php else : ?>
@@ -32,7 +32,7 @@ rarsm_render_page_title('Mes commandes', [
                         <table class="shop_table shop_table_responsive cart">
                             <thead>
                                 <tr>
-                                    <th>Reference</th>
+							<th>Référence</th>
                                     <th>Date</th>
                                     <th>Statut</th>
                                     <th>Montant</th>
@@ -42,10 +42,10 @@ rarsm_render_page_title('Mes commandes', [
                             <tbody>
                                 <?php foreach ($orders as $order) : ?>
                                     <tr>
-                                        <td data-title="Reference"><?php echo rarsm_e((string) $order['order_number']); ?></td>
+								<td data-title="Référence"><?php echo rarsm_e((string) $order['order_number']); ?></td>
                                         <td data-title="Date"><?php echo rarsm_e((string) $order['created_at']); ?></td>
-                                        <td data-title="Statut"><?php echo rarsm_e((string) $order['status']); ?></td>
-                                        <td data-title="Montant"><?php echo rarsm_e(rarsm_format_money((float) $order['payable_total'], (string) $order['currency'])); ?></td>
+								<td class="rarsm-order-status" data-title="Statut" data-order-status="<?php echo rarsm_e((string) $order['status']); ?>"><?php echo rarsm_e((string) $order['status']); ?></td>
+										<td data-title="Montant"><span class="rarsm-money"><?php echo rarsm_e(rarsm_format_money((float) $order['payable_total'], (string) $order['currency'])); ?></span></td>
                                         <td data-title="Action">
                                             <?php if ((string) $order['status'] === 'pending_payment' || (string) $order['payment_status'] === 'initiated') : ?>
                                                 <a class="btn btn-outline-maincolor" href="payment-redirect.php?order=<?php echo rawurlencode((string) $order['id']); ?>">Payer</a>

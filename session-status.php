@@ -9,8 +9,9 @@ header('Cache-Control: no-store, no-cache, must-revalidate, max-age=0');
 $user = rarsm_current_user();
 $cartItems = rarsm_cart_items();
 $cartTotals = rarsm_cart_totals();
+$quoteLabel = rarsm_localized_text('Devis', 'Quote');
 $cartDisplayTotal = ($cartTotals['contains_quote_only'] ?? false) && (float) ($cartTotals['payable_total'] ?? 0) <= 0
-    ? 'Devis'
+    ? $quoteLabel
     : rarsm_format_money((float) ($cartTotals['payable_total'] ?? 0), (string) ($cartTotals['currency'] ?? 'USD'));
 
 $response = [
@@ -44,7 +45,7 @@ foreach ($cartItems as $item) {
         'image' => (string) ($item['image'] ?? ''),
         'quantity' => (int) ($item['quantity'] ?? 0),
         'display_subtotal' => !empty($item['quote_only'])
-            ? 'Devis'
+            ? $quoteLabel
             : rarsm_format_money((float) ($item['subtotal'] ?? 0), (string) ($item['currency'] ?? 'USD')),
     ];
 }

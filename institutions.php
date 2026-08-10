@@ -1,4 +1,6 @@
 <?php
+require_once __DIR__ . '/includes/i18n.php';
+
 if (isset($_GET['debug']) && $_GET['debug'] === '1') {
 	ini_set('display_errors', '1');
 	ini_set('display_startup_errors', '1');
@@ -6,6 +8,7 @@ if (isset($_GET['debug']) && $_GET['debug'] === '1') {
 }
 
 $sourceFile = __DIR__ . '/institutions.html';
+$isEnglish = rarsm_current_language() === 'en';
 
 if (is_file($sourceFile)) {
 	readfile($sourceFile);
@@ -13,10 +16,10 @@ if (is_file($sourceFile)) {
 }
 ?>
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="<?php echo $isEnglish ? 'en' : 'fr'; ?>">
 <head>
 	<meta charset="utf-8">
-	<title>RARSM | Institutions</title>
+	<title><?php echo $isEnglish ? 'RARSM | Institutions' : 'RARSM | Institutions'; ?></title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<style>
 		body {
@@ -50,10 +53,16 @@ if (is_file($sourceFile)) {
 </head>
 <body>
 	<div class="error-box">
-		<h1>Fichier manquant</h1>
-		<p>La page <code>institutions.php</code> a bien ete executee, mais le fichier <code>institutions.html</code> n'a pas ete trouve dans le meme dossier sur le serveur.</p>
-		<p>Televerse aussi <code>institutions.html</code>, ainsi que les dossiers <code>css</code>, <code>js</code>, <code>images</code> et <code>logo</code>.</p>
-		<p>Pour afficher les erreurs PHP si necessaire, ouvre cette URL avec <code>?debug=1</code>.</p>
+		<h1><?php echo $isEnglish ? 'Missing file' : 'Fichier manquant'; ?></h1>
+		<p><?php echo $isEnglish
+			? 'The <code>institutions.php</code> page was executed, but <code>institutions.html</code> was not found in the same server directory.'
+			: 'La page <code>institutions.php</code> a bien été exécutée, mais le fichier <code>institutions.html</code> n’a pas été trouvé dans le même dossier sur le serveur.'; ?></p>
+		<p><?php echo $isEnglish
+			? 'Also upload <code>institutions.html</code> and the <code>css</code>, <code>js</code>, <code>images</code> and <code>logo</code> folders.'
+			: 'Téléversez également <code>institutions.html</code>, ainsi que les dossiers <code>css</code>, <code>js</code>, <code>images</code> et <code>logo</code>.'; ?></p>
+		<p><?php echo $isEnglish
+			? 'To display PHP errors if necessary, open this URL with <code>?debug=1</code>.'
+			: 'Pour afficher les erreurs PHP si nécessaire, ouvrez cette URL avec <code>?debug=1</code>.'; ?></p>
 	</div>
 </body>
 </html>

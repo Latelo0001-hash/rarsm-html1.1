@@ -419,6 +419,11 @@ $selectedLogoInitials = !empty($selected['logo_initials'])
 	? (string) $selected['logo_initials']
 	: rarsm_initials($selected['name']);
 $selectedLeaderPhoto = isset($selected['leader_photo']) && rarsm_public_file_exists($selected['leader_photo']) ? $selected['leader_photo'] : '';
+$selectedLeaderPhotoPosition = isset($selected['leader_photo_position']) && preg_match('/^\d{1,3}%\s+\d{1,3}%$/', (string) $selected['leader_photo_position'])
+	? (string) $selected['leader_photo_position']
+	: '50% 25%';
+$selectedLeaderPhotoScale = isset($selected['leader_photo_scale']) ? (float) $selected['leader_photo_scale'] : 1.0;
+$selectedLeaderPhotoScale = max(1.0, min(1.75, $selectedLeaderPhotoScale));
 $selectedQuoteSourceUrl = rarsm_quote_source_url($selectedSlug, $selected);
 $pageTitle = 'RARSM | ' . $selected['name'];
 
@@ -458,7 +463,7 @@ foreach ($institutions as $slug => $institution) {
 	<link rel="icon" href="favicon.png?v=20260702-favicon" type="image/png">
 	<link rel="shortcut icon" href="favicon.png?v=20260702-favicon" type="image/png">
 	<link rel="apple-touch-icon" href="favicon.png?v=20260702-favicon">
-	<link rel="stylesheet" href="css/site.css?v=20260724-institutions-detail-v3">
+	<link rel="stylesheet" href="css/site.css?v=20260806-cart-icon-state-v1">
 	<script src="js/vendor/modernizr-2.6.2.min.js"></script>
 </head>
 <body>
@@ -572,8 +577,8 @@ foreach ($institutions as $slug => $institution) {
 							<nav class="top-nav">
 								<ul class="nav sf-menu">
 									<li><a href="index.html">Accueil</a></li>
-									<li><a href="book.html">Livre</a></li>
-									<li><a href="author.html">Auteur</a></li>
+									<li><a href="book.html">Ouvrage</a></li>
+									<li><a href="author.html">Équipe</a></li>
 									<li><a href="pricing.html">Shop</a></li>
 									<li class="active"><a href="institutions.php">Institutions</a></li>
 									<li><a href="activites.html">Activités</a></li>
@@ -596,7 +601,7 @@ foreach ($institutions as $slug => $institution) {
 													<ul class="woocommerce-mini-cart cart_list product_list_widget">
 														<li class="woocommerce-mini-cart-item mini_cart_item">
 															<a aria-label="Retirer cet article" class="remove" data-product_id="rarsm-book" data-product_sku="RARSM-PRINT" href="#">×</a>
-															<a href="shop-cart.php"><img alt="Livre RARSM" src="images/view-rarsm.JPG"></a>
+															<a href="shop-cart.php"><img alt="Ouvrage RARSM" src="images/view-rarsm.JPG"></a>
 															<a href="shop-cart.php">RARSM - Edition papier</a>
 															<span class="quantity">0 ×
 																<span class="woocommerce-Price-amount amount">
@@ -647,7 +652,7 @@ foreach ($institutions as $slug => $institution) {
 												<ul class="woocommerce-mini-cart cart_list product_list_widget">
 													<li class="woocommerce-mini-cart-item mini_cart_item">
 														<a href="#" class="remove" aria-label="Retirer cet article" data-product_id="rarsm-book" data-product_sku="RARSM-PRINT">×</a>
-														<a href="shop-cart.php"><img src="images/view-rarsm.JPG" alt="Livre RARSM"></a>
+														<a href="shop-cart.php"><img src="images/view-rarsm.JPG" alt="Ouvrage RARSM"></a>
 														<a href="shop-cart.php">RARSM - Edition papier</a>
 														<span class="quantity">0 ×
 															<span class="woocommerce-Price-amount amount">
@@ -741,7 +746,9 @@ foreach ($institutions as $slug => $institution) {
 											<div class="institution-profile-card">
 												<div class="institution-profile-media">
 													<?php if ($selectedLeaderPhoto !== ''): ?>
-														<img class="institution-profile-photo" src="<?php echo rarsm_e($selectedLeaderPhoto); ?>" alt="<?php echo rarsm_e($selected['leader_name']); ?>">
+														<span class="institution-profile-photo-frame" style="--institution-photo-position: <?php echo rarsm_e($selectedLeaderPhotoPosition); ?>; --institution-photo-scale: <?php echo rarsm_e(number_format($selectedLeaderPhotoScale, 2, '.', '')); ?>;">
+															<img class="institution-profile-photo" src="<?php echo rarsm_e($selectedLeaderPhoto); ?>" alt="<?php echo rarsm_e($selected['leader_name']); ?>">
+														</span>
 													<?php else: ?>
 														<span class="institution-profile-placeholder"><?php echo rarsm_e(rarsm_initials(!empty($selected['leader_name']) ? $selected['leader_name'] : $selected['name'])); ?></span>
 													<?php endif; ?>
@@ -753,7 +760,7 @@ foreach ($institutions as $slug => $institution) {
 													<?php endif; ?>
 													<?php if (!empty($selected['quote'])): ?>
 														<p class="institution-profile-note">
-															<?php echo rarsm_e($selected['quote']); ?>
+															<span class="institution-profile-quote"><?php echo rarsm_e($selected['quote']); ?></span>
 															<?php if (!empty($selected['quote_source'])): ?>
 																<span>
 																	<span class="institution-profile-source-label">Source :</span>
@@ -819,7 +826,7 @@ foreach ($institutions as $slug => $institution) {
 									<h4>Accès utiles</h4>
 									<div class="institution-quick-actions">
 										<a href="institutions.php" class="btn btn-maincolor">Retour au panorama</a>
-										<a href="shop-cart.php" class="btn btn-outline-maincolor">Commander le livre</a>
+										<a href="shop-cart.php" class="btn btn-outline-maincolor">Commander l’ouvrage</a>
 										<a href="contact.html" class="btn btn-outline-maincolor">Contacter l'équipe</a>
 										
 									</div>
@@ -842,8 +849,8 @@ foreach ($institutions as $slug => $institution) {
 							<div class="widget widget_nav_menu nav-in-line">
 								<ul class="menu">
 									<li class="menu-item"><a href="index.html">Accueil</a></li>
-									<li class="menu-item"><a href="book.html">Livre</a></li>
-									<li class="menu-item"><a href="author.html">Auteur</a></li>
+									<li class="menu-item"><a href="book.html">Ouvrage</a></li>
+									<li class="menu-item"><a href="author.html">Équipe</a></li>
 									<li class="menu-item"><a href="pricing.html">Shop</a></li>
 									<li class="menu-item"><a href="institutions.php">Institutions</a></li>
 									<li class="menu-item"><a href="activites.html">Activités</a></li>
@@ -869,7 +876,7 @@ foreach ($institutions as $slug => $institution) {
 	</div>
 
 	<script src="js/compressed.js"></script>
-	<script src="js/rarsm-i18n.js?v=20260721-en"></script>
-	<script src="js/rarsm-ui.js?v=20260723-page-title-banner-v3"></script>
+	<script src="js/rarsm-i18n.js?v=20260807-money-locale-v1"></script>
+	<script src="js/rarsm-ui.js?v=20260807-money-locale-v1"></script>
 </body>
 </html>

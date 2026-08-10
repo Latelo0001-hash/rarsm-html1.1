@@ -30,9 +30,20 @@ function rarsm_pull_flash(): ?array
 
 function rarsm_format_money(float $amount, string $currency = 'USD'): string
 {
-    $prefix = $currency === 'USD' ? '$' : $currency . ' ';
+	$language = function_exists('rarsm_current_language') ? rarsm_current_language() : 'fr';
+	$currency = strtoupper(trim($currency)) ?: 'USD';
 
-    return $prefix . number_format($amount, 2, '.', ' ');
+	if ($language === 'en') {
+		$formattedAmount = number_format($amount, 2, '.', ',');
+
+		return $currency === 'USD'
+			? '$' . $formattedAmount
+			: $currency . "\u{00A0}" . $formattedAmount;
+	}
+
+	$formattedAmount = number_format($amount, 2, ',', "\u{202F}");
+
+	return $formattedAmount . "\u{00A0}" . ($currency === 'USD' ? '$' : $currency);
 }
 
 function rarsm_normalize_relative_path(string $path, string $fallback = 'index.html'): string
@@ -126,7 +137,7 @@ function rarsm_auth_redirect_target(?string $requestPath = null): string
     $parsedPath = parse_url($path, PHP_URL_PATH);
     $basename = strtolower(basename(is_string($parsedPath) && $parsedPath !== '' ? $parsedPath : $path));
     $shopLikePages = [
-        'succèss.php',
+        'success.php',
         'cancel.php',
         'pending.php',
         'payment-redirect.php',
@@ -147,7 +158,7 @@ function rarsm_render_auth_modals(): void
 <div class="modal fade popupLogin" id="popupLogin" tabindex="-1" role="dialog" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content ls border-r-def overflow-visible s-overlay s-mobile-overlay">
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Fermer">
                 <span aria-hidden="true">&times;</span>
             </button>
             <div class="modal-body">
@@ -185,7 +196,7 @@ function rarsm_render_auth_modals(): void
 <div class="modal fade popupRegistr" id="popupRegistr" tabindex="-1" role="dialog" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content ls border-r-def overflow-visible s-overlay s-mobile-overlay">
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Fermer">
                 <span aria-hidden="true">&times;</span>
             </button>
             <div class="modal-body">
@@ -259,7 +270,7 @@ function rarsm_page_head(string $title, string $description = '', string $bodyCl
     <link rel="icon" href="favicon.png?v=20260702-favicon" type="image/png">
     <link rel="shortcut icon" href="favicon.png?v=20260702-favicon" type="image/png">
     <link rel="apple-touch-icon" href="favicon.png?v=20260702-favicon">
-    <link rel="stylesheet" href="css/site.css?v=20260722-page-title-hero">
+    <link rel="stylesheet" href="css/site.css?v=20260807-nav-balance-v2">
     <script src="js/vendor/modernizr-2.6.2.min.js"></script>
 </head>
 <body class="{$safeBodyClass}">
@@ -287,8 +298,8 @@ function rarsm_render_header(string $active = 'acheter'): void
 
     $navItems = [
         'index.html' => ['label' => 'Accueil', 'key' => 'accueil'],
-        'book.html' => ['label' => 'Livre', 'key' => 'livre'],
-        'author.html' => ['label' => 'Auteur', 'key' => 'auteur'],
+        'book.html' => ['label' => 'Ouvrage', 'key' => 'ouvrage'],
+        'author.html' => ['label' => 'Équipe', 'key' => 'auteur'],
         'pricing.html' => ['label' => 'Shop', 'key' => 'acheter'],
         'institutions.php' => ['label' => 'Institutions', 'key' => 'institutions'],
         'activites.html' => ['label' => 'Activités', 'key' => 'activites'],
@@ -297,8 +308,8 @@ function rarsm_render_header(string $active = 'acheter'): void
 
     echo '<header class="page_header ls s-overlay s-py-10">';
     echo '<div class="container-fluid"><div class="row align-items-center">';
-    echo '<div class="col-xl-2 col-lg-3 col-11"><a href="index.html" class="logo"><img src="logo/rarsm-logo-wordmark-color.png" alt="RARSM"></a></div>';
-    echo '<div class="col-xl-8 col-lg-6 col-1"><nav class="top-nav"><ul class="nav sf-menu">';
+    echo '<div class="col-xl-2 col-lg-3 col-11 rarsm-header-logo-col"><a href="index.html" class="logo"><img src="logo/rarsm-logo-wordmark-color.png" alt="RARSM"></a></div>';
+    echo '<div class="col-xl-8 col-lg-6 col-1 rarsm-header-nav-col"><nav class="top-nav"><ul class="nav sf-menu">';
 
     foreach ($navItems as $href => $item) {
         $liClass = $item['key'] === $active ? ' class="active"' : '';
@@ -306,12 +317,12 @@ function rarsm_render_header(string $active = 'acheter'): void
     }
 
     if ($user === null) {
-        echo '<li class="menu-auth-item menu-auth-login"><a data-toggle="modal" href="#popupLogin">Se connecter</a></li>';
-        echo '<li class="menu-auth-item menu-auth-register"><a data-toggle="modal" href="#popupRegistr">S\'inscrire</a></li>';
+        echo '<li class="menu-auth-item menu-auth-login d-xl-none"><a data-toggle="modal" href="#popupLogin">Se connecter</a></li>';
+        echo '<li class="menu-auth-item menu-auth-register d-xl-none"><a data-toggle="modal" href="#popupRegistr">S\'inscrire</a></li>';
     } else {
         $displayName = rarsm_user_display_name($user);
         $initials = rarsm_user_initials($user);
-        echo '<li class="menu-session-item d-lg-none">';
+        echo '<li class="menu-session-item d-xl-none">';
         echo '<div class="rarsm-user-menu rarsm-user-menu-mobile">';
         echo '<button class="rarsm-session-nav-link rarsm-user-menu-toggle" type="button" aria-haspopup="true" aria-expanded="false">';
         echo '<span class="rarsm-session-avatar">' . rarsm_e($initials) . '</span>';
@@ -326,7 +337,7 @@ function rarsm_render_header(string $active = 'acheter'): void
         echo '</li>';
     }
 
-    echo '<li class="menu-cart-mobile dropdown d-lg-none">';
+    echo '<li class="menu-cart-mobile dropdown d-xl-none">';
     echo '<button class="dropdown-toggle dropdown-shopping-cart' . $cartStateClass . '" id="dropdown-shopping-cart-mobile" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" aria-label="Ouvrir le panier" type="button">';
     echo '<i class="fa fa-shopping-basket" aria-hidden="true"></i>';
     echo '<span class="badge bg-maincolor">' . rarsm_e($cartCount) . '</span>';
@@ -348,7 +359,7 @@ function rarsm_render_header(string $active = 'acheter'): void
     echo '</div>';
     echo '</div>';
     echo '</li>';
-    echo '<li class="menu-language-mobile d-lg-none">';
+    echo '<li class="menu-language-mobile d-xl-none">';
     echo '<div class="language-switcher js-language-switcher">';
     echo '<button class="language-toggle js-language-toggle" type="button" aria-label="Choix de la langue actuelle" aria-expanded="false">Fr</button>';
     echo '<div class="language-menu" role="menu" aria-label="Choix de la langue">';
@@ -358,9 +369,12 @@ function rarsm_render_header(string $active = 'acheter'): void
     echo '</div>';
     echo '</li>';
     echo '</ul></nav></div>';
-    echo '<div class="col-xl-2 col-lg-3 text-right d-none d-lg-block"><div class="header-utilities">';
+    echo '<div class="col-xl-2 col-lg-3 text-right d-none d-xl-block rarsm-header-tools-col"><div class="header-utilities">';
 
-    if ($user !== null) {
+    if ($user === null) {
+        echo '<a class="btn btn-outline-maincolor rarsm-header-auth-link" data-toggle="modal" href="#popupLogin">Se connecter</a>';
+        echo '<a class="btn btn-maincolor rarsm-header-auth-link" data-toggle="modal" href="#popupRegistr">S\'inscrire</a>';
+    } else {
         $displayName = rarsm_user_display_name($user);
         $initials = rarsm_user_initials($user);
         echo '<div class="rarsm-user-menu">';
@@ -441,7 +455,7 @@ function rarsm_render_flash(): void
     }
 
     $class = 'woocommerce-info';
-    if (($flash['type'] ?? '') === 'succèss') {
+    if (($flash['type'] ?? '') === 'success') {
         $class = 'woocommerce-message';
     } elseif (($flash['type'] ?? '') === 'error') {
         $class = 'woocommerce-error';
@@ -466,8 +480,8 @@ function rarsm_render_footer(): void
                 <div class="widget widget_nav_menu nav-in-line">
                     <ul class="menu">
                         <li class="menu-item"><a href="index.html">Accueil</a></li>
-                        <li class="menu-item"><a href="book.html">Livre</a></li>
-                        <li class="menu-item"><a href="author.html">Auteur</a></li>
+                        <li class="menu-item"><a href="book.html">Ouvrage</a></li>
+                        <li class="menu-item"><a href="author.html">Équipe</a></li>
                         <li class="menu-item"><a href="pricing.html">Shop</a></li>
                         <li class="menu-item"><a href="institutions.php">Institutions</a></li>
                         <li class="menu-item"><a href="activites.html">Activités</a></li>
@@ -483,7 +497,7 @@ function rarsm_render_footer(): void
     <div class="container">
         <div class="row align-items-center">
             <div class="col-md-12 text-center color-dark">
-                <p>&copy; <span class="copyright_year">{$year}</span> RARSM - Recueil des Actes Reglementaires du Secteur Minier. Tous droits réservés.</p>
+                <p>&copy; <span class="copyright_year">{$year}</span> RARSM - Recueil des Actes Réglementaires du Secteur Minier. Tous droits réservés.</p>
             </div>
         </div>
     </div>
@@ -491,8 +505,8 @@ function rarsm_render_footer(): void
 </div>
 </div>
 <script src="js/compressed.js"></script>
-<script src="js/rarsm-i18n.js?v=20260721-en"></script>
-<script src="js/rarsm-ui.js?v=20260723-page-title-banner-v3"></script>
+<script src="js/rarsm-i18n.js?v=20260807-money-locale-v1"></script>
+<script src="js/rarsm-ui.js?v=20260807-money-locale-v1"></script>
 </body>
 </html>
 HTML;

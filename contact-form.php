@@ -1,22 +1,26 @@
-<?php 
+<?php
+require_once __DIR__ . '/includes/i18n.php';
 //////////////////////////
 //Specify default values//
 //////////////////////////
 
 //Your E-mail
 $your_email = 'your@email.com';
+$is_english = rarsm_current_language() === 'en';
 
 //Default Subject if 'subject' field not specified
-$default_subject = 'From My Contact Form';
+$default_subject = $is_english ? 'Message from the RARSM contact form' : 'Message du formulaire de contact RARSM';
 
 //Message if 'name' field not specified
-$name_not_specified = 'Please type a valid name';
+$name_not_specified = $is_english ? 'Please enter a valid name.' : 'Veuillez saisir un nom valide.';
 
 //Message if e-mail sent successfully
-$email_was_sent = 'Thanks, your message successfully sent';
+$email_was_sent = $is_english ? 'Thank you. Your message has been sent successfully.' : 'Merci. Votre message a été envoyé avec succès.';
 
 //Message if e-mail not sent (server not configured)
-$server_not_configured = 'Sorry, mail server not configured (function "mail()" disabled on your server?)';
+$server_not_configured = $is_english
+	? 'Sorry, the mail server is not configured.'
+	: 'Désolé, le serveur de messagerie n’est pas configuré.';
 
 
 ///////////////////////////
@@ -88,6 +92,8 @@ if(isset($_POST['name'])) {
 	}
 } else {
 	// if "name" var not send ('name' attribute of contact form input field was changed or missing)
-	echo '"name" variable were not received by server. Please check "name" attributes for your input fields';
+	echo $is_english
+		? 'The name field was not received by the server. Please check the form fields.'
+		: 'Le champ du nom n’a pas été reçu par le serveur. Veuillez vérifier les champs du formulaire.';
 }
 ?>

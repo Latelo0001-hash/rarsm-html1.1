@@ -23,16 +23,20 @@ rarsm_render_page_title('Panier', [
                     <div class="rarsm-status-card text-center">
                         <p class="rarsm-status-kicker">Panier vide</p>
                         <h3>Aucun article n’a encore été ajouté</h3>
-                        <p>Sélectionnez un produit de la boutique RARSM pour commencer votre commande et passer au checkout ensuite.</p>
+						<p>Sélectionnez un produit de la boutique RARSM pour commencer votre commande, puis passez à la validation.</p>
                         <div class="rarsm-gateway-actions justify-content-center">
-                            <a class="btn btn-maincolor" href="pricing.html#formats">Voir la boutique</a>
+                            <a class="btn btn-maincolor" href="pricing.html#formats">Retour au shop</a>
                         </div>
                     </div>
                 <?php else : ?>
-                    <div class="woocommerce-notices-wrapper">
-                        <div class="woocommerce-message">
-                            <a href="shop-checkout.php" class="button wc-forward">Passer à la commande</a>
-                            Votre panier contient <span data-cart-item-count><?php echo rarsm_e((string) $totals['item_count']); ?></span> article(s).
+                    <div class="rarsm-cart-top-actions">
+                        <a class="button wc-forward rarsm-cart-back-shop" href="pricing.html#formats">Retour au shop</a>
+                    </div>
+
+					<div class="woocommerce-notices-wrapper">
+						<div class="woocommerce-message">
+							<a href="shop-checkout.php" class="button wc-forward">Passer à la commande</a>
+							<span class="rarsm-cart-count-message">Votre panier contient <span data-cart-item-count><?php echo rarsm_e((string) $totals['item_count']); ?></span> article(s).</span>
                         </div>
                     </div>
 
@@ -66,8 +70,8 @@ rarsm_render_page_title('Panier', [
                                             <img width="180" height="180" src="<?php echo rarsm_e((string) $item['image']); ?>" alt="<?php echo rarsm_e((string) $item['name']); ?>">
                                         </td>
                                         <td class="product-name" data-title="Produit">
-                                            <strong><?php echo rarsm_e((string) $item['name']); ?></strong>
-                                            <p class="mb-0"><?php echo rarsm_e((string) $item['short_description']); ?></p>
+											<strong class="rarsm-product-name"><?php echo rarsm_e((string) $item['name']); ?></strong>
+											<p class="mb-0 rarsm-product-description"><?php echo rarsm_e((string) $item['short_description']); ?></p>
                                         </td>
                                         <td class="product-price" data-title="Prix">
                                             <?php if ((bool) $item['quote_only']) : ?>
@@ -114,7 +118,7 @@ rarsm_render_page_title('Panier', [
                                     </tr>
                                     <tr>
                                         <th>Livraison</th>
-                                        <td data-title="Livraison"><?php echo $totals['contains_physical'] ? 'Confirmée au checkout selon la destination' : 'Aucune livraison physique'; ?></td>
+								<td class="rarsm-delivery-summary" data-title="Livraison" data-contains-physical="<?php echo $totals['contains_physical'] ? '1' : '0'; ?>"><?php echo $totals['contains_physical'] ? 'Confirmée lors de la validation selon la destination' : 'Aucune livraison physique'; ?></td>
                                     </tr>
                                 </tbody>
                             </table>
@@ -122,7 +126,7 @@ rarsm_render_page_title('Panier', [
                                 <a class="checkout-button button alt wc-forward" href="shop-checkout.php">Passer à la commande</a>
                             </div>
                             <br>
-                            <p class="rarsm-shop-note mb-0 border-danger">Le compte client sera demandé au checkout afin de suivre les paiements, les annulations et les futures ventes d’articles sur le site.</p>
+							<p class="rarsm-shop-note mb-0 border-danger">Un compte client sera demandé lors de la validation afin de suivre les paiements, les annulations et les futures ventes d’articles sur le site.</p>
                         </div>
                     </div>
                 <?php endif; ?>

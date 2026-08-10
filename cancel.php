@@ -7,7 +7,7 @@ $orderId = trim((string) ($_GET['order'] ?? ''));
 $order = rarsm_update_order_status($orderId, 'cancelled', 'cancelled');
 
 if ($order === null) {
-    rarsm_set_flash('error', 'Commande introuvable.');
+    rarsm_set_flash('error', rarsm_localized_text('Commande introuvable.', 'Order not found.'));
     rarsm_redirect('shop-account-orders.php');
 }
 
@@ -26,7 +26,7 @@ rarsm_render_page_title('Paiement annulé', [
                 <div class="rarsm-status-card">
                     <p class="rarsm-status-kicker">Paiement annulé</p>
                     <h2 class="special-heading"><span>Votre commande n’a pas été finalisée</span></h2>
-                    <p>La commande <strong><?php echo rarsm_e((string) $order['order_number']); ?></strong> a été marquée comme annulée. Vous pouvez reprendre le paiement plus tard.</p>
+					<p><span class="rarsm-status-message-prefix">La commande</span> <strong><?php echo rarsm_e((string) $order['order_number']); ?></strong> <span class="rarsm-status-message-suffix">a été marquée comme annulée. Vous pouvez reprendre le paiement plus tard.</span></p>
                     <div class="rarsm-gateway-actions">
                         <a class="btn btn-maincolor" href="payment-redirect.php?order=<?php echo rawurlencode((string) $order['id']); ?>">Réessayer le paiement</a>
                         <a class="btn btn-outline-maincolor" href="shop-account-orders.php">Mes commandes</a>

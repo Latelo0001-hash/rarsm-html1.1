@@ -5,7 +5,7 @@ require_once __DIR__ . '/includes/bootstrap.php';
 
 $redirect = trim((string) ($_GET['redirect'] ?? 'shop-cart.php'));
 
-rarsm_page_head('RARSM | Inscription', 'Creation de compte client RARSM.');
+rarsm_page_head('RARSM | Inscription', 'Création d’un compte client RARSM.');
 rarsm_render_header('acheter');
 rarsm_render_page_title('Créer un compte', [
     ['label' => 'Accueil', 'href' => 'index.html'],
@@ -18,15 +18,15 @@ rarsm_render_page_title('Créer un compte', [
         <?php rarsm_render_flash(); ?>
         <div class="row justify-content-center">
             <div class="col-lg-8">
-                <div class="hero-bg p-40 p-xl-60 border-r-def">
+				<div class="hero-bg rarsm-account-form-card p-40 p-xl-60 border-r-def">
                     <h3>Inscription client</h3>
-                    <p>Ce compte servira a suivre les paiements, les commandes et les futures ventes d’articles sur le site.</p>
+					<p>Ce compte servira à suivre les paiements, les commandes et les futures ventes d’articles sur le site.</p>
                     <form action="actions/register.php" class="c-gutter-20" method="post">
                         <input type="hidden" name="redirect" value="<?php echo rarsm_e($redirect); ?>">
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label for="register-first-name">Prenom</label>
+									<label for="register-first-name">Prénom</label>
                                     <input class="form-control" id="register-first-name" name="first_name" type="text" required>
                                 </div>
                             </div>
@@ -44,7 +44,7 @@ rarsm_render_page_title('Créer un compte', [
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label for="register-phone">Telephone / WhatsApp</label>
+									<label for="register-phone">Téléphone / WhatsApp</label>
                                     <input class="form-control" id="register-phone" name="phone" type="text">
                                 </div>
                             </div>
@@ -61,7 +61,7 @@ rarsm_render_page_title('Créer un compte', [
                                 </div>
                             </div>
                             <div class="col-12">
-                                <button class="btn btn-maincolor" type="submit">Creer mon compte</button>
+								<button class="btn btn-maincolor" type="submit">Créer mon compte</button>
                             </div>
                         </div>
                     </form>

@@ -24,7 +24,7 @@ rarsm_render_page_title('Validation', [
                     <div class="rarsm-status-card text-center">
                         <p class="rarsm-status-kicker">Panier vide</p>
                         <h3>Ajoutez d’abord un produit</h3>
-                        <p>Le checkout devient disponible une fois un article de la boutique ajouté au panier.</p>
+						<p>La validation devient disponible une fois qu’un article de la boutique a été ajouté au panier.</p>
                         <div class="rarsm-gateway-actions justify-content-center">
                             <a class="btn btn-maincolor" href="pricing.html#formats">Voir la boutique</a>
                         </div>
@@ -34,9 +34,9 @@ rarsm_render_page_title('Validation', [
         <?php elseif ($user === null) : ?>
             <div class="row justify-content-center c-gutter-40">
                 <div class="col-lg-5">
-                    <div class="hero-bg p-40 p-xl-60 border-r-def h-100">
+					<div class="hero-bg rarsm-checkout-login-card p-40 p-xl-60 border-r-def h-100">
                         <h3>Connexion requise</h3>
-                        <p>Pour suivre les commandes et retrouver vos paiements, le check-out est réservé aux utilisateurs connectés.</p>
+						<p>Pour suivre les commandes et retrouver vos paiements, la validation est réservée aux utilisateurs connectés.</p>
                         <div class="rarsm-gateway-actions">
                             <a class="btn btn-maincolor" data-toggle="modal" href="#popupLogin">Se connecter</a>
                             <a class="btn btn-outline-darkgrey" href="shop-cart.php">Retour au panier</a>
@@ -44,7 +44,7 @@ rarsm_render_page_title('Validation', [
                     </div>
                 </div>
                 <div class="col-lg-5">
-                    <div class="rarsm-status-card h-100">
+					<div class="rarsm-status-card rarsm-checkout-register-card h-100">
                         <p class="rarsm-status-kicker">Nouveau compte</p>
                         <h4>Créer un compte avant de payer</h4>
                         <p>En quelques informations, vous pourrez suivre le panier, l’historique et les prochains articles mis en vente. Après connexion ou inscription, vous reviendrez directement sur cette page de validation.</p>
@@ -91,11 +91,11 @@ rarsm_render_page_title('Validation', [
                                                 <input class="input-text" id="billing_country" name="country" required type="text" value="RDC">
                                             </p>
                                             <p class="form-row form-row-wide">
-                                                <label for="billing_address_1">Adresse <?php echo $totals['contains_physical'] ? '*' : ''; ?></label>
+										<label for="billing_address_1">Adresse <?php echo $totals['contains_physical'] ? '*' : ''; ?></label>
                                                 <input class="input-text" id="billing_address_1" name="address_1" type="text" value="">
                                             </p>
                                             <p class="form-row form-row-first">
-                                                <label for="billing_city">Ville <?php echo $totals['contains_physical'] ? '*' : ''; ?></label>
+										<label for="billing_city">Ville <?php echo $totals['contains_physical'] ? '*' : ''; ?></label>
                                                 <input class="input-text" id="billing_city" name="city" type="text" value="">
                                             </p>
                                             <p class="form-row form-row-last">
@@ -135,7 +135,7 @@ rarsm_render_page_title('Validation', [
                                                 <textarea class="input-text" cols="5" id="order_comments" name="notes" rows="5" placeholder="Facture, devis, quantité, précision de livraison..."></textarea>
                                             </p>
                                         </div>
-                                        <div class="hero-bg p-30 p-xl-40">
+								<div class="hero-bg rarsm-checkout-account-card p-30 p-xl-40">
                                             <h5 class="mt-0">Compte suivi</h5>
                                             <p class="mb-2"><?php echo rarsm_e((string) ($user['first_name'] ?? '')); ?> <?php echo rarsm_e((string) ($user['last_name'] ?? '')); ?></p>
                                             <p class="mb-2"><?php echo rarsm_e((string) ($user['email'] ?? '')); ?></p>
@@ -156,8 +156,8 @@ rarsm_render_page_title('Validation', [
                                     </thead>
                                     <tbody>
                                         <?php foreach ($items as $item) : ?>
-                                            <tr class="cart_item">
-                                                <td class="product-name"><?php echo rarsm_e((string) $item['name']); ?> <strong class="product-quantity">× <?php echo rarsm_e((string) $item['quantity']); ?></strong></td>
+										<tr class="cart_item" data-product-id="<?php echo rarsm_e((string) $item['id']); ?>">
+											<td class="product-name"><span class="rarsm-product-name"><?php echo rarsm_e((string) $item['name']); ?></span> <strong class="product-quantity">× <?php echo rarsm_e((string) $item['quantity']); ?></strong></td>
                                                 <td class="product-total">
                                                     <?php if ((bool) $item['quote_only']) : ?>
                                                         <span class="amount">Sur devis</span>
@@ -171,15 +171,15 @@ rarsm_render_page_title('Validation', [
                                     <tfoot>
                                         <tr class="cart-subtotal">
                                             <th>Sous-total</th>
-                                            <td><?php echo rarsm_e(rarsm_format_money((float) $totals['subtotal'], (string) $totals['currency'])); ?></td>
+											<td><span class="rarsm-money"><?php echo rarsm_e(rarsm_format_money((float) $totals['subtotal'], (string) $totals['currency'])); ?></span></td>
                                         </tr>
                                         <tr>
                                             <th>Montant à payer</th>
-                                            <td><?php echo rarsm_e(rarsm_format_money((float) $totals['payable_total'], (string) $totals['currency'])); ?></td>
+											<td><span class="rarsm-money"><?php echo rarsm_e(rarsm_format_money((float) $totals['payable_total'], (string) $totals['currency'])); ?></span></td>
                                         </tr>
                                         <tr>
                                             <th>Livraison</th>
-                                            <td><?php echo $totals['contains_physical'] ? 'Calculée après validation de la destination' : 'Aucune livraison physique'; ?></td>
+										<td class="rarsm-delivery-summary" data-contains-physical="<?php echo $totals['contains_physical'] ? '1' : '0'; ?>"><?php echo $totals['contains_physical'] ? 'Calculée après validation de la destination' : 'Aucune livraison physique'; ?></td>
                                         </tr>
                                     </tfoot>
                                 </table>
@@ -187,7 +187,7 @@ rarsm_render_page_title('Validation', [
                                 <div class="woocommerce-checkout-payment">
                                     <div class="form-row place-order rarsm-shop-place-order">
                                         <a class="button" href="shop-cart.php">Retour au panier</a>
-                                        <input class="button alt" id="place_order" name="place_order" type="submit" value="<?php echo $totals['contains_quote_only'] ? 'Soumettre la demande' : 'Continuer vers le paiement'; ?>">
+									<input class="button alt" id="place_order" name="place_order" type="submit" data-contains-quote="<?php echo $totals['contains_quote_only'] ? '1' : '0'; ?>" value="<?php echo $totals['contains_quote_only'] ? 'Soumettre la demande' : 'Continuer vers le paiement'; ?>">
                                     </div>
                                 </div>
                             </div>

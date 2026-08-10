@@ -212,35 +212,35 @@ function rarsm_register_user(array $input): array
     }
 
     if ($firstName === '' || $email === '' || $password === '') {
-        return [false, 'Veuillez renseigner tous les champs obligatoires.'];
+        return [false, rarsm_localized_text('Veuillez renseigner tous les champs obligatoires.', 'Please complete all required fields.')];
     }
 
     if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-        return [false, 'L’adresse email n’est pas valide.'];
+        return [false, rarsm_localized_text('L’adresse email n’est pas valide.', 'The email address is invalid.')];
     }
 
     if (strlen($password) < 8) {
-        return [false, 'Le mot de passe doit contenir au moins 8 caracteres.'];
+        return [false, rarsm_localized_text('Le mot de passe doit contenir au moins 8 caractères.', 'The password must contain at least 8 characters.')];
     }
 
     if ($password !== $passwordConfirm) {
-        return [false, 'La confirmation du mot de passe ne correspond pas.'];
+        return [false, rarsm_localized_text('La confirmation du mot de passe ne correspond pas.', 'The password confirmation does not match.')];
     }
 
     $passwordHash = password_hash($password, PASSWORD_DEFAULT);
 
     if (rarsm_auth_uses_database()) {
         if (rarsm_db_email_exists($email)) {
-            return [false, 'Un compte existe deja avec cette adresse email.'];
+            return [false, rarsm_localized_text('Un compte existe déjà avec cette adresse email.', 'An account already exists with this email address.')];
         }
 
         if ($username !== '' && rarsm_db_username_exists($username)) {
-            return [false, 'Cet identifiant est deja utilise.'];
+            return [false, rarsm_localized_text('Cet identifiant est déjà utilisé.', 'This username is already in use.')];
         }
 
         $pdo = rarsm_db();
         if (!$pdo instanceof PDO) {
-            return [false, 'La base utilisateur est indisponible pour le moment.'];
+            return [false, rarsm_localized_text('La base utilisateur est indisponible pour le moment.', 'The user database is currently unavailable.')];
         }
 
         $fields = [
@@ -274,32 +274,32 @@ function rarsm_register_user(array $input): array
             );
 
             if ($userId === null || $userId < 1) {
-                return [false, 'Le compte n’a pas pu etre cree pour le moment.'];
+                return [false, rarsm_localized_text('Le compte n’a pas pu être créé pour le moment.', 'The account could not be created at this time.')];
             }
 
             $createdUser = rarsm_db_find_user_by_id($userId);
 
             if (!is_array($createdUser)) {
-                return [false, 'Le compte a ete cree mais n’a pas pu etre recharge.'];
+                return [false, rarsm_localized_text('Le compte a été créé, mais n’a pas pu être rechargé.', 'The account was created but could not be reloaded.')];
             }
 
             $_SESSION['rarsm_user'] = rarsm_normalize_user_record($createdUser);
 
-            return [true, 'Compte cree avec succes.'];
+            return [true, rarsm_localized_text('Compte créé avec succès.', 'Account created successfully.')];
         } catch (Throwable $exception) {
-            return [false, 'Le compte n’a pas pu etre cree pour le moment.'];
+            return [false, rarsm_localized_text('Le compte n’a pas pu être créé pour le moment.', 'The account could not be created at this time.')];
         }
     }
 
     $users = rarsm_registered_users();
     if (isset($users[$email])) {
-        return [false, 'Un compte existe deja avec cette adresse email.'];
+        return [false, rarsm_localized_text('Un compte existe déjà avec cette adresse email.', 'An account already exists with this email address.')];
     }
 
     foreach ($users as $registeredUser) {
         $registeredUsername = strtolower(trim((string) ($registeredUser['username'] ?? '')));
         if ($username !== '' && $registeredUsername !== '' && $registeredUsername === $username) {
-            return [false, 'Cet identifiant est deja utilise.'];
+            return [false, rarsm_localized_text('Cet identifiant est déjà utilisé.', 'This username is already in use.')];
         }
     }
 
@@ -317,7 +317,7 @@ function rarsm_register_user(array $input): array
     $_SESSION['rarsm_registered_users'][$email] = $user;
     $_SESSION['rarsm_user'] = $user;
 
-    return [true, 'Compte cree avec succes.'];
+    return [true, rarsm_localized_text('Compte créé avec succès.', 'Account created successfully.')];
 }
 
 function rarsm_login_user(array $input): array
@@ -326,19 +326,19 @@ function rarsm_login_user(array $input): array
     $password = (string) ($input['password'] ?? '');
 
     if ($login === '' || $password === '') {
-        return [false, 'Veuillez entrer votre identifiant ou votre email ainsi que votre mot de passe.'];
+        return [false, rarsm_localized_text('Veuillez entrer votre identifiant ou votre email ainsi que votre mot de passe.', 'Please enter your username or email address and your password.')];
     }
 
     if (rarsm_auth_uses_database()) {
         $user = rarsm_db_find_user_by_login($login);
 
         if (!is_array($user) || !password_verify($password, (string) ($user['password_hash'] ?? ''))) {
-            return [false, 'Identifiants invalides. Creez un compte si vous n’etes pas encore inscrit.'];
+            return [false, rarsm_localized_text('Identifiants invalides. Créez un compte si vous n’êtes pas encore inscrit.', 'Invalid credentials. Create an account if you have not registered yet.')];
         }
 
         $_SESSION['rarsm_user'] = rarsm_normalize_user_record($user);
 
-        return [true, 'Connexion reussie.'];
+        return [true, rarsm_localized_text('Connexion réussie.', 'Login successful.')];
     }
 
     $users = rarsm_registered_users();
@@ -357,12 +357,12 @@ function rarsm_login_user(array $input): array
     }
 
     if (!is_array($user) || !password_verify($password, (string) ($user['password_hash'] ?? ''))) {
-        return [false, 'Identifiants invalides. Creez un compte si vous n’etes pas encore inscrit.'];
+        return [false, rarsm_localized_text('Identifiants invalides. Créez un compte si vous n’êtes pas encore inscrit.', 'Invalid credentials. Create an account if you have not registered yet.')];
     }
 
     $_SESSION['rarsm_user'] = $user;
 
-    return [true, 'Connexion reussie.'];
+    return [true, rarsm_localized_text('Connexion réussie.', 'Login successful.')];
 }
 
 function rarsm_logout_user(): void

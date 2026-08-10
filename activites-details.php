@@ -43,9 +43,14 @@ rarsm_render_page_title('Détail événement', [
                     <span class="activities-calendar-label">Événement sélectionné</span>
                     <div class="activities-detail-hero">
                         <div class="activities-detail-copy">
-                            <span class="activities-detail-pill <?php echo rarsm_e($category['class']); ?>">
+							<span class="activities-detail-pill <?php echo rarsm_e($category['class']); ?>" data-activity-category="<?php echo rarsm_e($selected['category']); ?>">
                                 <?php echo rarsm_e($category['label']); ?>
                             </span>
+                            <?php if (!empty($selected['status_label'])): ?>
+                                <span class="activities-verification-pill status-<?php echo rarsm_e($selected['verification_status'] ?? 'watch'); ?>">
+                                    <?php echo rarsm_e($selected['status_label']); ?>
+                                </span>
+                            <?php endif; ?>
                             <h2><?php echo rarsm_e($selected['title']); ?></h2>
                             <p class="activities-detail-lead"><?php echo rarsm_e($selected['summary']); ?></p>
                             <div class="activities-detail-meta-row">
@@ -56,29 +61,42 @@ rarsm_render_page_title('Détail événement', [
                             </div>
                         </div>
                         <div class="activities-detail-media">
-                            <img src="<?php echo rarsm_e($selected['image']); ?>" alt="<?php echo rarsm_e($selected['image_alt']); ?>">
+                            <figure>
+                                <img src="<?php echo rarsm_e($selected['image']); ?>" alt="<?php echo rarsm_e($selected['image_alt']); ?>">
+                                <?php if (!empty($selected['image_credit'])): ?>
+                                    <figcaption>
+                                        <?php if (!empty($selected['image_credit_url'])): ?>
+                                            <a href="<?php echo rarsm_e($selected['image_credit_url']); ?>" target="_blank" rel="noopener">
+                                                <?php echo rarsm_e($selected['image_credit']); ?>
+                                            </a>
+                                        <?php else: ?>
+                                            <?php echo rarsm_e($selected['image_credit']); ?>
+                                        <?php endif; ?>
+                                    </figcaption>
+                                <?php endif; ?>
+                            </figure>
                         </div>
                     </div>
 
-                    <div class="activities-detail-section">
+					<div class="activities-detail-section activities-detail-section--about">
                         <h4>À propos de cet événement</h4>
                         <p><?php echo rarsm_e($selected['description']); ?></p>
                     </div>
 
-                    <div class="activities-detail-section">
+					<div class="activities-detail-section activities-detail-section--organizer">
                         <h4>Organisateur ou cadre de référence</h4>
                         <p><?php echo rarsm_e($selected['institution_role']); ?></p>
                     </div>
 
                     <?php if (!empty($selected['recurrence_note'])): ?>
-                        <div class="activities-detail-section">
-                            <h4>Récurrence annuelle</h4>
+						<div class="activities-detail-section activities-detail-section--recurrence">
+                            <h4><?php echo ($selected['verification_status'] ?? 'confirmed') === 'confirmed' ? 'Récurrence annuelle' : 'Statut de récurrence'; ?></h4>
                             <p><?php echo rarsm_e($selected['recurrence_note']); ?></p>
                         </div>
                     <?php endif; ?>
 
                     <?php if (!empty($selected['reference'])): ?>
-                        <div class="activities-detail-section">
+						<div class="activities-detail-section activities-detail-section--source">
                             <h4>Source officielle</h4>
                             <p>
                                 <?php if (!empty($selected['reference_url'])): ?>
@@ -92,7 +110,7 @@ rarsm_render_page_title('Détail événement', [
                         </div>
                     <?php endif; ?>
 
-                    <div class="activities-detail-section">
+					<div class="activities-detail-section activities-detail-section--highlights">
                         <h4>Points clés</h4>
                         <ul class="activities-detail-agenda-list">
                             <?php foreach ($selected['highlights'] as $highlight): ?>
