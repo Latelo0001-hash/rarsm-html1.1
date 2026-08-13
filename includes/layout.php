@@ -294,7 +294,7 @@ function rarsm_page_head(string $title, string $description = '', string $bodyCl
     <link rel="icon" href="favicon.png?v=20260702-favicon" type="image/png">
     <link rel="shortcut icon" href="favicon.png?v=20260702-favicon" type="image/png">
     <link rel="apple-touch-icon" href="favicon.png?v=20260702-favicon">
-    <link rel="stylesheet" href="css/site.css?v=20260810-mobile-auth-v8">
+    <link rel="stylesheet" href="css/site.css?v=20260810-activities-auth-v10">
     <script src="js/vendor/modernizr-2.6.2.min.js"></script>
 </head>
 <body class="{$safeBodyClass}">
