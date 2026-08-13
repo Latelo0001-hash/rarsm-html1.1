@@ -36764,6 +36764,17 @@ body,
 	}
 }
 
+.sf-menu-item-mobile-toggler {
+	appearance: none;
+	background: transparent;
+	border: 0;
+	color: inherit;
+	cursor: pointer;
+	font: inherit;
+	margin: 0;
+	padding: 0;
+}
+
 @media (max-width: 767.98px) {
 	.page_title {
 		min-height: 236px;
@@ -41522,4 +41533,25 @@ xcerpt,
 	margin-left: auto;
 	margin-right: auto;
 }
+}
+
+/* Accessibilité clavier : restaure un focus visible malgré les resets du thème. */
+:where(a, button, input, select, textarea, summary, [tabindex]):focus-visible {
+	outline: 3px solid #fdcd67 !important;
+	outline-offset: 3px !important;
+}
+
+:where(input, select, textarea):focus-visible {
+	box-shadow: 0 0 0 4px rgba(48, 71, 165, 0.2) !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+	*,
+	*::before,
+	*::after {
+		scroll-behavior: auto !important;
+		transition-duration: 0.01ms !important;
+		animation-duration: 0.01ms !important;
+		animation-iteration-count: 1 !important;
+	}
 }

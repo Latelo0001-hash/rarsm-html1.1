@@ -195,12 +195,12 @@ function rarsm_render_auth_modals(): void
                                 <div class="row mb-4">
                                     <div class="col-sm-12">
                                         <div class="form-group">
-                                            <input type="text" name="login" class="form-control" required placeholder="Email ou identifiant" aria-required="true" autocomplete="username">
+                                            <input type="text" name="login" class="form-control" required placeholder="Email ou identifiant" aria-label="Email ou identifiant" aria-required="true" autocomplete="username">
                                         </div>
                                     </div>
                                     <div class="col-sm-12">
                                         <div class="form-group">
-                                            <input type="password" name="password" class="form-control" placeholder="Mot de passe" aria-required="true" required autocomplete="current-password">
+                                            <input type="password" name="password" class="form-control" placeholder="Mot de passe" aria-label="Mot de passe" aria-required="true" required autocomplete="current-password">
                                         </div>
                                     </div>
                                 </div>
@@ -233,22 +233,22 @@ function rarsm_render_auth_modals(): void
                                 <div class="row">
                                     <div class="col-12">
                                         <div class="form-group">
-                                            <input type="text" name="name" class="form-control" required placeholder="Nom ou identifiant" aria-required="true" autocomplete="nickname">
+                                            <input type="text" name="name" class="form-control" required placeholder="Nom ou identifiant" aria-label="Nom ou identifiant" aria-required="true" autocomplete="nickname">
                                         </div>
                                     </div>
                                     <div class="col-12">
                                         <div class="form-group">
-                                            <input type="email" name="email" class="form-control" required placeholder="Email" aria-required="true" autocomplete="email">
+                                            <input type="email" name="email" class="form-control" required placeholder="Email" aria-label="Email" aria-required="true" autocomplete="email">
                                         </div>
                                     </div>
                                     <div class="col-12">
                                         <div class="form-group">
-                                            <input type="password" name="password" class="form-control" placeholder="Mot de passe" aria-required="true" required autocomplete="new-password">
+                                            <input type="password" name="password" class="form-control" placeholder="Mot de passe" aria-label="Mot de passe" aria-required="true" required autocomplete="new-password">
                                         </div>
                                     </div>
                                     <div class="col-12">
                                         <div class="form-group">
-                                            <input type="password" name="password_confirm" class="form-control" placeholder="Confirmer le mot de passe" aria-required="true" required autocomplete="new-password">
+                                            <input type="password" name="password_confirm" class="form-control" placeholder="Confirmer le mot de passe" aria-label="Confirmer le mot de passe" aria-required="true" required autocomplete="new-password">
                                         </div>
                                     </div>
                                     <div class="col-12">
@@ -294,7 +294,7 @@ function rarsm_page_head(string $title, string $description = '', string $bodyCl
     <link rel="icon" href="favicon.png?v=20260702-favicon" type="image/png">
     <link rel="shortcut icon" href="favicon.png?v=20260702-favicon" type="image/png">
     <link rel="apple-touch-icon" href="favicon.png?v=20260702-favicon">
-    <link rel="stylesheet" href="css/site.css?v=20260813-rarsm-v21">
+    <link rel="stylesheet" href="css/site.css?v=20260813-accessibility-v22">
     <script src="js/vendor/modernizr-2.6.2.min.js"></script>
 </head>
 <body class="{$safeBodyClass}">
@@ -537,7 +537,7 @@ function rarsm_render_footer(): void
 </div>
 <script src="js/compressed.js"></script>
 <script src="js/rarsm-i18n.js?v=20260810-header-balance-v2"></script>
-<script src="js/rarsm-ui.js?v=20260810-header-balance-v2"></script>
+<script src="js/rarsm-ui.js?v=20260813-accessibility-v3"></script>
 </body>
 </html>
 HTML;

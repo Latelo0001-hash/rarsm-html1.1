@@ -1195,6 +1195,19 @@ window.initGoogleMap=initGoogleMap;
 
 //function that initiating template plugins on window.load event
 function documentReadyInit() {
+	// Give legacy modal fields an accessible name when their old markup only
+	// provides a placeholder. Explicit labels and aria attributes take priority.
+	$('input, textarea, select').each(function () {
+		var $field = $(this);
+		var fieldId = $field.attr('id');
+		var hasExplicitLabel = fieldId && $('label[for="' + fieldId + '"]').length;
+		var accessibleName = $field.attr('aria-label') || $field.attr('aria-labelledby');
+		var placeholder = $field.attr('placeholder');
+
+		if (!hasExplicitLabel && !accessibleName && placeholder) {
+			$field.attr('aria-label', placeholder);
+		}
+	});
 	////////////
 	//mainmenu//
 	////////////
@@ -1219,14 +1232,23 @@ function documentReadyInit() {
 			autoArrows:  true,
 			onInit: function () {
 				var $thisMenu = $(this);
-				$thisMenu.find('.sf-with-ul').after('<span class="sf-menu-item-mobile-toggler"/>');
-				$thisMenu.find('.sf-menu-item-mobile-toggler').on('click', function (e) {
+				$thisMenu.find('.sf-with-ul').each(function (index) {
+					var $link = $(this);
+					var submenuId = $link.siblings('ul').attr('id') || 'rarsm-submenu-' + index + '-' + Math.random().toString(36).slice(2, 8);
+					$link.siblings('ul').attr('id', submenuId);
+					$link.attr('aria-haspopup', 'true').attr('aria-expanded', 'false');
+					$link.after('<button class="sf-menu-item-mobile-toggler" type="button" aria-label="Ouvrir le sous-menu" aria-expanded="false" aria-controls="' + submenuId + '"></button>');
+				});
+				$thisMenu.find('.sf-menu-item-mobile-toggler').on('click', function () {
 					var $parentLi = $(this).parent();
 					if($parentLi.hasClass('sfHover')) {
 						$parentLi.superfish('hide');
 					} else {
 						$parentLi.superfish('show');
 					}
+					var isOpen = $parentLi.hasClass('sfHover');
+					$(this).attr('aria-expanded', String(isOpen)).attr('aria-label', isOpen ? 'Fermer le sous-menu' : 'Ouvrir le sous-menu');
+					$parentLi.children('.sf-with-ul').attr('aria-expanded', String(isOpen));
 				});
 			}
 
@@ -1246,8 +1268,25 @@ function documentReadyInit() {
 
 
 	//toggle mobile menu
+	$('.top-nav').attr('aria-label', 'Navigation principale');
+	$('.page_header .toggle_menu, .page_toplogo .toggle_menu').each(function (index) {
+		var $toggle = $(this);
+		var $menu = $toggle.closest('.page_header').find('.top-nav').first();
+		var menuId = $menu.attr('id') || 'rarsm-main-navigation-' + (index + 1);
+
+		$menu.attr('id', menuId);
+		$toggle.attr({
+			'role': 'button',
+			'tabindex': '0',
+			'aria-label': 'Ouvrir le menu principal',
+			'aria-controls': menuId,
+			'aria-expanded': 'false'
+		});
+	});
+
 	$('.page_header .toggle_menu, .page_toplogo .toggle_menu').on('click', function(){
-		$(this)
+		var $toggle = $(this);
+		$toggle
 			.toggleClass('mobile-active')
 			.closest('.page_header')
 			.toggleClass('mobile-active')
@@ -1256,6 +1295,8 @@ function documentReadyInit() {
 			.next()
 			.find('.page_header')
 			.toggleClass('mobile-active');
+		var isOpen = $toggle.hasClass('mobile-active');
+		$toggle.attr('aria-expanded', String(isOpen)).attr('aria-label', isOpen ? 'Fermer le menu principal' : 'Ouvrir le menu principal');
 	});
 
 	$('.page_header .toggle_menu, .page_toplogo .toggle_menu').on('keydown', function(event){
@@ -1460,6 +1501,16 @@ function documentReadyInit() {
 	initRarsmPageTitleHero();
 	$window.off('resize.rarsmPageTitleHero orientationchange.rarsmPageTitleHero').on('resize.rarsmPageTitleHero orientationchange.rarsmPageTitleHero', function () {
 		initRarsmPageTitleHero();
+	});
+
+	$(document).on('keydown', function (event) {
+		if (event.key !== 'Escape') {
+			return;
+		}
+
+		$('.toggle_menu.mobile-active').each(function () {
+			$(this).trigger('click').focus();
+		});
 	});
 
 	//parallax
