@@ -46,6 +46,30 @@ function rarsm_format_money(float $amount, string $currency = 'USD'): string
 	return $formattedAmount . "\u{00A0}" . ($currency === 'USD' ? '$' : $currency);
 }
 
+function rarsm_format_header_money(float $amount, string $currency = 'USD'): string
+{
+	$language = function_exists('rarsm_current_language') ? rarsm_current_language() : 'fr';
+	$currency = strtoupper(trim($currency)) ?: 'USD';
+	$absoluteAmount = abs($amount);
+
+	if ($absoluteAmount < 10000000) {
+		return rarsm_format_money($amount, $currency);
+	}
+
+	$divisor = $absoluteAmount >= 1000000000 ? 1000000000 : 1000000;
+	$unit = $divisor === 1000000000 ? ($language === 'en' ? 'B' : 'Md') : 'M';
+	$scaledAmount = $amount / $divisor;
+	$decimals = abs($scaledAmount - round($scaledAmount)) < 0.05 ? 0 : 1;
+	$decimalSeparator = $language === 'en' ? '.' : ',';
+	$formattedAmount = number_format($scaledAmount, $decimals, $decimalSeparator, '');
+
+	if ($language === 'en') {
+		return ($currency === 'USD' ? '$' : $currency . "\u{00A0}") . $formattedAmount . $unit;
+	}
+
+	return $formattedAmount . "\u{00A0}" . $unit . "\u{00A0}" . ($currency === 'USD' ? '$' : $currency);
+}
+
 function rarsm_normalize_relative_path(string $path, string $fallback = 'index.html'): string
 {
     $path = trim($path);
@@ -270,7 +294,7 @@ function rarsm_page_head(string $title, string $description = '', string $bodyCl
     <link rel="icon" href="favicon.png?v=20260702-favicon" type="image/png">
     <link rel="shortcut icon" href="favicon.png?v=20260702-favicon" type="image/png">
     <link rel="apple-touch-icon" href="favicon.png?v=20260702-favicon">
-    <link rel="stylesheet" href="css/site.css?v=20260807-nav-balance-v2">
+    <link rel="stylesheet" href="css/site.css?v=20260810-mobile-auth-v8">
     <script src="js/vendor/modernizr-2.6.2.min.js"></script>
 </head>
 <body class="{$safeBodyClass}">
@@ -292,9 +316,16 @@ function rarsm_render_header(string $active = 'acheter'): void
     $cartCount = (string) max(0, (int) $totals['item_count']);
     $cartHasItems = (int) $totals['item_count'] > 0;
     $cartStateClass = $cartHasItems ? ' has-items' : ' is-empty';
-    $cartTotal = $totals['contains_quote_only'] && $totals['payable_total'] <= 0
+    $isQuoteOnly = $totals['contains_quote_only'] && $totals['payable_total'] <= 0;
+    $cartTotal = $isQuoteOnly
         ? 'Devis'
         : rarsm_format_money((float) $totals['payable_total'], (string) $totals['currency']);
+    $cartHeaderTotal = $isQuoteOnly
+        ? 'Devis'
+        : rarsm_format_header_money((float) $totals['payable_total'], (string) $totals['currency']);
+    $cartTotalAttributes = $isQuoteOnly
+        ? ' title="' . rarsm_e($cartTotal) . '"'
+        : ' data-rarsm-cart-amount="' . rarsm_e((string) (float) $totals['payable_total']) . '" data-rarsm-cart-currency="' . rarsm_e((string) $totals['currency']) . '" title="' . rarsm_e($cartTotal) . '"';
 
     $navItems = [
         'index.html' => ['label' => 'Accueil', 'key' => 'accueil'],
@@ -341,7 +372,7 @@ function rarsm_render_header(string $active = 'acheter'): void
     echo '<button class="dropdown-toggle dropdown-shopping-cart' . $cartStateClass . '" id="dropdown-shopping-cart-mobile" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" aria-label="Ouvrir le panier" type="button">';
     echo '<i class="fa fa-shopping-basket" aria-hidden="true"></i>';
     echo '<span class="badge bg-maincolor">' . rarsm_e($cartCount) . '</span>';
-    echo '<span class="cart-total">' . rarsm_e($cartTotal) . '</span>';
+    echo '<span class="cart-total"' . $cartTotalAttributes . '>' . rarsm_e($cartHeaderTotal) . '</span>';
     echo '</button>';
     echo '<div class="dropdown-menu ls" aria-labelledby="dropdown-shopping-cart-mobile">';
     echo '<div class="widget woocommerce widget_shopping_cart">';
@@ -394,7 +425,7 @@ function rarsm_render_header(string $active = 'acheter'): void
     echo '<a class="dropdown-toggle dropdown-shopping-cart' . $cartStateClass . '" href="#" role="button" id="dropdown-shopping-cart" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" aria-label="Ouvrir le panier">';
     echo '<i class="fa fa-shopping-basket" aria-hidden="true"></i>';
     echo '<span class="badge bg-maincolor">' . rarsm_e($cartCount) . '</span>';
-    echo '<span class="cart-total">' . rarsm_e($cartTotal) . '</span>';
+    echo '<span class="cart-total"' . $cartTotalAttributes . '>' . rarsm_e($cartHeaderTotal) . '</span>';
     echo '</a>';
     echo '<div class="dropdown-menu dropdown-menu-right ls" aria-labelledby="dropdown-shopping-cart">';
     echo '<div class="widget woocommerce widget_shopping_cart">';
@@ -505,8 +536,8 @@ function rarsm_render_footer(): void
 </div>
 </div>
 <script src="js/compressed.js"></script>
-<script src="js/rarsm-i18n.js?v=20260807-money-locale-v1"></script>
-<script src="js/rarsm-ui.js?v=20260807-money-locale-v1"></script>
+<script src="js/rarsm-i18n.js?v=20260810-header-balance-v2"></script>
+<script src="js/rarsm-ui.js?v=20260810-header-balance-v2"></script>
 </body>
 </html>
 HTML;

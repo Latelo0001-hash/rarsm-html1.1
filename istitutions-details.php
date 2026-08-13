@@ -463,7 +463,7 @@ foreach ($institutions as $slug => $institution) {
 	<link rel="icon" href="favicon.png?v=20260702-favicon" type="image/png">
 	<link rel="shortcut icon" href="favicon.png?v=20260702-favicon" type="image/png">
 	<link rel="apple-touch-icon" href="favicon.png?v=20260702-favicon">
-	<link rel="stylesheet" href="css/site.css?v=20260806-cart-icon-state-v1">
+	<link rel="stylesheet" href="css/site.css?v=20260810-mobile-auth-v8">
 	<script src="js/vendor/modernizr-2.6.2.min.js"></script>
 </head>
 <body>
@@ -876,7 +876,7 @@ foreach ($institutions as $slug => $institution) {
 	</div>
 
 	<script src="js/compressed.js"></script>
-	<script src="js/rarsm-i18n.js?v=20260807-money-locale-v1"></script>
-	<script src="js/rarsm-ui.js?v=20260807-money-locale-v1"></script>
+	<script src="js/rarsm-i18n.js?v=20260810-header-balance-v2"></script>
+	<script src="js/rarsm-ui.js?v=20260810-header-balance-v2"></script>
 </body>
 </html>

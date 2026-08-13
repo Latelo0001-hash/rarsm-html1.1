@@ -1050,7 +1050,10 @@
 			{ selector: ".section-activities-calendar-block .activities-legend-item:eq(0)", html: "<span class='activities-legend-dot event-launch'></span>Major forum" },
 			{ selector: ".section-activities-calendar-block .activities-legend-item:eq(1)", html: "<span class='activities-legend-dot event-institution'></span>Investment" },
 			{ selector: ".section-activities-calendar-block .activities-legend-item:eq(2)", html: "<span class='activities-legend-dot event-signing'></span>Leadership" },
-			{ selector: ".section-activities-calendar-block .activities-legend-item:eq(3)", html: "<span class='activities-legend-dot event-media'></span>Development" }
+			{ selector: ".section-activities-calendar-block .activities-legend-item:eq(3)", html: "<span class='activities-legend-dot event-media'></span>Development" },
+			{ selector: ".activities-catalogue-header .activities-calendar-label", text: "Illustrated directory" },
+			{ selector: ".activities-catalogue-header h3", text: "All 19 listed activities" },
+			{ selector: ".activities-catalogue-header p", text: "Items marked as pending confirmation remain visible so their next edition can be tracked without presenting them as definitively annual." }
 		],
 		"contact.html": [
 			{ selector: ".page_title .small-title", text: "Contact" },
@@ -1631,6 +1634,40 @@
 		return formattedAmount + "\u00A0" + (normalizedCurrency === "USD" ? "$" : normalizedCurrency);
 	}
 
+	function formatHeaderMoney(amount, currency, language) {
+		var numericAmount = Number(amount);
+		var normalizedCurrency = String(currency || "USD").toUpperCase();
+		var normalizedLanguage = resolveLanguage(language || getLanguage());
+		var absoluteAmount = Math.abs(numericAmount);
+		var divisor;
+		var unit;
+		var scaledAmount;
+		var formattedAmount;
+
+		if (!isFinite(numericAmount) || absoluteAmount < 10000000) {
+			return formatMoney(numericAmount, normalizedCurrency, normalizedLanguage);
+		}
+
+		divisor = absoluteAmount >= 1000000000 ? 1000000000 : 1000000;
+		unit = divisor === 1000000000 ? (normalizedLanguage === "en" ? "B" : "Md") : "M";
+		scaledAmount = numericAmount / divisor;
+
+		try {
+			formattedAmount = scaledAmount.toLocaleString(normalizedLanguage === "en" ? "en-US" : "fr-FR", {
+				minimumFractionDigits: 0,
+				maximumFractionDigits: 1
+			});
+		} catch (error) {
+			formattedAmount = String(Math.round(scaledAmount * 10) / 10).replace(".", normalizedLanguage === "en" ? "." : ",");
+		}
+
+		if (normalizedLanguage === "en") {
+			return (normalizedCurrency === "USD" ? "$" : normalizedCurrency + "\u00A0") + formattedAmount + unit;
+		}
+
+		return formattedAmount + "\u00A0" + unit + "\u00A0" + (normalizedCurrency === "USD" ? "$" : normalizedCurrency);
+	}
+
 	function parseMoney(value) {
 		var source = String(value || "");
 		var currencyMatch = source.match(/\b[A-Z]{3}\b/);
@@ -1681,7 +1718,21 @@
 			return;
 		}
 
-		$(".cart-total, .woocommerce-Price-amount.amount, .rarsm-money, [data-cart-summary-subtotal], [data-cart-summary-payable], #formats .summary .price > span").each(function () {
+		$(".cart-total").each(function () {
+			var $element = $(this);
+			var storedAmount = $element.attr("data-rarsm-cart-amount");
+			var storedCurrency = $element.attr("data-rarsm-cart-currency") || "USD";
+			var money = storedAmount !== undefined && storedAmount !== ""
+				? { amount: Number(storedAmount), currency: storedCurrency }
+				: parseMoney($element.text());
+
+			if (money && isFinite(money.amount)) {
+				$element.text(formatHeaderMoney(money.amount, money.currency, language));
+				$element.attr("title", formatMoney(money.amount, money.currency, language));
+			}
+		});
+
+		$(".woocommerce-Price-amount.amount, .rarsm-money, [data-cart-summary-subtotal], [data-cart-summary-payable], #formats .summary .price > span").each(function () {
 			var $element = $(this);
 			var money = parseMoney($element.text());
 
