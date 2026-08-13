@@ -32493,6 +32493,24 @@ button.btn:hover {
 	width: min(100%, 480px);
 }
 
+.home-modern .page_slider .img-layer:has(img[src*="rarsm-book-home-hero-3d"]) {
+	background: transparent;
+	border: 0;
+	box-shadow: none;
+	margin-bottom: -80px;
+	overflow: visible;
+	padding: 0;
+	width: min(100%, 520px);
+}
+
+.home-modern .page_slider .img-layer:has(img[src*="rarsm-book-home-hero-3d"]) img {
+	display: block;
+	height: auto;
+	max-height: none;
+	width: 100%;
+	transform: none;
+}
+
 .home-modern .page_slider .intro_layers {
 	margin-left: 0;
 	max-width: 620px;
@@ -33295,6 +33313,15 @@ button.btn:hover {
 		width: min(100%, 280px);
 	}
 
+	.home-modern .page_slider .img-layer:has(img[src*="rarsm-book-home-hero-3d"]) {
+		margin-bottom: 0;
+		width: min(100%, 320px);
+	}
+
+	.home-modern .page_slider .img-layer:has(img[src*="rarsm-book-home-hero-3d"]) img {
+		transform: none;
+	}
+
 	.home-modern .page_slider .intro_layers {
 		max-width: 100%;
 		order: 2;
@@ -33425,6 +33452,15 @@ button.btn:hover {
 		margin-top: 0;
 		padding: 10px;
 		width: min(100%, 230px);
+	}
+
+	.home-modern .page_slider .img-layer:has(img[src*="rarsm-book-home-hero-3d"]) {
+		padding: 0;
+		width: min(100%, 230px);
+	}
+
+	.home-modern .page_slider .img-layer:has(img[src*="rarsm-book-home-hero-3d"]) img {
+		transform: none;
 	}
 
 	.home-modern #author > .container {
