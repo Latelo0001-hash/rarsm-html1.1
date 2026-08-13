@@ -23,17 +23,11 @@ if(empty($_POST)) { die(); }
 class ezTweet {
 	/*************************************** config ***************************************/
 
-	// Your Twitter App Consumer Key
-	private $consumer_key = 'RQy3QksELWmrUsokkLaFFlvxy';
-
-	// Your Twitter App Consumer Secret
-	private $consumer_secret = 'PkCmYaqHCAnaLMY1if9sftRFrssFbyF32R6fRRd5r4MKEHTGTq';
-
-	// Your Twitter App Access Token
-	private $user_token = '838847689563508737-otA2Kwm877TK6mHYvyvzfH3nomgYzxS';
-
-	// Your Twitter App Access Token Secret
-	private $user_secret = 'QXGo5L57De6ZQWvsGbHvAOKnQ1Hg3Tru4AOOI5BoFOxWK';
+	// Twitter/X credentials are loaded from the server environment.
+	private $consumer_key = '';
+	private $consumer_secret = '';
+	private $user_token = '';
+	private $user_secret = '';
 
 	// Path to tmhOAuth libraries
 	private $lib = './lib/';
@@ -53,6 +47,11 @@ class ezTweet {
 	/**************************************************************************************/
 
 	public function __construct() {
+		$this->consumer_key = (string) getenv('RARSM_TWITTER_CONSUMER_KEY');
+		$this->consumer_secret = (string) getenv('RARSM_TWITTER_CONSUMER_SECRET');
+		$this->user_token = (string) getenv('RARSM_TWITTER_ACCESS_TOKEN');
+		$this->user_secret = (string) getenv('RARSM_TWITTER_ACCESS_TOKEN_SECRET');
+
 		// Initialize paths and etc.
 		$this->pathify($this->cache_dir);
 		$this->pathify($this->lib);
@@ -67,12 +66,28 @@ class ezTweet {
 	}
 
 	public function fetch() {
+		if (!$this->hasCredentials()) {
+			http_response_code(503);
+			echo json_encode(array(
+				'response' => null,
+				'message' => 'Twitter integration is not configured.'
+			));
+			return;
+		}
+
 		echo json_encode(
 			array(
 				'response' => json_decode($this->getJSON(), true),
 				'message' => ($this->debug) ? $this->message : false
 			)
 		);
+	}
+
+	private function hasCredentials() {
+		return $this->consumer_key !== ''
+			&& $this->consumer_secret !== ''
+			&& $this->user_token !== ''
+			&& $this->user_secret !== '';
 	}
 
 	private function getJSON() {
@@ -147,7 +162,7 @@ class ezTweet {
 			'consumer_secret'       => $this->consumer_secret,
 			'user_token'            => $this->user_token,
 			'user_secret'           => $this->user_secret,
-			'curl_ssl_verifypeer'   => false
+			'curl_ssl_verifypeer'   => true
 		));
 
 		$url = $_POST['request']['url'];

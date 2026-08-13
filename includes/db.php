@@ -19,9 +19,9 @@ function rarsm_db(): ?PDO
         }
     }
 
-    $dsn = (string) (($config['db']['dsn'] ?? '') ?: getenv('RARSM_DB_DSN') ?: '');
-    $user = (string) (($config['db']['user'] ?? '') ?: getenv('RARSM_DB_USER') ?: '');
-    $password = (string) (($config['db']['password'] ?? '') ?: getenv('RARSM_DB_PASSWORD') ?: '');
+    $dsn = (string) (getenv('RARSM_DB_DSN') ?: ($config['db']['dsn'] ?? '') ?: '');
+    $user = (string) (getenv('RARSM_DB_USER') ?: ($config['db']['user'] ?? '') ?: '');
+    $password = (string) (getenv('RARSM_DB_PASSWORD') ?: ($config['db']['password'] ?? '') ?: '');
 
     if ($dsn === '') {
         $pdo = null;
