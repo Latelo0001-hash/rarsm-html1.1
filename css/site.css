@@ -36354,6 +36354,41 @@ body,
 	}
 }
 /* =========================================================
+   HERO DESKTOP - UNIVERS GEOLOGIQUE RARSM
+   ========================================================= */
+
+@media (min-width: 768px) {
+	.hero-desktop .flexslider .slides > li::before {
+		background:
+			radial-gradient(ellipse at 20% 56%, rgba(255, 250, 241, 0.22), transparent 27%),
+			radial-gradient(circle at 8% 10%, rgba(253, 205, 103, 0.17), transparent 29%),
+			radial-gradient(circle at 96% 74%, rgba(239, 59, 35, 0.17), transparent 31%),
+			linear-gradient(108deg, rgba(17, 25, 76, 0.84) 0%, rgba(28, 44, 122, 0.81) 43%, rgba(48, 71, 165, 0.72) 72%, rgba(32, 38, 94, 0.82) 100%);
+		z-index: 3;
+	}
+
+	.hero-desktop .flexslider .slides > li::after {
+		background:
+			radial-gradient(circle at 8% 20%, rgba(253, 205, 103, 0.72) 0 1.5px, transparent 2.5px),
+			radial-gradient(circle at 92% 18%, rgba(255, 255, 255, 0.50) 0 1px, transparent 2px),
+			radial-gradient(circle at 95% 76%, rgba(239, 59, 35, 0.48) 0 1.5px, transparent 2.5px),
+			repeating-radial-gradient(ellipse at 0% 48%, rgba(255, 255, 255, 0.08) 0 1px, transparent 1px 24px),
+			repeating-radial-gradient(ellipse at 100% 62%, rgba(253, 205, 103, 0.09) 0 1px, transparent 1px 29px),
+			linear-gradient(135deg, rgba(253, 205, 103, 0.07) 0 9%, transparent 9% 91%, rgba(239, 59, 35, 0.06) 91% 100%);
+		content: "";
+		inset: 0;
+		opacity: 0.66;
+		pointer-events: none;
+		position: absolute;
+		z-index: 4;
+	}
+
+	.hero-desktop .img-layer:has(img[src*="rarsm-book-home-hero-3d"]) img {
+		filter: drop-shadow(0 28px 30px rgba(3, 8, 34, 0.38));
+	}
+}
+
+/* =========================================================
    HERO MOBILE EDITORIAL - PRESENTATION DE L'OUVRAGE
    ========================================================= */
 
@@ -36375,6 +36410,15 @@ body,
 	}
 	50% {
 		transform: translateY(-8px) rotate(0.4deg);
+	}
+}
+
+@keyframes rarsm-contours-drift {
+	from {
+		background-position: -8px 0, 8px 4px;
+	}
+	to {
+		background-position: 8px 10px, -6px -4px;
 	}
 }
 
@@ -36417,13 +36461,29 @@ body,
 	}
 
 	.rarsm-mobile-hero-bg::before {
-		background-image: radial-gradient(rgba(255, 227, 154, 0.18) 0.8px, transparent 0.8px);
-		background-size: 15px 15px;
+		animation: rarsm-contours-drift 18s ease-in-out infinite alternate;
+		background-image:
+			repeating-radial-gradient(ellipse at 4% 38%, rgba(255, 255, 255, 0.11) 0 1px, transparent 1px 17px),
+			repeating-radial-gradient(ellipse at 105% 72%, rgba(253, 205, 103, 0.13) 0 1px, transparent 1px 21px);
 		content: "";
 		inset: 0;
-		-webkit-mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.7), transparent 75%);
-		mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.7), transparent 75%);
-		opacity: 0.18;
+		-webkit-mask-image: linear-gradient(to bottom, transparent 2%, #000 22%, #000 82%, transparent 100%);
+		mask-image: linear-gradient(to bottom, transparent 2%, #000 22%, #000 82%, transparent 100%);
+		opacity: 0.62;
+		position: absolute;
+	}
+
+	.rarsm-mobile-hero-bg::after {
+		background:
+			radial-gradient(circle at 13% 21%, rgba(253, 205, 103, 0.82) 0 1px, transparent 2px),
+			radial-gradient(circle at 88% 18%, rgba(255, 255, 255, 0.64) 0 1px, transparent 2px),
+			radial-gradient(circle at 7% 63%, rgba(255, 227, 154, 0.56) 0 1.5px, transparent 2.5px),
+			radial-gradient(circle at 92% 51%, rgba(239, 59, 35, 0.54) 0 1px, transparent 2px),
+			radial-gradient(circle at 18% 84%, rgba(255, 255, 255, 0.52) 0 1px, transparent 2px),
+			radial-gradient(circle at 82% 88%, rgba(253, 205, 103, 0.72) 0 1.5px, transparent 2.5px),
+			linear-gradient(90deg, rgba(7, 12, 48, 0.34), transparent 22%, transparent 78%, rgba(7, 12, 48, 0.34));
+		content: "";
+		inset: 0;
 		position: absolute;
 	}
 
@@ -36443,6 +36503,40 @@ body,
 		text-align: center;
 		width: 100%;
 		z-index: 2;
+	}
+
+	.rarsm-mobile-hero-content::before,
+	.rarsm-mobile-hero-content::after {
+		content: "";
+		pointer-events: none;
+		position: absolute;
+		z-index: 0;
+	}
+
+	.rarsm-mobile-hero-content::before {
+		background:
+			linear-gradient(138deg, rgba(253, 205, 103, 0.24), transparent 46%),
+			linear-gradient(318deg, rgba(255, 255, 255, 0.1), rgba(48, 71, 165, 0.16));
+		-webkit-clip-path: polygon(48% 0, 100% 24%, 82% 88%, 29% 100%, 0 45%);
+		clip-path: polygon(48% 0, 100% 24%, 82% 88%, 29% 100%, 0 45%);
+		height: 170px;
+		left: -112px;
+		top: 31%;
+		transform: rotate(18deg);
+		width: 158px;
+	}
+
+	.rarsm-mobile-hero-content::after {
+		background:
+			linear-gradient(145deg, rgba(239, 59, 35, 0.18), transparent 48%),
+			linear-gradient(325deg, rgba(253, 205, 103, 0.17), rgba(48, 71, 165, 0.13));
+		bottom: 9%;
+		-webkit-clip-path: polygon(44% 0, 100% 35%, 76% 100%, 18% 82%, 0 26%);
+		clip-path: polygon(44% 0, 100% 35%, 76% 100%, 18% 82%, 0 26%);
+		height: 150px;
+		right: -105px;
+		transform: rotate(-15deg);
+		width: 148px;
 	}
 
 	.rarsm-mobile-hero-copy {
@@ -36661,6 +36755,7 @@ body,
 }
 
 @media (prefers-reduced-motion: reduce) {
+	.rarsm-mobile-hero-bg::before,
 	.rarsm-mobile-hero-copy,
 	.rarsm-mobile-book-card,
 	.rarsm-mobile-actions,
