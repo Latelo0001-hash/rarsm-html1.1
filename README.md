@@ -97,6 +97,9 @@ n'est présent. Ne lancez donc pas une recompilation Sass globale sans avoir
 d'abord modernisé cette chaîne de construction : elle pourrait écraser les
 adaptations RARSM ajoutées directement à `css/site.css`.
 
+Les règles de maintenance et le plan de séparation progressive des styles sont
+documentés dans `css/README.md`.
+
 ## Contrôles rapides
 
 ```bash
