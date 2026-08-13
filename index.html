@@ -24,7 +24,6 @@
 <!--[if lt IE 9]>
 		<script src="js/vendor/html5shiv.min.js"></script>
 		<script src="js/vendor/respond.min.js"></script>
-		<script src="js/vendor/jquery-1.12.4.min.js"></script>
 	<![endif]-->
 </head>
 		<body class="home-modern">
@@ -817,18 +816,19 @@
 				<div class="col-lg-8">
 					<div class="divider-lg-0 divider-60"></div>
 						<div class="inner-wrap ls p-30 p-xl-70 border-r-def">
-							<form action="/" class="contact-form c-mb-50 c-gutter-50" method="post">
+							<form action="contact-form.php" class="contact-form c-mb-50 c-gutter-50" method="post">
+								<input aria-hidden="true" autocomplete="off" name="website" tabindex="-1" type="text" value="" style="position:absolute;left:-9999px">
 								<div class="row">
 									<div class="col-sm-6">
 										<div class="form-group has-placeholder">
 											<label for="name">Nom complet <span class="required">*</span></label>
-											<input aria-required="true" class="form-control" id="name" name="name" placeholder="Votre nom" size="30" type="text" value=""/>
+											<input aria-required="true" class="form-control" id="name" name="name" placeholder="Votre nom" required maxlength="120" size="30" type="text" value=""/>
 										</div>
 									</div>
 									<div class="col-sm-6">
 										<div class="form-group has-placeholder">
 											<label for="email">Adresse email<span class="required">*</span></label>
-											<input aria-required="true" class="form-control" id="email" name="email" placeholder="Votre email" size="30" type="email" value=""/>
+											<input aria-required="true" class="form-control" id="email" name="email" placeholder="Votre email" required maxlength="190" size="30" type="email" value=""/>
 										</div>
 									</div>
 								</div>
@@ -836,7 +836,7 @@
 									<div class="col-sm-12">
 										<div class="form-group has-placeholder">
 											<label for="subject">Objet<span class="required">*</span></label>
-											<input aria-required="true" class="form-control" id="subject" name="subject" placeholder="Objet de votre demande" size="30" type="text" value=""/>
+											<input aria-required="true" class="form-control" id="subject" name="subject" placeholder="Objet de votre demande" required maxlength="160" size="30" type="text" value=""/>
 										</div>
 									</div>
 								</div>
@@ -844,7 +844,7 @@
 									<div class="col-sm-12">
 										<div class="form-group has-placeholder">
 											<label for="message">Message</label>
-											<textarea aria-required="true" class="form-control" cols="45" id="message" name="message" placeholder="Votre message" rows="3"></textarea>
+											<textarea aria-required="true" class="form-control" cols="45" id="message" name="message" placeholder="Votre message" required minlength="10" maxlength="5000" rows="3"></textarea>
 										</div>
 									</div>
 								</div>

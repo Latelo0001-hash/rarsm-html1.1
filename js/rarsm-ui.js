@@ -1554,12 +1554,13 @@ function documentReadyInit() {
 
 		//sending form data to PHP server if fields are not empty
 		var request = $form.serialize();
+		$form.find('[type="submit"]').attr('disabled', true);
 		var ajax = jQuery.post( "contact-form.php", request )
 			.done(function( data ) {
-				$($form).find('[type="submit"]').attr('disabled', false).parent().append('<div class="contact-form-respond color-main mt-20">'+data+'</div>');
+				var hasErrors = $('<div>').html(data).find('.form-errors').length > 0;
+				$($form).find('[type="submit"]').attr('disabled', false).parent().append('<div class="contact-form-respond color-main mt-20" aria-live="polite">'+data+'</div>');
 				//cleaning form
-				var $formErrors = $form.find('.form-errors');
-				if ( !$formErrors.length ) {
+				if ( !hasErrors ) {
 					$form[0].reset();
 				}
 			})
