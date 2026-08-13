@@ -67,7 +67,7 @@ rarsm_render_page_title('Panier', [
                                             <button class="remove" name="remove_id" type="submit" value="<?php echo rarsm_e((string) $item['id']); ?>" aria-label="Retirer cet article">×</button>
                                         </td>
                                         <td class="product-thumbnail">
-                                            <img width="180" height="180" src="<?php echo rarsm_e((string) $item['image']); ?>" alt="<?php echo rarsm_e((string) $item['name']); ?>">
+                                            <img width="180" height="180" src="<?php echo rarsm_e((string) $item['image']); ?>" alt="<?php echo rarsm_e((string) $item['name']); ?>" loading="lazy" decoding="async">
                                         </td>
                                         <td class="product-name" data-title="Produit">
 											<strong class="rarsm-product-name"><?php echo rarsm_e((string) $item['name']); ?></strong>

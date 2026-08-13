@@ -721,7 +721,7 @@ foreach ($institutions as $slug => $institution) {
 								<div class="institution-detail-header">
 									<div class="institution-detail-logo<?php echo $selectedLogoPath === '' ? ' institution-detail-logo--initials' : ''; ?>">
 										<?php if ($selectedLogoPath !== ''): ?>
-											<img src="<?php echo rarsm_e($selectedLogoPath); ?>" alt="Logo <?php echo rarsm_e($selected['name']); ?>">
+											<img src="<?php echo rarsm_e($selectedLogoPath); ?>" alt="Logo <?php echo rarsm_e($selected['name']); ?>" loading="lazy" decoding="async">
 										<?php else: ?>
 											<?php echo rarsm_e($selectedLogoInitials); ?>
 										<?php endif; ?>
@@ -747,7 +747,7 @@ foreach ($institutions as $slug => $institution) {
 												<div class="institution-profile-media">
 													<?php if ($selectedLeaderPhoto !== ''): ?>
 														<span class="institution-profile-photo-frame" style="--institution-photo-position: <?php echo rarsm_e($selectedLeaderPhotoPosition); ?>; --institution-photo-scale: <?php echo rarsm_e(number_format($selectedLeaderPhotoScale, 2, '.', '')); ?>;">
-															<img class="institution-profile-photo" src="<?php echo rarsm_e($selectedLeaderPhoto); ?>" alt="<?php echo rarsm_e($selected['leader_name']); ?>">
+															<img class="institution-profile-photo" src="<?php echo rarsm_e($selectedLeaderPhoto); ?>" alt="<?php echo rarsm_e($selected['leader_name']); ?>" loading="lazy" decoding="async">
 														</span>
 													<?php else: ?>
 														<span class="institution-profile-placeholder"><?php echo rarsm_e(rarsm_initials(!empty($selected['leader_name']) ? $selected['leader_name'] : $selected['name'])); ?></span>
@@ -807,7 +807,7 @@ foreach ($institutions as $slug => $institution) {
 													<?php $suggestionLogoInitials = !empty($institution['logo_initials']) ? (string) $institution['logo_initials'] : rarsm_initials($institution['name']); ?>
 													<span class="institution-suggestion-logo<?php echo $suggestionLogoPath === '' ? ' institution-suggestion-logo--initials' : ''; ?>">
 														<?php if ($suggestionLogoPath !== ''): ?>
-															<img src="<?php echo rarsm_e($suggestionLogoPath); ?>" alt="Logo <?php echo rarsm_e($institution['name']); ?>">
+															<img src="<?php echo rarsm_e($suggestionLogoPath); ?>" alt="Logo <?php echo rarsm_e($institution['name']); ?>" loading="lazy" decoding="async">
 														<?php else: ?>
 															<?php echo rarsm_e($suggestionLogoInitials); ?>
 														<?php endif; ?>

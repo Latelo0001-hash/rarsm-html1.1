@@ -62,7 +62,7 @@ rarsm_render_page_title('Détail événement', [
                         </div>
                         <div class="activities-detail-media">
                             <figure>
-                                <img src="<?php echo rarsm_e($selected['image']); ?>" alt="<?php echo rarsm_e($selected['image_alt']); ?>">
+                                <img src="<?php echo rarsm_e($selected['image']); ?>" alt="<?php echo rarsm_e($selected['image_alt']); ?>" loading="lazy" decoding="async">
                                 <?php if (!empty($selected['image_credit'])): ?>
                                     <figcaption>
                                         <?php if (!empty($selected['image_credit_url'])): ?>

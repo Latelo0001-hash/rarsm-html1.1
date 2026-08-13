@@ -13,7 +13,7 @@ function rarsm_store_catalog(): array
             'currency' => 'USD',
             'quote_only' => false,
             'requires_shipping' => true,
-            'image' => 'images/rarsm-generated/book-cover/rarsm-cover-front-2d.png',
+            'image' => 'images/rarsm-generated/book-cover/rarsm-cover-front-2d.webp',
 			'short_description' => 'L’exemplaire physique du recueil pour les cabinets, les institutions et les bibliothèques.',
         ],
         'rarsm-digital' => [
@@ -25,7 +25,7 @@ function rarsm_store_catalog(): array
             'currency' => 'USD',
             'quote_only' => false,
             'requires_shipping' => false,
-            'image' => 'images/rarsm-generated/shop-products/rarsm-digital-official.png',
+            'image' => 'images/rarsm-generated/shop-products/rarsm-digital-official.webp',
 			'short_description' => 'Le format numérique pour une consultation rapide sur ordinateur, tablette ou smartphone.',
         ],
         'rarsm-institutional' => [
@@ -37,7 +37,7 @@ function rarsm_store_catalog(): array
             'currency' => 'USD',
             'quote_only' => true,
             'requires_shipping' => true,
-            'image' => 'images/rarsm-generated/shop-products/rarsm-institutional-official.png',
+            'image' => 'images/rarsm-generated/shop-products/rarsm-institutional-official.webp',
 			'short_description' => 'Une demande groupée avec devis, facture pro forma ou bon de commande.',
         ],
         'rarsm-tshirt' => [
@@ -49,7 +49,7 @@ function rarsm_store_catalog(): array
             'currency' => 'USD',
             'quote_only' => false,
             'requires_shipping' => true,
-            'image' => 'images/rarsm-generated/shop-products/rarsm-tshirt-logo.png',
+            'image' => 'images/rarsm-generated/shop-products/rarsm-tshirt-logo.webp',
 			'short_description' => 'Un t-shirt de présentation aux couleurs RARSM pour les conférences, les salons et les activités publiques.',
         ],
         'rarsm-cap' => [
@@ -61,7 +61,7 @@ function rarsm_store_catalog(): array
             'currency' => 'USD',
             'quote_only' => false,
             'requires_shipping' => true,
-            'image' => 'images/rarsm-generated/shop-products/rarsm-cap-logo.png',
+            'image' => 'images/rarsm-generated/shop-products/rarsm-cap-logo.webp',
 			'short_description' => 'Une casquette siglée RARSM pour les lecteurs, les équipes et les activités de terrain.',
         ],
         'rarsm-totebag' => [
@@ -73,7 +73,7 @@ function rarsm_store_catalog(): array
             'currency' => 'USD',
             'quote_only' => false,
             'requires_shipping' => true,
-            'image' => 'images/rarsm-generated/shop-products/rarsm-totebag-logo.png',
+            'image' => 'images/rarsm-generated/shop-products/rarsm-totebag-logo.webp',
             'short_description' => 'Un sac textile pratique pour transporter l’ouvrage, vos notes et vos documents de travail.',
         ],
         'rarsm-notebook' => [
@@ -85,7 +85,7 @@ function rarsm_store_catalog(): array
             'currency' => 'USD',
             'quote_only' => false,
             'requires_shipping' => true,
-            'image' => 'images/rarsm-generated/shop-products/rarsm-notebook-logo.png',
+            'image' => 'images/rarsm-generated/shop-products/rarsm-notebook-logo.webp',
 			'short_description' => 'Un carnet compact pour les réunions, les notes de terrain et les sessions de travail autour du secteur minier.',
         ],
         'rarsm-mug' => [
@@ -97,7 +97,7 @@ function rarsm_store_catalog(): array
             'currency' => 'USD',
             'quote_only' => false,
             'requires_shipping' => true,
-            'image' => 'images/rarsm-generated/shop-products/rarsm-mug-logo.png',
+            'image' => 'images/rarsm-generated/shop-products/rarsm-mug-logo.webp',
 			'short_description' => 'Une tasse en céramique RARSM pour le bureau, les réunions et les lectures de travail.',
         ],
         'rarsm-pen' => [
@@ -109,7 +109,7 @@ function rarsm_store_catalog(): array
             'currency' => 'USD',
             'quote_only' => false,
             'requires_shipping' => true,
-            'image' => 'images/rarsm-generated/shop-products/rarsm-pen-logo.png',
+            'image' => 'images/rarsm-generated/shop-products/rarsm-pen-logo.webp',
 			'short_description' => 'Un stylo RARSM pratique pour les signatures, les ateliers, les conférences et les prises de notes.',
         ],
     ];
@@ -735,7 +735,7 @@ function rarsm_store_fetch_order_items_from_db(int $orderId, string $currency): 
                 'id' => $localProductId ?? (string) ($row['sku'] ?? ''),
                 'sku' => (string) ($row['sku'] ?? ''),
                 'name' => (string) ($row['product_name'] ?? ''),
-                'image' => (string) ($catalogProduct['image'] ?? $row['cover_image'] ?? 'images/rarsm-generated/book-cover/rarsm-cover-front-2d.png'),
+                'image' => (string) ($catalogProduct['image'] ?? $row['cover_image'] ?? 'images/rarsm-generated/book-cover/rarsm-cover-front-2d.webp'),
                 'price' => (float) ($row['unit_price'] ?? 0),
                 'currency' => $currency,
                 'quantity' => (int) ($row['quantity'] ?? 0),
