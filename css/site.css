@@ -36764,6 +36764,66 @@ body,
 	}
 }
 
+/* Robustesse responsive : médias, libellés longs et interactions tactiles. */
+main,
+main section,
+main .container,
+main [class*="col-"] {
+	min-width: 0;
+}
+
+main img,
+main video,
+main iframe,
+main svg {
+	max-width: 100%;
+}
+
+.institutions-name-link,
+.product_meta,
+.woocommerce-loop-product__title,
+.rarsm-account-card,
+.rarsm-status-card {
+	overflow-wrap: anywhere;
+}
+
+.activities-calendar-scroller,
+.institutions-directory-nav,
+.table-responsive {
+	-webkit-overflow-scrolling: touch;
+	overscroll-behavior-inline: contain;
+}
+
+@media (max-width: 767.98px) {
+	input:not([type="checkbox"]):not([type="radio"]),
+	select,
+	textarea {
+		font-size: 16px !important;
+	}
+
+	.btn,
+	button,
+	input[type="button"],
+	input[type="submit"],
+	.accordion a[data-toggle="collapse"],
+	.card-header a[data-toggle="collapse"] {
+		min-height: 44px;
+	}
+
+	.accordion a[data-toggle="collapse"],
+	.card-header a[data-toggle="collapse"] {
+		align-items: center;
+		display: flex;
+	}
+
+	.page_footer .menu a {
+		align-items: center;
+		display: inline-flex;
+		min-height: 44px;
+		padding-block: 8px;
+	}
+}
+
 .sf-menu-item-mobile-toggler {
 	appearance: none;
 	background: transparent;
@@ -39458,7 +39518,8 @@ body,
 	}
 
 	.rarsm-shop-product .summary .entry-title {
-		font-size: clamp(1rem, 4vw, 1.35rem);
+		font-size: clamp(1.65rem, 7vw, 2.2rem);
+		line-height: 1.15;
 		margin-bottom: 14px;
 	}
 

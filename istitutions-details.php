@@ -463,7 +463,7 @@ foreach ($institutions as $slug => $institution) {
 	<link rel="icon" href="favicon.png?v=20260702-favicon" type="image/png">
 	<link rel="shortcut icon" href="favicon.png?v=20260702-favicon" type="image/png">
 	<link rel="apple-touch-icon" href="favicon.png?v=20260702-favicon">
-	<link rel="stylesheet" href="css/site.css?v=20260814-landmarks-v25">
+	<link rel="stylesheet" href="css/site.css?v=20260814-responsive-v26">
 	<script src="js/vendor/modernizr-2.6.2.min.js"></script>
 </head>
 <body>
