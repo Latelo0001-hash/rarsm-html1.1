@@ -40590,7 +40590,7 @@ body,
 	text-transform: uppercase;
 }
 
-.institutions-floating-card h4 {
+.institutions-floating-card h3 {
 	font-size: 1.05rem;
 	line-height: 1.3;
 	margin-bottom: 8px;
@@ -40765,7 +40765,7 @@ body,
 	padding: 24px 22px;
 }
 
-.institutions-service-card h4 {
+.institutions-service-card h3 {
 	align-items: center;
 	color: #142047;
 	display: flex;
@@ -40775,7 +40775,7 @@ body,
 	margin-bottom: 0;
 }
 
-.institutions-service-card h4::before {
+.institutions-service-card h3::before {
 	background: linear-gradient(180deg, #ffffff 0%, #eef3ff 100%);
 	border: 1px dashed #cfd8ee;
 	border-radius: 12px;
@@ -40788,14 +40788,14 @@ body,
 	background-size: contain;
 }
 
-.institutions-service-card[class*="institution-card-logo-"] h4::before {
+.institutions-service-card[class*="institution-card-logo-"] h3::before {
 	background-color: #ffffff;
 	border-color: #d9e2f2;
 	border-style: solid;
 	box-shadow: 0 10px 20px rgba(20, 32, 71, 0.08);
 }
 
-.institutions-service-card.institution-card-initials h4::before {
+.institutions-service-card.institution-card-initials h3::before {
 	align-items: center;
 	background: linear-gradient(135deg, #253691 0%, #4058c8 58%, #fc5230 100%);
 	border: 0;
@@ -40812,105 +40812,105 @@ body,
 	text-transform: uppercase;
 }
 
-.institution-card-logo-ctcpm h4::before {
+.institution-card-logo-ctcpm h3::before {
 	background-image: url("../images/institutions/ctcpm.png");
 }
 
-.institution-card-logo-igm h4::before {
+.institution-card-logo-igm h3::before {
 	background-image: url("../images/institutions/igm.png");
 }
 
-.institution-card-logo-fomin h4::before {
+.institution-card-logo-fomin h3::before {
 	background-image: url("../images/institutions/fomin.png");
 }
 
-.institution-card-logo-ceec h4::before {
+.institution-card-logo-ceec h3::before {
 	background-image: url("../images/institutions/ceec.png");
 }
 
-.institution-card-logo-sgnc h4::before {
+.institution-card-logo-sgnc h3::before {
 	background-image: url("../images/institutions/sgnc.png");
 }
 
-.institution-card-logo-cami h4::before {
+.institution-card-logo-cami h3::before {
 	background-image: url("../images/institutions/cami.png");
 }
 
-.institution-card-logo-saemape h4::before {
+.institution-card-logo-saemape h3::before {
 	background-image: url("../images/institutions/saemape.png");
 }
 
-.institution-card-logo-arecoms h4::before {
+.institution-card-logo-arecoms h3::before {
 	background-image: url("../images/institutions/arecoms.png");
 }
 
-.institution-card-logo-ministere-finances h4::before {
+.institution-card-logo-ministere-finances h3::before {
 	background-image: url("../images/institutions/ministere-finances.png");
 }
 
-.institution-card-logo-dgi h4::before {
+.institution-card-logo-dgi h3::before {
 	background-image: url("../images/institutions/dgi.png");
 }
 
-.institution-card-logo-dgda h4::before {
+.institution-card-logo-dgda h3::before {
 	background-image: url("../images/institutions/dgda.png");
 }
 
-.institution-card-logo-dgrad h4::before {
+.institution-card-logo-dgrad h3::before {
 	background-image: url("../images/institutions/dgrad.jpg");
 }
 
-.institution-card-logo-ministere-transports h4::before {
+.institution-card-logo-ministere-transports h3::before {
 	background-image: url("../images/institutions/ministere-transports.jpg");
 }
 
-.institution-card-logo-ogefrem h4::before {
+.institution-card-logo-ogefrem h3::before {
 	background-image: url("../images/institutions/ogefrem.png");
 }
 
-.institution-card-logo-lmc h4::before {
+.institution-card-logo-lmc h3::before {
 	background-image: url("../images/institutions/lmc.png");
 }
 
-.institution-card-logo-ministere-recherche h4::before {
+.institution-card-logo-ministere-recherche h3::before {
 	background-image: url("../images/institutions/ministere-recherche.png");
 }
 
-.institution-card-logo-cnpri h4::before {
+.institution-card-logo-cnpri h3::before {
 	background-image: url("../images/institutions/cnpri.jpg");
 }
 
-.institution-card-logo-cgea h4::before {
+.institution-card-logo-cgea h3::before {
 	background-image: url("../images/institutions/cgea.png");
 }
 
-.institution-card-logo-crgm h4::before {
+.institution-card-logo-crgm h3::before {
 	background-image: url("../images/institutions/crgm.png");
 }
 
-.institution-card-logo-ministere-commerce-exterieur h4::before {
+.institution-card-logo-ministere-commerce-exterieur h3::before {
 	background-image: url("../images/institutions/ministere-commerce-exterieur.png");
 }
 
-.institution-card-logo-occ h4::before {
+.institution-card-logo-occ h3::before {
 	background-image: url("../images/institutions/occ.jpg");
 	background-position: center top;
 	background-size: auto 145%;
 }
 
-.institution-card-logo-ministere-environnement h4::before {
+.institution-card-logo-ministere-environnement h3::before {
 	background-image: url("../images/institutions/ministere-environnement.png");
 }
 
-.institution-card-logo-ace h4::before {
+.institution-card-logo-ace h3::before {
 	background-image: url("https://acedrc.org/images/ACErdc.png");
 }
 
-.institution-card-logo-egc h4::before {
+.institution-card-logo-egc h3::before {
 	background-image: url("../images/institutions/egc.png");
 }
 
-.institution-card-logo-itie-rdc h4::before {
+.institution-card-logo-itie-rdc h3::before {
 	background-image: url("../images/institutions/itie-rdc.png");
 }
 
@@ -41071,11 +41071,11 @@ body,
 		padding: 22px 18px;
 	}
 
-	.institutions-service-card h4 {
+	.institutions-service-card h3 {
 		gap: 10px;
 	}
 
-	.institutions-service-card h4::before {
+	.institutions-service-card h3::before {
 		border-radius: 10px;
 		flex-basis: 54px;
 		height: 44px;

@@ -463,10 +463,11 @@ foreach ($institutions as $slug => $institution) {
 	<link rel="icon" href="favicon.png?v=20260702-favicon" type="image/png">
 	<link rel="shortcut icon" href="favicon.png?v=20260702-favicon" type="image/png">
 	<link rel="apple-touch-icon" href="favicon.png?v=20260702-favicon">
-	<link rel="stylesheet" href="css/site.css?v=20260814-landmarks-v24">
+	<link rel="stylesheet" href="css/site.css?v=20260814-landmarks-v25">
 	<script src="js/vendor/modernizr-2.6.2.min.js"></script>
 </head>
 <body>
+	<a class="rarsm-skip-link" href="#main-content">Aller au contenu principal</a>
 	<div class="preloader">
 		<div class="preloader_image pulse"></div>
 	</div>
@@ -692,6 +693,7 @@ foreach ($institutions as $slug => $institution) {
 				</div>
 				<span class="toggle_menu" aria-label="Ouvrir le menu mobile" role="button" tabindex="0"><span></span></span>
 			</header>
+			<main id="main-content" tabindex="-1">
 
 			<section class="page_title ds s-parallax s-py-110" style="background: linear-gradient(135deg, rgba(7, 17, 63, 0.74) 0%, rgba(13, 30, 92, 0.64) 42%, rgba(32, 42, 82, 0.58) 58%, rgba(239, 59, 35, 0.30) 100%), url('images/rarsm-generated/page-title-rarsm-hero.png') no-repeat center/cover;">
 				<div class="container">
@@ -838,6 +840,7 @@ foreach ($institutions as $slug => $institution) {
 				</div>
 			</section>
 
+			</main>
 			<footer class="page_footer ds s-py-85 s-py-xl-155">
 				<div class="container">
 					<div class="row">
