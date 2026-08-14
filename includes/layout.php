@@ -294,10 +294,11 @@ function rarsm_page_head(string $title, string $description = '', string $bodyCl
     <link rel="icon" href="favicon.png?v=20260702-favicon" type="image/png">
     <link rel="shortcut icon" href="favicon.png?v=20260702-favicon" type="image/png">
     <link rel="apple-touch-icon" href="favicon.png?v=20260702-favicon">
-    <link rel="stylesheet" href="css/site.css?v=20260813-headings-v23">
+    <link rel="stylesheet" href="css/site.css?v=20260814-landmarks-v24">
     <script src="js/vendor/modernizr-2.6.2.min.js"></script>
 </head>
 <body class="{$safeBodyClass}">
+<a class="rarsm-skip-link" href="#main-content">Aller au contenu principal</a>
 <div class="preloader"><div class="preloader_image pulse"></div></div>
 HTML;
 
@@ -455,6 +456,7 @@ function rarsm_render_header(string $active = 'acheter'): void
     echo '</div></div></div></div>';
     echo '<span class="toggle_menu"><span></span></span>';
     echo '</header>';
+    echo '<main id="main-content" tabindex="-1">';
 }
 
 function rarsm_render_page_title(string $title, array $crumbs): void
@@ -500,6 +502,7 @@ function rarsm_render_footer(): void
     $year = date('Y');
 
     echo <<<HTML
+</main>
 <footer class="page_footer ds s-py-85 s-py-xl-155">
     <div class="container">
         <div class="row">

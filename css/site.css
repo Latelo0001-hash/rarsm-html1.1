@@ -41528,14 +41528,33 @@ body,
 	}
 }
 
-xcerpt,
-	.author-intro-section .author-hero-copy .special-heading {
-	margin-left: auto;
-	margin-right: auto;
-}
+/* Accessibilité clavier : restaure un focus visible malgré les resets du thème. */
+.rarsm-skip-link {
+	background: #fff;
+	border: 2px solid var(--rarsm-yellow);
+	border-radius: 0 0 10px 10px;
+	box-shadow: 0 8px 24px rgba(7, 17, 63, 0.22);
+	color: var(--rarsm-blue-deep) !important;
+	font-weight: 700;
+	left: 16px;
+	padding: 12px 18px;
+	position: fixed;
+	top: 0;
+	transform: translateY(-130%);
+	transition: transform 0.2s ease;
+	z-index: 10002;
 }
 
-/* Accessibilité clavier : restaure un focus visible malgré les resets du thème. */
+.rarsm-skip-link:focus,
+.rarsm-skip-link:focus-visible {
+	outline-offset: 3px;
+	transform: translateY(0);
+}
+
+#main-content:focus {
+	outline: none;
+}
+
 :where(a, button, input, select, textarea, summary, [tabindex]):focus-visible {
 	outline: 3px solid #fdcd67 !important;
 	outline-offset: 3px !important;
