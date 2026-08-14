@@ -294,7 +294,8 @@ function rarsm_page_head(string $title, string $description = '', string $bodyCl
     <link rel="icon" href="favicon.png?v=20260702-favicon" type="image/png">
     <link rel="shortcut icon" href="favicon.png?v=20260702-favicon" type="image/png">
     <link rel="apple-touch-icon" href="favicon.png?v=20260702-favicon">
-    <link rel="stylesheet" href="css/site.css?v=20260814-responsive-v26">
+    <link rel="stylesheet" href="css/site.css?v=20260814-theme-v1">
+    <link rel="stylesheet" href="css/rarsm.css?v=20260814-rarsm-v2">
     <script>document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/, "js");</script>
 </head>
 <body class="{$safeBodyClass}">
