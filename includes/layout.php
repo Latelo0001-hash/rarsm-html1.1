@@ -177,6 +177,7 @@ function rarsm_auth_redirect_target(?string $requestPath = null): string
 function rarsm_render_auth_modals(): void
 {
     $redirect = rarsm_e(rarsm_auth_redirect_target());
+    $csrfField = rarsm_csrf_field();
 
     echo <<<HTML
 <div class="modal fade popupLogin" id="popupLogin" tabindex="-1" role="dialog" aria-hidden="true">
@@ -191,6 +192,7 @@ function rarsm_render_auth_modals(): void
                         <div class="col-12">
                             <h4 class="mb-4">Se connecter</h4>
                             <form class="form-registration c-mb-40 c-gutter-20" method="post" action="actions/login.php">
+                                {$csrfField}
                                 <input type="hidden" name="redirect" value="{$redirect}">
                                 <div class="row mb-4">
                                     <div class="col-sm-12">
@@ -229,6 +231,7 @@ function rarsm_render_auth_modals(): void
                         <div class="col-12">
                             <h4 class="mb-4">Inscription</h4>
                             <form class="form-registration c-mb-40 c-gutter-40" method="post" action="actions/register.php">
+                                {$csrfField}
                                 <input type="hidden" name="redirect" value="{$redirect}">
                                 <div class="row">
                                     <div class="col-12">
@@ -243,12 +246,12 @@ function rarsm_render_auth_modals(): void
                                     </div>
                                     <div class="col-12">
                                         <div class="form-group">
-                                            <input type="password" name="password" class="form-control" placeholder="Mot de passe" aria-label="Mot de passe" aria-required="true" required autocomplete="new-password">
+                                            <input type="password" name="password" class="form-control" placeholder="Mot de passe (10 caractères minimum)" aria-label="Mot de passe" aria-required="true" minlength="10" required autocomplete="new-password">
                                         </div>
                                     </div>
                                     <div class="col-12">
                                         <div class="form-group">
-                                            <input type="password" name="password_confirm" class="form-control" placeholder="Confirmer le mot de passe" aria-label="Confirmer le mot de passe" aria-required="true" required autocomplete="new-password">
+                                            <input type="password" name="password_confirm" class="form-control" placeholder="Confirmer le mot de passe" aria-label="Confirmer le mot de passe" aria-required="true" minlength="10" required autocomplete="new-password">
                                         </div>
                                     </div>
                                     <div class="col-12">
@@ -294,8 +297,9 @@ function rarsm_page_head(string $title, string $description = '', string $bodyCl
     <link rel="icon" href="favicon.png?v=20260702-favicon" type="image/png">
     <link rel="shortcut icon" href="favicon.png?v=20260702-favicon" type="image/png">
     <link rel="apple-touch-icon" href="favicon.png?v=20260702-favicon">
-    <link rel="stylesheet" href="css/site.css?v=20260814-responsive-v26">
-    <script src="js/vendor/modernizr-2.6.2.min.js"></script>
+    <link rel="stylesheet" href="css/site.css?v=20260814-theme-v1">
+    <link rel="stylesheet" href="css/rarsm.css?v=20260814-security-v3">
+    <script>document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/, "js");</script>
 </head>
 <body class="{$safeBodyClass}">
 <a class="rarsm-skip-link" href="#main-content">Aller au contenu principal</a>
@@ -313,6 +317,7 @@ HTML;
 function rarsm_render_header(string $active = 'acheter'): void
 {
     $user = rarsm_current_user();
+    $csrfToken = rarsm_e(rarsm_csrf_token());
     $totals = rarsm_cart_totals();
     $cartCount = (string) max(0, (int) $totals['item_count']);
     $cartHasItems = (int) $totals['item_count'] > 0;
@@ -363,7 +368,7 @@ function rarsm_render_header(string $active = 'acheter'): void
         echo '</button>';
         echo '<div class="rarsm-user-menu-panel rarsm-user-menu-panel-mobile" hidden>';
         echo '<a class="rarsm-user-menu-action" href="shop-account-orders.php"><span class="rarsm-user-menu-action-icon"><i class="fa fa-user-o" aria-hidden="true"></i></span><span>Compte</span></a>';
-        echo '<a class="rarsm-user-menu-action rarsm-user-menu-action-danger" href="logout.php"><span class="rarsm-user-menu-action-icon"><i class="fa fa-sign-out" aria-hidden="true"></i></span><span>Se déconnecter</span></a>';
+        echo '<form action="logout.php" method="post"><input type="hidden" name="_csrf" value="' . $csrfToken . '"><button class="rarsm-user-menu-action rarsm-user-menu-action-danger" type="submit"><span class="rarsm-user-menu-action-icon"><i class="fa fa-sign-out" aria-hidden="true"></i></span><span>Se déconnecter</span></button></form>';
         echo '</div>';
         echo '</div>';
         echo '</li>';
@@ -417,7 +422,7 @@ function rarsm_render_header(string $active = 'acheter'): void
         echo '</button>';
         echo '<div class="rarsm-user-menu-panel" hidden>';
         echo '<a class="rarsm-user-menu-action" href="shop-account-orders.php"><span class="rarsm-user-menu-action-icon"><i class="fa fa-user-o" aria-hidden="true"></i></span><span>Compte</span></a>';
-        echo '<a class="rarsm-user-menu-action rarsm-user-menu-action-danger" href="logout.php"><span class="rarsm-user-menu-action-icon"><i class="fa fa-sign-out" aria-hidden="true"></i></span><span>Se déconnecter</span></a>';
+        echo '<form action="logout.php" method="post"><input type="hidden" name="_csrf" value="' . $csrfToken . '"><button class="rarsm-user-menu-action rarsm-user-menu-action-danger" type="submit"><span class="rarsm-user-menu-action-icon"><i class="fa fa-sign-out" aria-hidden="true"></i></span><span>Se déconnecter</span></button></form>';
         echo '</div>';
         echo '</div>';
     }
@@ -538,9 +543,9 @@ function rarsm_render_footer(): void
 </section>
 </div>
 </div>
-<script src="js/compressed.js"></script>
-<script src="js/rarsm-i18n.js?v=20260810-header-balance-v2"></script>
-<script src="js/rarsm-ui.js?v=20260813-accessibility-v3"></script>
+<script defer src="js/compressed.js?v=20260814-vendor-v1"></script>
+<script defer src="js/rarsm-i18n.js?v=20260810-header-balance-v2"></script>
+<script defer src="js/rarsm-ui.js?v=20260814-security-v5"></script>
 </body>
 </html>
 HTML;

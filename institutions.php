@@ -1,11 +1,9 @@
 <?php
-require_once __DIR__ . '/includes/i18n.php';
+declare(strict_types=1);
 
-if (isset($_GET['debug']) && $_GET['debug'] === '1') {
-	ini_set('display_errors', '1');
-	ini_set('display_startup_errors', '1');
-	error_reporting(E_ALL);
-}
+require_once __DIR__ . '/includes/security.php';
+require_once __DIR__ . '/includes/i18n.php';
+rarsm_apply_security_headers();
 
 $sourceFile = __DIR__ . '/institutions.html';
 $isEnglish = rarsm_current_language() === 'en';
@@ -60,9 +58,6 @@ if (is_file($sourceFile)) {
 		<p><?php echo $isEnglish
 			? 'Also upload <code>institutions.html</code> and the <code>css</code>, <code>js</code>, <code>images</code> and <code>logo</code> folders.'
 			: 'Téléversez également <code>institutions.html</code>, ainsi que les dossiers <code>css</code>, <code>js</code>, <code>images</code> et <code>logo</code>.'; ?></p>
-		<p><?php echo $isEnglish
-			? 'To display PHP errors if necessary, open this URL with <code>?debug=1</code>.'
-			: 'Pour afficher les erreurs PHP si nécessaire, ouvrez cette URL avec <code>?debug=1</code>.'; ?></p>
 	</div>
 </body>
 </html>

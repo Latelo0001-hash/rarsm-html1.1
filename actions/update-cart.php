@@ -2,6 +2,8 @@
 declare(strict_types=1);
 
 require_once __DIR__ . '/../includes/bootstrap.php';
+rarsm_require_same_origin_post();
+rarsm_require_csrf_token();
 
 $removeId = trim((string) ($_POST['remove_id'] ?? ''));
 if ($removeId !== '') {

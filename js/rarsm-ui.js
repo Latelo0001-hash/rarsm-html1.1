@@ -418,9 +418,43 @@ function initRarsmSessionState() {
 		});
 	}
 
+	function injectCsrfTokens(token) {
+		if (!token) {
+			return;
+		}
+
+		$('form[method="post"], form[method="POST"]').each(function () {
+			var $form = $(this);
+			var action = String($form.attr('action') || window.location.href);
+			var actionUrl;
+
+			try {
+				actionUrl = new URL(action, window.location.href);
+			} catch (error) {
+				return;
+			}
+
+			if (actionUrl.origin !== window.location.origin) {
+				return;
+			}
+
+			var $field = $form.find('input[name="_csrf"]').first();
+			if ($field.length) {
+				$field.val(token);
+			} else {
+				$form.prepend($('<input/>', {
+					type: 'hidden',
+					name: '_csrf',
+					value: token
+				}));
+			}
+		});
+	}
+
 	function removeMiniCartItem(itemId) {
 		var payload = new URLSearchParams();
 		payload.append('remove_id', itemId);
+		payload.append('_csrf', String((latestSessionData && latestSessionData.csrf_token) || ''));
 
 		return fetch(baseUrl + '/actions/update-cart.php', {
 			method: 'POST',
@@ -484,10 +518,19 @@ function initRarsmSessionState() {
 			'class': 'rarsm-user-menu-action',
 			href: accountHref
 		});
-		var $logoutLink = $('<a/>', {
-			'class': 'rarsm-user-menu-action rarsm-user-menu-action-danger',
-			href: logoutHref
+		var $logoutForm = $('<form/>', {
+			action: logoutHref,
+			method: 'post'
 		});
+		var $logoutButton = $('<button/>', {
+			'class': 'rarsm-user-menu-action rarsm-user-menu-action-danger',
+			type: 'submit'
+		});
+		$logoutForm.append($('<input/>', {
+			type: 'hidden',
+			name: '_csrf',
+			value: String((latestSessionData && latestSessionData.csrf_token) || '')
+		}));
 
 		$toggle.append(parts[0], parts[1], $('<i/>', {
 			'class': 'fa fa-angle-down rarsm-session-caret',
@@ -506,7 +549,7 @@ function initRarsmSessionState() {
 			})
 		);
 
-		$logoutLink.append(
+		$logoutButton.append(
 			$('<span/>', {
 				'class': 'rarsm-user-menu-action-icon'
 			}).append($('<i/>', {
@@ -518,7 +561,8 @@ function initRarsmSessionState() {
 			})
 		);
 
-		$menu.append($accountLink, $logoutLink);
+		$logoutForm.append($logoutButton);
+		$menu.append($accountLink, $logoutForm);
 
 		return $wrapper.append($toggle, $menu);
 	}
@@ -533,6 +577,7 @@ function initRarsmSessionState() {
 		var isAuthenticated = !!(data.authenticated && data.user);
 
 		applyCartState(data.cart || {});
+		injectCsrfTokens(data.csrf_token || '');
 		$body.toggleClass('rarsm-session-authenticated', isAuthenticated);
 
 		$('.menu-session-item.rarsm-session-item--client, .rarsm-user-menu--client').remove();
@@ -1662,35 +1707,6 @@ function documentReadyInit() {
 
 			})
 	});
-
-	//MailChimp subscribe form processing
-	$('.signup').on('submit', function( e ) {
-		e.preventDefault();
-		var $form = $(this);
-		// update user interface
-		$form.find('.response').html('Adding email address...');
-		// Prepare query string and send AJAX request
-		jQuery.ajax({
-			url: 'mailchimp/store-address.php',
-			data: 'ajax=true&email=' + escape($form.find('.mailchimp_email').val()),
-			success: function(msg) {
-				$form.find('.response').html(msg);
-			}
-		});
-	});
-
-	//twitter
-	if ($().tweet) {
-		$('.twitter').tweet({
-			modpath: "./twitter/",
-			count: 2,
-			avatar_size: 48,
-			loading_text: 'loading twitter feed...',
-			join_text: 'auto',
-			username: 'michaeljackson',
-			template: "{avatar}<div class=\"tweet_right\">{join}<span class=\"tweet_text links-maincolor\">{tweet_text}</span>{time}</div>"
-		});
-	}
 
 	// init timetable
 	var $timetable = $('#timetable');

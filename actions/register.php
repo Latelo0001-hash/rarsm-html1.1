@@ -2,16 +2,14 @@
 declare(strict_types=1);
 
 require_once __DIR__ . '/../includes/bootstrap.php';
+rarsm_require_same_origin_post();
+rarsm_require_csrf_token();
 
 $redirect = rarsm_resolve_redirect_target(
     (string) ($_POST['redirect'] ?? ''),
     (string) ($_SERVER['HTTP_REFERER'] ?? ''),
     'shop-cart.php'
 );
-
-if (strtoupper((string) ($_SERVER['REQUEST_METHOD'] ?? 'GET')) !== 'POST') {
-    rarsm_redirect('../' . ltrim($redirect, '/'));
-}
 
 [$success, $message] = rarsm_register_user($_POST);
 

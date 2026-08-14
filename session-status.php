@@ -15,6 +15,7 @@ $cartDisplayTotal = ($cartTotals['contains_quote_only'] ?? false) && (float) ($c
     : rarsm_format_money((float) ($cartTotals['payable_total'] ?? 0), (string) ($cartTotals['currency'] ?? 'USD'));
 
 $response = [
+    'csrf_token' => rarsm_csrf_token(),
     'authenticated' => $user !== null,
     'user' => null,
     'cart' => [

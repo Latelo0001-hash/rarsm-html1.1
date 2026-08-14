@@ -2,9 +2,10 @@
 declare(strict_types=1);
 
 require_once __DIR__ . '/../includes/bootstrap.php';
+rarsm_require_same_origin_post();
 
-$productId = trim((string) ($_POST['product_id'] ?? $_GET['product_id'] ?? ''));
-$quantity = (int) ($_POST['quantity'] ?? $_GET['quantity'] ?? 1);
+$productId = trim((string) ($_POST['product_id'] ?? ''));
+$quantity = (int) ($_POST['quantity'] ?? 1);
 
 $product = rarsm_store_product($productId);
 if ($product === null) {

@@ -1,9 +1,8 @@
 <?php
-if (isset($_GET['debug']) && $_GET['debug'] === '1') {
-	ini_set('display_errors', '1');
-	ini_set('display_startup_errors', '1');
-	error_reporting(E_ALL);
-}
+declare(strict_types=1);
+
+require_once __DIR__ . '/includes/security.php';
+rarsm_apply_security_headers();
 
 function rarsm_e($value)
 {
@@ -463,8 +462,9 @@ foreach ($institutions as $slug => $institution) {
 	<link rel="icon" href="favicon.png?v=20260702-favicon" type="image/png">
 	<link rel="shortcut icon" href="favicon.png?v=20260702-favicon" type="image/png">
 	<link rel="apple-touch-icon" href="favicon.png?v=20260702-favicon">
-	<link rel="stylesheet" href="css/site.css?v=20260814-responsive-v26">
-	<script src="js/vendor/modernizr-2.6.2.min.js"></script>
+	<link rel="stylesheet" href="css/site.css?v=20260814-theme-v1">
+	<link rel="stylesheet" href="css/rarsm.css?v=20260814-security-v3">
+	<script>document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/, "js");</script>
 </head>
 <body>
 	<a class="rarsm-skip-link" href="#main-content">Aller au contenu principal</a>
@@ -878,8 +878,8 @@ foreach ($institutions as $slug => $institution) {
 		</div>
 	</div>
 
-	<script src="js/compressed.js"></script>
-	<script src="js/rarsm-i18n.js?v=20260810-header-balance-v2"></script>
-	<script src="js/rarsm-ui.js?v=20260813-accessibility-v3"></script>
+	<script defer src="js/compressed.js?v=20260814-vendor-v1"></script>
+	<script defer src="js/rarsm-i18n.js?v=20260810-header-balance-v2"></script>
+	<script defer src="js/rarsm-ui.js?v=20260814-security-v5"></script>
 </body>
 </html>
