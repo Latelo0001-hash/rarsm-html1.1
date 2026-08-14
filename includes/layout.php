@@ -295,7 +295,7 @@ function rarsm_page_head(string $title, string $description = '', string $bodyCl
     <link rel="shortcut icon" href="favicon.png?v=20260702-favicon" type="image/png">
     <link rel="apple-touch-icon" href="favicon.png?v=20260702-favicon">
     <link rel="stylesheet" href="css/site.css?v=20260814-theme-v1">
-    <link rel="stylesheet" href="css/rarsm.css?v=20260814-rarsm-v2">
+    <link rel="stylesheet" href="css/rarsm.css?v=20260814-security-v3">
     <script>document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/, "js");</script>
 </head>
 <body class="{$safeBodyClass}">
@@ -314,6 +314,7 @@ HTML;
 function rarsm_render_header(string $active = 'acheter'): void
 {
     $user = rarsm_current_user();
+    $csrfToken = rarsm_e(rarsm_csrf_token());
     $totals = rarsm_cart_totals();
     $cartCount = (string) max(0, (int) $totals['item_count']);
     $cartHasItems = (int) $totals['item_count'] > 0;
@@ -364,7 +365,7 @@ function rarsm_render_header(string $active = 'acheter'): void
         echo '</button>';
         echo '<div class="rarsm-user-menu-panel rarsm-user-menu-panel-mobile" hidden>';
         echo '<a class="rarsm-user-menu-action" href="shop-account-orders.php"><span class="rarsm-user-menu-action-icon"><i class="fa fa-user-o" aria-hidden="true"></i></span><span>Compte</span></a>';
-        echo '<a class="rarsm-user-menu-action rarsm-user-menu-action-danger" href="logout.php"><span class="rarsm-user-menu-action-icon"><i class="fa fa-sign-out" aria-hidden="true"></i></span><span>Se déconnecter</span></a>';
+        echo '<form action="logout.php" method="post"><input type="hidden" name="_csrf" value="' . $csrfToken . '"><button class="rarsm-user-menu-action rarsm-user-menu-action-danger" type="submit"><span class="rarsm-user-menu-action-icon"><i class="fa fa-sign-out" aria-hidden="true"></i></span><span>Se déconnecter</span></button></form>';
         echo '</div>';
         echo '</div>';
         echo '</li>';
@@ -418,7 +419,7 @@ function rarsm_render_header(string $active = 'acheter'): void
         echo '</button>';
         echo '<div class="rarsm-user-menu-panel" hidden>';
         echo '<a class="rarsm-user-menu-action" href="shop-account-orders.php"><span class="rarsm-user-menu-action-icon"><i class="fa fa-user-o" aria-hidden="true"></i></span><span>Compte</span></a>';
-        echo '<a class="rarsm-user-menu-action rarsm-user-menu-action-danger" href="logout.php"><span class="rarsm-user-menu-action-icon"><i class="fa fa-sign-out" aria-hidden="true"></i></span><span>Se déconnecter</span></a>';
+        echo '<form action="logout.php" method="post"><input type="hidden" name="_csrf" value="' . $csrfToken . '"><button class="rarsm-user-menu-action rarsm-user-menu-action-danger" type="submit"><span class="rarsm-user-menu-action-icon"><i class="fa fa-sign-out" aria-hidden="true"></i></span><span>Se déconnecter</span></button></form>';
         echo '</div>';
         echo '</div>';
     }
@@ -541,7 +542,7 @@ function rarsm_render_footer(): void
 </div>
 <script defer src="js/compressed.js?v=20260814-vendor-v1"></script>
 <script defer src="js/rarsm-i18n.js?v=20260810-header-balance-v2"></script>
-<script defer src="js/rarsm-ui.js?v=20260813-accessibility-v3"></script>
+<script defer src="js/rarsm-ui.js?v=20260814-security-v4"></script>
 </body>
 </html>
 HTML;

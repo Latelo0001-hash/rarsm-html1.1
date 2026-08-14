@@ -93,3 +93,66 @@ function rarsm_require_same_origin_post(): void
         exit('Forbidden');
     }
 }
+
+function rarsm_csrf_token(): string
+{
+    $token = (string) ($_SESSION['rarsm_csrf_token'] ?? '');
+    if ($token === '' || strlen($token) !== 64) {
+        $token = bin2hex(random_bytes(32));
+        $_SESSION['rarsm_csrf_token'] = $token;
+    }
+
+    return $token;
+}
+
+function rarsm_csrf_field(): string
+{
+    return '<input type="hidden" name="_csrf" value="'
+        . htmlspecialchars(rarsm_csrf_token(), ENT_QUOTES | ENT_SUBSTITUTE, 'UTF-8')
+        . '">';
+}
+
+function rarsm_csrf_is_valid(?string $token = null): bool
+{
+    $expected = (string) ($_SESSION['rarsm_csrf_token'] ?? '');
+    $provided = $token ?? (string) ($_POST['_csrf'] ?? '');
+
+    return $expected !== '' && $provided !== '' && hash_equals($expected, $provided);
+}
+
+function rarsm_require_csrf_token(): void
+{
+    if (!rarsm_csrf_is_valid()) {
+        http_response_code(403);
+        exit('Forbidden');
+    }
+}
+
+function rarsm_login_throttle_retry_after(): int
+{
+    $now = time();
+    $window = 600;
+    $attempts = array_values(array_filter(
+        (array) ($_SESSION['rarsm_login_failures'] ?? []),
+        static fn ($timestamp): bool => is_int($timestamp) && $timestamp > ($now - $window)
+    ));
+    $_SESSION['rarsm_login_failures'] = $attempts;
+
+    if (count($attempts) < 5) {
+        return 0;
+    }
+
+    return max(1, $window - ($now - (int) $attempts[0]));
+}
+
+function rarsm_record_login_failure(): void
+{
+    $attempts = (array) ($_SESSION['rarsm_login_failures'] ?? []);
+    $attempts[] = time();
+    $_SESSION['rarsm_login_failures'] = array_slice($attempts, -10);
+}
+
+function rarsm_clear_login_failures(): void
+{
+    unset($_SESSION['rarsm_login_failures']);
+}

@@ -61,6 +61,7 @@ rarsm_render_page_title('Validation', [
                     <div class="woocommerce">
                         <div class="woocommerce-info">Votre commande sera créée avant redirection vers la plateforme de paiement intermédiaire.</div>
                         <form class="checkout woocommerce-checkout" action="actions/checkout-submit.php" method="post" novalidate>
+                            <?php echo rarsm_csrf_field(); ?>
                             <div class="col2-set" id="customer_details">
                                 <div class="col-1">
                                     <div class="woocommerce-billing-fields">

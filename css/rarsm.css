@@ -5846,6 +5846,15 @@ button.rarsm-session-indicator {
 	display: none !important;
 }
 
+.rarsm-user-menu-panel form {
+	margin: 0;
+}
+
+.rarsm-user-menu-panel button.rarsm-user-menu-action {
+	cursor: pointer;
+	width: 100%;
+}
+
 .rarsm-user-menu-action {
 	align-items: center;
 	background: #ffffff;

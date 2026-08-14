@@ -41,6 +41,7 @@ rarsm_render_page_title('Panier', [
                     </div>
 
                     <form class="woocommerce-cart-form" action="actions/update-cart.php" method="post">
+                        <?php echo rarsm_csrf_field(); ?>
                         <table class="shop_table shop_table_responsive cart rarsm-cart-table">
                             <thead>
                                 <tr>
