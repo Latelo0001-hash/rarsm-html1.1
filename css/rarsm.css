@@ -392,7 +392,7 @@ body {
 
 /* Keep book and amazon on the same light surface while preserving their artwork. */
 .section-book {
-	background: var(--rarsm-paper) url("../images/rarsm-generated/section-book-introduction-contexte.png") no-repeat left center/cover;
+	background: var(--rarsm-paper) url("../images/rarsm-generated/page-title-rarsm-hero-v2.png?v=20260814-section-book-v1") no-repeat left center/cover;
 	color: #fff;
 }
 
@@ -471,8 +471,36 @@ body {
 }
 
 .section-book::before {
-	background: linear-gradient(90deg, rgba(18, 32, 93, 0.06) 0%, rgba(18, 32, 93, 0.18) 35%, rgba(18, 32, 93, 0.54) 58%, rgba(18, 32, 93, 0.8) 76%, rgba(18, 32, 93, 0.9) 100%);
+	background: linear-gradient(90deg, rgba(4, 11, 38, 0.84) 0%, rgba(7, 19, 62, 0.88) 38%, rgba(8, 22, 72, 0.94) 62%, rgba(3, 11, 42, 0.98) 100%);
 	opacity: 1;
+}
+
+.section-book::after {
+	background: linear-gradient(90deg, rgba(1, 6, 24, 0.28) 0%, rgba(1, 6, 24, 0.42) 42%, rgba(1, 6, 24, 0.68) 58%, rgba(1, 6, 24, 0.82) 100%);
+	content: "";
+	inset: 0;
+	pointer-events: none;
+	position: absolute;
+	z-index: 0;
+}
+
+@media (max-width: 767.98px) {
+	.home-modern .section-book {
+		background-position: 38% center;
+	}
+
+	.home-modern .section-book::before {
+		background:
+			linear-gradient(145deg, rgba(4, 12, 42, 0.98) 0%, rgba(10, 25, 76, 0.97) 58%, rgba(13, 32, 91, 0.96) 100%);
+	}
+
+	.home-modern .section-book::after {
+		background: rgba(1, 6, 24, 0.55);
+	}
+
+	.home-modern .section-book .col-lg-6 {
+		text-shadow: 0 2px 12px rgba(4, 12, 42, 0.28);
+	}
 }
 
 .section-amazon.ls.ms.s-overlay::before {
