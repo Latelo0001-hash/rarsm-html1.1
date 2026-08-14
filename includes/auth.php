@@ -283,6 +283,7 @@ function rarsm_register_user(array $input): array
                 return [false, rarsm_localized_text('Le compte a été créé, mais n’a pas pu être rechargé.', 'The account was created but could not be reloaded.')];
             }
 
+            session_regenerate_id(true);
             $_SESSION['rarsm_user'] = rarsm_normalize_user_record($createdUser);
 
             return [true, rarsm_localized_text('Compte créé avec succès.', 'Account created successfully.')];
@@ -314,6 +315,7 @@ function rarsm_register_user(array $input): array
         'created_at' => date('Y-m-d H:i:s'),
     ];
 
+    session_regenerate_id(true);
     $_SESSION['rarsm_registered_users'][$email] = $user;
     $_SESSION['rarsm_user'] = $user;
 
@@ -336,6 +338,7 @@ function rarsm_login_user(array $input): array
             return [false, rarsm_localized_text('Identifiants invalides. Créez un compte si vous n’êtes pas encore inscrit.', 'Invalid credentials. Create an account if you have not registered yet.')];
         }
 
+        session_regenerate_id(true);
         $_SESSION['rarsm_user'] = rarsm_normalize_user_record($user);
 
         return [true, rarsm_localized_text('Connexion réussie.', 'Login successful.')];
@@ -360,6 +363,7 @@ function rarsm_login_user(array $input): array
         return [false, rarsm_localized_text('Identifiants invalides. Créez un compte si vous n’êtes pas encore inscrit.', 'Invalid credentials. Create an account if you have not registered yet.')];
     }
 
+    session_regenerate_id(true);
     $_SESSION['rarsm_user'] = $user;
 
     return [true, rarsm_localized_text('Connexion réussie.', 'Login successful.')];
@@ -370,6 +374,7 @@ function rarsm_logout_user(): void
     unset($_SESSION['rarsm_user']);
     $_SESSION['rarsm_cart'] = [];
     unset($_SESSION['rarsm_latest_order_id']);
+    session_regenerate_id(true);
 }
 
 function rarsm_user_display_name(array $user): string

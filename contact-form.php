@@ -1,6 +1,13 @@
 <?php
 declare(strict_types=1);
 
+require_once __DIR__ . '/includes/security.php';
+rarsm_bootstrap_security();
+
+if (session_status() !== PHP_SESSION_ACTIVE) {
+    session_start();
+}
+
 require_once __DIR__ . '/includes/i18n.php';
 
 header('Content-Type: text/html; charset=UTF-8');
@@ -23,13 +30,7 @@ function rarsm_contact_error(string $message): never
     exit;
 }
 
-if (strtoupper((string) ($_SERVER['REQUEST_METHOD'] ?? 'GET')) !== 'POST') {
-    header('Allow: POST');
-    rarsm_contact_error(rarsm_contact_text(
-        'Cette action nécessite l’envoi du formulaire.',
-        'This action requires submitting the form.'
-    ));
-}
+rarsm_require_same_origin_post();
 
 // Champ invisible : les robots le remplissent souvent, les visiteurs non.
 if (trim((string) ($_POST['website'] ?? '')) !== '') {
@@ -82,10 +83,6 @@ if ($message === '' || mb_strlen($message) < 10 || mb_strlen($message) > 5000) {
         'Veuillez saisir un message de 10 à 5 000 caractères.',
         'Please enter a message between 10 and 5,000 characters.'
     ));
-}
-
-if (session_status() !== PHP_SESSION_ACTIVE) {
-    session_start();
 }
 
 $now = time();

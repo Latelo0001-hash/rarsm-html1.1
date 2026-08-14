@@ -2,6 +2,7 @@
 declare(strict_types=1);
 
 require_once __DIR__ . '/../includes/bootstrap.php';
+rarsm_require_same_origin_post();
 
 if (!rarsm_is_logged_in()) {
     rarsm_set_flash('error', rarsm_localized_text('Veuillez vous connecter avant de valider votre commande.', 'Please log in before submitting your order.'));
