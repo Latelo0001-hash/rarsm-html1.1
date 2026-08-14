@@ -1,9 +1,8 @@
 <?php
-if (isset($_GET['debug']) && $_GET['debug'] === '1') {
-	ini_set('display_errors', '1');
-	ini_set('display_startup_errors', '1');
-	error_reporting(E_ALL);
-}
+declare(strict_types=1);
+
+require_once __DIR__ . '/includes/security.php';
+rarsm_apply_security_headers();
 
 function rarsm_e($value)
 {
@@ -881,6 +880,6 @@ foreach ($institutions as $slug => $institution) {
 
 	<script defer src="js/compressed.js?v=20260814-vendor-v1"></script>
 	<script defer src="js/rarsm-i18n.js?v=20260810-header-balance-v2"></script>
-	<script defer src="js/rarsm-ui.js?v=20260814-security-v4"></script>
+	<script defer src="js/rarsm-ui.js?v=20260814-security-v5"></script>
 </body>
 </html>

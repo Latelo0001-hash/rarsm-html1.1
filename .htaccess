@@ -1,4 +1,18 @@
 # Compression des ressources textuelles lorsque mod_deflate est disponible.
+Options -Indexes
+
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+
+    # Code interne, anciens connecteurs et prototypes non destinés au Web.
+    RewriteRule ^(?:includes|twitter|mailchimp|Shop)(?:/|$) - [F,L,NC]
+
+    # Secrets, documentation technique, données sources et fichiers temporaires.
+    RewriteRule (^|/)\.(?!well-known(?:/|$)) - [F,L]
+    RewriteRule \.(?:sql|xlsx?|csv|log|bak|old|pem|key|md)$ - [F,L,NC]
+    RewriteRule ^(?:gulpfile\.js|package(?:-lock)?\.json|composer(?:\.lock|\.json))$ - [F,L,NC]
+</IfModule>
+
 <IfModule mod_deflate.c>
     AddOutputFilterByType DEFLATE text/html text/plain text/css text/javascript
     AddOutputFilterByType DEFLATE application/javascript application/json application/xml

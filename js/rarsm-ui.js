@@ -1708,35 +1708,6 @@ function documentReadyInit() {
 			})
 	});
 
-	//MailChimp subscribe form processing
-	$('.signup').on('submit', function( e ) {
-		e.preventDefault();
-		var $form = $(this);
-		// update user interface
-		$form.find('.response').html('Adding email address...');
-		// Prepare query string and send AJAX request
-		jQuery.ajax({
-			url: 'mailchimp/store-address.php',
-			data: 'ajax=true&email=' + escape($form.find('.mailchimp_email').val()),
-			success: function(msg) {
-				$form.find('.response').html(msg);
-			}
-		});
-	});
-
-	//twitter
-	if ($().tweet) {
-		$('.twitter').tweet({
-			modpath: "./twitter/",
-			count: 2,
-			avatar_size: 48,
-			loading_text: 'loading twitter feed...',
-			join_text: 'auto',
-			username: 'michaeljackson',
-			template: "{avatar}<div class=\"tweet_right\">{join}<span class=\"tweet_text links-maincolor\">{tweet_text}</span>{time}</div>"
-		});
-	}
-
 	// init timetable
 	var $timetable = $('#timetable');
 	if ($timetable.length) {
