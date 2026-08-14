@@ -585,6 +585,14 @@ img.absolute_image {
   }
 }
 
+@media (min-width: 1600px) {
+  .home-modern #valeur-ajoutee.section-amazon,
+  .home-modern #valeur-ajoutee.section-amazon::after {
+    background-position: right center;
+    background-size: min(100%, 2560px) auto;
+  }
+}
+
 .home-modern #chapter,
 .home-modern #valeur-ajoutee,
 .home-modern #soon,
