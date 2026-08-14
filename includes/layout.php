@@ -295,7 +295,7 @@ function rarsm_page_head(string $title, string $description = '', string $bodyCl
     <link rel="shortcut icon" href="favicon.png?v=20260702-favicon" type="image/png">
     <link rel="apple-touch-icon" href="favicon.png?v=20260702-favicon">
     <link rel="stylesheet" href="css/site.css?v=20260814-responsive-v26">
-    <script src="js/vendor/modernizr-2.6.2.min.js"></script>
+    <script>document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/, "js");</script>
 </head>
 <body class="{$safeBodyClass}">
 <a class="rarsm-skip-link" href="#main-content">Aller au contenu principal</a>
@@ -538,9 +538,9 @@ function rarsm_render_footer(): void
 </section>
 </div>
 </div>
-<script src="js/compressed.js"></script>
-<script src="js/rarsm-i18n.js?v=20260810-header-balance-v2"></script>
-<script src="js/rarsm-ui.js?v=20260813-accessibility-v3"></script>
+<script defer src="js/compressed.js?v=20260814-vendor-v1"></script>
+<script defer src="js/rarsm-i18n.js?v=20260810-header-balance-v2"></script>
+<script defer src="js/rarsm-ui.js?v=20260813-accessibility-v3"></script>
 </body>
 </html>
 HTML;
