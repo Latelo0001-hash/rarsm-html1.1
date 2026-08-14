@@ -177,6 +177,7 @@ function rarsm_auth_redirect_target(?string $requestPath = null): string
 function rarsm_render_auth_modals(): void
 {
     $redirect = rarsm_e(rarsm_auth_redirect_target());
+    $csrfField = rarsm_csrf_field();
 
     echo <<<HTML
 <div class="modal fade popupLogin" id="popupLogin" tabindex="-1" role="dialog" aria-hidden="true">
@@ -191,6 +192,7 @@ function rarsm_render_auth_modals(): void
                         <div class="col-12">
                             <h4 class="mb-4">Se connecter</h4>
                             <form class="form-registration c-mb-40 c-gutter-20" method="post" action="actions/login.php">
+                                {$csrfField}
                                 <input type="hidden" name="redirect" value="{$redirect}">
                                 <div class="row mb-4">
                                     <div class="col-sm-12">
@@ -229,6 +231,7 @@ function rarsm_render_auth_modals(): void
                         <div class="col-12">
                             <h4 class="mb-4">Inscription</h4>
                             <form class="form-registration c-mb-40 c-gutter-40" method="post" action="actions/register.php">
+                                {$csrfField}
                                 <input type="hidden" name="redirect" value="{$redirect}">
                                 <div class="row">
                                     <div class="col-12">
@@ -243,12 +246,12 @@ function rarsm_render_auth_modals(): void
                                     </div>
                                     <div class="col-12">
                                         <div class="form-group">
-                                            <input type="password" name="password" class="form-control" placeholder="Mot de passe" aria-label="Mot de passe" aria-required="true" required autocomplete="new-password">
+                                            <input type="password" name="password" class="form-control" placeholder="Mot de passe (10 caractères minimum)" aria-label="Mot de passe" aria-required="true" minlength="10" required autocomplete="new-password">
                                         </div>
                                     </div>
                                     <div class="col-12">
                                         <div class="form-group">
-                                            <input type="password" name="password_confirm" class="form-control" placeholder="Confirmer le mot de passe" aria-label="Confirmer le mot de passe" aria-required="true" required autocomplete="new-password">
+                                            <input type="password" name="password_confirm" class="form-control" placeholder="Confirmer le mot de passe" aria-label="Confirmer le mot de passe" aria-required="true" minlength="10" required autocomplete="new-password">
                                         </div>
                                     </div>
                                     <div class="col-12">

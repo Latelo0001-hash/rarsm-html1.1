@@ -22,6 +22,7 @@ rarsm_render_page_title('Créer un compte', [
                     <h3>Inscription client</h3>
 					<p>Ce compte servira à suivre les paiements, les commandes et les futures ventes d’articles sur le site.</p>
                     <form action="actions/register.php" class="c-gutter-20" method="post">
+                        <?php echo rarsm_csrf_field(); ?>
                         <input type="hidden" name="redirect" value="<?php echo rarsm_e($redirect); ?>">
                         <div class="row">
                             <div class="col-md-6">
@@ -51,13 +52,14 @@ rarsm_render_page_title('Créer un compte', [
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label for="register-password">Mot de passe</label>
-                                    <input class="form-control" id="register-password" name="password" type="password" required>
+                                    <input class="form-control" id="register-password" name="password" type="password" minlength="10" autocomplete="new-password" aria-describedby="register-password-help" required>
+                                    <small id="register-password-help">10 caractères minimum, avec une majuscule, une minuscule et un chiffre.</small>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label for="register-password-confirm">Confirmer le mot de passe</label>
-                                    <input class="form-control" id="register-password-confirm" name="password_confirm" type="password" required>
+                                    <input class="form-control" id="register-password-confirm" name="password_confirm" type="password" minlength="10" autocomplete="new-password" required>
                                 </div>
                             </div>
                             <div class="col-12">

@@ -186,6 +186,28 @@ function rarsm_db_username_exists(string $username): bool
     }
 }
 
+function rarsm_db_update_user_password_hash(int $userId, string $passwordHash): void
+{
+    if ($userId < 1 || $passwordHash === '' || !rarsm_auth_uses_database()) {
+        return;
+    }
+
+    $pdo = rarsm_db();
+    if (!$pdo instanceof PDO) {
+        return;
+    }
+
+    try {
+        $statement = $pdo->prepare('UPDATE users SET password_hash = :password_hash WHERE id = :id');
+        $statement->execute([
+            ':password_hash' => $passwordHash,
+            ':id' => $userId,
+        ]);
+    } catch (Throwable $exception) {
+        error_log('RARSM: password rehash could not be persisted for user #' . $userId);
+    }
+}
+
 function rarsm_register_user(array $input): array
 {
     $firstName = trim((string) ($input['first_name'] ?? ''));
@@ -219,8 +241,15 @@ function rarsm_register_user(array $input): array
         return [false, rarsm_localized_text('L’adresse email n’est pas valide.', 'The email address is invalid.')];
     }
 
-    if (strlen($password) < 8) {
-        return [false, rarsm_localized_text('Le mot de passe doit contenir au moins 8 caractères.', 'The password must contain at least 8 characters.')];
+    if (strlen($password) < 10
+        || !preg_match('/[a-z]/', $password)
+        || !preg_match('/[A-Z]/', $password)
+        || !preg_match('/[0-9]/', $password)
+    ) {
+        return [false, rarsm_localized_text(
+            'Le mot de passe doit contenir au moins 10 caractères, avec une majuscule, une minuscule et un chiffre.',
+            'The password must contain at least 10 characters, including an uppercase letter, a lowercase letter and a number.'
+        )];
     }
 
     if ($password !== $passwordConfirm) {
@@ -283,7 +312,7 @@ function rarsm_register_user(array $input): array
                 return [false, rarsm_localized_text('Le compte a été créé, mais n’a pas pu être rechargé.', 'The account was created but could not be reloaded.')];
             }
 
-            session_regenerate_id(true);
+            rarsm_mark_session_authenticated();
             $_SESSION['rarsm_user'] = rarsm_normalize_user_record($createdUser);
 
             return [true, rarsm_localized_text('Compte créé avec succès.', 'Account created successfully.')];
@@ -315,7 +344,7 @@ function rarsm_register_user(array $input): array
         'created_at' => date('Y-m-d H:i:s'),
     ];
 
-    session_regenerate_id(true);
+    rarsm_mark_session_authenticated();
     $_SESSION['rarsm_registered_users'][$email] = $user;
     $_SESSION['rarsm_user'] = $user;
 
@@ -338,7 +367,11 @@ function rarsm_login_user(array $input): array
             return [false, rarsm_localized_text('Identifiants invalides. Créez un compte si vous n’êtes pas encore inscrit.', 'Invalid credentials. Create an account if you have not registered yet.')];
         }
 
-        session_regenerate_id(true);
+        if (password_needs_rehash((string) $user['password_hash'], PASSWORD_DEFAULT)) {
+            rarsm_db_update_user_password_hash((int) $user['id'], password_hash($password, PASSWORD_DEFAULT));
+        }
+
+        rarsm_mark_session_authenticated();
         $_SESSION['rarsm_user'] = rarsm_normalize_user_record($user);
 
         return [true, rarsm_localized_text('Connexion réussie.', 'Login successful.')];
@@ -363,7 +396,15 @@ function rarsm_login_user(array $input): array
         return [false, rarsm_localized_text('Identifiants invalides. Créez un compte si vous n’êtes pas encore inscrit.', 'Invalid credentials. Create an account if you have not registered yet.')];
     }
 
-    session_regenerate_id(true);
+    if (password_needs_rehash((string) $user['password_hash'], PASSWORD_DEFAULT)) {
+        $user['password_hash'] = password_hash($password, PASSWORD_DEFAULT);
+        $email = strtolower(trim((string) ($user['email'] ?? '')));
+        if ($email !== '') {
+            $_SESSION['rarsm_registered_users'][$email] = $user;
+        }
+    }
+
+    rarsm_mark_session_authenticated();
     $_SESSION['rarsm_user'] = $user;
 
     return [true, rarsm_localized_text('Connexion réussie.', 'Login successful.')];
@@ -374,7 +415,9 @@ function rarsm_logout_user(): void
     unset($_SESSION['rarsm_user']);
     $_SESSION['rarsm_cart'] = [];
     unset($_SESSION['rarsm_latest_order_id']);
+    unset($_SESSION['rarsm_authenticated_at']);
     session_regenerate_id(true);
+    $_SESSION['rarsm_csrf_token'] = bin2hex(random_bytes(32));
 }
 
 function rarsm_user_display_name(array $user): string

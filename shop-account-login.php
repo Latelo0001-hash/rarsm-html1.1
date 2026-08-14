@@ -21,6 +21,7 @@ rarsm_render_page_title('Se connecter', [
                     <h3>Connexion</h3>
                     <p>Connectez-vous pour suivre vos commandes, reprendre un paiement et retrouver vos informations plus tard.</p>
                     <form action="actions/login.php" class="c-mb-30" method="post">
+                        <?php echo rarsm_csrf_field(); ?>
                         <input type="hidden" name="redirect" value="<?php echo rarsm_e($redirect); ?>">
                         <div class="form-group">
                             <label for="login-email">Email</label>

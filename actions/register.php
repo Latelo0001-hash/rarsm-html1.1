@@ -3,6 +3,7 @@ declare(strict_types=1);
 
 require_once __DIR__ . '/../includes/bootstrap.php';
 rarsm_require_same_origin_post();
+rarsm_require_csrf_token();
 
 $redirect = rarsm_resolve_redirect_target(
     (string) ($_POST['redirect'] ?? ''),

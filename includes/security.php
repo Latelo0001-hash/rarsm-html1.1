@@ -51,8 +51,50 @@ function rarsm_configure_session_security(): void
 
 function rarsm_bootstrap_security(): void
 {
+    ini_set('display_errors', '0');
+    ini_set('display_startup_errors', '0');
+    ini_set('log_errors', '1');
+
     rarsm_apply_security_headers();
     rarsm_configure_session_security();
+}
+
+function rarsm_enforce_session_lifetime(): void
+{
+    if (session_status() !== PHP_SESSION_ACTIVE) {
+        return;
+    }
+
+    $now = time();
+    $lastActivity = (int) ($_SESSION['rarsm_last_activity_at'] ?? 0);
+    $authenticatedAt = (int) ($_SESSION['rarsm_authenticated_at'] ?? 0);
+    $idleLimit = 1800;
+    $absoluteLimit = 43200;
+
+    $idleExpired = $lastActivity > 0 && ($now - $lastActivity) > $idleLimit;
+    $loginExpired = isset($_SESSION['rarsm_user'])
+        && ($authenticatedAt < 1 || ($now - $authenticatedAt) > $absoluteLimit);
+
+    if ($idleExpired || $loginExpired) {
+        unset(
+            $_SESSION['rarsm_user'],
+            $_SESSION['rarsm_cart'],
+            $_SESSION['rarsm_latest_order_id'],
+            $_SESSION['rarsm_authenticated_at']
+        );
+        session_regenerate_id(true);
+        $_SESSION['rarsm_csrf_token'] = bin2hex(random_bytes(32));
+    }
+
+    $_SESSION['rarsm_last_activity_at'] = $now;
+}
+
+function rarsm_mark_session_authenticated(): void
+{
+    session_regenerate_id(true);
+    $_SESSION['rarsm_authenticated_at'] = time();
+    $_SESSION['rarsm_last_activity_at'] = time();
+    $_SESSION['rarsm_csrf_token'] = bin2hex(random_bytes(32));
 }
 
 function rarsm_request_origin_is_same_site(): bool
