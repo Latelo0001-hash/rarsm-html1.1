@@ -551,7 +551,97 @@ img.absolute_image {
 }
 
 .section-amazon{
-  background: url("../images/bg-section-amazon-rarsm-v2.png") no-repeat center / cover;
+  background: url("../images/bg-section-valeur-ajoutee-rarsm-v3.png") no-repeat center / cover;
+}
+
+@media (max-width: 767.98px) {
+  .home-modern #valeur-ajoutee.section-amazon {
+    background-color: #f6f4ef;
+    background-image: none;
+  }
+
+  .home-modern #valeur-ajoutee.section-amazon::after {
+    background-color: transparent;
+    background-image:
+      radial-gradient(circle at 8% 15%, rgba(253, 205, 103, 0.58) 0 2px, transparent 3px),
+      radial-gradient(circle at 92% 28%, rgba(239, 59, 35, 0.28) 0 1.5px, transparent 2.5px),
+      radial-gradient(circle at 10% 82%, rgba(48, 71, 165, 0.25) 0 1.5px, transparent 2.5px),
+      repeating-radial-gradient(ellipse at -12% 28%, rgba(48, 71, 165, 0.10) 0 1px, transparent 1px 22px),
+      repeating-radial-gradient(ellipse at 112% 76%, rgba(253, 205, 103, 0.14) 0 1px, transparent 1px 26px),
+      linear-gradient(145deg, rgba(253, 205, 103, 0.08) 0 9%, transparent 9% 91%, rgba(239, 59, 35, 0.06) 91% 100%);
+    background-position: center;
+    background-size: auto;
+    -webkit-mask-image: linear-gradient(90deg, #000 0%, transparent 34%, transparent 66%, #000 100%);
+    mask-image: linear-gradient(90deg, #000 0%, transparent 34%, transparent 66%, #000 100%);
+    opacity: 0.78;
+  }
+}
+
+@media (min-width: 768px) {
+  .home-modern #valeur-ajoutee.section-amazon,
+  .home-modern #valeur-ajoutee.section-amazon::after {
+    background-position: right center;
+    background-size: auto 100%;
+  }
+}
+
+.home-modern #chapter,
+.home-modern #valeur-ajoutee,
+.home-modern #soon,
+.home-modern #chapter + #valeur-ajoutee,
+.home-modern #valeur-ajoutee + #soon {
+  margin-bottom: 0 !important;
+  margin-top: 0 !important;
+}
+
+@media (min-width: 992px) {
+  body.home-modern #valeur-ajoutee.section-amazon > .container {
+    padding-bottom: clamp(56px, 5vw, 82px);
+    padding-top: clamp(56px, 5vw, 82px);
+  }
+
+  body.home-modern #valeur-ajoutee .row {
+    align-items: center;
+  }
+
+  body.home-modern #valeur-ajoutee .col-lg-6 {
+    flex: 0 0 52%;
+    max-width: 52%;
+    padding-right: clamp(28px, 4vw, 68px);
+  }
+
+  body.home-modern #valeur-ajoutee .divider-xl-110,
+  body.home-modern #valeur-ajoutee .divider-xl-100 {
+    display: none;
+  }
+
+  body.home-modern #valeur-ajoutee .divider-40 {
+    margin-top: clamp(16px, 1.8vw, 24px);
+  }
+
+  body.home-modern #valeur-ajoutee h3 {
+    font-size: clamp(2rem, 2.8vw, 3rem);
+    line-height: 1.1;
+    max-width: 19ch;
+    text-wrap: balance;
+  }
+
+  body.home-modern #valeur-ajoutee p br {
+    display: none;
+  }
+
+  body.home-modern #valeur-ajoutee p {
+    font-size: clamp(0.9rem, 0.95vw, 1rem);
+    line-height: 1.55;
+    margin-bottom: 12px;
+    max-width: 38rem;
+    overflow-wrap: anywhere;
+  }
+
+  body.home-modern #valeur-ajoutee .excerpt {
+    font-size: 1rem;
+    line-height: 1.6;
+  }
 }
 
 .section-shop{

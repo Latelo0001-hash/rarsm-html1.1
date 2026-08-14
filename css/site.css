@@ -27951,7 +27951,7 @@ img.absolute_image {
 }
 
 .section-amazon {
-	--section-amazon-background: url("../images/bg-section-amazon-rarsm-v2.png");
+	--section-amazon-background: url("../images/bg-section-valeur-ajoutee-rarsm-v3.png");
 	background: var(--section-amazon-background) no-repeat center/cover;
 }
 
@@ -28542,6 +28542,47 @@ body {
 	.section-amazon::after {
 		background-position: center center;
 	}
+}
+
+@media (max-width: 767.98px) {
+	.home-modern #valeur-ajoutee.section-amazon {
+		--section-amazon-background: none;
+		background-color: #f6f4ef;
+		background-image: none;
+	}
+
+	.home-modern #valeur-ajoutee.section-amazon::after {
+		background-color: transparent;
+		background-image:
+			radial-gradient(circle at 8% 15%, rgba(253, 205, 103, 0.58) 0 2px, transparent 3px),
+			radial-gradient(circle at 92% 28%, rgba(239, 59, 35, 0.28) 0 1.5px, transparent 2.5px),
+			radial-gradient(circle at 10% 82%, rgba(48, 71, 165, 0.25) 0 1.5px, transparent 2.5px),
+			repeating-radial-gradient(ellipse at -12% 28%, rgba(48, 71, 165, 0.10) 0 1px, transparent 1px 22px),
+			repeating-radial-gradient(ellipse at 112% 76%, rgba(253, 205, 103, 0.14) 0 1px, transparent 1px 26px),
+			linear-gradient(145deg, rgba(253, 205, 103, 0.08) 0 9%, transparent 9% 91%, rgba(239, 59, 35, 0.06) 91% 100%);
+		background-position: center;
+		background-size: auto;
+		-webkit-mask-image: linear-gradient(90deg, #000 0%, transparent 34%, transparent 66%, #000 100%);
+		mask-image: linear-gradient(90deg, #000 0%, transparent 34%, transparent 66%, #000 100%);
+		opacity: 0.78;
+	}
+}
+
+@media (min-width: 768px) {
+	.home-modern #valeur-ajoutee.section-amazon,
+	.home-modern #valeur-ajoutee.section-amazon::after {
+		background-position: right center;
+		background-size: auto 100%;
+	}
+}
+
+.home-modern #chapter,
+.home-modern #valeur-ajoutee,
+.home-modern #soon,
+.home-modern #chapter + #valeur-ajoutee,
+.home-modern #valeur-ajoutee + #soon {
+	margin-bottom: 0 !important;
+	margin-top: 0 !important;
 }
 
 .section-book::before {
@@ -36835,6 +36876,108 @@ main svg {
 	padding: 0;
 }
 
+/* =========================================================
+   MOTIFS GEOLOGIQUES SUR LES SECTIONS CLES
+   ========================================================= */
+
+.home-modern #author,
+.home-modern #acheter {
+	isolation: isolate;
+	overflow: hidden;
+	position: relative;
+}
+
+.home-modern #author > .container,
+.home-modern #acheter > .container {
+	position: relative;
+	z-index: 2;
+}
+
+.home-modern #author::before,
+.home-modern #author::after,
+.home-modern #acheter::before,
+.home-modern #acheter::after {
+	content: "";
+	pointer-events: none;
+	position: absolute;
+	z-index: 0;
+}
+
+.home-modern #author::before {
+	background:
+		radial-gradient(circle at 88% 18%, rgba(253, 205, 103, 0.28) 0 2px, transparent 3px),
+		radial-gradient(circle at 96% 58%, rgba(239, 59, 35, 0.17) 0 1.5px, transparent 2.5px),
+		radial-gradient(circle at 76% 82%, rgba(48, 71, 165, 0.17) 0 1px, transparent 2px),
+		repeating-radial-gradient(ellipse at 104% 26%, rgba(48, 71, 165, 0.075) 0 1px, transparent 1px 25px);
+	inset: 0;
+	-webkit-mask-image: linear-gradient(90deg, transparent 0%, transparent 48%, #000 76%, #000 100%);
+	mask-image: linear-gradient(90deg, transparent 0%, transparent 48%, #000 76%, #000 100%);
+}
+
+.home-modern #author::after {
+	background:
+		linear-gradient(145deg, rgba(253, 205, 103, 0.14), transparent 48%),
+		linear-gradient(325deg, rgba(48, 71, 165, 0.10), rgba(239, 59, 35, 0.055));
+	-webkit-clip-path: polygon(44% 0, 100% 35%, 76% 100%, 18% 82%, 0 26%);
+	clip-path: polygon(44% 0, 100% 35%, 76% 100%, 18% 82%, 0 26%);
+	height: 270px;
+	right: -145px;
+	top: -105px;
+	transform: rotate(-14deg);
+	width: 260px;
+}
+
+.home-modern #acheter::before {
+	background:
+		radial-gradient(circle at 7% 16%, rgba(253, 205, 103, 0.29) 0 2px, transparent 3px),
+		radial-gradient(circle at 94% 28%, rgba(239, 59, 35, 0.17) 0 1.5px, transparent 2.5px),
+		radial-gradient(circle at 6% 82%, rgba(48, 71, 165, 0.18) 0 1px, transparent 2px),
+		repeating-radial-gradient(ellipse at -5% 36%, rgba(48, 71, 165, 0.07) 0 1px, transparent 1px 26px),
+		repeating-radial-gradient(ellipse at 105% 68%, rgba(253, 205, 103, 0.09) 0 1px, transparent 1px 29px);
+	inset: 0;
+	-webkit-mask-image: linear-gradient(90deg, #000 0%, transparent 26%, transparent 74%, #000 100%);
+	mask-image: linear-gradient(90deg, #000 0%, transparent 26%, transparent 74%, #000 100%);
+}
+
+.home-modern #acheter::after {
+	background:
+		linear-gradient(140deg, rgba(239, 59, 35, 0.08), transparent 52%),
+		linear-gradient(320deg, rgba(253, 205, 103, 0.16), rgba(48, 71, 165, 0.07));
+	bottom: -128px;
+	-webkit-clip-path: polygon(44% 0, 100% 35%, 76% 100%, 18% 82%, 0 26%);
+	clip-path: polygon(44% 0, 100% 35%, 76% 100%, 18% 82%, 0 26%);
+	height: 265px;
+	left: -110px;
+	transform: rotate(16deg);
+	width: 275px;
+}
+
+@media (max-width: 767.98px) {
+	.home-modern #author::before {
+		-webkit-mask-image: linear-gradient(90deg, transparent 0%, transparent 24%, #000 76%, #000 100%);
+		mask-image: linear-gradient(90deg, transparent 0%, transparent 24%, #000 76%, #000 100%);
+	}
+
+	.home-modern #author::after {
+		height: 190px;
+		right: -115px;
+		top: -70px;
+		width: 190px;
+	}
+
+	.home-modern #acheter::before {
+		-webkit-mask-image: linear-gradient(90deg, #000 0%, transparent 34%, transparent 66%, #000 100%);
+		mask-image: linear-gradient(90deg, #000 0%, transparent 34%, transparent 66%, #000 100%);
+	}
+
+	.home-modern #acheter::after {
+		bottom: -95px;
+		height: 205px;
+		left: -105px;
+		width: 215px;
+	}
+}
+
 @media (max-width: 767.98px) {
 	.page_title {
 		min-height: 236px;
@@ -41633,5 +41776,56 @@ main svg {
 		transition-duration: 0.01ms !important;
 		animation-duration: 0.01ms !important;
 		animation-iteration-count: 1 !important;
+	}
+}
+
+/* Valeur ajoutee : garder le texte dans la zone calme du visuel desktop. */
+@media (min-width: 992px) {
+	body.home-modern #valeur-ajoutee.section-amazon > .container {
+		padding-bottom: clamp(56px, 5vw, 82px);
+		padding-top: clamp(56px, 5vw, 82px);
+	}
+
+	body.home-modern #valeur-ajoutee .row {
+		align-items: center;
+	}
+
+	body.home-modern #valeur-ajoutee .col-lg-6 {
+		flex: 0 0 52%;
+		max-width: 52%;
+		padding-right: clamp(28px, 4vw, 68px);
+	}
+
+	body.home-modern #valeur-ajoutee .divider-xl-110,
+	body.home-modern #valeur-ajoutee .divider-xl-100 {
+		display: none;
+	}
+
+	body.home-modern #valeur-ajoutee .divider-40 {
+		margin-top: clamp(16px, 1.8vw, 24px);
+	}
+
+	body.home-modern #valeur-ajoutee h3 {
+		font-size: clamp(2rem, 2.8vw, 3rem);
+		line-height: 1.1;
+		max-width: 19ch;
+		text-wrap: balance;
+	}
+
+	body.home-modern #valeur-ajoutee p br {
+		display: none;
+	}
+
+	body.home-modern #valeur-ajoutee p {
+		font-size: clamp(0.9rem, 0.95vw, 1rem);
+		line-height: 1.55;
+		margin-bottom: 12px;
+		max-width: 38rem;
+		overflow-wrap: anywhere;
+	}
+
+	body.home-modern #valeur-ajoutee .excerpt {
+		font-size: 1rem;
+		line-height: 1.6;
 	}
 }
