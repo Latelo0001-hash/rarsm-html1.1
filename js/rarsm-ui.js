@@ -967,7 +967,7 @@ function initAffixSidebar() {
 function initPhotoSwipe() {
 	if(typeof PhotoSwipe !== 'undefined') {
 
-		//adding prettyPhoto for backward compatibility. Deprecated.
+		// Keep the old data-gal selector for existing gallery markup.
 		//will leave only .photoswipe-link later
 		var gallerySelectors = '.photoswipe-link, a[data-gal^="prettyPhoto"], [data-thumb] a';
 		var $galleryLinks = $(gallerySelectors);
@@ -980,7 +980,7 @@ function initPhotoSwipe() {
 			} else {
 				return;
 			}
-			//adding prettyPhoto for backward compatibility. Deprecated.
+			// Normalize legacy gallery markup for PhotoSwipe.
 			$('body').on('click', gallerySelectors, function (e) {
 				e.preventDefault();
 
@@ -1501,7 +1501,7 @@ function documentReadyInit() {
 	}
 
 	//background image teaser and sections with half image bg
-	//put this before prettyPhoto init because image may be wrapped in prettyPhoto link
+	// Run before gallery initialization because an image may already be wrapped in a link.
 	$(".bg_teaser, .cover-image").each(function(){
 		var $element = $(this);
 		var $image = $element.find("img").first();
@@ -1525,7 +1525,7 @@ function documentReadyInit() {
 	$('.embed-placeholder').each(function(){
 		$(this).on('click', function(e) {
 			var $thisLink = $(this);
-			// if prettyPhoto popup with YouTube - return
+			// Ignore links reserved for an embedded video popup.
 			if ($thisLink.attr('data-gal')) {
 				return;
 			}
@@ -1563,13 +1563,6 @@ function documentReadyInit() {
 		$('.s-parallax').not('.page_title').parallax("50%", 0.01);
 	}
 
-	//prettyPhoto
-	if ($().prettyPhoto) {
-		$("a[data-gal^='prettyPhoto']").prettyPhoto({
-			hook: 'data-gal',
-			theme: 'facebook' /* light_rounded / dark_rounded / light_square / dark_square / facebook / pp_default*/
-		});
-	}
 	initPhotoSwipe();
 
 	////////////////////////////////////////
@@ -1873,13 +1866,6 @@ function windowLoadInit() {
 
 					$carousel.trigger('refresh.owl.carousel');
 
-					//reinit prettyPhoto in filtered OWL carousel
-					if ($().prettyPhoto) {
-						$carousel.find("a[data-gal^='prettyPhoto']").prettyPhoto({
-							hook: 'data-gal',
-							theme: 'facebook' /* light_rounded / dark_rounded / light_square / dark_square / facebook / pp_default*/
-						});
-					}
 				});
 
 			} //filters
@@ -2122,58 +2108,6 @@ function windowLoadInit() {
 		}
 
 	} //appear check
-
-	//Flickr widget
-	// use http://idgettr.com/ to find your ID
-	if ($().jflickrfeed) {
-		var $flickr = $("#flickr, .flickr_ul");
-		if ( $flickr.length ) {
-			if ( ! ( $flickr.hasClass('flickr_loaded') ) ) {
-				$flickr.jflickrfeed({
-					flickrbase: "http://api.flickr.com/services/feeds/",
-					limit: 4,
-					qstrings: {
-						id: "131791558@N04"
-					},
-					itemTemplate: '<a href="{{image_b}}" class="photoswipe-link"><li><img alt="{{title}}" src="{{image_m}}" /></li></a>'
-				//complete
-				}, function(data) {
-					initPhotoSwipe();
-				}).addClass('flickr_loaded');
-			}
-		}
-	}
-
-	// Instagram widget
-	if($().spectragram) {
-		var Spectra = {
-			instaToken: '3905738328.60c782d.b65ed3f058d64e6ab32c110c6ac12d9b',
-			instaID: '60c782dfecaf4050b59ff4c159246641',
-
-			init: function () {
-				jQuery.fn.spectragram.accessData = {
-					accessToken: this.instaToken,
-					clientID: this.instaID
-				};
-
-				//available methods: getUserFeed, getRecentTagged
-				$('.instafeed').each(function(){
-					var $this = $(this);
-					if ($this.find('img').length) {
-						return;
-					}
-					$this.spectragram('getRecentTagged',{
-						max: 8,
-						//pass username if you are using getUserFeed method
-						query: 'grey',
-						wrapEachWith: '<div class="photo">'
-					});
-				});
-			}
-		}
-
-		Spectra.init();
-	}
 
 	// init Isotope
 	$('.isotope-wrapper').each(function(index) {

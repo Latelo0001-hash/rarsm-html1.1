@@ -543,9 +543,9 @@ function rarsm_render_footer(): void
 </section>
 </div>
 </div>
-<script defer src="js/compressed.js?v=20260814-vendor-v1"></script>
+<script defer src="js/compressed.js?v=20260821-vendor-v2"></script>
 <script defer src="js/rarsm-i18n.js?v=20260810-header-balance-v2"></script>
-<script defer src="js/rarsm-ui.js?v=20260814-security-v5"></script>
+<script defer src="js/rarsm-ui.js?v=20260821-security-v6"></script>
 </body>
 </html>
 HTML;

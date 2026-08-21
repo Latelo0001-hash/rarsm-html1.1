@@ -13,6 +13,7 @@ $redirect = rarsm_resolve_redirect_target(
 
 $retryAfter = rarsm_login_throttle_retry_after();
 if ($retryAfter > 0) {
+    rarsm_security_log('login_throttled', ['retry_after' => $retryAfter]);
     rarsm_set_flash(
         'error',
         rarsm_localized_text(
@@ -28,8 +29,10 @@ if ($retryAfter > 0) {
 
 if ($success) {
     rarsm_clear_login_failures();
+    rarsm_security_log('login_success', ['user_id' => (string) rarsm_current_user_id()]);
 } else {
     rarsm_record_login_failure();
+    rarsm_security_log('login_failure');
 }
 
 if ($success) {

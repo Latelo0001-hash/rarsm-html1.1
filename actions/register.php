@@ -15,6 +15,9 @@ $redirect = rarsm_resolve_redirect_target(
 
 if ($success) {
     rarsm_restore_authenticated_customer_state();
+    rarsm_security_log('registration_success', ['user_id' => (string) rarsm_current_user_id()]);
+} else {
+    rarsm_security_log('registration_failure');
 }
 
 rarsm_set_flash($success ? 'success' : 'error', $message);

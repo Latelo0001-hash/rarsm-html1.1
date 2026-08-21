@@ -22,10 +22,9 @@ var scripts = [
 	//libs
 
 	// 'js/vendor/jquery-1.12.4.min.js',
-	// 'js/vendor/jquery-migrate-3.0.0.min.js',
-    'js/vendor/jquery-3.3.1.min.js',
+    'js/vendor/jquery-3.7.1.min.js',
 	// 'js/vendor/popper.min.js',
-	'js/vendor/bootstrap.bundle.js',
+	'js/vendor/bootstrap.bundle.min.js',
 
 	// 	//no npm
 	'js/vendor/affix.js',
@@ -55,8 +54,6 @@ var scripts = [
 
 	// //images-sliders
 	'js/vendor/jquery.parallax-1.1.3.js',
-	//prettyPhoto removed - not support jQuery v3 even with migration plugin
-	// 'js/vendor/jquery.prettyPhoto.js',
 	'js/vendor/isotope.pkgd.min.js',
 	'js/vendor/jquery.flexslider-min.js',
 	'js/vendor/owl.carousel.min.js',
@@ -65,10 +62,6 @@ var scripts = [
 	'js/vendor/photoswipe.js',
 	'js/vendor/photoswipe-ui-default.min.js',
 
-	//social
-	'js/vendor/jflickrfeed.min.js',
-	'js/vendor/spectragram.min.js',
-	'twitter/jquery.tweet.js',
 ];
 
 //dependencies from node_modules

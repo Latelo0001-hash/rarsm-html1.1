@@ -59,6 +59,30 @@ function rarsm_bootstrap_security(): void
     rarsm_configure_session_security();
 }
 
+function rarsm_security_log(string $event, array $context = []): void
+{
+    if (!preg_match('/^[a-z0-9_]{3,64}$/', $event)) {
+        return;
+    }
+
+    $safeContext = [];
+    foreach (['user_id', 'reason', 'retry_after'] as $key) {
+        if (isset($context[$key]) && (is_string($context[$key]) || is_int($context[$key]))) {
+            $safeContext[$key] = (string) $context[$key];
+        }
+    }
+
+    $entry = array_merge([
+        'event' => $event,
+        'occurred_at' => gmdate('c'),
+    ], $safeContext);
+
+    $encoded = json_encode($entry, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE);
+    if (is_string($encoded)) {
+        error_log('RARSM_SECURITY ' . $encoded);
+    }
+}
+
 function rarsm_enforce_session_lifetime(): void
 {
     if (session_status() !== PHP_SESSION_ACTIVE) {
@@ -76,6 +100,10 @@ function rarsm_enforce_session_lifetime(): void
         && ($authenticatedAt < 1 || ($now - $authenticatedAt) > $absoluteLimit);
 
     if ($idleExpired || $loginExpired) {
+        rarsm_security_log('session_expired', [
+            'user_id' => (string) ($_SESSION['rarsm_user']['id'] ?? ''),
+            'reason' => $idleExpired ? 'idle_timeout' : 'absolute_timeout',
+        ]);
         unset(
             $_SESSION['rarsm_user'],
             $_SESSION['rarsm_cart'],
