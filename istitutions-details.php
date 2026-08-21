@@ -462,7 +462,7 @@ foreach ($institutions as $slug => $institution) {
 	<link rel="icon" href="favicon.png?v=20260702-favicon" type="image/png">
 	<link rel="shortcut icon" href="favicon.png?v=20260702-favicon" type="image/png">
 	<link rel="apple-touch-icon" href="favicon.png?v=20260702-favicon">
-	<link rel="stylesheet" href="css/site.css?v=20260814-theme-v1">
+	<link rel="stylesheet" href="css/site.css?v=20260821-motion-v1">
 	<link rel="stylesheet" href="css/rarsm.css?v=20260814-security-v3">
 	<script>document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/, "js");</script>
 </head>
@@ -880,6 +880,6 @@ foreach ($institutions as $slug => $institution) {
 
 	<script defer src="js/compressed.js?v=20260821-vendor-v2"></script>
 	<script defer src="js/rarsm-i18n.js?v=20260810-header-balance-v2"></script>
-	<script defer src="js/rarsm-ui.js?v=20260821-security-v6"></script>
+	<script defer src="js/rarsm-ui.js?v=20260821-motion-v1"></script>
 </body>
 </html>

@@ -28,6 +28,62 @@ var rarsmI18n = window.RARSM_I18N || null;
 		}
 	}
 
+	function initRarsmMotion() {
+		var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+		var revealSelector = [
+			'#box_wrapper > section:not(.page_slider):not(.rarsm-mobile-hero) > .container > .row',
+			'.page_content section > .container > .row',
+			'.institutions-service-card',
+			'.activities-detail-main-card',
+			'.activities-detail-side-card',
+			'.rarsm-status-card',
+			'.hero-bg',
+			'.card'
+		].join(',');
+		var elements = Array.prototype.slice.call(document.querySelectorAll(revealSelector));
+
+		elements = elements.filter(function (element, index, list) {
+			return list.indexOf(element) === index
+				&& !element.closest('.page_header, .page_footer, .page_copyright, .modal');
+		});
+
+		elements.forEach(function (element, index) {
+			element.classList.add('rarsm-reveal');
+			element.style.setProperty('--rarsm-reveal-delay', Math.min(index % 4, 3) * 70 + 'ms');
+
+			if (element.matches('.institutions-service-card, .activities-detail-side-card, .rarsm-status-card, .card')) {
+				element.classList.add('rarsm-reveal--scale');
+			} else if (index % 2) {
+				element.classList.add('rarsm-reveal--right');
+			}
+		});
+
+		if (reduceMotion || !('IntersectionObserver' in window)) {
+			elements.forEach(function (element) {
+				element.classList.add('is-visible');
+			});
+			return;
+		}
+
+		var observer = new IntersectionObserver(function (entries) {
+			entries.forEach(function (entry) {
+				if (!entry.isIntersecting) {
+					return;
+				}
+
+				entry.target.classList.add('is-visible');
+				observer.unobserve(entry.target);
+			});
+		}, {
+			threshold: 0.12,
+			rootMargin: '0px 0px -7% 0px'
+		});
+
+		elements.forEach(function (element) {
+			observer.observe(element);
+		});
+	}
+
 	function rarsmGetPageTitleHeroPath() {
 		var pathname = window.location.pathname || '';
 		var desktopPath = 'images/rarsm-generated/page-title-rarsm-hero-v2.png';
@@ -1240,6 +1296,7 @@ window.initGoogleMap=initGoogleMap;
 
 //function that initiating template plugins on window.load event
 function documentReadyInit() {
+	initRarsmMotion();
 	// Give legacy modal fields an accessible name when their old markup only
 	// provides a placeholder. Explicit labels and aria attributes take priority.
 	$('input, textarea, select').each(function () {
