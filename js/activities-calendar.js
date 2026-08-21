@@ -96,6 +96,39 @@
 		}
 	};
 
+	var eventMetaTranslationsEn = {
+		"Forum sur deux jours": "Two-day forum",
+		"Conférence, exposition et ateliers": "Conference, exhibition and workshops",
+		"Programme thématique": "Thematic program",
+		"Session sur invitation": "Invitation-only session",
+		"Forum thématique": "Thematic forum",
+		"Forum d'investissement": "Investment forum",
+		"Forum sur trois jours": "Three-day forum",
+		"Forum sur quatre jours": "Four-day forum",
+		"Préconférence · 11h00 à 17h00": "Pre-conference · 11:00 a.m. to 5:00 p.m.",
+		"Conférence annuelle": "Annual conference",
+		"Journée internationale": "International day",
+		"Mission d'immersion sur sept jours": "Seven-day immersion program",
+		"Immersion et orientation sur trois jours": "Three-day immersion and career guidance program",
+		"Forum sur une journée": "One-day forum",
+		"Cérémonie de remise des prix": "Awards ceremony",
+		"Salon sur deux jours": "Two-day trade fair",
+		"Forum national sur trois jours": "Three-day national forum",
+		"Conférence nationale sur trois jours": "Three-day national conference",
+		"RDC · activités locales variables": "DRC · local activities vary",
+		"Kolwezi et Lubumbashi": "Kolwezi and Lubumbashi",
+		"Centre de négoce de Musompo · Kolwezi": "Musompo Trading Center · Kolwezi",
+		"Fleuve Congo Hôtel · Kinshasa": "Fleuve Congo Hotel · Kinshasa"
+	};
+
+	function eventMeta(value) {
+		if (getLanguage() !== "en") {
+			return value;
+		}
+
+		return eventMetaTranslationsEn[value] || value;
+	}
+
 	function getMonthNames() {
 		return monthNamesByLanguage[getLanguage()] || monthNamesByLanguage.fr;
 	}
@@ -1001,7 +1034,7 @@
 
 			var metaRow = document.createElement("div");
 			metaRow.className = "activities-detail-meta";
-			metaRow.innerHTML = "<span>" + formatEventDisplayDate(event) + "</span><span>" + event.time + "</span><span>" + event.location + "</span>";
+			metaRow.innerHTML = "<span>" + formatEventDisplayDate(event) + "</span><span>" + eventMeta(event.time) + "</span><span>" + eventMeta(event.location) + "</span>";
 
 			var description = document.createElement("p");
 			description.className = "activities-detail-description";
@@ -1060,9 +1093,9 @@
 				eventTitle(event) +
 				"</strong>" +
 				'<span class="activities-event-list-meta">' +
-				event.time +
+				eventMeta(event.time) +
 				" • " +
-				event.location +
+				eventMeta(event.location) +
 				" • " +
 				meta.label +
 				"</span></span>";

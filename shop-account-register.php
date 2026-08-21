@@ -52,14 +52,14 @@ rarsm_render_page_title('Créer un compte', [
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label for="register-password">Mot de passe</label>
-                                    <input class="form-control" id="register-password" name="password" type="password" minlength="10" autocomplete="new-password" aria-describedby="register-password-help" required>
-                                    <small id="register-password-help">10 caractères minimum, avec une majuscule, une minuscule et un chiffre.</small>
+                                    <input class="form-control" id="register-password" name="password" type="password" minlength="8" autocomplete="new-password" aria-describedby="register-password-help" required>
+                                    <small id="register-password-help">8 caractères minimum.</small>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label for="register-password-confirm">Confirmer le mot de passe</label>
-                                    <input class="form-control" id="register-password-confirm" name="password_confirm" type="password" minlength="10" autocomplete="new-password" required>
+                                    <input class="form-control" id="register-password-confirm" name="password_confirm" type="password" minlength="8" autocomplete="new-password" required>
                                 </div>
                             </div>
                             <div class="col-12">

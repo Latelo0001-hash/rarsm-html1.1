@@ -1,0 +1,8 @@
+<IfModule mod_mime.c>
+    AddType text/vcard .vcf
+</IfModule>
+<IfModule mod_headers.c>
+    <FilesMatch "\.vcf$">
+        Header set Content-Disposition "attachment"
+    </FilesMatch>
+</IfModule>

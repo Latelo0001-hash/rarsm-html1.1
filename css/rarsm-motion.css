@@ -1,0 +1,131 @@
+/* Animations RARSM, séparées du thème historique. */
+.rarsm-motion-item {
+	opacity: 0;
+	transform: translate3d(0, 44px, 0);
+	transition: opacity 800ms cubic-bezier(.22, 1, .36, 1), transform 800ms cubic-bezier(.22, 1, .36, 1);
+	transition-delay: var(--motion-delay, 0ms);
+}
+
+.rarsm-motion-item.motion-from-left {
+	transform: translate3d(-54px, 0, 0);
+}
+
+.rarsm-motion-item.motion-from-right {
+	transform: translate3d(54px, 0, 0);
+}
+
+.rarsm-motion-item.motion-scale {
+	transform: translate3d(0, 24px, 0) scale(.94);
+}
+
+.rarsm-motion-item.motion-visible {
+	opacity: 1;
+	transform: translate3d(0, 0, 0) scale(1);
+}
+
+/* Le calendrier doit rester accessible même si l'observateur d'animation
+   n'est pas déclenché par certains navigateurs mobiles. */
+.activities-main-content .rarsm-motion-item {
+	opacity: 1;
+	transform: none;
+	transition: none;
+}
+
+#about .rarsm-motion-item.motion-visible img {
+	animation: rarsm-image-settle 900ms cubic-bezier(.22, 1, .36, 1) both;
+}
+
+.page_title .container,
+.rarsm-mobile-hero-copy,
+.rarsm-mobile-book-card,
+.hero-desktop .intro_layers_wrapper {
+	animation: rarsm-hero-entry 900ms cubic-bezier(.22, 1, .36, 1) both;
+}
+
+.rarsm-mobile-book-card {
+	animation-delay: 180ms;
+}
+
+.rarsm-mobile-book-img,
+.hero-desktop .img-layer img {
+	animation: rarsm-book-float 4.8s ease-in-out 1s infinite;
+	filter: drop-shadow(0 22px 22px rgba(5, 18, 62, .18));
+}
+
+@keyframes rarsm-hero-entry {
+	from { opacity: 0; transform: translate3d(0, 32px, 0) scale(.985); }
+	to { opacity: 1; transform: translate3d(0, 0, 0) scale(1); }
+}
+
+@keyframes rarsm-book-float {
+	0%, 100% { transform: translate3d(0, 0, 0) rotate(-.6deg); }
+	50% { transform: translate3d(0, -15px, 0) rotate(.6deg); }
+}
+
+@keyframes rarsm-image-settle {
+	from { filter: saturate(.7); transform: scale(1.08); }
+	to { filter: saturate(1); transform: scale(1); }
+}
+
+.institutions-service-card,
+.activities-detail-side-card,
+.activities-detail-main-card,
+.rarsm-status-card,
+.hero-bg,
+.card {
+	transition: transform 320ms cubic-bezier(.22, 1, .36, 1), box-shadow 320ms ease, border-color 320ms ease;
+}
+
+@media (hover: hover) and (pointer: fine) {
+	.institutions-service-card:hover,
+	.activities-detail-side-card:hover,
+	.activities-detail-main-card:hover,
+	.rarsm-status-card:hover,
+	.hero-bg:hover,
+	.card:hover {
+		transform: translateY(-9px) scale(1.012);
+		box-shadow: 0 22px 48px rgba(7, 25, 77, .16);
+	}
+
+	.btn,
+	button {
+		transition: transform 200ms ease, box-shadow 200ms ease, background-color 200ms ease;
+	}
+
+	.btn:hover,
+	button:hover {
+		transform: translateY(-3px);
+		box-shadow: 0 10px 22px rgba(7, 25, 77, .14);
+	}
+
+	.btn:active,
+	button:active {
+		transform: translateY(0) scale(.97);
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	*, *::before, *::after {
+		scroll-behavior: auto !important;
+	}
+
+	.rarsm-motion-item,
+	.rarsm-motion-item.motion-visible {
+		opacity: 1;
+		transform: none;
+		transition: none;
+	}
+
+	.page_title .container,
+	.rarsm-mobile-hero-copy,
+	.rarsm-mobile-book-card,
+	.hero-desktop .intro_layers_wrapper,
+	.rarsm-mobile-book-img,
+	.hero-desktop .img-layer img {
+		animation: none;
+	}
+
+	#about .rarsm-motion-item.motion-visible img {
+		animation: none;
+	}
+}

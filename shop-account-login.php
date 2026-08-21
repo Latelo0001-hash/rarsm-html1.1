@@ -29,7 +29,7 @@ rarsm_render_page_title('Se connecter', [
                         </div>
                         <div class="form-group">
                             <label for="login-password">Mot de passe</label>
-                            <input class="form-control" id="login-password" name="password" type="password" required>
+                            <input class="form-control" id="login-password" name="password" type="password" minlength="8" autocomplete="current-password" required>
                         </div>
                         <button class="btn btn-maincolor" type="submit">Se connecter</button>
                     </form>

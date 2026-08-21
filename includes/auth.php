@@ -241,14 +241,10 @@ function rarsm_register_user(array $input): array
         return [false, rarsm_localized_text('L’adresse email n’est pas valide.', 'The email address is invalid.')];
     }
 
-    if (strlen($password) < 10
-        || !preg_match('/[a-z]/', $password)
-        || !preg_match('/[A-Z]/', $password)
-        || !preg_match('/[0-9]/', $password)
-    ) {
+    if (strlen($password) < 8) {
         return [false, rarsm_localized_text(
-            'Le mot de passe doit contenir au moins 10 caractères, avec une majuscule, une minuscule et un chiffre.',
-            'The password must contain at least 10 characters, including an uppercase letter, a lowercase letter and a number.'
+            'Le mot de passe doit contenir au moins 8 caractères.',
+            'The password must contain at least 8 characters.'
         )];
     }
 
@@ -358,6 +354,13 @@ function rarsm_login_user(array $input): array
 
     if ($login === '' || $password === '') {
         return [false, rarsm_localized_text('Veuillez entrer votre identifiant ou votre email ainsi que votre mot de passe.', 'Please enter your username or email address and your password.')];
+    }
+
+    if (strlen($password) < 8) {
+        return [false, rarsm_localized_text(
+            'Le mot de passe doit contenir au moins 8 caractères.',
+            'The password must contain at least 8 characters.'
+        )];
     }
 
     if (rarsm_auth_uses_database()) {

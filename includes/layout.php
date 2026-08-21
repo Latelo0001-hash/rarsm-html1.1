@@ -202,7 +202,7 @@ function rarsm_render_auth_modals(): void
                                     </div>
                                     <div class="col-sm-12">
                                         <div class="form-group">
-                                            <input type="password" name="password" class="form-control" placeholder="Mot de passe" aria-label="Mot de passe" aria-required="true" required autocomplete="current-password">
+                                            <input type="password" name="password" class="form-control" placeholder="Mot de passe" aria-label="Mot de passe" aria-required="true" minlength="8" required autocomplete="current-password">
                                         </div>
                                     </div>
                                 </div>
@@ -246,12 +246,12 @@ function rarsm_render_auth_modals(): void
                                     </div>
                                     <div class="col-12">
                                         <div class="form-group">
-                                            <input type="password" name="password" class="form-control" placeholder="Mot de passe (10 caractères minimum)" aria-label="Mot de passe" aria-required="true" minlength="10" required autocomplete="new-password">
+                                            <input type="password" name="password" class="form-control" placeholder="Mot de passe (8 caractères minimum)" aria-label="Mot de passe" aria-required="true" minlength="8" required autocomplete="new-password">
                                         </div>
                                     </div>
                                     <div class="col-12">
                                         <div class="form-group">
-                                            <input type="password" name="password_confirm" class="form-control" placeholder="Confirmer le mot de passe" aria-label="Confirmer le mot de passe" aria-required="true" minlength="10" required autocomplete="new-password">
+                                            <input type="password" name="password_confirm" class="form-control" placeholder="Confirmer le mot de passe" aria-label="Confirmer le mot de passe" aria-required="true" minlength="8" required autocomplete="new-password">
                                         </div>
                                     </div>
                                     <div class="col-12">
@@ -297,7 +297,8 @@ function rarsm_page_head(string $title, string $description = '', string $bodyCl
     <link rel="icon" href="favicon.png?v=20260702-favicon" type="image/png">
     <link rel="shortcut icon" href="favicon.png?v=20260702-favicon" type="image/png">
     <link rel="apple-touch-icon" href="favicon.png?v=20260702-favicon">
-    <link rel="stylesheet" href="css/site.css?v=20260821-motion-v1">
+    <link rel="stylesheet" href="css/site.css?v=20260814-theme-v1">
+<link rel="stylesheet" href="css/rarsm-motion.css?v=20260821-motion-v4">
     <link rel="stylesheet" href="css/rarsm.css?v=20260814-security-v3">
     <script>document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/, "js");</script>
 </head>
@@ -544,8 +545,9 @@ function rarsm_render_footer(): void
 </div>
 </div>
 <script defer src="js/compressed.js?v=20260821-vendor-v2"></script>
-<script defer src="js/rarsm-i18n.js?v=20260810-header-balance-v2"></script>
-<script defer src="js/rarsm-ui.js?v=20260821-motion-v1"></script>
+<script defer src="js/rarsm-i18n.js?v=20260821-password-min-v1"></script>
+<script defer src="js/rarsm-motion.js?v=20260821-motion-v4"></script>
+<script defer src="js/rarsm-ui.js?v=20260821-password-min-v1"></script>
 </body>
 </html>
 HTML;
